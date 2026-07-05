@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Anchor - Safe Start Checklist</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f4ee;
+      --panel: #ffffff;
+      --soft: #e8f0ee;
+      --text: #172123;
+      --muted: #5c686b;
+      --line: #cbd8d5;
+      --accent: #315f65;
+      --danger: #8b2f3c;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 980px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 20px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    .sub, .small { color: var(--muted); }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; margin-top: 14px; }
+    .crisis { border-color: #d9a7af; background: #fff7f5; }
+    .crisis h2, .crisis strong { color: var(--danger); }
+    .steps { display: grid; gap: 10px; margin-top: 14px; }
+    .step { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 12px; }
+    .step label { display: flex; gap: 10px; align-items: flex-start; font-weight: 700; }
+    .step input { min-width: 18px; min-height: 18px; margin-top: 2px; accent-color: var(--accent); }
+    .step p { margin: 6px 0 0 28px; }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .link-button {
+      min-height: 40px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .link-button.secondary { background: var(--panel); color: var(--accent); }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101517;
+        --panel: #172023;
+        --soft: #1d2b2e;
+        --text: #eef4f2;
+        --muted: #b5c1c0;
+        --line: #334548;
+        --accent: #6ca8ad;
+        --danger: #f0a0ad;
+      }
+      .crisis { background: #27191d; }
+    }
+    @media (max-width: 640px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .link-button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Safe Start Checklist</h1>
+      <p class="sub">Before first use, take three minutes to check safety, privacy, and human-support exits.</p>
+    </header>
+
+    <section class="panel crisis">
+      <h2>If You Are Not Safe Right Now</h2>
+      <ul><li><strong>Immediate danger: call your local emergency number now</strong>: If you may act soon, have a plan or means, or need urgent medical help, move away from danger and seek in-person help now.</li>
+        <li><strong>United States: call, text, or chat 988</strong>: The 988 Suicide &amp; Crisis Lifeline offers free, confidential support by call, text, or chat.</li>
+        <li><strong>Canada: call or text 9-8-8</strong>: 9-8-8 provides suicide crisis support across Canada by phone or text, 24 hours a day.</li>
+        <li><strong>United Kingdom and Ireland: call Samaritans at 116 123</strong>: If you need urgent emotional support in the United Kingdom or Ireland, call Samaritans at 116 123 any time.</li>
+        <li><strong>Other countries: Find a Helpline</strong>: Use Find a Helpline to locate verified local emotional support by country, topic, phone, text, or chat.</li>
+        <li><strong>Trusted person: send one short message</strong>: Try: &quot;I do not feel safe being alone right now. Can you stay with me or help me contact support?&quot;</li></ul>
+    </section>
+
+    <section aria-labelledby="steps-title">
+      <h2 id="steps-title">Three-Minute Start Check</h2>
+      <div class="steps">
+        <article class="step">
+          <label><input type="checkbox" /> <span>Check whether you are safe right now</span></label>
+          <p>If you are not safe, might harm yourself, or should not be alone, use 988, local emergency services, or ask a trusted person to stay with you first.</p>
+        </article>
+        <article class="step">
+          <label><input type="checkbox" /> <span>Confirm the local-only boundary</span></label>
+          <p>Mood Anchor history stays on this device in browser localStorage; clearing browser data removes it.</p>
+        </article>
+        <article class="step">
+          <label><input type="checkbox" /> <span>Prepare human-support exits</span></label>
+          <p>Open the pocket card and support message scripts now, so you do not have to invent words during a harder moment.</p>
+        </article>
+        <article class="step">
+          <label><input type="checkbox" /> <span>Start with one tiny step</span></label>
+          <p>You do not need to explain everything. Choose a tone, choose one direction, and let the tool suggest a next step small enough to start.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Use Boundaries</h2>
+      <ul><li>This is not therapy, diagnosis, treatment, crisis counseling, or medical advice.</li>
+        <li>This tool does not detect emergencies and cannot monitor your safety.</li>
+        <li>If you have self-harm thoughts, want to die, or feel unsafe right now, use human crisis support first.</li>
+        <li>Do not use scores as a medical assessment; they only help organize today.</li></ul>
+    </section>
+
+    <section class="panel">
+      <h2>Next Step</h2>
+      <div class="links">
+        <a class="link-button" href="mood-anchor-en-20260704.html">Back to Mood Anchor</a>
+        <a class="link-button secondary" href="mood-anchor-care-card-en-20260704.html">Open pocket card</a>
+        <a class="link-button secondary" href="mood-anchor-support-scripts-en-20260704.html">Open support scripts</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>References</h2>
+      <ul><li><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH Caring for Your Mental Health</a>: NIMH includes body care, sleep, relaxing activities, and staying connected with friends or family.</li>
+        <li><a href="https://www.nimh.nih.gov/health/find-help">NIMH Help for Mental Illnesses</a>: NIMH says to call emergency services for life-threatening situations and notes 988 for U.S. crisis support.</li>
+        <li><a href="https://988lifeline.org/get-help/what-to-expect/">988 Lifeline - What to Expect</a>: Explains what may happen when someone calls, texts, or chats with 988.</li>
+        <li><a href="https://findahelpline.com/">Find a Helpline</a>: Finds phone, text, chat, or WhatsApp support resources by country.</li>
+        <li><a href="https://www.nhs.uk/mental-health/self-help/tips-and-support/cope-with-depression/">NHS - How to cope with depression</a>: NHS lists urgent support options and self-help ideas for low mood.</li></ul>
+    </section>
+    <p class="small">Generated 2026-07-04T12:10:12.287Z - mood-anchor-onboarding-checklist-en-20260704.html</p>
+  </main>
+</body>
+</html>

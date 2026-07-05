@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Revenue Activation Cockpit - 20260704</title>
+  <style>
+    :root { color-scheme: light dark; font-family: Arial, Helvetica, sans-serif; }
+    body { margin: 0; background: #101418; color: #f4f5f3; }
+    main { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    h2 { margin: 0 0 10px; font-size: 20px; }
+    .sub { color: #aeb7b0; margin: 0 0 16px; }
+    .grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 16px 0; }
+    .tile, .panel, .product { border: 1px solid #2f3b42; border-radius: 8px; background: #161d22; padding: 14px; }
+    .tile span { display: block; color: #aeb7b0; font-size: 13px; }
+    .tile strong { font-size: 24px; }
+    .product { margin: 14px 0; }
+    .product header { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+    .rank, .meta { margin: 0; color: #aeb7b0; }
+    dl { display: grid; grid-template-columns: minmax(130px, 190px) 1fr; gap: 8px 12px; margin: 14px 0; }
+    dt { color: #aeb7b0; }
+    dd { margin: 0; overflow-wrap: anywhere; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    pre { overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; margin: 8px 0 14px; padding: 10px; border-radius: 6px; background: #0b0f12; border: 1px solid #263139; }
+    button { border: 1px solid #7aa36f; border-radius: 6px; background: #203826; color: #e9f6e5; padding: 8px 10px; cursor: pointer; min-width: 92px; }
+    a { color: #9ed3ff; }
+    .stop { border-left: 4px solid #e0b84b; }
+    @media (max-width: 680px) {
+      main { padding: 16px; }
+      .product header, dl { display: block; }
+      button { width: 100%; margin-top: 8px; }
+      dt { margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Revenue Activation Cockpit</h1>
+    <p class="sub">Generated 2026-07-04T02:56:56.031Z · 20260704</p>
+    <p class="sub">Ready products: 5 · Awaiting owner URL: 5 · Published products: 3 · Gross ready queue: $95</p>
+    <section class="grid" aria-label="Activation summary">
+      <article class="tile"><span>Ready products</span><strong>5</strong></article>
+      <article class="tile"><span>Awaiting owner URL</span><strong>5</strong></article>
+      <article class="tile"><span>Published</span><strong>3</strong></article>
+      <article class="tile"><span>Gross queue</span><strong>$95</strong></article>
+    </section>
+    <section class="panel">
+      <h2>Department orders</h2>
+      <ul><li><strong>CEO/Strategy:</strong> Keep owner public URL capture as the bottleneck until at least one new listing URL is recorded.</li>
+<li><strong>Revenue Ops:</strong> After owner publishes, run only the record-portfolio-product command for the matching product and regenerate queue artifacts.</li>
+<li><strong>Marketing Desk:</strong> Use the matching post-publish traffic pack only after the public listing URL is recorded; never send or post automatically.</li>
+<li><strong>Analytics:</strong> After the 24-hour owner-reviewed traffic pass, record views, clicks, downloads, purchases, revenue, and support/refund signals.</li>
+<li><strong>Support/Ops:</strong> Pause promotion if refund, support, compliance, platform, or unclear buyer expectation signals appear.</li></ul>
+    </section>
+    <section>
+      <h2>Activation queue</h2>
+      
+      <article class="product" id="ai-digital-product-terms-license-kit">
+        <header>
+          <div>
+            <p class="rank">#1 · awaiting_owner_public_url</p>
+            <h2>AI Digital Product Terms &amp; License Kit</h2>
+            <p class="meta">$19 · /home/fairy/openclaw/dist/ai-digital-product-terms-license-kit-v0.1.0.zip</p>
+          </div>
+        </header>
+        <dl>
+          <dt>Owner cockpit</dt>
+          <dd><a href="https://red-mole-94.loca.lt/owner-publish-cockpit-ai-digital-product-terms-license-kit-20260704.html">https://red-mole-94.loca.lt/owner-publish-cockpit-ai-digital-product-terms-license-kit-20260704.html</a></dd>
+          <dt>Traffic pack</dt>
+          <dd><a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-terms-license-kit-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-terms-license-kit-20260704.md</a></dd>
+          <dt>Metrics ledger</dt>
+          <dd><a href="https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md">https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md</a></dd>
+        </dl>
+        <h3>After owner publishes</h3>
+        <button type="button" data-copy-target="record-product-ai-digital-product-terms-license-kit">Copy</button>
+        <pre id="record-product-ai-digital-product-terms-license-kit">npm run record-portfolio-product -- --product-id ai-digital-product-terms-license-kit --url &lt;PUBLIC_LISTING_URL&gt; --gumroad-id &lt;OPTIONAL_GUMROAD_ID&gt;</pre>
+        <h3>After 24-hour review</h3>
+        <button type="button" data-copy-target="metrics-record-ai-digital-product-terms-license-kit">Copy</button>
+        <pre id="metrics-record-ai-digital-product-terms-license-kit">npm run post-publish-metrics-ledger -- record --product-id ai-digital-product-terms-license-kit --product-name &#39;AI Digital Product Terms &amp; License Kit&#39; --listing-url &lt;PUBLIC_LISTING_URL&gt; --views &lt;VIEWS&gt; --clicks &lt;CLICKS&gt; --downloads &lt;DOWNLOADS&gt; --purchases &lt;PURCHASES&gt; --revenue &lt;REVENUE_USD&gt; --refunds-or-support-questions &lt;REFUNDS_OR_SUPPORT_QUESTIONS&gt;</pre>
+        <ol><li>Owner manually publishes or updates the platform listing.</li>
+<li>Owner copies the final public listing URL.</li>
+<li>Revenue Ops runs the record-portfolio-product command locally with that URL.</li>
+<li>Marketing Desk opens the matching traffic pack and prepares owner-reviewed manual distribution only.</li>
+<li>Analytics records the 24-hour metrics after the owner-reviewed traffic pass.</li></ol>
+      </article>
+
+      <article class="product" id="ai-digital-product-pricing-strategy-kit">
+        <header>
+          <div>
+            <p class="rank">#2 · awaiting_owner_public_url</p>
+            <h2>AI Digital Product Pricing Strategy Kit</h2>
+            <p class="meta">$19 · /home/fairy/openclaw/dist/ai-digital-product-pricing-strategy-kit-v0.1.0.zip</p>
+          </div>
+        </header>
+        <dl>
+          <dt>Owner cockpit</dt>
+          <dd><a href="https://red-mole-94.loca.lt/owner-publish-cockpit-ai-digital-product-pricing-strategy-kit-20260704.html">https://red-mole-94.loca.lt/owner-publish-cockpit-ai-digital-product-pricing-strategy-kit-20260704.html</a></dd>
+          <dt>Traffic pack</dt>
+          <dd><a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-pricing-strategy-kit-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-pricing-strategy-kit-20260704.md</a></dd>
+          <dt>Metrics ledger</dt>
+          <dd><a href="https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md">https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md</a></dd>
+        </dl>
+        <h3>After owner publishes</h3>
+        <button type="button" data-copy-target="record-product-ai-digital-product-pricing-strategy-kit">Copy</button>
+        <pre id="record-product-ai-digital-product-pricing-strategy-kit">npm run record-portfolio-product -- --product-id ai-digital-product-pricing-strategy-kit --url &lt;PUBLIC_LISTING_URL&gt; --gumroad-id &lt;OPTIONAL_GUMROAD_ID&gt;</pre>
+        <h3>After 24-hour review</h3>
+        <button type="button" data-copy-target="metrics-record-ai-digital-product-pricing-strategy-kit">Copy</button>
+        <pre id="metrics-record-ai-digital-product-pricing-strategy-kit">npm run post-publish-metrics-ledger -- record --product-id ai-digital-product-pricing-strategy-kit --product-name &#39;AI Digital Product Pricing Strategy Kit&#39; --listing-url &lt;PUBLIC_LISTING_URL&gt; --views &lt;VIEWS&gt; --clicks &lt;CLICKS&gt; --downloads &lt;DOWNLOADS&gt; --purchases &lt;PURCHASES&gt; --revenue &lt;REVENUE_USD&gt; --refunds-or-support-questions &lt;REFUNDS_OR_SUPPORT_QUESTIONS&gt;</pre>
+        <ol><li>Owner manually publishes or updates the platform listing.</li>
+<li>Owner copies the final public listing URL.</li>
+<li>Revenue Ops runs the record-portfolio-product command locally with that URL.</li>
+<li>Marketing Desk opens the matching traffic pack and prepares owner-reviewed manual distribution only.</li>
+<li>Analytics records the 24-hour metrics after the owner-reviewed traffic pass.</li></ol>
+      </article>
+
+      <article class="product" id="ai-digital-product-marketing-playbook-kit">
+        <header>
+          <div>
+            <p class="rank">#3 · awaiting_owner_public_url</p>
+            <h2>AI Digital Product Marketing Playbook Kit</h2>
+            <p class="meta">$19 · /home/fairy/openclaw/dist/ai-digital-product-marketing-playbook-kit-v0.1.0.zip</p>
+          </div>
+        </header>
+        <dl>
+          <dt>Owner cockpit</dt>
+          <dd><a href="https://red-mole-94.loca.lt/owner-publish-cockpit-ai-digital-product-marketing-playbook-kit-20260704.html">https://red-mole-94.loca.lt/owner-publish-cockpit-ai-digital-product-marketing-playbook-kit-20260704.html</a></dd>
+          <dt>Traffic pack</dt>
+          <dd><a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-marketing-playbook-kit-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-marketing-playbook-kit-20260704.md</a></dd>
+          <dt>Metrics ledger</dt>
+          <dd><a href="https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md">https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md</a></dd>
+        </dl>
+        <h3>After owner publishes</h3>
+        <button type="button" data-copy-target="record-product-ai-digital-product-marketing-playbook-kit">Copy</button>
+        <pre id="record-product-ai-digital-product-marketing-playbook-kit">npm run record-portfolio-product -- --product-id ai-digital-product-marketing-playbook-kit --url &lt;PUBLIC_LISTING_URL&gt; --gumroad-id &lt;OPTIONAL_GUMROAD_ID&gt;</pre>
+        <h3>After 24-hour review</h3>
+        <button type="button" data-copy-target="metrics-record-ai-digital-product-marketing-playbook-kit">Copy</button>
+        <pre id="metrics-record-ai-digital-product-marketing-playbook-kit">npm run post-publish-metrics-ledger -- record --product-id ai-digital-product-marketing-playbook-kit --product-name &#39;AI Digital Product Marketing Playbook Kit&#39; --listing-url &lt;PUBLIC_LISTING_URL&gt; --views &lt;VIEWS&gt; --clicks &lt;CLICKS&gt; --downloads &lt;DOWNLOADS&gt; --purchases &lt;PURCHASES&gt; --revenue &lt;REVENUE_USD&gt; --refunds-or-support-questions &lt;REFUNDS_OR_SUPPORT_QUESTIONS&gt;</pre>
+        <ol><li>Owner manually publishes or updates the platform listing.</li>
+<li>Owner copies the final public listing URL.</li>
+<li>Revenue Ops runs the record-portfolio-product command locally with that URL.</li>
+<li>Marketing Desk opens the matching traffic pack and prepares owner-reviewed manual distribution only.</li>
+<li>Analytics records the 24-hour metrics after the owner-reviewed traffic pass.</li></ol>
+      </article>
+
+      <article class="product" id="ai-product-launch-email-kit">
+        <header>
+          <div>
+            <p class="rank">#4 · awaiting_owner_public_url</p>
+            <h2>AI Product Launch Email Kit</h2>
+            <p class="meta">$19 · /home/fairy/openclaw/dist/ai-product-launch-email-kit-v0.1.0.zip</p>
+          </div>
+        </header>
+        <dl>
+          <dt>Owner cockpit</dt>
+          <dd><a href="https://red-mole-94.loca.lt/owner-publish-cockpit-ai-product-launch-email-kit-20260704.html">https://red-mole-94.loca.lt/owner-publish-cockpit-ai-product-launch-email-kit-20260704.html</a></dd>
+          <dt>Traffic pack</dt>
+          <dd><a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-product-launch-email-kit-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-product-launch-email-kit-20260704.md</a></dd>
+          <dt>Metrics ledger</dt>
+          <dd><a href="https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md">https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md</a></dd>
+        </dl>
+        <h3>After owner publishes</h3>
+        <button type="button" data-copy-target="record-product-ai-product-launch-email-kit">Copy</button>
+        <pre id="record-product-ai-product-launch-email-kit">npm run record-portfolio-product -- --product-id ai-product-launch-email-kit --url &lt;PUBLIC_LISTING_URL&gt; --gumroad-id &lt;OPTIONAL_GUMROAD_ID&gt;</pre>
+        <h3>After 24-hour review</h3>
+        <button type="button" data-copy-target="metrics-record-ai-product-launch-email-kit">Copy</button>
+        <pre id="metrics-record-ai-product-launch-email-kit">npm run post-publish-metrics-ledger -- record --product-id ai-product-launch-email-kit --product-name &#39;AI Product Launch Email Kit&#39; --listing-url &lt;PUBLIC_LISTING_URL&gt; --views &lt;VIEWS&gt; --clicks &lt;CLICKS&gt; --downloads &lt;DOWNLOADS&gt; --purchases &lt;PURCHASES&gt; --revenue &lt;REVENUE_USD&gt; --refunds-or-support-questions &lt;REFUNDS_OR_SUPPORT_QUESTIONS&gt;</pre>
+        <ol><li>Owner manually publishes or updates the platform listing.</li>
+<li>Owner copies the final public listing URL.</li>
+<li>Revenue Ops runs the record-portfolio-product command locally with that URL.</li>
+<li>Marketing Desk opens the matching traffic pack and prepares owner-reviewed manual distribution only.</li>
+<li>Analytics records the 24-hour metrics after the owner-reviewed traffic pass.</li></ol>
+      </article>
+
+      <article class="product" id="ai-digital-product-metrics-iteration-kit">
+        <header>
+          <div>
+            <p class="rank">#5 · awaiting_owner_public_url</p>
+            <h2>AI Digital Product Metrics &amp; Iteration Kit</h2>
+            <p class="meta">$19 · /home/fairy/openclaw/dist/ai-digital-product-metrics-iteration-kit-v0.1.0.zip</p>
+          </div>
+        </header>
+        <dl>
+          <dt>Owner cockpit</dt>
+          <dd><a href="https://red-mole-94.loca.lt/owner-publish-cockpit-ai-digital-product-metrics-iteration-kit-20260704.html">https://red-mole-94.loca.lt/owner-publish-cockpit-ai-digital-product-metrics-iteration-kit-20260704.html</a></dd>
+          <dt>Traffic pack</dt>
+          <dd><a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-metrics-iteration-kit-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-metrics-iteration-kit-20260704.md</a></dd>
+          <dt>Metrics ledger</dt>
+          <dd><a href="https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md">https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md</a></dd>
+        </dl>
+        <h3>After owner publishes</h3>
+        <button type="button" data-copy-target="record-product-ai-digital-product-metrics-iteration-kit">Copy</button>
+        <pre id="record-product-ai-digital-product-metrics-iteration-kit">npm run record-portfolio-product -- --product-id ai-digital-product-metrics-iteration-kit --url &lt;PUBLIC_LISTING_URL&gt; --gumroad-id &lt;OPTIONAL_GUMROAD_ID&gt;</pre>
+        <h3>After 24-hour review</h3>
+        <button type="button" data-copy-target="metrics-record-ai-digital-product-metrics-iteration-kit">Copy</button>
+        <pre id="metrics-record-ai-digital-product-metrics-iteration-kit">npm run post-publish-metrics-ledger -- record --product-id ai-digital-product-metrics-iteration-kit --product-name &#39;AI Digital Product Metrics &amp; Iteration Kit&#39; --listing-url &lt;PUBLIC_LISTING_URL&gt; --views &lt;VIEWS&gt; --clicks &lt;CLICKS&gt; --downloads &lt;DOWNLOADS&gt; --purchases &lt;PURCHASES&gt; --revenue &lt;REVENUE_USD&gt; --refunds-or-support-questions &lt;REFUNDS_OR_SUPPORT_QUESTIONS&gt;</pre>
+        <ol><li>Owner manually publishes or updates the platform listing.</li>
+<li>Owner copies the final public listing URL.</li>
+<li>Revenue Ops runs the record-portfolio-product command locally with that URL.</li>
+<li>Marketing Desk opens the matching traffic pack and prepares owner-reviewed manual distribution only.</li>
+<li>Analytics records the 24-hour metrics after the owner-reviewed traffic pass.</li></ol>
+      </article>
+    </section>
+    <section class="panel">
+      <h2>Source artifacts</h2>
+      <ul><li>Publisher console: <a href="https://red-mole-94.loca.lt/publisher-console.html">https://red-mole-94.loca.lt/publisher-console.html</a></li>
+<li>Owner publish cockpit index: <a href="https://red-mole-94.loca.lt/owner-publish-cockpit-index-20260704.html">https://red-mole-94.loca.lt/owner-publish-cockpit-index-20260704.html</a></li>
+<li>Post-publish traffic pack index: <a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-index-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-index-20260704.md</a></li>
+<li>Post-publish metrics ledger: <a href="https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md">https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md</a></li>
+<li>Revenue Ops sprint board: <a href="https://red-mole-94.loca.lt/revenue-ops-sprint-20260704.md">https://red-mole-94.loca.lt/revenue-ops-sprint-20260704.md</a></li>
+<li>Company dashboard: <a href="https://red-mole-94.loca.lt/company-dashboard.html">https://red-mole-94.loca.lt/company-dashboard.html</a></li>
+<li>This activation cockpit: <a href="https://red-mole-94.loca.lt/revenue-activation-cockpit-20260704.html">https://red-mole-94.loca.lt/revenue-activation-cockpit-20260704.html</a></li></ul>
+    </section>
+    <section class="panel stop">
+      <h2>Strict Stop Line</h2>
+      <ul><li>No external authority actions.</li>
+<li>Do not log in, create listings, publish, post, DM, email, change price, payout, tax, refund, account, credential, discount, or platform settings automatically.</li>
+<li>Do not auto-send traffic drafts or schedule messages.</li>
+<li>Do not promise revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.</li></ul>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('button[data-copy-target]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target || !navigator.clipboard) return;
+        await navigator.clipboard.writeText(target.textContent);
+        const label = button.textContent;
+        button.textContent = 'Copied';
+        setTimeout(() => { button.textContent = label; }, 1500);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Anchor - Activity Experiment Board</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f4f7f5;
+      --panel: #ffffff;
+      --soft: #e7f0ee;
+      --text: #172123;
+      --muted: #5a6769;
+      --line: #cad8d4;
+      --accent: #28666d;
+      --accent-2: #8f5d46;
+      --danger: #8b2f3c;
+      --ok: #2f6a48;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1120px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    .sub, .small { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr); gap: 14px; align-items: start; margin-top: 16px; }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; margin-top: 14px; }
+    .crisis { border-color: #d9a7af; background: #fff7f5; }
+    .crisis h2, .crisis strong { color: var(--danger); }
+    .row { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .segmented { display: flex; gap: 8px; flex-wrap: wrap; }
+    button, .link-button {
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+    button[aria-pressed="true"], button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    .link-button.secondary { background: var(--panel); color: var(--accent); }
+    label { display: block; font-weight: 700; margin-bottom: 6px; }
+    input[type="range"], select, textarea {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+    select, textarea {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 10px;
+      font: inherit;
+      background: var(--panel);
+      color: var(--text);
+    }
+    textarea { min-height: 74px; resize: vertical; }
+    .scale { margin: 12px 0; }
+    .scale-head { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 13px; }
+    .preview, .history-entry { border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: var(--soft); }
+    .preview strong { display: block; margin-bottom: 4px; }
+    .history { display: grid; gap: 8px; }
+    .history-entry { background: var(--panel); }
+    .tagline { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 0; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 3px 8px; font-size: 12px; color: var(--muted); }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101517;
+        --panel: #172023;
+        --soft: #1d2b2e;
+        --text: #eef4f2;
+        --muted: #b5c1c0;
+        --line: #334548;
+        --accent: #6ca8ad;
+        --accent-2: #d49b7e;
+        --danger: #f0a0ad;
+        --ok: #75bf91;
+      }
+      .crisis { background: #27191d; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .grid { grid-template-columns: 1fr; }
+      button, .link-button { width: 100%; }
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      .controls, .sources, .links, .small.generated { display: none; }
+      main { max-width: none; padding: 0; }
+      .grid { display: block; }
+      .panel { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Activity Experiment Board</h1>
+      <p class="sub">Choose one tiny optional activity, predict effort and state, then record what actually happened.</p>
+    </header>
+
+    <section class="panel crisis">
+      <h2>If you are not safe right now</h2>
+      <p>Use human support first. The activity experiment can wait, shrink, or be skipped.</p>
+      <ul><li><strong>Immediate danger: call your local emergency number now</strong>: If you may act soon, have a plan or means, or need urgent medical help, move away from danger and seek in-person help now.</li>
+        <li><strong>United States: call, text, or chat 988</strong>: The 988 Suicide &amp; Crisis Lifeline offers free, confidential support by call, text, or chat.</li>
+        <li><strong>Canada: call or text 9-8-8</strong>: 9-8-8 provides suicide crisis support across Canada by phone or text, 24 hours a day.</li>
+        <li><strong>United Kingdom and Ireland: call Samaritans at 116 123</strong>: If you need urgent emotional support in the United Kingdom or Ireland, call Samaritans at 116 123 any time.</li>
+        <li><strong>Other countries: Find a Helpline</strong>: Use Find a Helpline to locate verified local emotional support by country, topic, phone, text, or chat.</li>
+        <li><strong>Trusted person: send one short message</strong>: Try: &quot;I do not feel safe being alone right now. Can you stay with me or help me contact support?&quot;</li></ul>
+    </section>
+
+    <div class="grid">
+      <section class="panel controls" aria-labelledby="activity-title">
+        <h2 id="activity-title">Choose one tiny activity</h2>
+        <p class="small">Predict first, do one small step, then record what actually happened. Nothing is sent.</p>
+
+        <h3>Activity direction</h3>
+        <div class="segmented" id="category-group">
+          <button type="button" data-category="body" aria-pressed="true">Body</button>
+          <button type="button" data-category="connection" aria-pressed="false">Connection</button>
+          <button type="button" data-category="care" aria-pressed="false">Care</button>
+          <button type="button" data-category="mastery" aria-pressed="false">Completion</button>
+          <button type="button" data-category="rest" aria-pressed="false">Rest</button>
+        </div>
+
+        <h3>Activity size</h3>
+        <div class="segmented" id="energy-group">
+          <button type="button" data-energy="tiny" aria-pressed="true">30-second version</button>
+          <button type="button" data-energy="small" aria-pressed="false">2-5 minute version</button>
+          <button type="button" data-energy="supported" aria-pressed="false">Start near support</button>
+        </div>
+
+        <div class="panel preview" id="activity-preview" aria-live="polite"></div>
+
+        <div class="row">
+          <div class="scale">
+            <label for="predictedEffort">Predicted effort</label>
+            <input id="predictedEffort" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>Tiny</span><span>Hard</span></div>
+          </div>
+          <div class="scale">
+            <label for="expectedLift">Expected after-state</label>
+            <input id="expectedLift" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>No change</span><span>A little steadier</span></div>
+          </div>
+          <div class="scale">
+            <label for="actualEffort">Actual effort</label>
+            <input id="actualEffort" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>Smaller than expected</span><span>Bigger than expected</span></div>
+          </div>
+          <div class="scale">
+            <label for="actualState">Actual after-state</label>
+            <input id="actualState" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>No change</span><span>A little steadier</span></div>
+          </div>
+        </div>
+
+        <label for="activityNote">One observation</label>
+        <textarea id="activityNote" placeholder="Example: harder than expected, but slightly steadier afterward."></textarea>
+
+        <div class="links">
+          <button type="button" class="primary" id="record-experiment">Record this experiment</button>
+          <button type="button" id="clear-experiments">Clear local records</button>
+        </div>
+        <p class="small">This page only uses browser localStorage; no login, upload, or message sending.</p>
+      </section>
+
+      <aside>
+        <section class="panel">
+          <h2>Recent activity experiments</h2>
+          <div id="history" class="history"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Related tools</h2>
+          <div class="links">
+            <a class="link-button" href="mood-anchor-en-20260704.html">Back to Mood Anchor</a>
+            <a class="link-button secondary" href="mood-anchor-low-mood-card-en-20260704.html">Open low-mood response card</a>
+            <a class="link-button secondary" href="mood-anchor-support-scripts-en-20260704.html">Open support message scripts</a>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Boundaries</h2>
+          <ul><li>This is not therapy, diagnosis, treatment, crisis care, or medical advice.</li>
+            <li>This board only records tiny activity experiments; it does not detect risk or monitor safety.</li>
+            <li>Activity history stays on this device in browser localStorage and is not uploaded to a server.</li>
+            <li>If you feel unsafe, might harm yourself, or do not want to live, use human crisis support first.</li></ul>
+        </section>
+
+        <section class="panel sources">
+          <h2>Sources</h2>
+          <ul><li><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH Caring for Your Mental Health</a>: Self-care can include movement, food and water, sleep, relaxing activity, and connection; small steps can add up.</li>
+            <li><a href="https://www.nhs.uk/mental-health/self-help/tips-and-support/cope-with-depression/">NHS How to cope with depression</a>: NHS suggests staying connected, gentle activity, routine, and seeking help when needed.</li>
+            <li><a href="https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/exercise-for-depression/">NHS Exercise for depression</a>: NHS suggests choosing suitable and enjoyable activity and starting gradually.</li>
+            <li><a href="https://www.nice.org.uk/guidance/ng222/chapter/recommendations">NICE Depression in adults recommendations</a>: NICE describes linking activities, mood, and avoidance as part of behavioural activation work.</li>
+            <li><a href="https://988lifeline.org/get-help/what-to-expect/">988 Lifeline - What to Expect</a>: Explains what can happen when contacting 988 in the United States.</li>
+            <li><a href="https://findahelpline.com/">Find a Helpline</a>: Find country-specific phone, text, chat, or WhatsApp emotional-support resources.</li></ul>
+        </section>
+      </aside>
+    </div>
+    <p class="small generated">Generated 2026-07-04T12:10:12.287Z - mood-anchor-activity-experiment-board-en-20260704.html</p>
+  </main>
+
+  <script type="application/json" id="activity-experiment-config">{"storageKey":"mood-anchor:activity-experiment-board:en:v1","activityOptions":[{"id":"water-window","category":"body","categoryLabel":"Body","energy":"tiny","label":"Drink water and look toward a window","detail":"Take a few sips and name three colors you can see."},{"id":"door-walk","category":"body","categoryLabel":"Body","energy":"small","label":"Walk to a doorway and back","detail":"Speed does not matter; just let your body move once."},{"id":"one-dot","category":"connection","categoryLabel":"Connection","energy":"tiny","label":"Send one period to a trusted person","detail":"If words are too much, one symbol can still count."},{"id":"shared-space","category":"connection","categoryLabel":"Connection","energy":"supported","label":"Move near support","detail":"Move toward a shared room, staffed store, front step, or safer public space."},{"id":"wash-face","category":"care","categoryLabel":"Care","energy":"tiny","label":"Wash your face or hands","detail":"Do one body-care step. No other cleanup is required."},{"id":"snack","category":"care","categoryLabel":"Care","energy":"small","label":"Eat or drink something simple","detail":"Choose something that takes little preparation."},{"id":"next-step","category":"mastery","categoryLabel":"Completion","energy":"tiny","label":"Write one next step","detail":"Write only: \"My next step is...\" You do not need to finish it."},{"id":"two-minute-task","category":"mastery","categoryLabel":"Completion","energy":"small","label":"Do a two-minute task","detail":"Set a two-minute timer and stop when it ends if stopping helps."},{"id":"one-stimulus-off","category":"rest","categoryLabel":"Rest","energy":"tiny","label":"Turn off one stimulus","detail":"Close one tab, notification, light, or sound source."},{"id":"ten-minute-rest","category":"rest","categoryLabel":"Rest","energy":"small","label":"Use a ten-minute rest timer","detail":"Set a timer and let your body rest without trying to sleep."}],"energyOptions":[{"id":"tiny","label":"30-second version","minutes":1},{"id":"small","label":"2-5 minute version","minutes":5},{"id":"supported","label":"Start near support","minutes":3}],"reflectionScales":[{"id":"predictedEffort","label":"Predicted effort","lowLabel":"Tiny","highLabel":"Hard","defaultValue":3},{"id":"expectedLift","label":"Expected after-state","lowLabel":"No change","highLabel":"A little steadier","defaultValue":3},{"id":"actualEffort","label":"Actual effort","lowLabel":"Smaller than expected","highLabel":"Bigger than expected","defaultValue":3},{"id":"actualState","label":"Actual after-state","lowLabel":"No change","highLabel":"A little steadier","defaultValue":3}],"ui":{"crisisTitle":"If you are not safe right now","crisisNote":"Use human support first. The activity experiment can wait, shrink, or be skipped.","controlsTitle":"Choose one tiny activity","controlsNote":"Predict first, do one small step, then record what actually happened. Nothing is sent.","categoryTitle":"Activity direction","energyTitle":"Activity size","noteLabel":"One observation","notePlaceholder":"Example: harder than expected, but slightly steadier afterward.","recordLabel":"Record this experiment","clearLabel":"Clear local records","localOnlyNote":"This page only uses browser localStorage; no login, upload, or message sending.","historyTitle":"Recent activity experiments","emptyHistory":"No records yet. Start with one tiny activity.","emptyNote":"No note","effortLabel":"Effort ","stateLabel":"State ","historySeparator":"; ","nextTitle":"Related tools","toolLink":"Back to Mood Anchor","lowMoodCardLink":"Open low-mood response card","supportScriptsLink":"Open support message scripts","boundariesTitle":"Boundaries","sourcesTitle":"Sources","generatedLabel":"Generated","listSeparator":": ","minutesUnit":"minutes","experimentTag":"activity experiment","locale":"en-US"}}</script>
+  <script>
+    const config = JSON.parse(document.getElementById('activity-experiment-config').textContent);
+    const storageKey = config.storageKey;
+    let state = loadState();
+    let selectedCategory = state.selectedCategory || 'body';
+    let selectedEnergy = state.selectedEnergy || 'tiny';
+    const preview = document.getElementById('activity-preview');
+    const history = document.getElementById('history');
+    const note = document.getElementById('activityNote');
+
+    activate('category', selectedCategory);
+    activate('energy', selectedEnergy);
+    renderActivityMenu();
+    renderHistory();
+
+    document.querySelectorAll('[data-category]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedCategory = button.dataset.category;
+        state.selectedCategory = selectedCategory;
+        activate('category', selectedCategory);
+        saveState();
+        renderActivityMenu();
+      });
+    });
+
+    document.querySelectorAll('[data-energy]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedEnergy = button.dataset.energy;
+        state.selectedEnergy = selectedEnergy;
+        activate('energy', selectedEnergy);
+        saveState();
+        renderActivityMenu();
+      });
+    });
+
+    document.getElementById('record-experiment').addEventListener('click', recordExperiment);
+    document.getElementById('clear-experiments').addEventListener('click', () => {
+      localStorage.removeItem(storageKey);
+      state = { entries: [], selectedCategory: 'body', selectedEnergy: 'tiny' };
+      selectedCategory = 'body';
+      selectedEnergy = 'tiny';
+      note.value = '';
+      activate('category', selectedCategory);
+      activate('energy', selectedEnergy);
+      renderActivityMenu();
+      renderHistory();
+    });
+
+    function renderActivityMenu() {
+      const activity = chooseActivity();
+      const energy = config.energyOptions.find((item) => item.id === selectedEnergy) || config.energyOptions[0];
+      preview.innerHTML = [
+        '<strong>' + escapeHtml(activity.label) + '</strong>',
+        '<p>' + escapeHtml(activity.detail) + '</p>',
+        '<div class="tagline"><span class="tag">' + escapeHtml(energy.label) + '</span><span class="tag">' + escapeHtml(energy.minutes + ' ' + config.ui.minutesUnit) + '</span><span class="tag">' + escapeHtml(config.ui.experimentTag) + '</span></div>'
+      ].join('');
+    }
+
+    function recordExperiment() {
+      const activity = chooseActivity();
+      const energy = config.energyOptions.find((item) => item.id === selectedEnergy) || config.energyOptions[0];
+      const entry = {
+        id: new Date().toISOString(),
+        category: selectedCategory,
+        activityId: activity.id,
+        activity: activity.label,
+        energy: selectedEnergy,
+        minutes: energy.minutes,
+        predictedEffort: valueOf('predictedEffort'),
+        expectedLift: valueOf('expectedLift'),
+        actualEffort: valueOf('actualEffort'),
+        actualState: valueOf('actualState'),
+        note: note.value.trim()
+      };
+      state.entries = [entry, ...(state.entries || [])].slice(0, 20);
+      state.selectedCategory = selectedCategory;
+      state.selectedEnergy = selectedEnergy;
+      saveState();
+      renderHistory();
+    }
+
+    function renderHistory() {
+      const entries = state.entries || [];
+      history.innerHTML = entries.length
+        ? entries.map((entry) => '<article class="history-entry"><strong>' + new Date(entry.id).toLocaleString(config.ui.locale) + '</strong><br />' + escapeHtml(entry.activity) + '<br /><span class="small">' + escapeHtml(config.ui.effortLabel + entry.predictedEffort + ' -> ' + entry.actualEffort + config.ui.historySeparator + config.ui.stateLabel + entry.expectedLift + ' -> ' + entry.actualState) + '</span><br /><span class="small">' + escapeHtml(entry.note || config.ui.emptyNote) + '</span></article>').join('')
+        : '<p class="small">' + escapeHtml(config.ui.emptyHistory) + '</p>';
+    }
+
+    function chooseActivity() {
+      const candidates = config.activityOptions.filter((item) => item.category === selectedCategory);
+      return candidates.find((item) => item.energy === selectedEnergy) || candidates[0] || config.activityOptions[0];
+    }
+
+    function valueOf(id) {
+      return Number(document.getElementById(id)?.value || 3);
+    }
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || { entries: [], selectedCategory: 'body', selectedEnergy: 'tiny' };
+      } catch {
+        return { entries: [], selectedCategory: 'body', selectedEnergy: 'tiny' };
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    function activate(kind, value) {
+      document.querySelectorAll('[data-' + kind + ']').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset[kind] === value));
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+    }
+  </script>
+</body>
+</html>

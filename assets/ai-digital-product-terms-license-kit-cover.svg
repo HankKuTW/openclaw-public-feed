@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI Digital Product Terms &amp; License Kit cover</title>
+  <desc id="desc">Clean terms and license worksheet cover for a digital prompt kit.</desc>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect x="120" y="120" width="1360" height="660" rx="28" fill="#ffffff" stroke="#0f172a" stroke-width="6"/>
+  <rect x="190" y="190" width="520" height="58" rx="10" fill="#0f172a"/>
+  <rect x="190" y="300" width="420" height="70" rx="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="4"/>
+  <rect x="650" y="300" width="420" height="70" rx="14" fill="#ecfdf5" stroke="#16a34a" stroke-width="4"/>
+  <rect x="1110" y="300" width="250" height="70" rx="14" fill="#fef3c7" stroke="#d97706" stroke-width="4"/>
+  <text x="230" y="346" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Terms</text>
+  <text x="690" y="346" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">License</text>
+  <text x="1150" y="346" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Scope</text>
+  <rect x="190" y="430" width="940" height="30" rx="8" fill="#94a3b8"/>
+  <rect x="190" y="500" width="820" height="30" rx="8" fill="#cbd5e1"/>
+  <rect x="190" y="570" width="760" height="30" rx="8" fill="#cbd5e1"/>
+  <rect x="1120" y="500" width="220" height="94" rx="18" fill="#0f172a"/>
+  <text x="1160" y="557" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff">Review</text>
+  <text x="190" y="735" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0f172a">AI Digital Product Terms &amp; License Kit</text>
+</svg>

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Anchor Global Launch Cockpit - 20260704</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, Helvetica, sans-serif;
+      --bg: #f4f6f7;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5c6678;
+      --line: #d5dde7;
+      --accent: #245d70;
+      --warn: #884b24;
+      --code: #eef3f5;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1160px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 32px; line-height: 1.14; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0; font-size: 16px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    .sub { margin: 0 0 12px; color: var(--muted); max-width: 900px; }
+    .panel, .channel { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 14px; }
+    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin: 16px 0; }
+    .channel { display: grid; gap: 10px; align-content: start; }
+    .meta { color: var(--muted); margin: 0; }
+    .tag { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 3px 8px; color: var(--muted); font-size: 12px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    button {
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 8px 10px;
+      cursor: pointer;
+      font: inherit;
+    }
+    pre, code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    pre { margin: 8px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--code); }
+    .stop { border-left: 4px solid var(--warn); }
+    table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); }
+    th, td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111518;
+        --panel: #181f24;
+        --text: #eef4f6;
+        --muted: #b3bec7;
+        --line: #34424c;
+        --accent: #7bb4c7;
+        --warn: #d8a06f;
+        --code: #11191d;
+      }
+    }
+    @media (max-width: 760px) {
+      main { padding: 16px; }
+      h1 { font-size: 26px; }
+      .actions { display: block; }
+      button { width: 100%; margin-top: 8px; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      tr { border-bottom: 1px solid var(--line); padding: 8px 0; }
+      td { border-bottom: 0; padding: 6px 10px; }
+      td::before { content: attr(data-label); display: block; color: var(--muted); font-size: 12px; margin-bottom: 3px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Mood Anchor Global Launch Cockpit</h1>
+      <p class="sub">Generated 2026-07-04T07:41:45.693Z · 20260704</p>
+      <p class="sub">Owner-reviewed manual launch cockpit for Mood Anchor English. It prepares copy and checks; it does not post, submit, message, log in, or collect sensitive health data.</p>
+    </header>
+
+    <section class="panel">
+      <h2>Source links</h2>
+      <ul><li><a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en-20260704.html">Mood Anchor English PWA</a></li>
+<li><a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-feedback-cockpit-20260704.html">Mood Anchor feedback cockpit</a></li>
+<li><a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-safety-launch-loop-20260704.md">Mood Anchor safety launch loop</a></li>
+<li><a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-action-ladder-owner-proxy-directive-20260704.md">Mood Anchor action ladder directive</a></li>
+<li><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-daily-owner-proxy-brief-20260704.md">Daily owner-proxy brief</a></li>
+<li><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-one-person-multi-agent-order-20260704.md">OpenClaw multi-agent order</a></li></ul>
+    </section>
+
+    <section>
+      <h2>Channel drafts</h2>
+      <div class="grid">
+        <article class="channel">
+          <div>
+            <h3>Show HN</h3>
+            <p class="meta"><span class="tag">ready_for_owner_review</span></p>
+          </div>
+          <p class="meta">Source: <a href="https://news.ycombinator.com/showhn.html">https://news.ycombinator.com/showhn.html</a></p>
+          
+          <div>
+            <strong>Draft title</strong>
+            <pre id="show_hn-title">Show HN: Mood Anchor - offline mood support PWA for low days</pre>
+          </div>
+          <div>
+            <strong>Draft body</strong>
+            <pre id="show_hn-body">I built Mood Anchor as a small offline-first browser tool for low days.
+
+It helps you check in privately, choose a personal action ladder, keep a smaller backup step, and see when to switch to a human-support handoff. Entries stay in browser localStorage; there is no account, analytics script, or server storage.
+
+This is not therapy, diagnosis, treatment, or a crisis service. The app keeps crisis resources visible and routes unsafe signals toward human support instead of productivity advice.
+
+Feedback on the safety wording, offline UX, and personal action ladder flow would be useful.</pre>
+          </div>
+          <div class="actions">
+            <button type="button" data-copy-target="show_hn-title">Copy title</button>
+            <button type="button" data-copy-target="show_hn-body">Copy body</button>
+          </div>
+          <p><strong>Owner action:</strong> Submit the public Mood Anchor English PWA URL manually on Hacker News with a title beginning with Show HN; add a factual first comment only after the post exists.</p>
+          <p><strong>Stop line:</strong> Do not ask for upvotes, comments, submissions, or support. Do not present the app as therapy or crisis counseling.</p>
+        </article>
+
+        <article class="channel">
+          <div>
+            <h3>Product Hunt</h3>
+            <p class="meta"><span class="tag">prepare_only</span></p>
+          </div>
+          <p class="meta">Source: <a href="https://www.producthunt.com/launch">https://www.producthunt.com/launch</a></p>
+          
+          <div>
+            <strong>Draft title</strong>
+            <pre id="product_hunt-title">Mood Anchor - private offline support for low days</pre>
+          </div>
+          <div>
+            <strong>Draft body</strong>
+            <pre id="product_hunt-body">Mood Anchor is an offline-first PWA that helps people privately check in, choose a personal action ladder, keep a smaller backup step, and keep local-only history.
+
+It is built for calm self-support: mood, energy, overwhelm, sleep, connection, safety flags, and a human-support handoff when the app should stop suggesting productivity steps.
+
+It is not therapy, diagnosis, treatment, crisis counseling, or medical advice. Entries stay in browser localStorage.</pre>
+          </div>
+          <div class="actions">
+            <button type="button" data-copy-target="product_hunt-title">Copy title</button>
+            <button type="button" data-copy-target="product_hunt-body">Copy body</button>
+          </div>
+          <p><strong>Owner action:</strong> Prepare Product Hunt assets and maker profile, then manually decide whether this mental-health-adjacent free tool belongs there.</p>
+          <p><strong>Stop line:</strong> No mass outreach, vote swaps, incentives, bots, or engagement manipulation. Do not launch before Support/Ops approves the safety copy.</p>
+        </article>
+
+        <article class="channel">
+          <div>
+            <h3>Uneed</h3>
+            <p class="meta"><span class="tag">owner_account_required</span></p>
+          </div>
+          <p class="meta">Source: <a href="https://www.uneed.best/submit-a-tool">https://www.uneed.best/submit-a-tool</a></p>
+          <p class="meta">Extra source: <a href="https://www.uneed.best/launch-guide">https://www.uneed.best/launch-guide</a></p>
+          <div>
+            <strong>Draft title</strong>
+            <pre id="uneed-title">Mood Anchor</pre>
+          </div>
+          <div>
+            <strong>Draft body</strong>
+            <pre id="uneed-body">Product name: Mood Anchor
+Category angle: personal life, productivity, wellness support, privacy-first web app.
+Short description: A private offline PWA for low days. Check in, choose a personal action ladder with a smaller backup step and human-support handoff, then keep local-only mood support history without an account.</pre>
+          </div>
+          <div class="actions">
+            <button type="button" data-copy-target="uneed-title">Copy title</button>
+            <button type="button" data-copy-target="uneed-body">Copy body</button>
+          </div>
+          <p><strong>Owner action:</strong> Manually preview and submit through Uneed only after reviewing category fit, account requirements, and safety wording.</p>
+          <p><strong>Stop line:</strong> Do not create an account, scrape, submit, pay, or add launch badges automatically.</p>
+        </article>
+
+        <article class="channel">
+          <div>
+            <h3>Reddit</h3>
+            <p class="meta"><span class="tag">community_rule_review_required</span></p>
+          </div>
+          <p class="meta">Source: <a href="https://redditinc.com/policies/reddit-rules">https://redditinc.com/policies/reddit-rules</a></p>
+          
+          <div>
+            <strong>Draft title</strong>
+            <pre id="reddit-title">I made a private offline action-ladder tool for low days</pre>
+          </div>
+          <div>
+            <strong>Draft body</strong>
+            <pre id="reddit-body">I made a small browser-only tool called Mood Anchor for low days.
+
+It does a private check-in, suggests a personal action ladder, keeps a smaller backup step, and includes a human-support handoff when self-support is the wrong path. It stores entries only in localStorage.
+
+This is not therapy, diagnosis, treatment, or a crisis service. If tool-feedback posts are allowed here, I can share the link; otherwise the core idea is: check safety first, shrink the next action, and keep crisis support visible.</pre>
+          </div>
+          <div class="actions">
+            <button type="button" data-copy-target="reddit-title">Copy title</button>
+            <button type="button" data-copy-target="reddit-body">Copy body</button>
+          </div>
+          <p><strong>Owner action:</strong> Choose one relevant subreddit, read its rules/sidebar, and post only if self-made tools or feedback requests are allowed; ask moderators first if unclear.</p>
+          <p><strong>Stop line:</strong> No link drops, repeated cross-posting, hidden affiliation, DMs, vote requests, or posting in support communities where self-promotion is disallowed.</p>
+        </article>
+
+        <article class="channel">
+          <div>
+            <h3>Indie Hackers</h3>
+            <p class="meta"><span class="tag">group_guideline_review_required</span></p>
+          </div>
+          <p class="meta">Source: <a href="https://www.indiehackers.com/">https://www.indiehackers.com/</a></p>
+          
+          <div>
+            <strong>Draft title</strong>
+            <pre id="indie_hackers-title">I built a privacy-first offline mood support PWA as a free product experiment</pre>
+          </div>
+          <div>
+            <strong>Draft body</strong>
+            <pre id="indie_hackers-body">I am testing a free trust-building product: Mood Anchor, an offline-first PWA for low days.
+
+It has private check-ins, a personal action ladder, a smaller backup step, local-only history, a human-support handoff, and visible crisis-resource boundaries.
+
+The business question is whether a genuinely useful free product can create safe distribution signal before building paid adjacent products. I would value feedback on positioning and safety boundaries.</pre>
+          </div>
+          <div class="actions">
+            <button type="button" data-copy-target="indie_hackers-title">Copy title</button>
+            <button type="button" data-copy-target="indie_hackers-body">Copy body</button>
+          </div>
+          <p><strong>Owner action:</strong> Pick one Indie Hackers surface or group, read current posting guidance, and post only if founder build feedback is welcome.</p>
+          <p><strong>Stop line:</strong> Do not cross-post, overstate traction, or ask for support as a substitute for real feedback.</p>
+        </article>
+
+        <article class="channel">
+          <div>
+            <h3>SaaSHub</h3>
+            <p class="meta"><span class="tag">optional_directory_listing</span></p>
+          </div>
+          <p class="meta">Source: <a href="https://www.saashub.com/services/submit">https://www.saashub.com/services/submit</a></p>
+          
+          <div>
+            <strong>Draft title</strong>
+            <pre id="saashub-title">Mood Anchor</pre>
+          </div>
+          <div>
+            <strong>Draft body</strong>
+            <pre id="saashub-body">Mood Anchor is a private offline PWA for low days. It supports local-only check-ins, a personal action ladder, a smaller backup step, and a human-support handoff. It is not therapy, diagnosis, treatment, or a crisis service.</pre>
+          </div>
+          <div class="actions">
+            <button type="button" data-copy-target="saashub-title">Copy title</button>
+            <button type="button" data-copy-target="saashub-body">Copy body</button>
+          </div>
+          <p><strong>Owner action:</strong> Manually decide whether SaaSHub accepts this product category and submit only if the page qualifies as a released English software product.</p>
+          <p><strong>Stop line:</strong> No paid promotion, account setup, verification, or category guessing without owner approval.</p>
+        </article></div>
+    </section>
+
+    <section class="panel">
+      <h2>Aggregate metrics fields</h2>
+      <table>
+        <thead><tr><th>Field</th><th>Rule</th></tr></thead>
+        <tbody><tr><td data-label="Field"><code>channel</code></td><td data-label="Rule">Owner-entered aggregate only. Do not paste user mood notes, crisis details, names, emails, handles, exported JSON, or private stories.</td></tr>
+<tr><td data-label="Field"><code>manual_action_at</code></td><td data-label="Rule">Owner-entered aggregate only. Do not paste user mood notes, crisis details, names, emails, handles, exported JSON, or private stories.</td></tr>
+<tr><td data-label="Field"><code>public_post_url</code></td><td data-label="Rule">Owner-entered aggregate only. Do not paste user mood notes, crisis details, names, emails, handles, exported JSON, or private stories.</td></tr>
+<tr><td data-label="Field"><code>owner_observed_visits</code></td><td data-label="Rule">Owner-entered aggregate only. Do not paste user mood notes, crisis details, names, emails, handles, exported JSON, or private stories.</td></tr>
+<tr><td data-label="Field"><code>replies_or_comments</code></td><td data-label="Rule">Owner-entered aggregate only. Do not paste user mood notes, crisis details, names, emails, handles, exported JSON, or private stories.</td></tr>
+<tr><td data-label="Field"><code>clarity_feedback_count</code></td><td data-label="Rule">Owner-entered aggregate only. Do not paste user mood notes, crisis details, names, emails, handles, exported JSON, or private stories.</td></tr>
+<tr><td data-label="Field"><code>privacy_confidence_feedback_count</code></td><td data-label="Rule">Owner-entered aggregate only. Do not paste user mood notes, crisis details, names, emails, handles, exported JSON, or private stories.</td></tr>
+<tr><td data-label="Field"><code>safety_confusion_reports</code></td><td data-label="Rule">Owner-entered aggregate only. Do not paste user mood notes, crisis details, names, emails, handles, exported JSON, or private stories.</td></tr>
+<tr><td data-label="Field"><code>support_risk_flags</code></td><td data-label="Rule">Owner-entered aggregate only. Do not paste user mood notes, crisis details, names, emails, handles, exported JSON, or private stories.</td></tr>
+<tr><td data-label="Field"><code>next_action</code></td><td data-label="Rule">Owner-entered aggregate only. Do not paste user mood notes, crisis details, names, emails, handles, exported JSON, or private stories.</td></tr></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Department orders</h2>
+      <ul><li>Marketing Desk prepares owner-reviewed copy around the personal action ladder only; no posting, scheduling, DMs, or cross-posting.</li>
+<li>Support/Ops reviews platform rules, crisis-resource wording, human-support handoff wording, and no-medical-claim boundaries before owner use.</li>
+<li>Product Studio QA checks the public PWA link, personal action ladder flow, smaller backup step, offline behavior, localStorage isolation, and copy buttons.</li>
+<li>Analytics records only owner-entered aggregate observations in the feedback cockpit.</li>
+<li>CEO/Strategy decides whether Mood Anchor English earns another distribution pass after recorded evidence exists.</li></ul>
+    </section>
+
+    <section class="panel stop">
+      <h2>Strict stop line</h2>
+      <ul><li>Owner-only external authority: login, submit, post, comment, DM, email, schedule, pay, review, or account changes.</li>
+<li>This is not therapy, diagnosis, treatment, crisis counseling, emergency support, or medical advice.</li>
+<li>Do not collect sensitive mood notes, self-harm flags, private stories, names, emails, handles, exported JSON, or medical details.</li>
+<li>Do not ask for upvotes, comments, votes, reviews, rankings, or engagement manipulation.</li>
+<li>Do not auto-post, scrape, submit, message, or use OpenClaw message commands.</li>
+<li>Do not promise traffic, revenue, conversion, platform approval, mental-health improvement, or safety outcomes.</li></ul>
+    </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('[data-copy-target]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target) return;
+        await navigator.clipboard?.writeText(target.textContent || '');
+        button.textContent = 'Copied';
+      });
+    });
+  </script>
+</body>
+</html>

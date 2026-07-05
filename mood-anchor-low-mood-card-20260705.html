@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Anchor - 低潮應對卡</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f4ee;
+      --panel: #ffffff;
+      --soft: #e8f0ee;
+      --text: #172123;
+      --muted: #5c686b;
+      --line: #cbd8d5;
+      --accent: #315f65;
+      --accent-2: #8f5d46;
+      --danger: #8b2f3c;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1040px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 20px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    .sub, .small { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr); gap: 14px; align-items: start; margin-top: 16px; }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; margin-top: 14px; }
+    .crisis { border-color: #d9a7af; background: #fff7f5; }
+    .crisis h2, .crisis strong { color: var(--danger); }
+    .segmented { display: flex; gap: 8px; flex-wrap: wrap; }
+    button, .link-button {
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+    button[aria-pressed="true"], button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    .link-button.secondary { background: var(--panel); color: var(--accent); }
+    .plan { background: var(--soft); border-color: #a8c1bd; }
+    .ifline { font-size: 18px; margin: 0 0 10px; }
+    .steps { display: grid; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .steps li { border-left: 4px solid var(--accent); padding: 8px 10px; background: var(--panel); border-radius: 0 6px 6px 0; }
+    .mini-fields { display: grid; gap: 10px; }
+    label { display: block; font-weight: 700; margin-bottom: 6px; }
+    input[type="text"] {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 10px;
+      font: inherit;
+      background: var(--panel);
+      color: var(--text);
+    }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .sources a { overflow-wrap: anywhere; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101517;
+        --panel: #172023;
+        --soft: #1d2b2e;
+        --text: #eef4f2;
+        --muted: #b5c1c0;
+        --line: #334548;
+        --accent: #6ca8ad;
+        --accent-2: #d49b7e;
+        --danger: #f0a0ad;
+      }
+      .crisis { background: #27191d; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .grid { grid-template-columns: 1fr; }
+      button, .link-button { width: 100%; }
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      .controls, .sources, .links, .small.generated { display: none; }
+      main { max-width: none; padding: 0; }
+      .grid { display: block; }
+      .panel { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>低潮應對卡</h1>
+      <p class="sub">低能量或很難開始時，先選目前狀態，產生一張只做三步的本機應對卡。</p>
+    </header>
+
+    <section class="panel crisis">
+      <h2>如果現在不安全</h2>
+      <ul><li><strong>在美國可撥打或傳簡訊 988</strong>：如果你可能傷害自己、覺得撐不住，或需要立即有人陪你說話，請使用 988 Suicide &amp; Crisis Lifeline。</li>
+        <li><strong>有立即生命危險時，聯絡當地緊急服務</strong>：如果你已經有計畫、工具、或可能馬上行動，請離開危險物品並尋求現場協助。</li>
+        <li><strong>聯絡一位可信任的人</strong>：傳送一句簡短訊息：「我現在不太安全，可以陪我一下或幫我找支援嗎？」</li></ul>
+    </section>
+
+    <div class="grid">
+      <section class="panel controls" aria-labelledby="controls-title">
+        <h2 id="controls-title">選目前狀態</h2>
+        <p class="small">這些選項只用來組合卡片，不會送出。</p>
+
+        <h3>現在有多少能量</h3>
+        <div class="segmented" id="energy-group">
+          <button type="button" data-energy="low" aria-pressed="true">幾乎沒力氣</button>
+          <button type="button" data-energy="medium" aria-pressed="false">有一點力氣</button>
+          <button type="button" data-energy="supported" aria-pressed="false">需要先靠近支援</button>
+        </div>
+
+        <h3>現在能不能靠近支援</h3>
+        <div class="segmented" id="support-group">
+          <button type="button" data-support="solo" aria-pressed="true">先自己做</button>
+          <button type="button" data-support="text" aria-pressed="false">可傳訊息</button>
+          <button type="button" data-support="with_person" aria-pressed="false">需要真人靠近</button>
+        </div>
+
+        <h3>最像哪一種低潮</h3>
+        <div class="segmented" id="cue-group">
+          <button type="button" data-cue="overwhelmed" aria-pressed="true">太混亂</button>
+          <button type="button" data-cue="isolated" aria-pressed="false">很孤立</button>
+          <button type="button" data-cue="numb" aria-pressed="false">麻木沒感覺</button>
+          <button type="button" data-cue="stuck" aria-pressed="false">卡住動不了</button>
+        </div>
+
+        <div class="panel mini-fields">
+          <div>
+            <label for="safe-place">比較安全的位置</label>
+            <input id="safe-place" type="text" autocomplete="off" placeholder="例如：客廳、便利商店、有人在的地方" />
+          </div>
+          <div>
+            <label for="trusted-person">可信任的人</label>
+            <input id="trusted-person" type="text" autocomplete="off" placeholder="例如：朋友名字或稱呼" />
+          </div>
+        </div>
+
+        <div class="links">
+          <button type="button" class="primary" id="print-card">列印這張卡</button>
+          <button type="button" id="clear-card">清除這張卡資料</button>
+        </div>
+        <p class="small">本頁只使用瀏覽器 localStorage；不登入、不上傳、不發送訊息。</p>
+      </section>
+
+      <aside>
+        <section id="plan" class="panel plan" aria-live="polite"></section>
+
+        <section class="panel">
+          <h2>使用邊界</h2>
+          <ul><li>這不是診斷、治療、危機服務、心理諮商或醫療建議。</li>
+            <li>這張卡不會自動判斷危機，也不能監測你的安全。</li>
+            <li>你輸入的地點或人名只存在這台裝置的瀏覽器 localStorage。</li>
+            <li>如果有自傷、想死、或現在不安全的感覺，請先使用真人危機支援。</li></ul>
+        </section>
+
+        <section class="panel">
+          <h2>相關工具</h2>
+          <div class="links">
+            <a class="link-button" href="mood-anchor-20260705.html">回到 Mood Anchor 工具</a>
+            <a class="link-button secondary" href="mood-anchor-support-scripts-20260705.html">開啟支援訊息草稿</a>
+          </div>
+        </section>
+
+        <section class="panel sources">
+          <h2>參考來源</h2>
+          <ul><li><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH Caring for Your Mental Health</a>：自我照護可協助支持心理健康與復原，包含身體照顧、放鬆和人際連結。</li>
+            <li><a href="https://www.nhs.uk/mental-health/self-help/tips-and-support/cope-with-depression/">NHS How to cope with depression</a>：NHS 建議低落時保持連結、溫和活動、面對避免行為，並避免酒精等不利應對。</li>
+            <li><a href="https://988lifeline.org/get-help/what-to-expect/">988 Lifeline - What to Expect</a>：說明聯絡 988 時可能發生的流程與支援方式。</li>
+            <li><a href="https://findahelpline.com/">Find a Helpline</a>：可依國家尋找電話、簡訊、聊天或 WhatsApp 支援資源。</li></ul>
+        </section>
+      </aside>
+    </div>
+    <p class="small generated">Generated 2026-07-05T06:50:38.265Z - mood-anchor-low-mood-card-20260705.html</p>
+  </main>
+
+  <script type="application/json" id="low-mood-card-config">{"storageKey":"mood-anchor:low-mood-card:v1","energyOptions":[{"id":"low","label":"幾乎沒力氣","action":"只做 30 秒版本"},{"id":"medium","label":"有一點力氣","action":"做 2 分鐘版本"},{"id":"supported","label":"需要先靠近支援","action":"先移到比較安全、有人的地方"}],"supportOptions":[{"id":"solo","label":"先自己做","action":"把動作縮到不用意志力也能開始"},{"id":"text","label":"可傳訊息","action":"傳一句短訊息給可信任的人"},{"id":"with_person","label":"需要真人靠近","action":"請 {trustedPerson} 陪你，或移到 {safePlace}"}],"cueOptions":[{"id":"overwhelmed","label":"太混亂"},{"id":"isolated","label":"很孤立"},{"id":"numb","label":"麻木沒感覺"},{"id":"stuck","label":"卡住動不了"}],"plans":[{"cue":"overwhelmed","ifText":"如果我覺得太混亂、腦中很吵","steps":["{energy}：把雙腳踩地，慢慢吐氣三次。","{support}。","把接下來一件事縮成一句話：「我只要先做下一小步」。"]},{"cue":"isolated","ifText":"如果我覺得很孤立、不想讓任何人知道","steps":["{energy}：先坐到離門、窗或公共空間近一點的位置。","{support}，內容只要是：「我今天很低，能不能回我一個句點？」","等回覆時喝水或把手放在胸口 30 秒。"]},{"cue":"numb","ifText":"如果我麻木、沒有感覺、很難在乎任何事","steps":["{energy}：找一個溫度感覺，例如握杯水或洗臉。","說出眼前 3 個物品的名字。","{support}。"]},{"cue":"stuck","ifText":"如果我卡住、動不了、一直拖延","steps":["{energy}：把任務改成只打開、只站起來、或只收一樣東西。","完成後停下來，不需要加碼。","{support}。"]}],"ui":{"crisisTitle":"如果現在不安全","controlsTitle":"選目前狀態","controlsNote":"這些選項只用來組合卡片，不會送出。","energyTitle":"現在有多少能量","supportTitle":"現在能不能靠近支援","cueTitle":"最像哪一種低潮","safePlaceLabel":"比較安全的位置","safePlacePlaceholder":"例如：客廳、便利商店、有人在的地方","trustedPersonLabel":"可信任的人","trustedPersonPlaceholder":"例如：朋友名字或稱呼","defaultSafePlace":"比較安全、有人的地方","defaultTrustedPerson":"可信任的人","planTitle":"我的三步應對卡","ifLabel":"如果","thenLabel":"那我先做這三步","handoffLine":"如果做完還是不安全，或出現自傷/想死念頭，請直接使用上方危機支援。","boundariesTitle":"使用邊界","nextTitle":"相關工具","toolLink":"回到 Mood Anchor 工具","supportScriptsLink":"開啟支援訊息草稿","sourcesTitle":"參考來源","printLabel":"列印這張卡","clearLabel":"清除這張卡資料","localOnlyNote":"本頁只使用瀏覽器 localStorage；不登入、不上傳、不發送訊息。","generatedLabel":"Generated","listSeparator":"："}}</script>
+  <script>
+    const config = JSON.parse(document.getElementById('low-mood-card-config').textContent);
+    const storageKey = config.storageKey;
+    const saved = loadState();
+    let selectedEnergy = saved.energy || 'low';
+    let selectedSupport = saved.support || 'solo';
+    let selectedCue = saved.cue || 'overwhelmed';
+    const safePlace = document.getElementById('safe-place');
+    const trustedPerson = document.getElementById('trusted-person');
+    const plan = document.getElementById('plan');
+
+    safePlace.value = saved.safePlace || '';
+    trustedPerson.value = saved.trustedPerson || '';
+    activate('energy', selectedEnergy);
+    activate('support', selectedSupport);
+    activate('cue', selectedCue);
+    renderPlan();
+
+    document.querySelectorAll('[data-energy]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedEnergy = button.dataset.energy;
+        activate('energy', selectedEnergy);
+        saveState();
+        renderPlan();
+      });
+    });
+    document.querySelectorAll('[data-support]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedSupport = button.dataset.support;
+        activate('support', selectedSupport);
+        saveState();
+        renderPlan();
+      });
+    });
+    document.querySelectorAll('[data-cue]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedCue = button.dataset.cue;
+        activate('cue', selectedCue);
+        saveState();
+        renderPlan();
+      });
+    });
+    safePlace.addEventListener('input', () => { saveState(); renderPlan(); });
+    trustedPerson.addEventListener('input', () => { saveState(); renderPlan(); });
+    document.getElementById('print-card').addEventListener('click', () => window.print());
+    document.getElementById('clear-card').addEventListener('click', () => {
+      localStorage.removeItem(storageKey);
+      selectedEnergy = 'low';
+      selectedSupport = 'solo';
+      selectedCue = 'overwhelmed';
+      safePlace.value = '';
+      trustedPerson.value = '';
+      activate('energy', selectedEnergy);
+      activate('support', selectedSupport);
+      activate('cue', selectedCue);
+      renderPlan();
+    });
+
+    function renderPlan() {
+      const chosen = config.plans.find((item) => item.cue === selectedCue) || config.plans[0];
+      const energy = config.energyOptions.find((item) => item.id === selectedEnergy) || config.energyOptions[0];
+      const support = config.supportOptions.find((item) => item.id === selectedSupport) || config.supportOptions[0];
+      const place = safePlace.value.trim() || config.ui.defaultSafePlace;
+      const person = trustedPerson.value.trim() || config.ui.defaultTrustedPerson;
+      const steps = chosen.steps.map((step) => {
+        return step
+          .replaceAll('{energy}', energy.action)
+          .replaceAll('{support}', support.action)
+          .replaceAll('{safePlace}', place)
+          .replaceAll('{trustedPerson}', person);
+      });
+      plan.innerHTML = [
+        '<h2>' + escapeHtml(config.ui.planTitle) + '</h2>',
+        '<p class="ifline"><strong>' + escapeHtml(config.ui.ifLabel) + '</strong> ' + escapeHtml(chosen.ifText) + '</p>',
+        '<p><strong>' + escapeHtml(config.ui.thenLabel) + '</strong></p>',
+        '<ol class="steps">' + steps.map((step) => '<li>' + escapeHtml(step) + '</li>').join('') + '</ol>',
+        '<p class="small">' + escapeHtml(config.ui.handoffLine) + '</p>'
+      ].join('');
+    }
+
+    function saveState() {
+      localStorage.setItem(storageKey, JSON.stringify({
+        energy: selectedEnergy,
+        support: selectedSupport,
+        cue: selectedCue,
+        safePlace: safePlace.value.trim(),
+        trustedPerson: trustedPerson.value.trim()
+      }));
+    }
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch {
+        return {};
+      }
+    }
+
+    function activate(kind, value) {
+      document.querySelectorAll('[data-' + kind + ']').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset[kind] === value));
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+    }
+  </script>
+</body>
+</html>

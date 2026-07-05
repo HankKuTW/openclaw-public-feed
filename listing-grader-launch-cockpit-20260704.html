@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Listing Grader Launch Cockpit - 20260704</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, Helvetica, sans-serif;
+      --bg: #f4f6f4;
+      --panel: #ffffff;
+      --text: #17201b;
+      --muted: #5d675f;
+      --line: #ccd7cf;
+      --accent: #285c4b;
+      --warn: #7a4a20;
+      --code: #eef2ef;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1160px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 30px; line-height: 1.15; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0; font-size: 16px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); }
+    .sub { margin: 0 0 12px; color: var(--muted); max-width: 860px; }
+    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: 18px 0; }
+    .panel, .channel { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 14px; }
+    .channel { display: grid; gap: 12px; }
+    .meta { color: var(--muted); margin: 0; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    button {
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 10px;
+      cursor: pointer;
+      font: inherit;
+    }
+    pre, code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    pre { margin: 8px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--code); }
+    .stop { border-left: 4px solid var(--warn); }
+    table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); }
+    th, td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101412;
+        --panel: #171f1b;
+        --text: #edf4ef;
+        --muted: #b1bcb5;
+        --line: #34443b;
+        --accent: #7bb69f;
+        --warn: #d2a35f;
+        --code: #101612;
+      }
+    }
+    @media (max-width: 760px) {
+      main { padding: 16px; }
+      h1 { font-size: 26px; }
+      .actions { display: block; }
+      button { width: 100%; margin-top: 8px; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      tr { border-bottom: 1px solid var(--line); padding: 8px 0; }
+      td { border-bottom: 0; padding: 6px 10px; }
+      td::before { content: attr(data-label); display: block; color: var(--muted); font-size: 12px; margin-bottom: 3px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Listing Grader Launch Cockpit</h1>
+      <p class="sub">Generated 2026-07-04T16:00:01.270Z · 20260704</p>
+      <p class="sub">Owner-facing launch cockpit for manual English channel distribution. It prepares drafts; it does not post, submit, message, or log in.</p>
+    </header>
+    <section class="panel">
+      <h2>Source links</h2>
+      <ul>
+        <li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-friction-grader-20260704.html">Listing Friction Grader</a></li>
+        <li><a href="https://hankkutw.github.io/openclaw-public-feed/service-revenue-offer-20260704.html">Digital Product Listing Audit</a></li>
+        <li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-friction-grader-channel-research-20260704.md">Channel research</a></li>
+        <li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-friction-grader-launch-queue-20260704.md">Launch queue</a></li>
+        <li><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-one-person-multi-agent-order-20260704.md">OpenClaw multi-agent order</a></li>
+        <li><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-revenue-experiment-loop-board-20260704.html">OpenClaw Revenue Experiment Loop Board</a></li>
+        <li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-request-pack-20260704.html">Listing Audit request pack</a></li>
+        <li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-ledger-20260704.html">Listing Audit demand ledger</a></li>
+        <li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-owner-reply-handoff-20260704.html">Listing Audit owner reply handoff</a></li>
+        <li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-to-reply-validation-board-20260704.html">Listing Audit demand-to-reply validation board</a></li>
+      </ul>
+    </section>
+    <section class="panel">
+      <h2>Source-backed channel guardrails</h2>
+      <table>
+        <thead><tr><th>Channel</th><th>Official sources</th><th>OpenClaw check</th></tr></thead>
+        <tbody><tr>
+        <td data-label="Channel">Show HN</td>
+        <td data-label="Official sources"><a href="https://news.ycombinator.com/showhn.html">Hacker News Show HN guidelines</a></td>
+        <td data-label="OpenClaw check"><ul><li>Show HN title begins with Show HN and points to something people can try.</li><li>Make the free tool easy to try without signup or email barrier.</li><li>Do not ask for upvotes, comments, or friends to support the post.</li></ul></td>
+      </tr>
+<tr>
+        <td data-label="Channel">Uneed</td>
+        <td data-label="Official sources"><a href="https://www.uneed.best/submit-a-tool">Uneed submit a tool</a><br><a href="https://www.uneed.best/launch-guide">Uneed launch guide</a></td>
+        <td data-label="OpenClaw check"><ul><li>Uneed scrapes the page first before signup, so owner does manual preview only.</li><li>Avoid weekend or holiday launches unless the owner chooses a specific date manually.</li><li>Prepare reply coverage; do not claim queue position, homepage placement, or platform outcome.</li></ul></td>
+      </tr>
+<tr>
+        <td data-label="Channel">Indie Hackers</td>
+        <td data-label="Official sources"><a href="https://www.indiehackers.com/product/indie-hackers/added-support-for-group-posting-guidelines--MHDC04726tqs6fDr-W5">Indie Hackers group posting guidelines support note</a><br><a href="https://www.indiehackers.com/groups">Indie Hackers groups</a></td>
+        <td data-label="OpenClaw check"><ul><li>Read the selected Indie Hackers group posting guidelines before posting.</li><li>Use one relevant group only; do not cross-post the same pitch across groups.</li><li>Ask for product-page feedback, not votes, paid work, or private messages.</li></ul></td>
+      </tr>
+<tr>
+        <td data-label="Channel">Reddit</td>
+        <td data-label="Official sources"><a href="https://support.reddithelp.com/hc/en-us/articles/360043503951-What-are-Reddit-s-rules">Reddit rules overview</a><br><a href="https://redditinc.com/policies/reddit-rules">Reddit content policy</a><br><a href="https://support.reddithelp.com/hc/en-us/articles/22755369815700-Running-promotions-on-Reddit">Reddit promotions on Reddit</a></td>
+        <td data-label="OpenClaw check"><ul><li>Read and follow each subreddit community rules before posting; ask moderators first if unclear.</li><li>Be transparent about owning the tool and avoid misleading or hidden-affiliation language.</li><li>Do not target vulnerable users, including mental health or support communities, with promotions.</li></ul></td>
+      </tr>
+<tr>
+        <td data-label="Channel">Product Hunt</td>
+        <td data-label="Official sources"><a href="https://www.producthunt.com/launch">Product Hunt launch guide</a></td>
+        <td data-label="OpenClaw check"><ul><li>Owner submits through the Product Hunt launch flow after manual account review.</li><li>Do not ask for Product Hunt upvotes.</li><li>Do not ask for upvotes; visits and comments are the only conservative outreach ask.</li></ul></td>
+      </tr>
+<tr>
+        <td data-label="Channel">SaaSHub</td>
+        <td data-label="Official sources"><a href="https://www.saashub.com/services/submit">SaaSHub submit guidelines</a></td>
+        <td data-label="OpenClaw check"><ul><li>SaaSHub does not accept unreleased products, waitlist-only pages, agencies, free subdomains, or non-English products.</li><li>Add categories and competitors before owner submission; missing competitors can slow review.</li><li>Do not pay for promotion, verify a domain, or change account settings without owner approval.</li></ul></td>
+      </tr></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Manual channel queue</h2>
+      <div class="grid"><article class="channel">
+        <header>
+          <h3>Show HN</h3>
+          <p class="meta">ready_for_owner_review · <a href="https://news.ycombinator.com/showhn.html">source rules</a></p>
+        </header>
+        <div>
+          <strong>Draft title</strong>
+          <div class="actions"><button type="button" data-copy-target="show_hn-title">Copy title</button></div>
+          <pre id="show_hn-title">Show HN: Listing Friction Grader - local-only copy review for product pages</pre>
+        </div>
+        <div>
+          <strong>Draft body</strong>
+          <div class="actions"><button type="button" data-copy-target="show_hn-body">Copy body</button></div>
+          <pre id="show_hn-body">I built this as a small browser-only tool for checking where a digital product listing creates buyer hesitation.
+
+It scores offer clarity, target buyer fit, proof, risk/support boundaries, and the next action. The pasted text stays in the browser through localStorage; there is no server storage or account.
+
+I am using it to test whether solo sellers want a lightweight way to review a product page before sending more traffic to it. Feedback on the scoring criteria and copy boundaries would be useful.</pre>
+        </div>
+        <div>
+          <strong>Rule guardrails</strong>
+          <ul><li>Show HN title begins with Show HN and points to something people can try.</li><li>Make the free tool easy to try without signup or email barrier.</li><li>Do not ask for upvotes, comments, or friends to support the post.</li></ul>
+        </div>
+        <p><strong>Owner action:</strong> Submit the tool URL manually on Hacker News with a title beginning with Show HN; add the first comment only after the post exists.</p>
+        <p><strong>Stop line:</strong> Submit the free tool, not the paid audit. Do not ask for upvotes, comments, or support.</p>
+      </article>
+<article class="channel">
+        <header>
+          <h3>Uneed</h3>
+          <p class="meta">owner_account_required · <a href="https://www.uneed.best/submit-a-tool">source rules</a></p>
+        </header>
+        <div>
+          <strong>Draft title</strong>
+          <div class="actions"><button type="button" data-copy-target="uneed-title">Copy title</button></div>
+          <pre id="uneed-title">Find the copy gaps that make digital product buyers hesitate.</pre>
+        </div>
+        <div>
+          <strong>Draft body</strong>
+          <div class="actions"><button type="button" data-copy-target="uneed-body">Copy body</button></div>
+          <pre id="uneed-body">Product name: Listing Friction Grader
+Category angle: marketing, productivity, copywriting, indie maker tools.
+Short description: A free local-only browser tool that scores a digital product listing across clarity, buyer fit, proof, risk boundaries, and CTA quality.</pre>
+        </div>
+        <div>
+          <strong>Rule guardrails</strong>
+          <ul><li>Uneed scrapes the page first before signup, so owner does manual preview only.</li><li>Avoid weekend or holiday launches unless the owner chooses a specific date manually.</li><li>Prepare reply coverage; do not claim queue position, homepage placement, or platform outcome.</li></ul>
+        </div>
+        <p><strong>Owner action:</strong> Manually submit the product URL through Uneed after reviewing the public page and account requirements.</p>
+        <p><strong>Stop line:</strong> Do not create the account, scrape the page, or submit through automation.</p>
+      </article>
+<article class="channel">
+        <header>
+          <h3>Indie Hackers</h3>
+          <p class="meta">group_guideline_review_required · <a href="https://www.indiehackers.com/product/indie-hackers/added-support-for-group-posting-guidelines--MHDC04726tqs6fDr-W5">source rules</a></p>
+        </header>
+        <div>
+          <strong>Draft title</strong>
+          <div class="actions"><button type="button" data-copy-target="indie_hackers-title">Copy title</button></div>
+          <pre id="indie_hackers-title">I built a small local-only tool to grade product listing friction</pre>
+        </div>
+        <div>
+          <strong>Draft body</strong>
+          <div class="actions"><button type="button" data-copy-target="indie_hackers-body">Copy body</button></div>
+          <pre id="indie_hackers-body">I am testing a simple problem: solo sellers often send traffic to a digital product page before the offer is clear enough.
+
+The tool checks offer clarity, target buyer fit, proof/examples, refund/support boundary, and primary CTA.
+
+It runs in the browser and stores drafts only in localStorage. No server collection of pasted listing text.
+
+I would appreciate feedback on whether these criteria match the way you review a product page before launch.</pre>
+        </div>
+        <div>
+          <strong>Rule guardrails</strong>
+          <ul><li>Read the selected Indie Hackers group posting guidelines before posting.</li><li>Use one relevant group only; do not cross-post the same pitch across groups.</li><li>Ask for product-page feedback, not votes, paid work, or private messages.</li></ul>
+        </div>
+        <p><strong>Owner action:</strong> Choose one Indie Hackers group, read the group posting guidelines, and post only if build/tool feedback is allowed.</p>
+        <p><strong>Stop line:</strong> Do not cross-post the same pitch across multiple groups.</p>
+      </article>
+<article class="channel">
+        <header>
+          <h3>Reddit</h3>
+          <p class="meta">subreddit_rule_review_required · <a href="https://redditinc.com/policies/reddit-rules">source rules</a></p>
+        </header>
+        <div>
+          <strong>Draft title</strong>
+          <div class="actions"><button type="button" data-copy-target="reddit-title">Copy title</button></div>
+          <pre id="reddit-title">I made a checklist for reviewing digital product pages before sending traffic</pre>
+        </div>
+        <div>
+          <strong>Draft body</strong>
+          <div class="actions"><button type="button" data-copy-target="reddit-body">Copy body</button></div>
+          <pre id="reddit-body">The checklist looks at five things I keep seeing in weak listings: unclear offer, vague buyer, no proof/sample, unclear refund/support boundary, and too many CTAs.
+
+I turned it into a small browser-only grader because I wanted faster feedback while rewriting listings. Pasted text stays local in the browser.
+
+If tools like this are allowed here, I can share the link. Otherwise, the five manual questions are: clarity, buyer, proof, boundary, and CTA.</pre>
+        </div>
+        <div>
+          <strong>Rule guardrails</strong>
+          <ul><li>Read and follow each subreddit community rules before posting; ask moderators first if unclear.</li><li>Be transparent about owning the tool and avoid misleading or hidden-affiliation language.</li><li>Do not target vulnerable users, including mental health or support communities, with promotions.</li></ul>
+        </div>
+        <p><strong>Owner action:</strong> Pick one subreddit, read rules/sidebar, and post only if self-made tool or feedback posts are allowed; ask moderators first if unclear.</p>
+        <p><strong>Stop line:</strong> No link drops, DMs, vote requests, repeated cross-posting, sockpuppets, or hidden affiliation.</p>
+      </article>
+<article class="channel">
+        <header>
+          <h3>Product Hunt</h3>
+          <p class="meta">prepare_only · <a href="https://www.producthunt.com/launch">source rules</a></p>
+        </header>
+        <div>
+          <strong>Draft title</strong>
+          <div class="actions"><button type="button" data-copy-target="product_hunt-title">Copy title</button></div>
+          <pre id="product_hunt-title">Find buyer hesitation in digital product pages before sending traffic.</pre>
+        </div>
+        <div>
+          <strong>Draft body</strong>
+          <div class="actions"><button type="button" data-copy-target="product_hunt-body">Copy body</button></div>
+          <pre id="product_hunt-body">I built Listing Friction Grader to make product page review faster for solo digital product sellers.
+
+Paste the rough parts of a listing, get a friction score, and see the next three copy fixes. Scoring happens in the browser, and drafts stay local.
+
+The goal is not to predict sales. It is a practical checklist for offer clarity, buyer fit, proof, risk boundaries, and CTA quality.</pre>
+        </div>
+        <div>
+          <strong>Rule guardrails</strong>
+          <ul><li>Owner submits through the Product Hunt launch flow after manual account review.</li><li>Do not ask for Product Hunt upvotes.</li><li>Do not ask for upvotes; visits and comments are the only conservative outreach ask.</li></ul>
+        </div>
+        <p><strong>Owner action:</strong> Prepare assets, maker profile, and launch-day reply coverage before any Product Hunt launch.</p>
+        <p><strong>Stop line:</strong> Product Hunt outreach may ask people to visit and comment, but not to upvote; no mass messaging, bots, incentives, or vote swaps.</p>
+      </article>
+<article class="channel">
+        <header>
+          <h3>SaaSHub</h3>
+          <p class="meta">optional_directory_listing · <a href="https://www.saashub.com/services/submit">source rules</a></p>
+        </header>
+        <div>
+          <strong>Draft title</strong>
+          <div class="actions"><button type="button" data-copy-target="saashub-title">Copy title</button></div>
+          <pre id="saashub-title">Listing Friction Grader</pre>
+        </div>
+        <div>
+          <strong>Draft body</strong>
+          <div class="actions"><button type="button" data-copy-target="saashub-body">Copy body</button></div>
+          <pre id="saashub-body">Listing Friction Grader is a free browser-only tool for reviewing digital product listing copy. It scores offer clarity, target buyer fit, proof, risk/support boundaries, and primary CTA quality, then returns the next three fixes.</pre>
+        </div>
+        <div>
+          <strong>Rule guardrails</strong>
+          <ul><li>SaaSHub does not accept unreleased products, waitlist-only pages, agencies, free subdomains, or non-English products.</li><li>Add categories and competitors before owner submission; missing competitors can slow review.</li><li>Do not pay for promotion, verify a domain, or change account settings without owner approval.</li></ul>
+        </div>
+        <p><strong>Owner action:</strong> Manually decide whether SaaSHub fits the tool category and submit only if the page supports this type of product.</p>
+        <p><strong>Stop line:</strong> No paid promotion or account setup without owner approval.</p>
+      </article></div>
+    </section>
+    <section class="panel">
+      <h2>Analytics fields</h2>
+      <table>
+        <thead><tr><th>Field</th><th>Use</th></tr></thead>
+        <tbody><tr><td data-label="Field"><code>channel</code></td><td data-label="Use">Which channel the owner used.</td></tr>
+<tr><td data-label="Field"><code>submitted_at</code></td><td data-label="Use">Owner-entered date/time of the manual action.</td></tr>
+<tr><td data-label="Field"><code>public_post_url</code></td><td data-label="Use">Public URL after owner posts or submits.</td></tr>
+<tr><td data-label="Field"><code>visits_to_listing_grader</code></td><td data-label="Use">Observed visits to the free tool.</td></tr>
+<tr><td data-label="Field"><code>replies_or_comments</code></td><td data-label="Use">Public discussion or replies.</td></tr>
+<tr><td data-label="Field"><code>qualified_audit_requests</code></td><td data-label="Use">Requests that match the paid audit scope.</td></tr>
+<tr><td data-label="Field"><code>paid_audits</code></td><td data-label="Use">Paid audit count recorded by the owner.</td></tr>
+<tr><td data-label="Field"><code>repeated_objections</code></td><td data-label="Use">Repeated buyer objections or copy issues.</td></tr>
+<tr><td data-label="Field"><code>support_or_refund_questions</code></td><td data-label="Use">Risk signal for Support/Ops review.</td></tr>
+<tr><td data-label="Field"><code>next_action</code></td><td data-label="Use">Conservative next action after reviewing the channel result.</td></tr></tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <h2>OpenClaw department orders</h2>
+      <ul><li>CEO/Strategy keeps this cockpit tied to the Revenue Experiment Loop Board before any new channel expansion.</li>
+<li>Marketing Desk prepares channel-specific drafts and stops at owner-only submission.</li>
+<li>Support/Ops checks source-backed channel rules, no-guarantee language, and no-server-storage wording before owner use.</li>
+<li>Analytics records only owner-entered public metrics after each manual action and routes them to the demand ledger.</li>
+<li>Revenue Ops keeps the paid audit CTA available without turning the free tool into a forced paywall or checkout task.</li></ul>
+    </section>
+    <section class="panel stop">
+      <h2>Owner-only external authority</h2>
+      <ul><li>Owner-only external authority: login, submit, post, comment, DM, email, schedule, pay, or change account settings manually.</li>
+<li>Do not ask for upvotes, comments, votes, support, or engagement manipulation.</li>
+<li>Do not auto-post, scrape, submit, message, or use OpenClaw message commands.</li>
+<li>Do not promise revenue, traffic, conversion, ranking, platform approval, or customer outcomes.</li></ul>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('button[data-copy-target]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target || !navigator.clipboard) return;
+        await navigator.clipboard.writeText(target.textContent);
+        const label = button.textContent;
+        button.textContent = 'Copied';
+        setTimeout(() => { button.textContent = label; }, 1500);
+      });
+    });
+  </script>
+</body>
+</html>

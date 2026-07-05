@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Paste the rough parts of a digital product listing and get a local-only friction score with the next three fixes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Listing Friction Grader" />
+  <meta property="og:description" content="Paste the rough parts of a digital product listing and get a local-only friction score with the next three fixes." />
+  <meta property="og:url" content="https://hankkutw.github.io/openclaw-public-feed/listing-friction-grader-20260704.html" />
+  <meta name="twitter:card" content="summary" />
+  <title>Listing Friction Grader</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, Helvetica, sans-serif;
+      --bg: #f5f6f3;
+      --panel: #ffffff;
+      --text: #17201b;
+      --muted: #5c665f;
+      --line: #d0d8d1;
+      --accent: #2f5d50;
+      --accent-2: #6f5a28;
+      --warn: #7a3f2b;
+      --track: #e3e8e2;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1120px; margin: 0 auto; padding: 22px; }
+    h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 22px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    .sub { color: var(--muted); max-width: 780px; margin: 0; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr); gap: 14px; align-items: start; margin-top: 18px; }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; }
+    .panel + .panel { margin-top: 14px; }
+    .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    label { display: block; font-weight: 700; margin-bottom: 6px; }
+    input, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--text);
+      padding: 10px;
+      font: inherit;
+    }
+    textarea { min-height: 76px; resize: vertical; }
+    button, .button {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      background: var(--accent);
+      color: #fff;
+      padding: 9px 12px;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    button.secondary { background: var(--panel); color: var(--accent-2); border-color: var(--accent-2); }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .score { font-size: 44px; font-weight: 700; margin: 6px 0; }
+    .band { color: var(--muted); margin-top: 0; }
+    .bars { display: grid; gap: 9px; }
+    .bar { display: grid; grid-template-columns: 120px 1fr 44px; gap: 8px; align-items: center; font-size: 13px; }
+    .track { height: 10px; border-radius: 999px; background: var(--track); overflow: hidden; }
+    .fill { display: block; height: 100%; width: 0%; background: var(--accent); }
+    .fixes li { margin: 8px 0; }
+    .notice { border-color: #dec9a4; background: #fff8ea; }
+    .small { color: var(--muted); font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101412;
+        --panel: #171f1b;
+        --text: #eef4ef;
+        --muted: #b2beb6;
+        --line: #33433a;
+        --accent: #75aa96;
+        --accent-2: #dbc27b;
+        --warn: #e0a88b;
+        --track: #29362f;
+      }
+      .notice { background: #241f14; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .layout { grid-template-columns: 1fr; }
+      .panel { padding: 12px; }
+      button, .button { width: 100%; text-align: center; }
+      .bar { grid-template-columns: 92px 1fr 36px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Listing Friction Grader</h1>
+      <p class="sub">Paste the rough parts of a digital product listing and get a local-only friction score with the next three fixes.</p>
+    </header>
+    <div class="layout">
+      <section>
+        <form id="grader-form" class="panel">
+          <h2>Paste listing basics</h2>
+          <div class="row">
+            <div><label for="title">Product title</label><input id="title" name="title" placeholder="AI Product Listing Optimizer Kit" /></div>
+<div><label for="buyer">Target buyer</label><textarea id="buyer" name="buyer" placeholder="Solo Gumroad sellers with one published digital product"></textarea></div>
+<div><label for="promise">Main promise</label><textarea id="promise" name="promise" placeholder="Clarify titles, descriptions, FAQs, and buyer objections before sending traffic"></textarea></div>
+<div><label for="price">Price</label><input id="price" name="price" placeholder="$19" /></div>
+<div><label for="proof">Proof, sample, or example</label><textarea id="proof" name="proof" placeholder="Before/after rewrite examples, screenshots, or sample worksheet"></textarea></div>
+<div><label for="risk">Refund/support boundary</label><textarea id="risk" name="risk" placeholder="What is included, what is not guaranteed, and how support works"></textarea></div>
+<div><label for="cta">Primary CTA</label><textarea id="cta" name="cta" placeholder="Open listing, download sample, or request audit"></textarea></div>
+          </div>
+          <div class="actions">
+            <button type="submit">Grade listing friction</button>
+            <button type="button" class="secondary" id="save-draft">Save local draft</button>
+            <button type="button" class="secondary" id="clear-draft">Clear local draft</button>
+          </div>
+          <p class="small">No server storage. The draft only uses localStorage in this browser.</p>
+        </form>
+        <section class="panel notice">
+          <h2>When to use the paid audit</h2>
+          <p>If the score is below 70 or the same fixes keep appearing, the $79 Digital Product Listing Audit can turn this checklist into rewritten buyer-facing copy.</p>
+          <a class="button" href="https://hankkutw.github.io/openclaw-public-feed/service-revenue-offer-20260704.html">Open Digital Product Listing Audit</a>
+        </section>
+      </section>
+      <aside>
+        <section id="result" class="panel" aria-live="polite">
+          <h2>Friction score</h2>
+          <p class="score" id="score">--</p>
+          <p class="band" id="band">Run the grader to see where the listing creates buyer hesitation.</p>
+          <div class="bars" id="criteria-bars"></div>
+        </section>
+        <section class="panel fixes">
+          <h2>Top fixes</h2>
+          <ol id="fixes"><li>Fill in the listing basics, then grade the page.</li></ol>
+        </section>
+        <section class="panel">
+          <h2>Copy-review boundary</h2>
+          <ul><li>No server storage; scoring happens in the browser.</li>
+<li>Do not promise revenue, conversion, ranking, traffic, platform approval, or customer outcomes.</li>
+<li>Do not scrape, edit, publish, or log into public listings automatically.</li>
+<li>Use the score as a copy-review checklist, not as a prediction model.</li></ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+  <script type="application/json" id="grader-config">{"storageKey":"listing-friction-grader:v1","criteria":[{"id":"clarity","label":"Offer clarity","weight":20,"fix":"Rewrite the title and promise so a buyer can understand the product and outcome in one scan."},{"id":"buyer_fit","label":"Target buyer fit","weight":20,"fix":"Name the target buyer and the exact situation where the product becomes useful."},{"id":"proof","label":"Proof and examples","weight":20,"fix":"Add proof, before/after examples, screenshots, samples, or a worked example before asking for the sale."},{"id":"risk_reversal","label":"Risk and support boundary","weight":20,"fix":"Clarify refund, support, usage, and outcome boundaries without promising sales or platform ranking."},{"id":"cta","label":"Next action","weight":20,"fix":"Make the primary CTA explicit and remove competing next steps."}],"fields":[{"id":"title","label":"Product title","placeholder":"AI Product Listing Optimizer Kit"},{"id":"buyer","label":"Target buyer","placeholder":"Solo Gumroad sellers with one published digital product"},{"id":"promise","label":"Main promise","placeholder":"Clarify titles, descriptions, FAQs, and buyer objections before sending traffic"},{"id":"price","label":"Price","placeholder":"$19"},{"id":"proof","label":"Proof, sample, or example","placeholder":"Before/after rewrite examples, screenshots, or sample worksheet"},{"id":"risk","label":"Refund/support boundary","placeholder":"What is included, what is not guaranteed, and how support works"},{"id":"cta","label":"Primary CTA","placeholder":"Open listing, download sample, or request audit"}]}</script>
+  <script>
+    const config = JSON.parse(document.getElementById('grader-config').textContent);
+    const storageKey = config.storageKey;
+    const form = document.getElementById('grader-form');
+    const scoreEl = document.getElementById('score');
+    const bandEl = document.getElementById('band');
+    const barsEl = document.getElementById('criteria-bars');
+    const fixesEl = document.getElementById('fixes');
+
+    restoreDraft();
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const result = scoreListing(readForm());
+      renderResult(result);
+    });
+
+    document.getElementById('save-draft').addEventListener('click', () => {
+      localStorage.setItem(storageKey, JSON.stringify(readForm()));
+    });
+
+    document.getElementById('clear-draft').addEventListener('click', () => {
+      localStorage.removeItem(storageKey);
+      form.reset();
+      scoreEl.textContent = '--';
+      bandEl.textContent = 'Run the grader to see where the listing creates buyer hesitation.';
+      barsEl.innerHTML = '';
+      fixesEl.innerHTML = '<li>Fill in the listing basics, then grade the page.</li>';
+    });
+
+    function restoreDraft() {
+      try {
+        const draft = JSON.parse(localStorage.getItem(storageKey));
+        if (!draft) return;
+        Object.entries(draft).forEach(([key, value]) => {
+          const field = form.elements[key];
+          if (field) field.value = value;
+        });
+      } catch {}
+    }
+
+    function readForm() {
+      return Object.fromEntries(config.fields.map((field) => [field.id, String(form.elements[field.id]?.value || '').trim()]));
+    }
+
+    function scoreListing(input) {
+      const scores = [
+        criterion('clarity', scoreClarity(input)),
+        criterion('buyer_fit', scoreBuyerFit(input)),
+        criterion('proof', scoreProof(input)),
+        criterion('risk_reversal', scoreRisk(input)),
+        criterion('cta', scoreCta(input))
+      ];
+      const total = Math.round(scores.reduce((sum, item) => sum + item.score, 0));
+      return {
+        total,
+        scores,
+        fixes: scores.toSorted((a, b) => a.score - b.score).slice(0, 3).map((item) => item.fix),
+        band: total >= 80 ? 'Strong listing foundation' : total >= 60 ? 'Review before sending traffic' : 'High friction: fix before promotion'
+      };
+    }
+
+    function criterion(id, score) {
+      const item = config.criteria.find((candidate) => candidate.id === id);
+      return { ...item, score: Math.max(0, Math.min(item.weight, score)) };
+    }
+
+    function scoreClarity(input) {
+      let score = 0;
+      if (wordCount(input.title) >= 3) score += 6;
+      if (wordCount(input.promise) >= 8) score += 9;
+      if (/(title|description|faq|buyer|objection|refund|support|launch|traffic|listing|copy|template|workflow|page)/i.test(input.promise)) score += 5;
+      return score;
+    }
+
+    function scoreBuyerFit(input) {
+      let score = 0;
+      if (wordCount(input.buyer) >= 4) score += 10;
+      if (/(seller|founder|creator|operator|agency|coach|consultant|gumroad|etsy|shopify|solo|freelance)/i.test(input.buyer)) score += 5;
+      if (/(when|with|who|for|before|after|already|published|launch)/i.test(input.buyer)) score += 5;
+      return score;
+    }
+
+    function scoreProof(input) {
+      let score = 0;
+      if (wordCount(input.proof) >= 5) score += 8;
+      if (/(example|sample|screenshot|before|after|case|template|demo|worksheet|checklist)/i.test(input.proof)) score += 8;
+      if (wordCount(input.proof) >= 12) score += 4;
+      return score;
+    }
+
+    function scoreRisk(input) {
+      let score = 0;
+      if (wordCount(input.risk) >= 5) score += 7;
+      if (/(refund|support|boundary|included|not included|not a guarantee|not guarantee|usage|license)/i.test(input.risk)) score += 9;
+      if (!hasOutcomeGuarantee(input.risk)) score += 4;
+      return score;
+    }
+
+    function scoreCta(input) {
+      let score = 0;
+      if (wordCount(input.cta) >= 2) score += 8;
+      if (/(buy|open|download|start|request|book|audit|get|try)/i.test(input.cta)) score += 7;
+      if (wordCount(input.price) > 0) score += 5;
+      return score;
+    }
+
+    function renderResult(result) {
+      scoreEl.textContent = result.total;
+      bandEl.textContent = result.band;
+      barsEl.innerHTML = result.scores.map((item) => {
+        const percent = Math.round((item.score / item.weight) * 100);
+        return '<div class="bar"><span>' + escapeHtml(item.label) + '</span><span class="track"><span class="fill" style="width:' + percent + '%"></span></span><span>' + item.score + '/' + item.weight + '</span></div>';
+      }).join('');
+      fixesEl.innerHTML = result.fixes.map((fix) => '<li>' + escapeHtml(fix) + '</li>').join('');
+    }
+
+    function wordCount(value) {
+      return String(value || '').trim().split(/\s+/).filter(Boolean).length;
+    }
+
+    function hasOutcomeGuarantee(value) {
+      const terms = [
+        ['guaranteed', 'sales'].join(' '),
+        ['guaranteed', 'revenue'].join(' '),
+        ['guaranteed', 'ranking'].join(' '),
+        ['guaranteed', 'conversion'].join(' ')
+      ];
+      return terms.some((term) => new RegExp(term.replace(' ', '\\s+'), 'i').test(String(value || '')));
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+    }
+  </script>
+  <footer style="max-width:1120px;margin:0 auto;padding:0 20px 24px;color:var(--muted);font-size:13px;">
+    <a href="index.html" style="color:var(--accent);">More free tools from the same one-person studio</a>
+  </footer>
+</body>
+</html>

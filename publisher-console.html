@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenClaw 人工上架控制台</title>
+  <style>
+    :root { color-scheme: light dark; font-family: Arial, Helvetica, sans-serif; }
+    body { margin: 0; background: #101418; color: #f3f4f2; }
+    main { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    .sub { color: #a9b3ad; margin: 0 0 18px; }
+    .grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 16px 0 24px; }
+    .tile, .product, .stop, .sprint { border: 1px solid #2f3b42; border-radius: 8px; background: #161d22; padding: 14px; }
+    .tile span { display: block; color: #a9b3ad; font-size: 13px; }
+    .tile strong { font-size: 24px; }
+    .product { margin: 14px 0; }
+    .sprint { border-left: 4px solid #7aa36f; margin: 14px 0; }
+    .sprint h2 { margin: 0 0 8px; font-size: 20px; }
+    .sprint ol { margin: 8px 0 0; padding-left: 20px; }
+    .bundle { border-left: 4px solid #8bd3ff; }
+    .traffic { border-left: 4px solid #d7a8ff; }
+    .product header { display: flex; gap: 14px; justify-content: space-between; align-items: flex-start; }
+    .product h2 { margin: 2px 0 4px; font-size: 20px; }
+    .rank, .meta { margin: 0; color: #a9b3ad; }
+    button { border: 1px solid #7aa36f; border-radius: 6px; background: #203826; color: #e9f6e5; padding: 8px 10px; cursor: pointer; }
+    dl { display: grid; grid-template-columns: minmax(120px, 180px) 1fr; gap: 8px 12px; margin: 14px 0; }
+    dt { color: #a9b3ad; }
+    dd { margin: 0; overflow-wrap: anywhere; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    pre { overflow: auto; max-height: 420px; padding: 12px; border-radius: 6px; background: #0b0f12; border: 1px solid #263139; white-space: pre-wrap; }
+    .stop { border-left: 4px solid #e0b84b; margin-top: 18px; }
+    @media (max-width: 640px) {
+      main { padding: 16px; }
+      .product header, dl { display: block; }
+      button { width: 100%; margin-top: 10px; }
+      dt { margin-top: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>OpenClaw 人工上架控制台</h1>
+    <p class="sub">Generated 2026-07-04T02:56:56.092Z · Batch 20260704</p>
+    <section class="grid" aria-label="Publish batch summary">
+      <article class="tile"><span>Ready-to-publish</span><strong>5</strong></article>
+      <article class="tile"><span>Gross list price</span><strong>$95</strong></article>
+      <article class="tile"><span>Missing upload packs</span><strong>0</strong></article>
+      <article class="tile"><span>Missing handoffs</span><strong>0</strong></article>
+      <article class="tile"><span>Bundle offer</span><strong>$59</strong></article>
+      <article class="tile"><span>Traffic packs</span><strong>5</strong></article>
+    </section>
+    
+    <section class="sprint">
+      <h2>30-minute publish sprint</h2>
+      <ol><li>Start with AI Digital Product Terms &amp; License Kit: copy the upload pack, create the manual listing, upload /home/fairy/openclaw/dist/ai-digital-product-terms-license-kit-v0.1.0.zip, and set $19 after reviewing platform settings.</li>
+<li>Record the public URL with record-portfolio-product immediately after owner publishes.</li>
+<li>After any listing is live, use the matching post-publish traffic pack (5 ready; first: AI Digital Product Terms &amp; License Kit); do not send anything automatically.</li>
+<li>Then prepare the bundle offer after component URLs are reviewed; do not activate bundle mechanics until owner confirms platform settings.</li>
+<li>Owner-only account, payout, tax, refund, and publish controls stay outside this console.</li></ol>
+      </section>
+    
+    <section class="sprint">
+      <h2>Owner publish cockpit index</h2>
+      <p class="sub">Copy-ready owner-only cockpit links for every ready product line; use this as the Revenue Ops command surface before any manual platform work.</p>
+      <p><a href="https://red-mole-94.loca.lt/owner-publish-cockpit-index-20260704.html">https://red-mole-94.loca.lt/owner-publish-cockpit-index-20260704.html</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Owner publish cockpit</h2>
+      <p class="sub">Copy-ready fields, customer ZIP path, SHA-256, and record command for the first owner-only manual listing.</p>
+      <p><a href="https://red-mole-94.loca.lt/owner-publish-cockpit-ai-digital-product-terms-license-kit-20260704.html">https://red-mole-94.loca.lt/owner-publish-cockpit-ai-digital-product-terms-license-kit-20260704.html</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Revenue Ops sprint board</h2>
+      <p class="sub">Prioritized owner-only publish queue for the next Revenue Ops operating cycle.</p>
+      <p><a href="https://red-mole-94.loca.lt/revenue-ops-sprint-20260704.md">https://red-mole-94.loca.lt/revenue-ops-sprint-20260704.md</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>One-person multi-agent order</h2>
+      <p class="sub">OpenClaw departments use this owner-proxy operating order while direct CLI agents remain disabled under the memory guardrail.</p>
+      <p><a href="https://red-mole-94.loca.lt/openclaw-one-person-multi-agent-order-20260704.md">https://red-mole-94.loca.lt/openclaw-one-person-multi-agent-order-20260704.md</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Revenue shopfront</h2>
+      <p class="sub">Buyer-facing product page with live checkout links only for already published products and checkout-pending labels for unreleased kits.</p>
+      <p><a href="https://red-mole-94.loca.lt/revenue-shopfront-20260704.html">https://red-mole-94.loca.lt/revenue-shopfront-20260704.html</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Revenue offer finder</h2>
+      <p class="sub">Buyer-facing intent router that sends visitors to live product listings only and marks unreleased kits as checkout pending.</p>
+      <p><a href="https://red-mole-94.loca.lt/revenue-offer-finder-20260704.html">https://red-mole-94.loca.lt/revenue-offer-finder-20260704.html</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Revenue buyer decision guide</h2>
+      <p class="sub">Buyer-facing comparison guide that helps visitors pick a first kit and only opens checkout for already published products.</p>
+      <p><a href="https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html">https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Live revenue traffic board</h2>
+      <p class="sub">Marketing Desk manual traffic drafts for the three already published Gumroad products and buyer entry pages.</p>
+      <p><a href="https://red-mole-94.loca.lt/live-revenue-traffic-board-20260704.md">https://red-mole-94.loca.lt/live-revenue-traffic-board-20260704.md</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Live revenue traffic cockpit</h2>
+      <p class="sub">Copy-ready HTML cockpit for owner-reviewed manual traffic drafts; no automatic posting or scheduling.</p>
+      <p><a href="https://red-mole-94.loca.lt/live-revenue-traffic-cockpit-20260704.html">https://red-mole-94.loca.lt/live-revenue-traffic-cockpit-20260704.html</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Service revenue offer</h2>
+      <p class="sub">Service-first owner-proxy offer for a $79 Digital Product Listing Audit and $199 cleanup upsell, with OpenClaw department orders.</p>
+      <p><a href="https://red-mole-94.loca.lt/service-revenue-offer-20260704.html">https://red-mole-94.loca.lt/service-revenue-offer-20260704.html</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Service marketing sprint</h2>
+      <p class="sub">14-day service-first marketing plan for qualified inquiries, paid audit validation, manual channel rules, and copy-ready owner-reviewed drafts.</p>
+      <p><a href="https://red-mole-94.loca.lt/service-marketing-sprint-20260704.html">https://red-mole-94.loca.lt/service-marketing-sprint-20260704.html</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Metrics ledger</h2>
+      <p class="sub">After owner publishes and records a public URL, use this ledger to capture 24-hour views, clicks, downloads, purchases, revenue, and support/refund signals.</p>
+      <p><a href="https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md">https://red-mole-94.loca.lt/post-publish-metrics-ledger-20260704.md</a></p>
+    </section>
+    
+    <section class="sprint">
+      <h2>Revenue activation cockpit</h2>
+      <p class="sub">Owner URL backfill commands, matching traffic packs, and 24-hour metrics commands for every ready product.</p>
+      <p><a href="https://red-mole-94.loca.lt/revenue-activation-cockpit-20260704.html">https://red-mole-94.loca.lt/revenue-activation-cockpit-20260704.html</a></p>
+    </section>
+    
+      <section class="product bundle" id="ai-digital-product-launch-ops-bundle">
+        <header>
+          <div>
+            <p class="rank">Bundle</p>
+            <h2>AI Digital Product Launch Ops Bundle</h2>
+            <p class="meta">Bundle price: $59 · Components: 5 · Individual total: $95</p>
+          </div>
+          <button type="button" data-copy-target="bundle-offer-ai-digital-product-launch-ops-bundle" data-copy-label="Copy bundle handoff">Copy bundle handoff</button>
+        </header>
+        <dl>
+          <dt>Bundle price</dt>
+          <dd>$59</dd>
+          <dt>Component total</dt>
+          <dd>$95</dd>
+          <dt>Owner action</dt>
+          <dd>Owner publishes manually after reviewing account, payout, tax, refund, bundle mechanics, and platform settings.</dd>
+          <dt>Handoff URL</dt><dd><a href="https://red-mole-94.loca.lt/bundle-offer-ai-digital-product-launch-ops-20260704.md">https://red-mole-94.loca.lt/bundle-offer-ai-digital-product-launch-ops-20260704.md</a></dd>
+        </dl>
+        <pre id="bundle-offer-ai-digital-product-launch-ops-bundle"># Bundle Offer Handoff - AI Digital Product Launch Ops Bundle
+
+Generated: 2026-07-04T02:56:55.985Z
+Date: 20260704
+Bundle id: ai-digital-product-launch-ops-bundle
+Ready-to-list components: 5
+Individual total: $95
+Bundle price: $59
+Discount vs individual: $36
+
+## Positioning
+
+A higher-AOV manual bundle for global English digital product sellers who want launch, pricing, terms, marketing, email, and metrics templates in one purchase.
+
+## Listing Draft
+
+Title: AI Digital Product Launch Ops Bundle
+
+Short description: A copy-paste toolkit bundle for planning, listing, launching, supporting, and iterating small digital products without promising revenue, traffic, ranking, or conversion outcomes.
+
+## Components
+
+| Rank | Product | Price | Package | Listing Copy | Dependency |
+| --- | --- | ---: | --- | --- | --- |
+| 1 | AI Digital Product Terms &amp; License Kit | $19 | /home/fairy/openclaw/dist/ai-digital-product-terms-license-kit-v0.1.0.zip | products/ai-digital-product-terms-license-kit/08-listing-copy.md | Publish or attach ai-digital-product-terms-license-kit before activating the bundle. |
+| 2 | AI Digital Product Pricing Strategy Kit | $19 | /home/fairy/openclaw/dist/ai-digital-product-pricing-strategy-kit-v0.1.0.zip | products/ai-digital-product-pricing-strategy-kit/08-listing-copy.md | Publish or attach ai-digital-product-pricing-strategy-kit before activating the bundle. |
+| 3 | AI Digital Product Marketing Playbook Kit | $19 | /home/fairy/openclaw/dist/ai-digital-product-marketing-playbook-kit-v0.1.0.zip | products/ai-digital-product-marketing-playbook-kit/08-listing-copy.md | Publish or attach ai-digital-product-marketing-playbook-kit before activating the bundle. |
+| 4 | AI Product Launch Email Kit | $19 | /home/fairy/openclaw/dist/ai-product-launch-email-kit-v0.1.0.zip | products/ai-product-launch-email-kit/08-listing-copy.md | Publish or attach ai-product-launch-email-kit before activating the bundle. |
+| 5 | AI Digital Product Metrics &amp; Iteration Kit | $19 | /home/fairy/openclaw/dist/ai-digital-product-metrics-iteration-kit-v0.1.0.zip | products/ai-digital-product-metrics-iteration-kit/09-listing-copy.md | Publish or attach ai-digital-product-metrics-iteration-kit before activating the bundle. |
+
+## Owner Action
+
+- Owner authority required: yes
+- Owner publishes manually after reviewing account, payout, tax, refund, bundle mechanics, and platform settings.
+
+## Upload Instructions
+
+- Create a manual bundle or upsell only after reviewing the platform account and payout settings.
+- Attach the customer ZIP files for every included product, or link to already-published products if the platform supports bundle composition.
+- Use the component listing copy only as draft material; review all public claims before publishing.
+- Record each public component URL with record-portfolio-product before treating the bundle as live.
+
+## Strict Stop Line
+
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, bundle, discount, or price settings automatically.
+- Do not promise revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.
+- Do not send posts, DMs, emails, Telegram replies, or public commitments from this handoff.</pre>
+      </section>
+    <section class="sprint traffic-summary">
+<h2>Traffic packs</h2>
+<p class="sub">Manual post-publish drafts and 24-hour review checklists for each ready product line.</p>
+</section>
+
+      <section class="product traffic" id="post-publish-traffic-pack-ai-digital-product-terms-license-kit">
+        <header>
+          <div>
+            <p class="rank">Traffic</p>
+            <h2>Post-Publish Traffic Pack</h2>
+            <p class="meta">AI Digital Product Terms &amp; License Kit · manual 24-hour review</p>
+          </div>
+          <button type="button" data-copy-target="post-publish-traffic-pack-ai-digital-product-terms-license-kit" data-copy-label="Copy traffic pack">Copy traffic pack</button>
+        </header>
+        <dl>
+          <dt>Product</dt>
+          <dd>AI Digital Product Terms &amp; License Kit</dd>
+          <dt>Owner action</dt>
+          <dd>Replace the public listing URL after owner publishes, then manually review every draft before use.</dd>
+          <dt>Handoff URL</dt><dd><a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-terms-license-kit-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-terms-license-kit-20260704.md</a></dd>
+        </dl>
+        <pre id="post-publish-traffic-pack-ai-digital-product-terms-license-kit"># Post-Publish Traffic Pack - AI Digital Product Terms &amp; License Kit
+
+Generated: 2026-07-04T02:56:56.027Z
+Date: 20260704
+Product id: ai-digital-product-terms-license-kit
+Price: $19
+Package: /home/fairy/openclaw/dist/ai-digital-product-terms-license-kit-v0.1.0.zip
+Listing copy: products/ai-digital-product-terms-license-kit/08-listing-copy.md
+
+## Owner Authority
+
+- Owner authority required: yes
+- Replace `&lt;PUBLIC_LISTING_URL&gt;` only after the owner has published the listing and recorded the public URL.
+- Action window: Run after the owner publishes the listing and records the public URL.
+
+## Intent
+
+Manual, evidence-safe post-publish traffic starter for global English digital product buyers.
+
+## Manual Drafts
+
+### Owned Profile
+
+Surface: Owned social profile, founder profile, or product directory profile
+
+```text
+I published AI Digital Product Terms &amp; License Kit for small digital product sellers who need reusable launch and operating templates.
+
+It focuses on clearer listing, delivery, usage, refund, and support boundaries without promising revenue or platform outcomes.
+
+Listing: &lt;PUBLIC_LISTING_URL&gt;
+```
+
+### Product Update
+
+Surface: Product update feed, Gumroad/Ko-fi update, or existing audience note
+
+```text
+New release: AI Digital Product Terms &amp; License Kit.
+
+Use it when you want a practical checklist and copy framework for packaging a digital product before sending buyers to it.
+
+Open the listing here: &lt;PUBLIC_LISTING_URL&gt;
+```
+
+### Email Note
+
+Surface: Opt-in email list only
+
+```text
+Subject: AI Digital Product Terms &amp; License Kit is live
+
+I just published AI Digital Product Terms &amp; License Kit. It is built for operators who want a lightweight way to prepare review-ready product launch materials before sending traffic to a listing.
+
+Listing: &lt;PUBLIC_LISTING_URL&gt;
+
+Only use this if the recipient opted in to product updates.
+```
+
+## 24-hour review
+
+After the 24-hour review, record views, clicks, downloads, purchases, and refunds_or_support_questions for &lt;PUBLIC_LISTING_URL&gt;.
+
+| Metric | What to record |
+| --- | --- |
+| views | Record public listing page views after 24 hours. |
+| clicks | Record visible clicks from the owned post, profile, or email link. |
+| downloads | Record product downloads or free preview downloads if available. |
+| purchases | Record paid purchases only from platform analytics. |
+| refunds_or_support_questions | Record refund requests, confused replies, or support questions. |
+
+## Strict Stop Line
+
+- Do not auto-send, auto-post, or schedule any message from this pack.
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, discount, or price settings automatically.
+- Do not cold DM, scrape contacts, spam communities, or post where self-promotion is prohibited.
+- Do not promise revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.</pre>
+      </section>
+
+      <section class="product traffic" id="post-publish-traffic-pack-ai-digital-product-pricing-strategy-kit">
+        <header>
+          <div>
+            <p class="rank">Traffic</p>
+            <h2>Post-Publish Traffic Pack</h2>
+            <p class="meta">AI Digital Product Pricing Strategy Kit · manual 24-hour review</p>
+          </div>
+          <button type="button" data-copy-target="post-publish-traffic-pack-ai-digital-product-pricing-strategy-kit" data-copy-label="Copy traffic pack">Copy traffic pack</button>
+        </header>
+        <dl>
+          <dt>Product</dt>
+          <dd>AI Digital Product Pricing Strategy Kit</dd>
+          <dt>Owner action</dt>
+          <dd>Replace the public listing URL after owner publishes, then manually review every draft before use.</dd>
+          <dt>Handoff URL</dt><dd><a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-pricing-strategy-kit-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-pricing-strategy-kit-20260704.md</a></dd>
+        </dl>
+        <pre id="post-publish-traffic-pack-ai-digital-product-pricing-strategy-kit"># Post-Publish Traffic Pack - AI Digital Product Pricing Strategy Kit
+
+Generated: 2026-07-04T02:56:56.027Z
+Date: 20260704
+Product id: ai-digital-product-pricing-strategy-kit
+Price: $19
+Package: /home/fairy/openclaw/dist/ai-digital-product-pricing-strategy-kit-v0.1.0.zip
+Listing copy: products/ai-digital-product-pricing-strategy-kit/08-listing-copy.md
+
+## Owner Authority
+
+- Owner authority required: yes
+- Replace `&lt;PUBLIC_LISTING_URL&gt;` only after the owner has published the listing and recorded the public URL.
+- Action window: Run after the owner publishes the listing and records the public URL.
+
+## Intent
+
+Manual, evidence-safe post-publish traffic starter for global English digital product buyers.
+
+## Manual Drafts
+
+### Owned Profile
+
+Surface: Owned social profile, founder profile, or product directory profile
+
+```text
+I published AI Digital Product Pricing Strategy Kit for small digital product sellers who need reusable launch and operating templates.
+
+It focuses on clearer listing, delivery, usage, refund, and support boundaries without promising revenue or platform outcomes.
+
+Listing: &lt;PUBLIC_LISTING_URL&gt;
+```
+
+### Product Update
+
+Surface: Product update feed, Gumroad/Ko-fi update, or existing audience note
+
+```text
+New release: AI Digital Product Pricing Strategy Kit.
+
+Use it when you want a practical checklist and copy framework for packaging a digital product before sending buyers to it.
+
+Open the listing here: &lt;PUBLIC_LISTING_URL&gt;
+```
+
+### Email Note
+
+Surface: Opt-in email list only
+
+```text
+Subject: AI Digital Product Pricing Strategy Kit is live
+
+I just published AI Digital Product Pricing Strategy Kit. It is built for operators who want a lightweight way to prepare review-ready product launch materials before sending traffic to a listing.
+
+Listing: &lt;PUBLIC_LISTING_URL&gt;
+
+Only use this if the recipient opted in to product updates.
+```
+
+## 24-hour review
+
+After the 24-hour review, record views, clicks, downloads, purchases, and refunds_or_support_questions for &lt;PUBLIC_LISTING_URL&gt;.
+
+| Metric | What to record |
+| --- | --- |
+| views | Record public listing page views after 24 hours. |
+| clicks | Record visible clicks from the owned post, profile, or email link. |
+| downloads | Record product downloads or free preview downloads if available. |
+| purchases | Record paid purchases only from platform analytics. |
+| refunds_or_support_questions | Record refund requests, confused replies, or support questions. |
+
+## Strict Stop Line
+
+- Do not auto-send, auto-post, or schedule any message from this pack.
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, discount, or price settings automatically.
+- Do not cold DM, scrape contacts, spam communities, or post where self-promotion is prohibited.
+- Do not promise revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.</pre>
+      </section>
+
+      <section class="product traffic" id="post-publish-traffic-pack-ai-digital-product-marketing-playbook-kit">
+        <header>
+          <div>
+            <p class="rank">Traffic</p>
+            <h2>Post-Publish Traffic Pack</h2>
+            <p class="meta">AI Digital Product Marketing Playbook Kit · manual 24-hour review</p>
+          </div>
+          <button type="button" data-copy-target="post-publish-traffic-pack-ai-digital-product-marketing-playbook-kit" data-copy-label="Copy traffic pack">Copy traffic pack</button>
+        </header>
+        <dl>
+          <dt>Product</dt>
+          <dd>AI Digital Product Marketing Playbook Kit</dd>
+          <dt>Owner action</dt>
+          <dd>Replace the public listing URL after owner publishes, then manually review every draft before use.</dd>
+          <dt>Handoff URL</dt><dd><a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-marketing-playbook-kit-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-marketing-playbook-kit-20260704.md</a></dd>
+        </dl>
+        <pre id="post-publish-traffic-pack-ai-digital-product-marketing-playbook-kit"># Post-Publish Traffic Pack - AI Digital Product Marketing Playbook Kit
+
+Generated: 2026-07-04T02:56:56.027Z
+Date: 20260704
+Product id: ai-digital-product-marketing-playbook-kit
+Price: $19
+Package: /home/fairy/openclaw/dist/ai-digital-product-marketing-playbook-kit-v0.1.0.zip
+Listing copy: products/ai-digital-product-marketing-playbook-kit/08-listing-copy.md
+
+## Owner Authority
+
+- Owner authority required: yes
+- Replace `&lt;PUBLIC_LISTING_URL&gt;` only after the owner has published the listing and recorded the public URL.
+- Action window: Run after the owner publishes the listing and records the public URL.
+
+## Intent
+
+Manual, evidence-safe post-publish traffic starter for global English digital product buyers.
+
+## Manual Drafts
+
+### Owned Profile
+
+Surface: Owned social profile, founder profile, or product directory profile
+
+```text
+I published AI Digital Product Marketing Playbook Kit for small digital product sellers who need reusable launch and operating templates.
+
+It focuses on clearer listing, delivery, usage, refund, and support boundaries without promising revenue or platform outcomes.
+
+Listing: &lt;PUBLIC_LISTING_URL&gt;
+```
+
+### Product Update
+
+Surface: Product update feed, Gumroad/Ko-fi update, or existing audience note
+
+```text
+New release: AI Digital Product Marketing Playbook Kit.
+
+Use it when you want a practical checklist and copy framework for packaging a digital product before sending buyers to it.
+
+Open the listing here: &lt;PUBLIC_LISTING_URL&gt;
+```
+
+### Email Note
+
+Surface: Opt-in email list only
+
+```text
+Subject: AI Digital Product Marketing Playbook Kit is live
+
+I just published AI Digital Product Marketing Playbook Kit. It is built for operators who want a lightweight way to prepare review-ready product launch materials before sending traffic to a listing.
+
+Listing: &lt;PUBLIC_LISTING_URL&gt;
+
+Only use this if the recipient opted in to product updates.
+```
+
+## 24-hour review
+
+After the 24-hour review, record views, clicks, downloads, purchases, and refunds_or_support_questions for &lt;PUBLIC_LISTING_URL&gt;.
+
+| Metric | What to record |
+| --- | --- |
+| views | Record public listing page views after 24 hours. |
+| clicks | Record visible clicks from the owned post, profile, or email link. |
+| downloads | Record product downloads or free preview downloads if available. |
+| purchases | Record paid purchases only from platform analytics. |
+| refunds_or_support_questions | Record refund requests, confused replies, or support questions. |
+
+## Strict Stop Line
+
+- Do not auto-send, auto-post, or schedule any message from this pack.
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, discount, or price settings automatically.
+- Do not cold DM, scrape contacts, spam communities, or post where self-promotion is prohibited.
+- Do not promise revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.</pre>
+      </section>
+
+      <section class="product traffic" id="post-publish-traffic-pack-ai-product-launch-email-kit">
+        <header>
+          <div>
+            <p class="rank">Traffic</p>
+            <h2>Post-Publish Traffic Pack</h2>
+            <p class="meta">AI Product Launch Email Kit · manual 24-hour review</p>
+          </div>
+          <button type="button" data-copy-target="post-publish-traffic-pack-ai-product-launch-email-kit" data-copy-label="Copy traffic pack">Copy traffic pack</button>
+        </header>
+        <dl>
+          <dt>Product</dt>
+          <dd>AI Product Launch Email Kit</dd>
+          <dt>Owner action</dt>
+          <dd>Replace the public listing URL after owner publishes, then manually review every draft before use.</dd>
+          <dt>Handoff URL</dt><dd><a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-product-launch-email-kit-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-product-launch-email-kit-20260704.md</a></dd>
+        </dl>
+        <pre id="post-publish-traffic-pack-ai-product-launch-email-kit"># Post-Publish Traffic Pack - AI Product Launch Email Kit
+
+Generated: 2026-07-04T02:56:56.027Z
+Date: 20260704
+Product id: ai-product-launch-email-kit
+Price: $19
+Package: /home/fairy/openclaw/dist/ai-product-launch-email-kit-v0.1.0.zip
+Listing copy: products/ai-product-launch-email-kit/08-listing-copy.md
+
+## Owner Authority
+
+- Owner authority required: yes
+- Replace `&lt;PUBLIC_LISTING_URL&gt;` only after the owner has published the listing and recorded the public URL.
+- Action window: Run after the owner publishes the listing and records the public URL.
+
+## Intent
+
+Manual, evidence-safe post-publish traffic starter for global English digital product buyers.
+
+## Manual Drafts
+
+### Owned Profile
+
+Surface: Owned social profile, founder profile, or product directory profile
+
+```text
+I published AI Product Launch Email Kit for small digital product sellers who need reusable launch and operating templates.
+
+It focuses on clearer listing, delivery, usage, refund, and support boundaries without promising revenue or platform outcomes.
+
+Listing: &lt;PUBLIC_LISTING_URL&gt;
+```
+
+### Product Update
+
+Surface: Product update feed, Gumroad/Ko-fi update, or existing audience note
+
+```text
+New release: AI Product Launch Email Kit.
+
+Use it when you want a practical checklist and copy framework for packaging a digital product before sending buyers to it.
+
+Open the listing here: &lt;PUBLIC_LISTING_URL&gt;
+```
+
+### Email Note
+
+Surface: Opt-in email list only
+
+```text
+Subject: AI Product Launch Email Kit is live
+
+I just published AI Product Launch Email Kit. It is built for operators who want a lightweight way to prepare review-ready product launch materials before sending traffic to a listing.
+
+Listing: &lt;PUBLIC_LISTING_URL&gt;
+
+Only use this if the recipient opted in to product updates.
+```
+
+## 24-hour review
+
+After the 24-hour review, record views, clicks, downloads, purchases, and refunds_or_support_questions for &lt;PUBLIC_LISTING_URL&gt;.
+
+| Metric | What to record |
+| --- | --- |
+| views | Record public listing page views after 24 hours. |
+| clicks | Record visible clicks from the owned post, profile, or email link. |
+| downloads | Record product downloads or free preview downloads if available. |
+| purchases | Record paid purchases only from platform analytics. |
+| refunds_or_support_questions | Record refund requests, confused replies, or support questions. |
+
+## Strict Stop Line
+
+- Do not auto-send, auto-post, or schedule any message from this pack.
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, discount, or price settings automatically.
+- Do not cold DM, scrape contacts, spam communities, or post where self-promotion is prohibited.
+- Do not promise revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.</pre>
+      </section>
+
+      <section class="product traffic" id="post-publish-traffic-pack-ai-digital-product-metrics-iteration-kit">
+        <header>
+          <div>
+            <p class="rank">Traffic</p>
+            <h2>Post-Publish Traffic Pack</h2>
+            <p class="meta">AI Digital Product Metrics &amp; Iteration Kit · manual 24-hour review</p>
+          </div>
+          <button type="button" data-copy-target="post-publish-traffic-pack-ai-digital-product-metrics-iteration-kit" data-copy-label="Copy traffic pack">Copy traffic pack</button>
+        </header>
+        <dl>
+          <dt>Product</dt>
+          <dd>AI Digital Product Metrics &amp; Iteration Kit</dd>
+          <dt>Owner action</dt>
+          <dd>Replace the public listing URL after owner publishes, then manually review every draft before use.</dd>
+          <dt>Handoff URL</dt><dd><a href="https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-metrics-iteration-kit-20260704.md">https://red-mole-94.loca.lt/post-publish-traffic-pack-ai-digital-product-metrics-iteration-kit-20260704.md</a></dd>
+        </dl>
+        <pre id="post-publish-traffic-pack-ai-digital-product-metrics-iteration-kit"># Post-Publish Traffic Pack - AI Digital Product Metrics &amp; Iteration Kit
+
+Generated: 2026-07-04T02:56:56.027Z
+Date: 20260704
+Product id: ai-digital-product-metrics-iteration-kit
+Price: $19
+Package: /home/fairy/openclaw/dist/ai-digital-product-metrics-iteration-kit-v0.1.0.zip
+Listing copy: products/ai-digital-product-metrics-iteration-kit/09-listing-copy.md
+
+## Owner Authority
+
+- Owner authority required: yes
+- Replace `&lt;PUBLIC_LISTING_URL&gt;` only after the owner has published the listing and recorded the public URL.
+- Action window: Run after the owner publishes the listing and records the public URL.
+
+## Intent
+
+Manual, evidence-safe post-publish traffic starter for global English digital product buyers.
+
+## Manual Drafts
+
+### Owned Profile
+
+Surface: Owned social profile, founder profile, or product directory profile
+
+```text
+I published AI Digital Product Metrics &amp; Iteration Kit for small digital product sellers who need reusable launch and operating templates.
+
+It focuses on clearer listing, delivery, usage, refund, and support boundaries without promising revenue or platform outcomes.
+
+Listing: &lt;PUBLIC_LISTING_URL&gt;
+```
+
+### Product Update
+
+Surface: Product update feed, Gumroad/Ko-fi update, or existing audience note
+
+```text
+New release: AI Digital Product Metrics &amp; Iteration Kit.
+
+Use it when you want a practical checklist and copy framework for packaging a digital product before sending buyers to it.
+
+Open the listing here: &lt;PUBLIC_LISTING_URL&gt;
+```
+
+### Email Note
+
+Surface: Opt-in email list only
+
+```text
+Subject: AI Digital Product Metrics &amp; Iteration Kit is live
+
+I just published AI Digital Product Metrics &amp; Iteration Kit. It is built for operators who want a lightweight way to prepare review-ready product launch materials before sending traffic to a listing.
+
+Listing: &lt;PUBLIC_LISTING_URL&gt;
+
+Only use this if the recipient opted in to product updates.
+```
+
+## 24-hour review
+
+After the 24-hour review, record views, clicks, downloads, purchases, and refunds_or_support_questions for &lt;PUBLIC_LISTING_URL&gt;.
+
+| Metric | What to record |
+| --- | --- |
+| views | Record public listing page views after 24 hours. |
+| clicks | Record visible clicks from the owned post, profile, or email link. |
+| downloads | Record product downloads or free preview downloads if available. |
+| purchases | Record paid purchases only from platform analytics. |
+| refunds_or_support_questions | Record refund requests, confused replies, or support questions. |
+
+## Strict Stop Line
+
+- Do not auto-send, auto-post, or schedule any message from this pack.
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, discount, or price settings automatically.
+- Do not cold DM, scrape contacts, spam communities, or post where self-promotion is prohibited.
+- Do not promise revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.</pre>
+      </section>
+    
+      <section class="product" id="ai-digital-product-terms-license-kit">
+        <header>
+          <div>
+            <p class="rank">#1</p>
+            <h2>AI Digital Product Terms &amp; License Kit</h2>
+            <p class="meta">$19 · /home/fairy/openclaw/dist/ai-digital-product-terms-license-kit-v0.1.0.zip</p>
+          </div>
+          <button type="button" data-copy-target="upload-pack-ai-digital-product-terms-license-kit" data-copy-label="Copy upload pack">Copy upload pack</button>
+        </header>
+        <dl>
+          <dt>Upload pack</dt>
+          <dd>docs/inquiry-ops/listing-upload-pack-ai-digital-product-terms-license-kit-20260704.md</dd>
+          <dt>Handoff</dt>
+          <dd>docs/inquiry-ops/revenue-handoff-ai-digital-product-terms-license-kit-20260704.md</dd>
+          <dt>After owner publishes</dt>
+          <dd><code>npm run record-portfolio-product -- --product-id ai-digital-product-terms-license-kit --url &lt;PUBLIC_GUMROAD_OR_KOFI_URL&gt; --gumroad-id &lt;OPTIONAL_GUMROAD_ID&gt;</code></dd>
+        </dl>
+        <pre id="upload-pack-ai-digital-product-terms-license-kit"># Listing Upload Pack - AI Digital Product Terms &amp; License Kit
+
+Generated: 2026-07-04T02:56:01.188Z
+
+## Upload Asset
+
+- Product ID: ai-digital-product-terms-license-kit
+- Package: /home/fairy/openclaw/dist/ai-digital-product-terms-license-kit-v0.1.0.zip
+- SHA-256: a5c6382f5812df02f9ff12f5ea91043ad3e047226ad9c25717953b7be950767f
+- Listing source: products/ai-digital-product-terms-license-kit/08-listing-copy.md
+- Price: $19
+
+## Platform Fields
+
+Title:
+AI Digital Product Terms &amp; License Kit
+
+Subtitle:
+A manual AI prompt kit for drafting clearer digital product terms, refund boundaries, delivery notes, usage rights, and support scope.
+
+Description:
+Before you send traffic to a digital product, buyers need to know what they get, how files are delivered, what usage rights are included, and what support is available.
+
+AI Digital Product Terms &amp; License Kit gives you a manual copy-paste workflow for turning your product facts into plain-language terms, refund and replacement boundaries, delivery notes, usage-rights language, and support-scope copy.
+
+Built for Gumroad, Etsy, Ko-fi, Creative Market, and similar digital product sellers who want clearer buyer-facing terms without setting up software or making legal claims.
+
+This is not legal advice, not platform compliance advice, not an automated messaging tool, and it does not promise refund or dispute outcomes. You review every output before using it.
+
+Related kits:
+- Need buyer support replies after launch? https://sghank.gumroad.com/l/ai-digital-product-support-kit
+- Improve a rough product listing before launch: https://sghank.gumroad.com/l/ai-product-listing-optimizer-kit
+- Need custom-order inquiry replies? https://sghank.gumroad.com/l/ai-inquiry-triage-kit
+
+Includes:
+- Terms builder prompt.
+- Refund, delivery, and usage templates.
+- License scope worksheet.
+- Support boundary checklist.
+- Worked examples.
+- Usage and support notes.
+
+Best for:
+- Digital product creators.
+- Prompt kit sellers.
+- Template makers.
+- PDF guide creators.
+- Etsy digital download sellers.
+- Ko-fi shop owners.
+
+Not for:
+- Legal advice.
+- Platform compliance promises.
+- Automatic customer messaging.
+- Refund or dispute handling.
+- Done-for-you policy drafting.
+- Regulated claims.
+
+Launch price:
+$19
+
+Call to action:
+Download the kit and draft clearer buyer-facing terms before sending traffic to your product.
+
+## Owner Checklist
+
+- Copy the fields below into Gumroad or Ko-fi manually.
+- Upload only the customer ZIP shown below.
+- Confirm account, payout, tax, refund, and platform settings before publishing.
+- Owner publishes manually and records the public URL after publishing.
+
+## Strict Stop Line
+
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, or price settings automatically.
+- Do not send posts, DMs, emails, Telegram replies, or public commitments from this pack.
+</pre>
+      </section>
+
+      <section class="product" id="ai-digital-product-pricing-strategy-kit">
+        <header>
+          <div>
+            <p class="rank">#2</p>
+            <h2>AI Digital Product Pricing Strategy Kit</h2>
+            <p class="meta">$19 · /home/fairy/openclaw/dist/ai-digital-product-pricing-strategy-kit-v0.1.0.zip</p>
+          </div>
+          <button type="button" data-copy-target="upload-pack-ai-digital-product-pricing-strategy-kit" data-copy-label="Copy upload pack">Copy upload pack</button>
+        </header>
+        <dl>
+          <dt>Upload pack</dt>
+          <dd>docs/inquiry-ops/listing-upload-pack-ai-digital-product-pricing-strategy-kit-20260704.md</dd>
+          <dt>Handoff</dt>
+          <dd>docs/inquiry-ops/revenue-handoff-ai-digital-product-pricing-strategy-kit-20260704.md</dd>
+          <dt>After owner publishes</dt>
+          <dd><code>npm run record-portfolio-product -- --product-id ai-digital-product-pricing-strategy-kit --url &lt;PUBLIC_GUMROAD_OR_KOFI_URL&gt; --gumroad-id &lt;OPTIONAL_GUMROAD_ID&gt;</code></dd>
+        </dl>
+        <pre id="upload-pack-ai-digital-product-pricing-strategy-kit"># Listing Upload Pack - AI Digital Product Pricing Strategy Kit
+
+Generated: 2026-07-04T02:56:01.366Z
+
+## Upload Asset
+
+- Product ID: ai-digital-product-pricing-strategy-kit
+- Package: /home/fairy/openclaw/dist/ai-digital-product-pricing-strategy-kit-v0.1.0.zip
+- SHA-256: 836b8769e5185c0cd0d880dd6b9f71958bd12f51ae50b2e3f4a28e380e9b6144
+- Listing source: products/ai-digital-product-pricing-strategy-kit/08-listing-copy.md
+- Price: $19
+
+## Platform Fields
+
+Title:
+AI Digital Product Pricing Strategy Kit
+
+Subtitle:
+A manual AI prompt kit for setting clearer pricing, offer tiers, and value-first positioning.
+
+Description:
+If you know your product is good but feel uncertain about pricing, this kit gives you a manual workflow to tighten it before launch.
+
+You get a pricing audit flow, value-tier worksheet, objection handling language, and message templates you can review before using.
+
+Built for digital product sellers on Gumroad, Etsy, Ko-fi, Creative Market, and similar marketplaces who need faster pricing confidence without financial advice claims.
+
+This is not financial or legal advice, not conversion certainty guidance, and not an automatic publishing tool. You review every output before use.
+
+Related kits:
+- Improve your listing first: https://sghank.gumroad.com/l/ai-product-listing-optimizer-kit
+- Build a support workflow for buyer questions: https://sghank.gumroad.com/l/ai-digital-product-support-kit
+- Start with inquiry triage: https://sghank.gumroad.com/l/ai-inquiry-triage-kit
+
+Includes:
+- Pricing audit prompt.
+- Value-bundle worksheet.
+- Objection-handling guide.
+- Offer-message templates.
+- Worked examples.
+- Usage and support notes.
+
+Best for:
+- Solo creators with digital templates, prompts, or guides.
+- Solo creators who offer multiple versions or bundles.
+- Product sellers balancing value and price sensitivity.
+
+Not for:
+- Legal or financial advice.
+- Conversion certainty promises.
+- Automated posting or account actions.
+- Regulated claims.
+
+Launch price:
+$19
+
+Call to action:
+Download the kit and turn your pricing plan into a review-ready, value-based offer.
+
+## Owner Checklist
+
+- Copy the fields below into Gumroad or Ko-fi manually.
+- Upload only the customer ZIP shown below.
+- Confirm account, payout, tax, refund, and platform settings before publishing.
+- Owner publishes manually and records the public URL after publishing.
+
+## Strict Stop Line
+
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, or price settings automatically.
+- Do not send posts, DMs, emails, Telegram replies, or public commitments from this pack.
+</pre>
+      </section>
+
+      <section class="product" id="ai-digital-product-marketing-playbook-kit">
+        <header>
+          <div>
+            <p class="rank">#3</p>
+            <h2>AI Digital Product Marketing Playbook Kit</h2>
+            <p class="meta">$19 · /home/fairy/openclaw/dist/ai-digital-product-marketing-playbook-kit-v0.1.0.zip</p>
+          </div>
+          <button type="button" data-copy-target="upload-pack-ai-digital-product-marketing-playbook-kit" data-copy-label="Copy upload pack">Copy upload pack</button>
+        </header>
+        <dl>
+          <dt>Upload pack</dt>
+          <dd>docs/inquiry-ops/listing-upload-pack-ai-digital-product-marketing-playbook-kit-20260704.md</dd>
+          <dt>Handoff</dt>
+          <dd>docs/inquiry-ops/revenue-handoff-ai-digital-product-marketing-playbook-kit-20260704.md</dd>
+          <dt>After owner publishes</dt>
+          <dd><code>npm run record-portfolio-product -- --product-id ai-digital-product-marketing-playbook-kit --url &lt;PUBLIC_GUMROAD_OR_KOFI_URL&gt; --gumroad-id &lt;OPTIONAL_GUMROAD_ID&gt;</code></dd>
+        </dl>
+        <pre id="upload-pack-ai-digital-product-marketing-playbook-kit"># Listing Upload Pack - AI Digital Product Marketing Playbook Kit
+
+Generated: 2026-07-04T02:56:01.462Z
+
+## Upload Asset
+
+- Product ID: ai-digital-product-marketing-playbook-kit
+- Package: /home/fairy/openclaw/dist/ai-digital-product-marketing-playbook-kit-v0.1.0.zip
+- SHA-256: b6a8d6470a2d0ca47b52d3ab05a0a9632059d5c5fb357575cfafa65c397bbc00
+- Listing source: products/ai-digital-product-marketing-playbook-kit/08-listing-copy.md
+- Price: $19
+
+## Platform Fields
+
+Title:
+AI Digital Product Marketing Playbook Kit
+
+Subtitle:
+A manual, non-spam marketing workflow for global digital creators preparing safe launch distribution.
+
+Description:
+If your launch messaging is ready but your sequence is inconsistent, this kit gives you a structured, review-first workflow for safer distribution.
+
+You get a channel selection prompt, a message blueprint set, worked examples, and a response-sequencing guide you can use before posting.
+
+Built for creators on Gumroad, Etsy, Ko-fi, Creative Market, and niche communities who want cleaner outbound planning without spammy tactics or automation.
+
+This is not an auto-posting service, not a system for making traffic outcomes certain, and not financial, legal, or platform-compliance advice.
+
+Best for:
+- Solo creators with a digital offer who need repeatable launch flow.
+- Makers who want non-spam sequence discipline.
+- One-person operators building safe outbound habits.
+
+Not for:
+- Unreviewed API posting.
+- Traffic outcome promises.
+- Platform bypass tactics.
+
+Launch price:
+$19
+
+Call to action:
+Download the kit and run your launch planning sequence before publishing.
+
+## Owner Checklist
+
+- Copy the fields below into Gumroad or Ko-fi manually.
+- Upload only the customer ZIP shown below.
+- Confirm account, payout, tax, refund, and platform settings before publishing.
+- Owner publishes manually and records the public URL after publishing.
+
+## Strict Stop Line
+
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, or price settings automatically.
+- Do not send posts, DMs, emails, Telegram replies, or public commitments from this pack.
+</pre>
+      </section>
+
+      <section class="product" id="ai-product-launch-email-kit">
+        <header>
+          <div>
+            <p class="rank">#4</p>
+            <h2>AI Product Launch Email Kit</h2>
+            <p class="meta">$19 · /home/fairy/openclaw/dist/ai-product-launch-email-kit-v0.1.0.zip</p>
+          </div>
+          <button type="button" data-copy-target="upload-pack-ai-product-launch-email-kit" data-copy-label="Copy upload pack">Copy upload pack</button>
+        </header>
+        <dl>
+          <dt>Upload pack</dt>
+          <dd>docs/inquiry-ops/listing-upload-pack-ai-product-launch-email-kit-20260704.md</dd>
+          <dt>Handoff</dt>
+          <dd>docs/inquiry-ops/revenue-handoff-ai-product-launch-email-kit-20260704.md</dd>
+          <dt>After owner publishes</dt>
+          <dd><code>npm run record-portfolio-product -- --product-id ai-product-launch-email-kit --url &lt;PUBLIC_GUMROAD_OR_KOFI_URL&gt; --gumroad-id &lt;OPTIONAL_GUMROAD_ID&gt;</code></dd>
+        </dl>
+        <pre id="upload-pack-ai-product-launch-email-kit"># Listing Upload Pack - AI Product Launch Email Kit
+
+Generated: 2026-07-04T02:56:01.446Z
+
+## Upload Asset
+
+- Product ID: ai-product-launch-email-kit
+- Package: /home/fairy/openclaw/dist/ai-product-launch-email-kit-v0.1.0.zip
+- SHA-256: 6d21ab973c2024aaff8577fb590eb8655dd6e9e3f1654e9959030f0c44cef5a7
+- Listing source: products/ai-product-launch-email-kit/08-listing-copy.md
+- Price: $19
+
+## Platform Fields
+
+Title:
+AI Product Launch Email Kit
+
+Subtitle:
+Build a safe, review-ready launch email sequence for global digital product creators.
+
+Description:
+If your product is ready but your launch email sequence is not, this kit gives you a local workflow to create a value-first, non-spam launch flow.
+
+You get a practical sequence framework, subject and message variants, response handling scripts, and support boundaries you can review before sending.
+
+Built for solo digital creators on Gumroad, Ko-fi, Etsy, Creative Market, and similar channels.
+
+What this kit includes:
+- Launch quick-start checklist
+- Email audit prompt and sequence template
+- Email variants and response handling guide
+- Worked examples and usage notes
+
+This is not an automated campaign tool.
+You run the output manually and review everything before sending.
+
+Launch price:
+$19
+
+## Owner Checklist
+
+- Copy the fields below into Gumroad or Ko-fi manually.
+- Upload only the customer ZIP shown below.
+- Confirm account, payout, tax, refund, and platform settings before publishing.
+- Owner publishes manually and records the public URL after publishing.
+
+## Strict Stop Line
+
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, or price settings automatically.
+- Do not send posts, DMs, emails, Telegram replies, or public commitments from this pack.
+</pre>
+      </section>
+
+      <section class="product" id="ai-digital-product-metrics-iteration-kit">
+        <header>
+          <div>
+            <p class="rank">#5</p>
+            <h2>AI Digital Product Metrics &amp; Iteration Kit</h2>
+            <p class="meta">$19 · /home/fairy/openclaw/dist/ai-digital-product-metrics-iteration-kit-v0.1.0.zip</p>
+          </div>
+          <button type="button" data-copy-target="upload-pack-ai-digital-product-metrics-iteration-kit" data-copy-label="Copy upload pack">Copy upload pack</button>
+        </header>
+        <dl>
+          <dt>Upload pack</dt>
+          <dd>docs/inquiry-ops/listing-upload-pack-ai-digital-product-metrics-iteration-kit-20260704.md</dd>
+          <dt>Handoff</dt>
+          <dd>docs/inquiry-ops/revenue-handoff-ai-digital-product-metrics-iteration-kit-20260704.md</dd>
+          <dt>After owner publishes</dt>
+          <dd><code>npm run record-portfolio-product -- --product-id ai-digital-product-metrics-iteration-kit --url &lt;PUBLIC_GUMROAD_OR_KOFI_URL&gt; --gumroad-id &lt;OPTIONAL_GUMROAD_ID&gt;</code></dd>
+        </dl>
+        <pre id="upload-pack-ai-digital-product-metrics-iteration-kit"># Listing Upload Pack - AI Digital Product Metrics &amp; Iteration Kit
+
+Generated: 2026-07-04T02:56:01.577Z
+
+## Upload Asset
+
+- Product ID: ai-digital-product-metrics-iteration-kit
+- Package: /home/fairy/openclaw/dist/ai-digital-product-metrics-iteration-kit-v0.1.0.zip
+- SHA-256: b07f9e0be8a37395305065a39d536441b839dc7fe7995631a83899ae1bdeadb4
+- Listing source: products/ai-digital-product-metrics-iteration-kit/09-listing-copy.md
+- Price: $19
+
+## Platform Fields
+
+Title:
+AI Digital Product Metrics &amp; Iteration Kit
+
+Subtitle:
+Evidence-safe templates for solo creators to record early product signals and choose the next small change.
+
+Description:
+If you have early traffic, sales, support questions, or launch signals but do not know what to change next, this kit gives you a calm review workflow.
+
+You get a signal log, metrics capture prompt, iteration worksheet, change-priority matrix, claims-safety checklist, worked examples, and usage notes.
+
+Built for solo digital product sellers on Gumroad, Ko-fi, Etsy, Creative Market, owned feeds, and niche communities.
+
+This is not analytics consulting, legal advice, platform-compliance advice, and it does not promise growth. It does not connect to accounts, scrape data, publish updates, edit listings, or change payment settings.
+
+Launch price:
+$19
+
+Call to action:
+Download the kit and run your first evidence-safe product review before changing public copy.
+
+## Owner Checklist
+
+- Copy the fields below into Gumroad or Ko-fi manually.
+- Upload only the customer ZIP shown below.
+- Confirm account, payout, tax, refund, and platform settings before publishing.
+- Owner publishes manually and records the public URL after publishing.
+
+## Strict Stop Line
+
+- Do not log in automatically.
+- Do not create, edit, or publish public listings automatically.
+- Do not change account, payout, tax, refund, credential, or price settings automatically.
+- Do not send posts, DMs, emails, Telegram replies, or public commitments from this pack.
+</pre>
+      </section>
+    <section class="stop">
+      <h2>Strict Stop Line</h2>
+      <ul><li>Do not log in automatically.</li>
+<li>Do not create, edit, or publish public listings automatically.</li>
+<li>Do not change account, payout, tax, refund, credential, or price settings automatically.</li>
+<li>Do not send posts, DMs, emails, Telegram replies, or public commitments from this batch.</li></ul>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('button[data-copy-target]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target || !navigator.clipboard) return;
+        await navigator.clipboard.writeText(target.textContent);
+        const label = button.dataset.copyLabel || button.textContent;
+        button.textContent = 'Copied';
+        setTimeout(() => { button.textContent = label; }, 1500);
+      });
+    });
+  </script>
+</body>
+</html>

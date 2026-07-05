@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Anchor - Low-Mood Response Card</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f4ee;
+      --panel: #ffffff;
+      --soft: #e8f0ee;
+      --text: #172123;
+      --muted: #5c686b;
+      --line: #cbd8d5;
+      --accent: #315f65;
+      --accent-2: #8f5d46;
+      --danger: #8b2f3c;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1040px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 20px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    .sub, .small { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr); gap: 14px; align-items: start; margin-top: 16px; }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; margin-top: 14px; }
+    .crisis { border-color: #d9a7af; background: #fff7f5; }
+    .crisis h2, .crisis strong { color: var(--danger); }
+    .segmented { display: flex; gap: 8px; flex-wrap: wrap; }
+    button, .link-button {
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+    button[aria-pressed="true"], button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    .link-button.secondary { background: var(--panel); color: var(--accent); }
+    .plan { background: var(--soft); border-color: #a8c1bd; }
+    .ifline { font-size: 18px; margin: 0 0 10px; }
+    .steps { display: grid; gap: 8px; margin: 12px 0 0; padding: 0; list-style: none; }
+    .steps li { border-left: 4px solid var(--accent); padding: 8px 10px; background: var(--panel); border-radius: 0 6px 6px 0; }
+    .mini-fields { display: grid; gap: 10px; }
+    label { display: block; font-weight: 700; margin-bottom: 6px; }
+    input[type="text"] {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 10px;
+      font: inherit;
+      background: var(--panel);
+      color: var(--text);
+    }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .sources a { overflow-wrap: anywhere; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101517;
+        --panel: #172023;
+        --soft: #1d2b2e;
+        --text: #eef4f2;
+        --muted: #b5c1c0;
+        --line: #334548;
+        --accent: #6ca8ad;
+        --accent-2: #d49b7e;
+        --danger: #f0a0ad;
+      }
+      .crisis { background: #27191d; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .grid { grid-template-columns: 1fr; }
+      button, .link-button { width: 100%; }
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      .controls, .sources, .links, .small.generated { display: none; }
+      main { max-width: none; padding: 0; }
+      .grid { display: block; }
+      .panel { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Low-Mood Response Card</h1>
+      <p class="sub">When starting feels hard, choose your current state and make a three-step local-only response card.</p>
+    </header>
+
+    <section class="panel crisis">
+      <h2>If you are not safe right now</h2>
+      <ul><li><strong>Immediate danger: call your local emergency number now</strong>: If you may act soon, have a plan or means, or need urgent medical help, move away from danger and seek in-person help now.</li>
+        <li><strong>United States: call, text, or chat 988</strong>: The 988 Suicide &amp; Crisis Lifeline offers free, confidential support by call, text, or chat.</li>
+        <li><strong>Canada: call or text 9-8-8</strong>: 9-8-8 provides suicide crisis support across Canada by phone or text, 24 hours a day.</li>
+        <li><strong>United Kingdom and Ireland: call Samaritans at 116 123</strong>: If you need urgent emotional support in the United Kingdom or Ireland, call Samaritans at 116 123 any time.</li>
+        <li><strong>Other countries: Find a Helpline</strong>: Use Find a Helpline to locate verified local emotional support by country, topic, phone, text, or chat.</li>
+        <li><strong>Trusted person: send one short message</strong>: Try: &quot;I do not feel safe being alone right now. Can you stay with me or help me contact support?&quot;</li></ul>
+    </section>
+
+    <div class="grid">
+      <section class="panel controls" aria-labelledby="controls-title">
+        <h2 id="controls-title">Choose your current state</h2>
+        <p class="small">These choices only assemble the card in your browser. Nothing is sent.</p>
+
+        <h3>How much energy is available</h3>
+        <div class="segmented" id="energy-group">
+          <button type="button" data-energy="low" aria-pressed="true">Almost no energy</button>
+          <button type="button" data-energy="medium" aria-pressed="false">Some energy</button>
+          <button type="button" data-energy="supported" aria-pressed="false">Need support first</button>
+        </div>
+
+        <h3>How close support can be</h3>
+        <div class="segmented" id="support-group">
+          <button type="button" data-support="solo" aria-pressed="true">Solo first</button>
+          <button type="button" data-support="text" aria-pressed="false">Can text someone</button>
+          <button type="button" data-support="with_person" aria-pressed="false">Need a real person nearby</button>
+        </div>
+
+        <h3>What this low moment feels like</h3>
+        <div class="segmented" id="cue-group">
+          <button type="button" data-cue="overwhelmed" aria-pressed="true">Overwhelmed</button>
+          <button type="button" data-cue="isolated" aria-pressed="false">Isolated</button>
+          <button type="button" data-cue="numb" aria-pressed="false">Numb</button>
+          <button type="button" data-cue="stuck" aria-pressed="false">Stuck</button>
+        </div>
+
+        <div class="panel mini-fields">
+          <div>
+            <label for="safe-place">Safer place</label>
+            <input id="safe-place" type="text" autocomplete="off" placeholder="Example: living room, front step, staffed store" />
+          </div>
+          <div>
+            <label for="trusted-person">Trusted person</label>
+            <input id="trusted-person" type="text" autocomplete="off" placeholder="Example: a friend name or nickname" />
+          </div>
+        </div>
+
+        <div class="links">
+          <button type="button" class="primary" id="print-card">Print this card</button>
+          <button type="button" id="clear-card">Clear card data</button>
+        </div>
+        <p class="small">This page only uses browser localStorage; no login, upload, or message sending.</p>
+      </section>
+
+      <aside>
+        <section id="plan" class="panel plan" aria-live="polite"></section>
+
+        <section class="panel">
+          <h2>Boundaries</h2>
+          <ul><li>This is not diagnosis, treatment, therapy, crisis care, or medical advice.</li>
+            <li>This card does not detect emergencies and cannot monitor your safety.</li>
+            <li>Any place or trusted-person text stays on this device in browser localStorage.</li>
+            <li>If you feel unsafe, might harm yourself, or do not want to live, use human crisis support first.</li></ul>
+        </section>
+
+        <section class="panel">
+          <h2>Related tools</h2>
+          <div class="links">
+            <a class="link-button" href="mood-anchor-en-20260704.html">Back to Mood Anchor</a>
+            <a class="link-button secondary" href="mood-anchor-support-scripts-en-20260704.html">Open support message scripts</a>
+          </div>
+        </section>
+
+        <section class="panel sources">
+          <h2>Sources</h2>
+          <ul><li><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH Caring for Your Mental Health</a>: Self-care can support mental health and recovery, including body care, relaxing activity, and social connection.</li>
+            <li><a href="https://www.nhs.uk/mental-health/self-help/tips-and-support/cope-with-depression/">NHS How to cope with depression</a>: NHS suggests staying in touch, being gently active, facing avoidance, and avoiding unhelpful coping such as alcohol.</li>
+            <li><a href="https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/five-steps-to-mental-wellbeing/">NHS 5 steps to mental wellbeing</a>: NHS lists connection, activity, attention, learning, and giving as small wellbeing steps.</li>
+            <li><a href="https://988lifeline.org/get-help/what-to-expect/">988 Lifeline - What to Expect</a>: Explains what can happen when contacting 988 in the United States.</li>
+            <li><a href="https://findahelpline.com/">Find a Helpline</a>: Find country-specific phone, text, chat, or WhatsApp emotional-support resources.</li></ul>
+        </section>
+      </aside>
+    </div>
+    <p class="small generated">Generated 2026-07-04T12:10:12.287Z - mood-anchor-low-mood-card-en-20260704.html</p>
+  </main>
+
+  <script type="application/json" id="low-mood-card-config">{"storageKey":"mood-anchor:low-mood-card:en:v1","energyOptions":[{"id":"low","label":"Almost no energy","action":"use the 30-second version"},{"id":"medium","label":"Some energy","action":"use the 2-minute version"},{"id":"supported","label":"Need support first","action":"move near a safer or shared space first"}],"supportOptions":[{"id":"solo","label":"Solo first","action":"make the step small enough to start without willpower"},{"id":"text","label":"Can text someone","action":"send one short message to a trusted person"},{"id":"with_person","label":"Need a real person nearby","action":"ask {trustedPerson} to stay nearby, or move to {safePlace}"}],"cueOptions":[{"id":"overwhelmed","label":"Overwhelmed"},{"id":"isolated","label":"Isolated"},{"id":"numb","label":"Numb"},{"id":"stuck","label":"Stuck"}],"plans":[{"cue":"overwhelmed","ifText":"If my thoughts feel loud or chaotic","steps":["{energy}: put both feet on the floor and exhale slowly three times.","{support}.","Write the next step as one sentence: \"For now, I only need to start the next tiny step.\""]},{"cue":"isolated","ifText":"If I feel isolated and do not want anyone to know","steps":["{energy}: sit a little closer to a door, window, or shared space.","{support}: send a trusted person this: \"I am having a low day. Could you reply with just a period?\"","While waiting, drink water or place one hand on your chest for 30 seconds."]},{"cue":"numb","ifText":"If I feel numb, blank, or unable to care","steps":["{energy}: use one temperature cue, like holding a cup or washing your face.","Name three objects you can see.","{support}."]},{"cue":"stuck","ifText":"If I feel stuck and cannot begin","steps":["{energy}: shrink the task to opening it, standing up, or moving one item.","Stop after that; no extra task is required.","{support}."]}],"ui":{"crisisTitle":"If you are not safe right now","controlsTitle":"Choose your current state","controlsNote":"These choices only assemble the card in your browser. Nothing is sent.","energyTitle":"How much energy is available","supportTitle":"How close support can be","cueTitle":"What this low moment feels like","safePlaceLabel":"Safer place","safePlacePlaceholder":"Example: living room, front step, staffed store","trustedPersonLabel":"Trusted person","trustedPersonPlaceholder":"Example: a friend name or nickname","defaultSafePlace":"a safer or shared space","defaultTrustedPerson":"a trusted person","planTitle":"My three-step response card","ifLabel":"If","thenLabel":"Then I start with these three steps","handoffLine":"If you are still unsafe, or self-harm or not-wanting-to-live thoughts show up, use the crisis resources above.","boundariesTitle":"Boundaries","nextTitle":"Related tools","toolLink":"Back to Mood Anchor","supportScriptsLink":"Open support message scripts","sourcesTitle":"Sources","printLabel":"Print this card","clearLabel":"Clear card data","localOnlyNote":"This page only uses browser localStorage; no login, upload, or message sending.","generatedLabel":"Generated","listSeparator":": "}}</script>
+  <script>
+    const config = JSON.parse(document.getElementById('low-mood-card-config').textContent);
+    const storageKey = config.storageKey;
+    const saved = loadState();
+    let selectedEnergy = saved.energy || 'low';
+    let selectedSupport = saved.support || 'solo';
+    let selectedCue = saved.cue || 'overwhelmed';
+    const safePlace = document.getElementById('safe-place');
+    const trustedPerson = document.getElementById('trusted-person');
+    const plan = document.getElementById('plan');
+
+    safePlace.value = saved.safePlace || '';
+    trustedPerson.value = saved.trustedPerson || '';
+    activate('energy', selectedEnergy);
+    activate('support', selectedSupport);
+    activate('cue', selectedCue);
+    renderPlan();
+
+    document.querySelectorAll('[data-energy]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedEnergy = button.dataset.energy;
+        activate('energy', selectedEnergy);
+        saveState();
+        renderPlan();
+      });
+    });
+    document.querySelectorAll('[data-support]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedSupport = button.dataset.support;
+        activate('support', selectedSupport);
+        saveState();
+        renderPlan();
+      });
+    });
+    document.querySelectorAll('[data-cue]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedCue = button.dataset.cue;
+        activate('cue', selectedCue);
+        saveState();
+        renderPlan();
+      });
+    });
+    safePlace.addEventListener('input', () => { saveState(); renderPlan(); });
+    trustedPerson.addEventListener('input', () => { saveState(); renderPlan(); });
+    document.getElementById('print-card').addEventListener('click', () => window.print());
+    document.getElementById('clear-card').addEventListener('click', () => {
+      localStorage.removeItem(storageKey);
+      selectedEnergy = 'low';
+      selectedSupport = 'solo';
+      selectedCue = 'overwhelmed';
+      safePlace.value = '';
+      trustedPerson.value = '';
+      activate('energy', selectedEnergy);
+      activate('support', selectedSupport);
+      activate('cue', selectedCue);
+      renderPlan();
+    });
+
+    function renderPlan() {
+      const chosen = config.plans.find((item) => item.cue === selectedCue) || config.plans[0];
+      const energy = config.energyOptions.find((item) => item.id === selectedEnergy) || config.energyOptions[0];
+      const support = config.supportOptions.find((item) => item.id === selectedSupport) || config.supportOptions[0];
+      const place = safePlace.value.trim() || config.ui.defaultSafePlace;
+      const person = trustedPerson.value.trim() || config.ui.defaultTrustedPerson;
+      const steps = chosen.steps.map((step) => {
+        return step
+          .replaceAll('{energy}', energy.action)
+          .replaceAll('{support}', support.action)
+          .replaceAll('{safePlace}', place)
+          .replaceAll('{trustedPerson}', person);
+      });
+      plan.innerHTML = [
+        '<h2>' + escapeHtml(config.ui.planTitle) + '</h2>',
+        '<p class="ifline"><strong>' + escapeHtml(config.ui.ifLabel) + '</strong> ' + escapeHtml(chosen.ifText) + '</p>',
+        '<p><strong>' + escapeHtml(config.ui.thenLabel) + '</strong></p>',
+        '<ol class="steps">' + steps.map((step) => '<li>' + escapeHtml(step) + '</li>').join('') + '</ol>',
+        '<p class="small">' + escapeHtml(config.ui.handoffLine) + '</p>'
+      ].join('');
+    }
+
+    function saveState() {
+      localStorage.setItem(storageKey, JSON.stringify({
+        energy: selectedEnergy,
+        support: selectedSupport,
+        cue: selectedCue,
+        safePlace: safePlace.value.trim(),
+        trustedPerson: trustedPerson.value.trim()
+      }));
+    }
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || {};
+      } catch {
+        return {};
+      }
+    }
+
+    function activate(kind, value) {
+      document.querySelectorAll('[data-' + kind + ']').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset[kind] === value));
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+    }
+  </script>
+</body>
+</html>

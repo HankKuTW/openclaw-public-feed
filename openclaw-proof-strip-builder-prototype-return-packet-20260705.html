@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OpenClaw Proof Strip Builder Prototype Return Packet - 20260705</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #5b6678;
+      --line: #d7e0ea;
+      --accent: #235f73;
+      --soft: #eaf3f5;
+      --warn: #8a5206;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); }
+    header { background: var(--soft); border-bottom: 1px solid var(--line); }
+    header > div, main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 32px; line-height: 1.15; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li, td { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    section, article { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+    section { margin: 0 0 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 12px; }
+    .badge { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; font-size: 12px; color: var(--muted); }
+    .warn { border-left: 4px solid var(--warn); }
+    .meta { color: var(--muted); margin: 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    @media (max-width: 780px) {
+      header > div, main { padding: 18px; }
+      h1 { font-size: 26px; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      td { border-bottom: 0; padding: 8px 0; }
+      tr { border-bottom: 1px solid var(--line); padding: 8px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="badge">openclaw_product_studio_returns_proof_strip_builder_static_prototype_codex_reviews</p>
+      <h1>OpenClaw Proof Strip Builder 原型回覆包</h1>
+      <p class="meta">Generated: 2026-07-04T19:15:32.527Z · Public URL: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-return-packet-20260705.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-return-packet-20260705.html</a> · Stable URL: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-return-packet.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-return-packet.html</a></p>
+      <p>OpenClaw 已交回 Proof Strip Builder 的原型契約；Codex 只審核，不直接發布產品實作。</p>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h2>Source Dispatch</h2>
+      <p><code>proof_strip_builder_static_prototype_dispatch</code> · <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-dispatch.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-dispatch.html</a></p>
+      <p>OpenClaw returns a static prototype contract and Codex reviews before any tool build.</p>
+      <p><strong>Status:</strong> <code>contract_ready_for_codex_review</code> · <strong>Owner proxy:</strong> <code>codex_review_before_any_static_tool_build</code></p>
+    </section>
+    <section>
+      <h2>Prototype Contract</h2>
+      <article>
+        <p><strong>Runtime:</strong> <code>single_static_html_optional_local_storage_no_network</code></p>
+        <p><strong>Goal:</strong> A seller can draft a proof strip from public facts in under two minutes.</p>
+        <p><strong>State boundary:</strong> localStorage optional; JSON export is owner-controlled; no server, no network calls, no platform ingestion.</p>
+        <div class="grid">
+          <div><h3>Inputs</h3><ul><li><code>buyer_profile</code></li><li><code>public_result_note</code></li><li><code>proof_type</code></li><li><code>public_proof_note</code></li><li><code>risk_reversal_note</code></li><li><code>owner_review_cta</code></li></ul></div>
+          <div><h3>Components</h3><ul><li><code>input_panel</code></li><li><code>live_preview_panel</code></li><li><code>owner_review_checklist</code></li><li><code>json_export_area</code></li><li><code>privacy_boundary_note</code></li></ul></div>
+          <div><h3>Outputs</h3><ul><li><code>proof_strip_copy</code></li><li><code>trust_block</code></li><li><code>owner_review_checklist</code></li><li><code>json_export</code></li></ul></div>
+        </div>
+      </article>
+    </section>
+    <section>
+      <h2>Department Returns</h2>
+      <div class="grid">
+      <article>
+        <h3>Product Studio QA</h3>
+        <p><strong>Return:</strong> A single static HTML contract is enough for the next OpenClaw build packet: six inputs, preview output, review checklist, and owner-controlled JSON export.</p>
+        <p><strong>Evidence:</strong> No runtime service, account flow, payment flow, platform import, or private data store is needed.</p>
+      </article>
+
+      <article>
+        <h3>UX/RWD</h3>
+        <p><strong>Return:</strong> Use a mobile-first two-column desktop layout that collapses to input, preview, review checklist, and export in that order.</p>
+        <p><strong>Evidence:</strong> First output stays under two minutes because all fields are short and every block can be prefilled with neutral examples.</p>
+      </article>
+
+      <article>
+        <h3>Research Desk</h3>
+        <p><strong>Return:</strong> Proof types are limited to owner-entered public facts: customer quote, screenshot description, usage count, outcome note, before-after note, and credibility caveat.</p>
+        <p><strong>Evidence:</strong> The prototype wording treats proof as seller-provided context, not verified platform evidence or buyer-result certainty.</p>
+      </article>
+
+      <article>
+        <h3>Revenue Ops</h3>
+        <p><strong>Return:</strong> The prototype remains a bridge to Listing Audit demand validation, not a new paid lane.</p>
+        <p><strong>Evidence:</strong> The owner review checklist can surface deeper audit demand without taking checkout, pricing, reply, or account actions.</p>
+      </article>
+
+      <article>
+        <h3>Analytics</h3>
+        <p><strong>Return:</strong> Track only owner-entered aggregate signals: opens, drafts created, copy actions, request-pack clicks, qualified requests, objections, and support questions.</p>
+        <p><strong>Evidence:</strong> No private listing text, customer record, credential, platform export, analytics export, or sensitive Mood Anchor data is collected.</p>
+      </article>
+
+      <article>
+        <h3>Support/Ops</h3>
+        <p><strong>Return:</strong> Approve the contract only while it stays no network, no private storage, no credential handling, and no outcome promises.</p>
+        <p><strong>Evidence:</strong> The next build can be a bounded static file and does not add memory-heavy workers or long-running processes.</p>
+      </article>
+
+      <article>
+        <h3>Marketing Desk</h3>
+        <p><strong>Return:</strong> Wait for Codex review before any public copy; if approved later, describe the tool as a draft helper for owner-reviewed public facts.</p>
+        <p><strong>Evidence:</strong> No public posting, comments, DMs, email, scheduling, checkout, or account changes are delegated.</p>
+      </article></div>
+    </section>
+    <section>
+      <h2>Codex Review Gates</h2>
+      <table>
+        <thead><tr><th>Gate</th><th>Status</th><th>Evidence</th></tr></thead>
+        <tbody>
+      <tr>
+        <td><code>static_contract_scope_gate</code></td>
+        <td>pass</td>
+        <td>The return packet defines one static HTML contract and no product distribution action.</td>
+      </tr>
+
+      <tr>
+        <td><code>first_session_under_two_minutes_gate</code></td>
+        <td>pass</td>
+        <td>The flow is limited to six short owner-entered public fields and four output blocks.</td>
+      </tr>
+
+      <tr>
+        <td><code>privacy_no_network_gate</code></td>
+        <td>pass</td>
+        <td>Optional localStorage and JSON export are the only state paths; no network calls are part of the contract.</td>
+      </tr>
+
+      <tr>
+        <td><code>claims_safety_gate</code></td>
+        <td>pass</td>
+        <td>The contract blocks certainty language for traffic, conversion, ranking, approval, sales, buyer action, productivity, or health outcomes.</td>
+      </tr>
+
+      <tr>
+        <td><code>external_authority_stop_line_gate</code></td>
+        <td>pass</td>
+        <td>External actions stay owner-only: posting, replies, messages, email, checkout, payment, account, credential, price, and platform settings.</td>
+      </tr>
+
+      <tr>
+        <td><code>low_load_gate</code></td>
+        <td>pass</td>
+        <td>No background service, worker, model call, scraping process, or OpenClaw runtime control surface is added.</td>
+      </tr></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Next Order</h2>
+      <article>
+        <p><strong>Expected next packet:</strong> <code>openclaw_proof_strip_builder_static_tool_build_packet</code></p>
+        <p><strong>Condition:</strong> Only after Codex review confirms the return packet stays static, local-first, low-load, and owner-reviewed for external authority.</p>
+        <p><strong>Stop if:</strong> Any proposed build adds network calls, accounts, private data ingestion, platform actions, payment flow, outcome promises, or runtime expansion.</p>
+      </article>
+    </section>
+    <section>
+      <h2>Evidence Links</h2>
+      <ul><li>OpenClaw Proof Strip Builder prototype dispatch: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-dispatch.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-dispatch.html</a></li>
+<li>OpenClaw browser-native seller tool return packet: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-browser-native-seller-tool-return-packet.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-browser-native-seller-tool-return-packet.html</a></li>
+<li>OpenClaw active revenue sprint board: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-active-revenue-sprint-board.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-active-revenue-sprint-board.html</a></li>
+<li>OpenClaw team implementation sprint: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-team-implementation-sprint.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-team-implementation-sprint.html</a></li>
+<li>Listing Friction Grader: <a href="https://hankkutw.github.io/openclaw-public-feed/listing-friction-grader.html">https://hankkutw.github.io/openclaw-public-feed/listing-friction-grader.html</a></li>
+<li>Listing Audit demand-to-reply validation board: <a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-to-reply-validation-board.html">https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-to-reply-validation-board.html</a></li></ul>
+    </section>
+    <section>
+      <h2>Telegram</h2>
+      <article class="warn"><p><strong>pending_manual_delivery</strong>: missing_telegram_bot_token_or_chat_id</p><p>Use direct Telegram Bot API only after token and chat id are configured in a secure local path.</p></article>
+    </section>
+    <section>
+      <h2>Stop Lines</h2>
+      <ul><li>OpenClaw only returned a prototype contract; Codex must review before any static tool build.</li><li>No external authority actions: no login, public posting, comments, DMs, emails, scheduling, checkout, payment, payout, tax, refund, credential, price, or account changes.</li><li>No certainty claims for revenue, traffic, conversion, ranking, platform approval, customer acquisition, productivity, buyer outcomes, or health outcomes.</li><li>No scraping, platform bypassing, private-message imports, credential handling, platform export ingestion, customer-record storage, or sensitive Mood Anchor data collection.</li><li>No OpenClaw runtime command dependence, browser relay dependence, model-proxy build, background worker, or long-running control surface.</li></ul>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Listing Audit Request Pack - 20260704</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, Helvetica, sans-serif;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5b6675;
+      --line: #d4dce7;
+      --accent: #1b6f6a;
+      --warn: #80531f;
+      --soft: #edf6f5;
+      --code: #edf2f7;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.12; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 22px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 18px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); font-weight: 700; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--code); border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+    .sub { margin: 0; color: var(--muted); max-width: 860px; }
+    .links { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+    .links a { border: 1px solid var(--line); border-radius: 6px; background: var(--panel); padding: 9px 11px; text-decoration: none; }
+    .panel, .field, .outcome { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 14px; }
+    .summary { background: var(--soft); margin: 16px 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin: 12px 0 18px; }
+    .field strong, .outcome strong { display: block; margin-bottom: 6px; }
+    .tag { display: inline-block; border-radius: 999px; background: var(--code); color: var(--muted); padding: 4px 8px; font-size: 12px; font-weight: 700; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .warn { border-left: 4px solid var(--warn); }
+    table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    th, td { text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); padding: 10px; }
+    th { color: var(--muted); font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101419;
+        --panel: #171d25;
+        --text: #edf3f7;
+        --muted: #b6c0ca;
+        --line: #344252;
+        --accent: #75b9b4;
+        --warn: #d4ad70;
+        --soft: #132522;
+        --code: #202936;
+      }
+    }
+    @media (max-width: 760px) {
+      main { padding: 16px; }
+      h1 { font-size: 28px; }
+      .links { display: grid; grid-template-columns: 1fr; }
+      .two { grid-template-columns: 1fr; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      tr { border-bottom: 1px solid var(--line); }
+      td { border-bottom: 0; }
+      td::before { content: attr(data-label); display: block; color: var(--muted); font-size: 12px; margin-bottom: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Listing Audit Request Pack</h1>
+      <p class="sub">Generated 2026-07-04T07:42:07.373Z · 20260704</p>
+      <p class="sub">Static buyer and owner handoff for the $79 Digital Product Listing Audit. It helps identify a qualified_audit_request without collecting data, sending messages, or creating checkout actions.</p>
+    </header>
+    <nav class="links" aria-label="Source links">
+      <a href="https://hankkutw.github.io/openclaw-public-feed/listing-friction-grader-20260704.html">Listing Friction Grader</a>
+      <a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-sample-proof-pack-20260704.html">Listing Grader sample proof pack</a>
+      <a href="https://hankkutw.github.io/openclaw-public-feed/service-revenue-offer-20260704.html">Digital Product Listing Audit offer</a>
+      <a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-channel-metrics-ledger-20260704.md">Listing Grader channel metrics ledger</a>
+      <a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-launch-cockpit-20260704.html">Listing Grader launch cockpit</a>
+      <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-opportunity-radar-20260704.md">OpenClaw opportunity radar</a>
+    </nav>
+    <section class="panel summary">
+      <h2>Use this before manual service checkout</h2>
+      <p>Buyer fills the fields locally in their own notes. Owner reviews the request manually, classifies it, and only then decides whether to offer a checkout path.</p>
+    </section>
+    <section>
+      <h2>Buyer readiness fields</h2>
+      <div class="grid"><article class="field">
+        <strong><code>public_listing_url</code></strong>
+        <p>Public listing URL</p>
+        <p>Paste one public English-language product listing URL, or mark it as not published yet.</p>
+        <span class="tag">Required for qualified request</span>
+      </article>
+<article class="field">
+        <strong><code>target_buyer</code></strong>
+        <p>Target buyer</p>
+        <p>Name the buyer and the situation where the product becomes useful.</p>
+        <span class="tag">Required for qualified request</span>
+      </article>
+<article class="field">
+        <strong><code>current_price</code></strong>
+        <p>Current price</p>
+        <p>State the current product price and whether it is fixed, pay-what-you-want, or not set yet.</p>
+        <span class="tag">Required for qualified request</span>
+      </article>
+<article class="field">
+        <strong><code>main_buyer_objection</code></strong>
+        <p>Main buyer objection</p>
+        <p>Describe the strongest hesitation you expect: unclear value, missing proof, price concern, trust issue, or support/refund concern.</p>
+        <span class="tag">Required for qualified request</span>
+      </article>
+<article class="field">
+        <strong><code>desired_rewrite_scope</code></strong>
+        <p>Desired rewrite scope</p>
+        <p>Choose the copy sections that need help: title, short description, long description, proof block, FAQ, CTA, or support/refund boundary.</p>
+        <span class="tag">Required for qualified request</span>
+      </article>
+<article class="field">
+        <strong><code>support_boundary_questions</code></strong>
+        <p>Support boundary questions</p>
+        <p>List any refund, support, license, delivery, or implementation questions that should not be over-promised.</p>
+        <span class="tag">Helpful for scope review</span>
+      </article></div>
+    </section>
+    <section class="two">
+      <div class="panel">
+        <h2>In scope</h2>
+        <ul><li>One English-language digital product listing.</li>
+<li>Buyer clarity, title, short description, long description, proof block, FAQ, CTA, and support/refund boundary wording.</li>
+<li>A concise rewrite and prioritized copy fixes the seller applies manually.</li>
+<li>Owner-reviewed service handoff after scope and availability are confirmed.</li></ul>
+      </div>
+      <div class="panel warn">
+        <h2>Out of scope</h2>
+        <ul><li>No ad management, SEO campaign, marketplace ranking work, or launch management.</li>
+<li>No legal, medical, financial, tax, or platform-policy advice.</li>
+<li>No implementation inside the buyer account, checkout, website, payment processor, or analytics platform.</li>
+<li>No promises about sales, traffic, conversion, approval, ranking, or customer acquisition.</li></ul>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Copy-ready request brief</h2>
+      <pre>Listing Audit Request Brief
+
+public_listing_url:
+target_buyer:
+current_price:
+main_buyer_objection:
+desired_rewrite_scope:
+support_boundary_questions:
+
+I understand this is a manual copy audit for one English-language listing. I am not asking for platform ranking, ad management, implementation, legal review, or sales prediction.</pre>
+    </section>
+    <section>
+      <h2>Owner triage</h2>
+      <table>
+        <thead><tr><th>Outcome</th><th>Rule</th><th>Next action</th></tr></thead>
+        <tbody><tr>
+          <td data-label="Outcome"><code>qualified_audit_request</code><br>Qualified audit request</td>
+          <td data-label="Rule">Accept for manual review when there is one public English-language listing, a clear product type, target buyer, current price, and one specific copy concern.</td>
+          <td data-label="Next action">Owner may manually reply with the service checkout or invoice path after reviewing scope and availability.</td>
+        </tr>
+<tr>
+          <td data-label="Outcome"><code>needs_public_listing_url</code><br>Needs public listing URL</td>
+          <td data-label="Rule">Pause when the buyer has only an idea, private draft, or incomplete landing page.</td>
+          <td data-label="Next action">Ask for a public listing URL or direct them to use Listing Friction Grader locally first.</td>
+        </tr>
+<tr>
+          <td data-label="Outcome"><code>out_of_scope</code><br>Out of scope</td>
+          <td data-label="Rule">Decline or redirect when the request asks for ad management, marketplace ranking, legal review, medical copy, financial advice, implementation, or launch management.</td>
+          <td data-label="Next action">Use a short boundary reply and do not create a custom commitment.</td>
+        </tr>
+<tr>
+          <td data-label="Outcome"><code>owner_review_required</code><br>Owner review required</td>
+          <td data-label="Rule">Hold for owner decision when the product category, claims, refund risk, support burden, or platform rules are unclear.</td>
+          <td data-label="Next action">Record the uncertainty and do not quote, promise turnaround, or accept payment until reviewed.</td>
+        </tr></tbody>
+      </table>
+    </section>
+    <section class="panel">
+      <h2>Metrics handoff</h2>
+      <p>After the owner reviews a request, Analytics records only owner-entered totals in the channel metrics ledger.</p>
+      <ul><li><code>qualified_audit_requests</code></li>
+<li><code>paid_audits</code></li>
+<li><code>repeated_objections</code></li>
+<li><code>support_or_refund_questions</code></li>
+<li><code>owner_review_required_count</code></li></ul>
+    </section>
+    <section class="panel">
+      <h2>OpenClaw department orders</h2>
+      <ul><li>Revenue Ops uses this pack to classify qualified audit requests before changing service checkout or price.</li>
+<li>Marketing Desk may link to this pack in owner-reviewed copy, but must not publish, submit, email, DM, or schedule automatically.</li>
+<li>Analytics records only owner-entered request counts and objections in the channel metrics ledger.</li>
+<li>Support/Ops reviews every unclear request for claim, refund, support, and account-boundary risk.</li></ul>
+    </section>
+    <section class="panel warn">
+      <h2>Strict stop line</h2>
+      <ul><li>No external authority actions: no login, publishing, posting, DMs, emails, scheduling, checkout setup, payout, tax, refund, credential, price, or account changes.</li>
+<li>No certainty-of-revenue, traffic, conversion, ranking, platform approval, customer acquisition, buyer outcomes, turnaround, or availability.</li>
+<li>Do not collect private listing text, sensitive data, credentials, analytics, or customer records on a server.</li>
+<li>Do not use mailto links, forms, scripts, scraping, auto-posting, OpenClaw message commands, relay dependence, or runtime control surfaces.</li>
+<li>Owner manually reviews every request, scope boundary, reply, checkout path, and payment action.</li></ul>
+    </section>
+  </main>
+</body>
+</html>

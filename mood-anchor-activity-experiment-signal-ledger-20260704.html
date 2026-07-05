@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Mood Anchor Activity Experiment Signal Ledger - 20260704</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f6f3;
+      --panel: #ffffff;
+      --text: #17211f;
+      --muted: #5e6965;
+      --line: #cfd9d3;
+      --accent: #285d55;
+      --accent-2: #6e5b23;
+      --danger: #873347;
+      --code: #eef3ef;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.15; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+    .sub { margin: 0; color: var(--muted); }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; margin: 16px 0; }
+    .links a, .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 12px;
+    }
+    .links a { text-decoration: none; font-weight: 700; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 14px; align-items: start; }
+    .panel + .panel { margin-top: 14px; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+    table { width: 100%; min-width: 1060px; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 9px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    th span { display: block; margin-top: 3px; color: var(--muted); font-weight: 400; }
+    input, textarea {
+      width: 100%;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px;
+      font: inherit;
+      color: var(--text);
+      background: var(--panel);
+    }
+    textarea { min-height: 96px; resize: vertical; }
+    .channel { min-width: 180px; }
+    .channel strong { display: block; }
+    .channel span { color: var(--muted); display: block; margin-top: 3px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    button {
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 9px 11px;
+      font: inherit;
+      cursor: pointer;
+    }
+    button.secondary { background: transparent; color: var(--accent); }
+    pre {
+      min-height: 220px;
+      overflow: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 12px;
+      background: var(--code);
+    }
+    .stop { border-left: 4px solid var(--danger); }
+    .small { color: var(--muted); font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101412;
+        --panel: #17201c;
+        --text: #eef6f2;
+        --muted: #b5c0bb;
+        --line: #34443d;
+        --accent: #70aaa0;
+        --accent-2: #d1bd6e;
+        --danger: #ee9aaa;
+        --code: #0f1714;
+      }
+    }
+    @media (max-width: 760px) {
+      main { padding: 16px; }
+      h1 { font-size: 28px; }
+      .grid { grid-template-columns: 1fr; }
+      button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>小活動實驗訊號帳本</h1>
+    <p class="sub">Mood Anchor Activity Experiment Signal Ledger · 20260704 · Owner-entered aggregate only.</p>
+  </header>
+
+  <nav class="links" aria-label="Mood Anchor activity experiment signal ledger links">
+    <a href="https://red-mole-94.loca.lt/mood-anchor-activity-experiment-board-20260704.html">小活動實驗板</a>
+<a href="https://red-mole-94.loca.lt/mood-anchor-activity-experiment-board-en-20260704.html">Activity Experiment Board</a>
+<a href="https://red-mole-94.loca.lt/mood-anchor-validation-ledger-20260704.html">Mood Anchor validation ledger</a>
+<a href="https://red-mole-94.loca.lt/mood-anchor-global-launch-cockpit-20260704.html">Global launch cockpit</a>
+<a href="https://red-mole-94.loca.lt/mood-anchor-feedback-cockpit-20260704.html">Feedback cockpit</a>
+<a href="https://red-mole-94.loca.lt/mood-anchor-ethical-revenue-scout-20260704.html">Ethical revenue scout</a>
+<a href="https://red-mole-94.loca.lt/openclaw-department-command-board-20260704.html">OpenClaw department board</a>
+  </nav>
+
+  <section class="panel stop">
+    <h2>邊界 / Boundaries</h2>
+    <ul><li>Owner-entered aggregate only: record counts and broad themes after the owner observes public surfaces.</li>
+<li>Do not collect private notes, activity history, mood entries, self-harm details, names, emails, handles, exported JSON, or medical details.</li>
+<li>This is not therapy, diagnosis, treatment, crisis counseling, emergency support, or medical advice.</li>
+<li>Do not scrape platforms, use server analytics, auto-post, DM, email, log in, or use OpenClaw message commands.</li>
+<li>Do not treat this ledger as proof of mood improvement, symptom change, safety, traffic, conversion, revenue, or platform approval.</li></ul>
+  </section>
+
+  <div class="grid">
+    <section>
+      <section class="panel">
+        <h2>Aggregate signal input</h2>
+        <p class="small">Only enter owner-observed counts and broad themes. Do not paste private mood notes, activity history, identities, messages, or medical details.</p>
+      </section>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Channel</th>
+              <th><code>activity_board_opens</code><span>小活動實驗板開啟</span></th>
+<th><code>experiments_started</code><span>開始實驗意圖</span></th>
+<th><code>experiments_recorded</code><span>完成或記錄回報</span></th>
+<th><code>return_use_intent</code><span>願意再用</span></th>
+<th><code>privacy_trust_replies</code><span>本機隱私可信</span></th>
+<th><code>supporter_or_team_requests</code><span>支援者或團隊需求</span></th>
+<th><code>unclear_boundary_reports</code><span>用途或安全邊界不清</span></th>
+<th><code>support_risk_observations</code><span>真人支援風險訊號</span></th>
+              <th>Aggregate note</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="channel"><strong>Owned public feed</strong><span>Record aggregate opens observed from the public feed or host dashboard only.</span></td>
+              
+              <td><input data-channel="owned_public_feed" data-metric="activity_board_opens" type="number" min="0" value="0" inputmode="numeric" aria-label="Owned public feed activity_board_opens" /></td>
+
+              <td><input data-channel="owned_public_feed" data-metric="experiments_started" type="number" min="0" value="0" inputmode="numeric" aria-label="Owned public feed experiments_started" /></td>
+
+              <td><input data-channel="owned_public_feed" data-metric="experiments_recorded" type="number" min="0" value="0" inputmode="numeric" aria-label="Owned public feed experiments_recorded" /></td>
+
+              <td><input data-channel="owned_public_feed" data-metric="return_use_intent" type="number" min="0" value="0" inputmode="numeric" aria-label="Owned public feed return_use_intent" /></td>
+
+              <td><input data-channel="owned_public_feed" data-metric="privacy_trust_replies" type="number" min="0" value="0" inputmode="numeric" aria-label="Owned public feed privacy_trust_replies" /></td>
+
+              <td><input data-channel="owned_public_feed" data-metric="supporter_or_team_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="Owned public feed supporter_or_team_requests" /></td>
+
+              <td><input data-channel="owned_public_feed" data-metric="unclear_boundary_reports" type="number" min="0" value="0" inputmode="numeric" aria-label="Owned public feed unclear_boundary_reports" /></td>
+
+              <td><input data-channel="owned_public_feed" data-metric="support_risk_observations" type="number" min="0" value="0" inputmode="numeric" aria-label="Owned public feed support_risk_observations" /></td>
+              <td><textarea data-channel="owned_public_feed" data-note="aggregate" aria-label="Owned public feed aggregate note" placeholder="Aggregate theme only. No private stories, names, handles, medical details, or mood notes."></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="channel"><strong>Show HN</strong><span>Owner-reviewed post only; record aggregate replies and visible questions.</span></td>
+              
+              <td><input data-channel="show_hn" data-metric="activity_board_opens" type="number" min="0" value="0" inputmode="numeric" aria-label="Show HN activity_board_opens" /></td>
+
+              <td><input data-channel="show_hn" data-metric="experiments_started" type="number" min="0" value="0" inputmode="numeric" aria-label="Show HN experiments_started" /></td>
+
+              <td><input data-channel="show_hn" data-metric="experiments_recorded" type="number" min="0" value="0" inputmode="numeric" aria-label="Show HN experiments_recorded" /></td>
+
+              <td><input data-channel="show_hn" data-metric="return_use_intent" type="number" min="0" value="0" inputmode="numeric" aria-label="Show HN return_use_intent" /></td>
+
+              <td><input data-channel="show_hn" data-metric="privacy_trust_replies" type="number" min="0" value="0" inputmode="numeric" aria-label="Show HN privacy_trust_replies" /></td>
+
+              <td><input data-channel="show_hn" data-metric="supporter_or_team_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="Show HN supporter_or_team_requests" /></td>
+
+              <td><input data-channel="show_hn" data-metric="unclear_boundary_reports" type="number" min="0" value="0" inputmode="numeric" aria-label="Show HN unclear_boundary_reports" /></td>
+
+              <td><input data-channel="show_hn" data-metric="support_risk_observations" type="number" min="0" value="0" inputmode="numeric" aria-label="Show HN support_risk_observations" /></td>
+              <td><textarea data-channel="show_hn" data-note="aggregate" aria-label="Show HN aggregate note" placeholder="Aggregate theme only. No private stories, names, handles, medical details, or mood notes."></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="channel"><strong>Product Hunt</strong><span>Owner-reviewed launch only; record aggregate interest and objections.</span></td>
+              
+              <td><input data-channel="product_hunt" data-metric="activity_board_opens" type="number" min="0" value="0" inputmode="numeric" aria-label="Product Hunt activity_board_opens" /></td>
+
+              <td><input data-channel="product_hunt" data-metric="experiments_started" type="number" min="0" value="0" inputmode="numeric" aria-label="Product Hunt experiments_started" /></td>
+
+              <td><input data-channel="product_hunt" data-metric="experiments_recorded" type="number" min="0" value="0" inputmode="numeric" aria-label="Product Hunt experiments_recorded" /></td>
+
+              <td><input data-channel="product_hunt" data-metric="return_use_intent" type="number" min="0" value="0" inputmode="numeric" aria-label="Product Hunt return_use_intent" /></td>
+
+              <td><input data-channel="product_hunt" data-metric="privacy_trust_replies" type="number" min="0" value="0" inputmode="numeric" aria-label="Product Hunt privacy_trust_replies" /></td>
+
+              <td><input data-channel="product_hunt" data-metric="supporter_or_team_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="Product Hunt supporter_or_team_requests" /></td>
+
+              <td><input data-channel="product_hunt" data-metric="unclear_boundary_reports" type="number" min="0" value="0" inputmode="numeric" aria-label="Product Hunt unclear_boundary_reports" /></td>
+
+              <td><input data-channel="product_hunt" data-metric="support_risk_observations" type="number" min="0" value="0" inputmode="numeric" aria-label="Product Hunt support_risk_observations" /></td>
+              <td><textarea data-channel="product_hunt" data-note="aggregate" aria-label="Product Hunt aggregate note" placeholder="Aggregate theme only. No private stories, names, handles, medical details, or mood notes."></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="channel"><strong>Uneed</strong><span>Owner-reviewed submission only; record listing outcome and aggregate signals.</span></td>
+              
+              <td><input data-channel="uneed" data-metric="activity_board_opens" type="number" min="0" value="0" inputmode="numeric" aria-label="Uneed activity_board_opens" /></td>
+
+              <td><input data-channel="uneed" data-metric="experiments_started" type="number" min="0" value="0" inputmode="numeric" aria-label="Uneed experiments_started" /></td>
+
+              <td><input data-channel="uneed" data-metric="experiments_recorded" type="number" min="0" value="0" inputmode="numeric" aria-label="Uneed experiments_recorded" /></td>
+
+              <td><input data-channel="uneed" data-metric="return_use_intent" type="number" min="0" value="0" inputmode="numeric" aria-label="Uneed return_use_intent" /></td>
+
+              <td><input data-channel="uneed" data-metric="privacy_trust_replies" type="number" min="0" value="0" inputmode="numeric" aria-label="Uneed privacy_trust_replies" /></td>
+
+              <td><input data-channel="uneed" data-metric="supporter_or_team_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="Uneed supporter_or_team_requests" /></td>
+
+              <td><input data-channel="uneed" data-metric="unclear_boundary_reports" type="number" min="0" value="0" inputmode="numeric" aria-label="Uneed unclear_boundary_reports" /></td>
+
+              <td><input data-channel="uneed" data-metric="support_risk_observations" type="number" min="0" value="0" inputmode="numeric" aria-label="Uneed support_risk_observations" /></td>
+              <td><textarea data-channel="uneed" data-note="aggregate" aria-label="Uneed aggregate note" placeholder="Aggregate theme only. No private stories, names, handles, medical details, or mood notes."></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="channel"><strong>Reddit</strong><span>Use only communities where self-made tool feedback is allowed.</span></td>
+              
+              <td><input data-channel="reddit" data-metric="activity_board_opens" type="number" min="0" value="0" inputmode="numeric" aria-label="Reddit activity_board_opens" /></td>
+
+              <td><input data-channel="reddit" data-metric="experiments_started" type="number" min="0" value="0" inputmode="numeric" aria-label="Reddit experiments_started" /></td>
+
+              <td><input data-channel="reddit" data-metric="experiments_recorded" type="number" min="0" value="0" inputmode="numeric" aria-label="Reddit experiments_recorded" /></td>
+
+              <td><input data-channel="reddit" data-metric="return_use_intent" type="number" min="0" value="0" inputmode="numeric" aria-label="Reddit return_use_intent" /></td>
+
+              <td><input data-channel="reddit" data-metric="privacy_trust_replies" type="number" min="0" value="0" inputmode="numeric" aria-label="Reddit privacy_trust_replies" /></td>
+
+              <td><input data-channel="reddit" data-metric="supporter_or_team_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="Reddit supporter_or_team_requests" /></td>
+
+              <td><input data-channel="reddit" data-metric="unclear_boundary_reports" type="number" min="0" value="0" inputmode="numeric" aria-label="Reddit unclear_boundary_reports" /></td>
+
+              <td><input data-channel="reddit" data-metric="support_risk_observations" type="number" min="0" value="0" inputmode="numeric" aria-label="Reddit support_risk_observations" /></td>
+              <td><textarea data-channel="reddit" data-note="aggregate" aria-label="Reddit aggregate note" placeholder="Aggregate theme only. No private stories, names, handles, medical details, or mood notes."></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="channel"><strong>Indie Hackers</strong><span>Founder/product feedback framing only; do not use support-community promotion.</span></td>
+              
+              <td><input data-channel="indie_hackers" data-metric="activity_board_opens" type="number" min="0" value="0" inputmode="numeric" aria-label="Indie Hackers activity_board_opens" /></td>
+
+              <td><input data-channel="indie_hackers" data-metric="experiments_started" type="number" min="0" value="0" inputmode="numeric" aria-label="Indie Hackers experiments_started" /></td>
+
+              <td><input data-channel="indie_hackers" data-metric="experiments_recorded" type="number" min="0" value="0" inputmode="numeric" aria-label="Indie Hackers experiments_recorded" /></td>
+
+              <td><input data-channel="indie_hackers" data-metric="return_use_intent" type="number" min="0" value="0" inputmode="numeric" aria-label="Indie Hackers return_use_intent" /></td>
+
+              <td><input data-channel="indie_hackers" data-metric="privacy_trust_replies" type="number" min="0" value="0" inputmode="numeric" aria-label="Indie Hackers privacy_trust_replies" /></td>
+
+              <td><input data-channel="indie_hackers" data-metric="supporter_or_team_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="Indie Hackers supporter_or_team_requests" /></td>
+
+              <td><input data-channel="indie_hackers" data-metric="unclear_boundary_reports" type="number" min="0" value="0" inputmode="numeric" aria-label="Indie Hackers unclear_boundary_reports" /></td>
+
+              <td><input data-channel="indie_hackers" data-metric="support_risk_observations" type="number" min="0" value="0" inputmode="numeric" aria-label="Indie Hackers support_risk_observations" /></td>
+              <td><textarea data-channel="indie_hackers" data-note="aggregate" aria-label="Indie Hackers aggregate note" placeholder="Aggregate theme only. No private stories, names, handles, medical details, or mood notes."></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="channel"><strong>SaaSHub</strong><span>Record listing status and aggregate interest only.</span></td>
+              
+              <td><input data-channel="saashub" data-metric="activity_board_opens" type="number" min="0" value="0" inputmode="numeric" aria-label="SaaSHub activity_board_opens" /></td>
+
+              <td><input data-channel="saashub" data-metric="experiments_started" type="number" min="0" value="0" inputmode="numeric" aria-label="SaaSHub experiments_started" /></td>
+
+              <td><input data-channel="saashub" data-metric="experiments_recorded" type="number" min="0" value="0" inputmode="numeric" aria-label="SaaSHub experiments_recorded" /></td>
+
+              <td><input data-channel="saashub" data-metric="return_use_intent" type="number" min="0" value="0" inputmode="numeric" aria-label="SaaSHub return_use_intent" /></td>
+
+              <td><input data-channel="saashub" data-metric="privacy_trust_replies" type="number" min="0" value="0" inputmode="numeric" aria-label="SaaSHub privacy_trust_replies" /></td>
+
+              <td><input data-channel="saashub" data-metric="supporter_or_team_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="SaaSHub supporter_or_team_requests" /></td>
+
+              <td><input data-channel="saashub" data-metric="unclear_boundary_reports" type="number" min="0" value="0" inputmode="numeric" aria-label="SaaSHub unclear_boundary_reports" /></td>
+
+              <td><input data-channel="saashub" data-metric="support_risk_observations" type="number" min="0" value="0" inputmode="numeric" aria-label="SaaSHub support_risk_observations" /></td>
+              <td><textarea data-channel="saashub" data-note="aggregate" aria-label="SaaSHub aggregate note" placeholder="Aggregate theme only. No private stories, names, handles, medical details, or mood notes."></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="actions">
+        <button type="button" id="save-ledger">Save local draft</button>
+        <button type="button" id="export-ledger">Export JSON</button>
+        <button type="button" id="clear-ledger" class="secondary">Clear local draft</button>
+      </div>
+    </section>
+
+    <aside>
+      <section class="panel">
+        <h2>OpenClaw team directives</h2>
+        <ul><li><strong>Analytics</strong><br>Use this signal ledger for owner-entered aggregate activity-experiment observations only; recommend pause, onboarding iteration, or one more channel pass from recorded signals.</li>
+<li><strong>Product Studio QA</strong><br>Use aggregate objections to improve first-screen copy, activity category labels, local-only explanation, and skip controls before broader sharing.</li>
+<li><strong>Support/Ops</strong><br>Treat any support-risk observation or safety-boundary confusion as a pause signal before Marketing prepares another channel pass.</li></ul>
+      </section>
+      <section class="panel">
+        <h2>Decision rules</h2>
+        <ul><li><strong>support_risk_observations &gt; 0 or unclear_boundary_reports &gt; 0</strong><br>Pause wider sharing and route Product Studio QA plus Support/Ops to clarify safety, crisis-resource, and local-only boundaries.</li>
+<li><strong>activity_board_opens &gt;= 5 and experiments_recorded === 0</strong><br>Revise onboarding, the first suggested activity, and the effort-scale wording before another channel pass.</li>
+<li><strong>experiments_recorded &gt;= 2 and return_use_intent &gt;= 2 and no safety signal</strong><br>Approve one owner-reviewed channel pass with the same non-medical positioning and aggregate measurement fields.</li>
+<li><strong>supporter_or_team_requests &gt;= 2 and no safety signal</strong><br>Route only a local supporter/team concept brief through the ethical revenue scout; do not create checkout or paid listings.</li>
+<li><strong>weak or no aggregate signal</strong><br>Keep Mood Anchor narrow, improve clarity, and do not claim usage, revenue, or health outcomes.</li></ul>
+      </section>
+      <section class="panel">
+        <h2>Summary preview</h2>
+        <pre id="summary-output" aria-live="polite"></pre>
+      </section>
+    </aside>
+  </div>
+</main>
+<script>
+(() => {
+  const config = {"storageKey":"mood-anchor:activity-experiment-signal-ledger:20260704","date":"20260704","title":"Mood Anchor Activity Experiment Signal Ledger","channels":[{"id":"owned_public_feed","label":"Owned public feed"},{"id":"show_hn","label":"Show HN"},{"id":"product_hunt","label":"Product Hunt"},{"id":"uneed","label":"Uneed"},{"id":"reddit","label":"Reddit"},{"id":"indie_hackers","label":"Indie Hackers"},{"id":"saashub","label":"SaaSHub"}],"metricFields":["activity_board_opens","experiments_started","experiments_recorded","return_use_intent","privacy_trust_replies","supporter_or_team_requests","unclear_boundary_reports","support_risk_observations"],"boundaries":["Owner-entered aggregate only: record counts and broad themes after the owner observes public surfaces.","Do not collect private notes, activity history, mood entries, self-harm details, names, emails, handles, exported JSON, or medical details.","This is not therapy, diagnosis, treatment, crisis counseling, emergency support, or medical advice.","Do not scrape platforms, use server analytics, auto-post, DM, email, log in, or use OpenClaw message commands.","Do not treat this ledger as proof of mood improvement, symptom change, safety, traffic, conversion, revenue, or platform approval."],"decisionRules":[{"id":"pause_for_support_risk","condition":"support_risk_observations > 0 or unclear_boundary_reports > 0","outcome":"Pause wider sharing and route Product Studio QA plus Support/Ops to clarify safety, crisis-resource, and local-only boundaries."},{"id":"improve_onboarding","condition":"activity_board_opens >= 5 and experiments_recorded === 0","outcome":"Revise onboarding, the first suggested activity, and the effort-scale wording before another channel pass."},{"id":"one_more_channel_pass","condition":"experiments_recorded >= 2 and return_use_intent >= 2 and no safety signal","outcome":"Approve one owner-reviewed channel pass with the same non-medical positioning and aggregate measurement fields."},{"id":"explore_supporter_angle","condition":"supporter_or_team_requests >= 2 and no safety signal","outcome":"Route only a local supporter/team concept brief through the ethical revenue scout; do not create checkout or paid listings."},{"id":"keep_narrow","condition":"weak or no aggregate signal","outcome":"Keep Mood Anchor narrow, improve clarity, and do not claim usage, revenue, or health outcomes."}]};
+
+  const numberInputs = Array.from(document.querySelectorAll('[data-metric]'));
+  const noteInputs = Array.from(document.querySelectorAll('[data-note]'));
+  const summary = document.getElementById('summary-output');
+  const saveButton = document.getElementById('save-ledger');
+  const exportButton = document.getElementById('export-ledger');
+  const clearButton = document.getElementById('clear-ledger');
+
+  function readRows() {
+    return config.channels.map((channel) => {
+      const metrics = {};
+      for (const field of config.metricFields) {
+        const input = document.querySelector('[data-channel="' + channel.id + '"][data-metric="' + field + '"]');
+        metrics[field] = Math.max(0, Number(input?.value || 0));
+      }
+      const note = document.querySelector('[data-channel="' + channel.id + '"][data-note]')?.value.trim() || '';
+      return { channel_id: channel.id, channel_label: channel.label, metrics, aggregate_note: note };
+    });
+  }
+
+  function buildPayload() {
+    const rows = readRows();
+    const totals = {};
+    for (const field of config.metricFields) totals[field] = 0;
+    for (const row of rows) {
+      for (const field of config.metricFields) totals[field] += row.metrics[field] || 0;
+    }
+    return {
+      title: config.title,
+      date: config.date,
+      generated_at: new Date().toISOString(),
+      boundaries: config.boundaries,
+      totals,
+      rows,
+      decision_rules: config.decisionRules
+    };
+  }
+
+  function renderSummary() {
+    const payload = buildPayload();
+    summary.textContent = JSON.stringify(payload, null, 2);
+    return payload;
+  }
+
+  function saveLedger() {
+    localStorage.setItem(config.storageKey, JSON.stringify(buildPayload()));
+    renderSummary();
+  }
+
+  function loadLedger() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(config.storageKey) || 'null');
+      if (!saved || !Array.isArray(saved.rows)) return;
+      for (const row of saved.rows) {
+        for (const field of config.metricFields) {
+          const input = document.querySelector('[data-channel="' + row.channel_id + '"][data-metric="' + field + '"]');
+          if (input) input.value = row.metrics?.[field] ?? 0;
+        }
+        const note = document.querySelector('[data-channel="' + row.channel_id + '"][data-note]');
+        if (note) note.value = row.aggregate_note || '';
+      }
+    } catch {
+      localStorage.removeItem(config.storageKey);
+    }
+  }
+
+  function exportSignalLedger() {
+    const payload = JSON.stringify(buildPayload(), null, 2);
+    const blob = new Blob([payload + '\n'], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'mood-anchor-activity-experiment-signal-ledger-' + config.date + '.json';
+    document.body.append(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  numberInputs.forEach((input) => input.addEventListener('input', renderSummary));
+  noteInputs.forEach((input) => input.addEventListener('input', renderSummary));
+  saveButton.addEventListener('click', saveLedger);
+  exportButton.addEventListener('click', exportSignalLedger);
+  clearButton.addEventListener('click', () => {
+    localStorage.removeItem(config.storageKey);
+    numberInputs.forEach((input) => { input.value = 0; });
+    noteInputs.forEach((input) => { input.value = ''; });
+    renderSummary();
+  });
+
+  loadLedger();
+  renderSummary();
+})();
+</script>
+</body>
+</html>

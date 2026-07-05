@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Revenue Traffic Cockpit</title>
+  <style>
+    :root { color-scheme: light dark; font-family: Arial, Helvetica, sans-serif; }
+    body { margin: 0; background: #f7f8f5; color: #17201b; }
+    main { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 32px; line-height: 1.1; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 18px; }
+    .sub { color: #526057; margin: 0 0 16px; max-width: 780px; }
+    .summary, .links { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 26px; }
+    .pill { border: 1px solid #c7d0c7; border-radius: 999px; padding: 8px 12px; background: #ffffff; color: #243128; }
+    .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin: 12px 0 28px; }
+    .card, .notice { border: 1px solid #d6ded6; border-radius: 8px; background: #ffffff; overflow: hidden; }
+    .body { padding: 14px; }
+    .meta { color: #637067; margin: 0 0 10px; }
+    .button, button { display: inline-block; border: 1px solid #274f34; border-radius: 6px; background: #274f34; color: #ffffff; padding: 9px 12px; text-decoration: none; cursor: pointer; font: inherit; }
+    .secondary { border-color: #8a956f; background: #ffffff; color: #274f34; }
+    pre { margin: 12px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; background: #eef2ed; border: 1px solid #d6ded6; border-radius: 6px; padding: 12px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 28px; background: #ffffff; border: 1px solid #d6ded6; }
+    th, td { padding: 10px; border-bottom: 1px solid #d6ded6; text-align: left; vertical-align: top; }
+    th { color: #526057; font-size: 13px; }
+    td { overflow-wrap: anywhere; }
+    .notice { padding: 14px; margin-top: 18px; }
+    li { margin: 6px 0; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #101511; color: #eef2ed; }
+      .sub, .meta, th { color: #aeb8b0; }
+      .pill, .card, .notice, table { background: #171f19; border-color: #2f3a32; color: #eef2ed; }
+      th, td, pre { border-color: #2f3a32; }
+      pre { background: #101511; color: #eef2ed; }
+      .secondary { background: #171f19; color: #d7e7d1; border-color: #607064; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 16px; }
+      h1 { font-size: 28px; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      tr { border-bottom: 1px solid #d6ded6; }
+      td::before { content: attr(data-label); display: block; color: #637067; font-size: 12px; margin-bottom: 4px; }
+      button, .button { width: 100%; box-sizing: border-box; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Live Revenue Traffic Cockpit</h1>
+    <p class="sub">Copy-ready manual distribution drafts for already published Gumroad products. Review channel rules before any external use.</p>
+    <section class="summary" aria-label="Traffic summary">
+      <span class="pill">Live products: 3</span>
+      <span class="pill">Manual drafts: 9</span>
+      <span class="pill">Checkout pending: 5</span>
+    </section>
+    <section class="links" aria-label="Buyer entry points">
+      <a class="button secondary" href="https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html">Buyer decision guide</a>
+      <a class="button secondary" href="https://red-mole-94.loca.lt/revenue-offer-finder-20260704.html">Offer finder</a>
+      <a class="button secondary" href="https://red-mole-94.loca.lt/revenue-shopfront-20260704.html">Shopfront</a>
+    </section>
+    <section>
+      <h2>Manual channel candidates</h2>
+      <table>
+        <thead><tr><th>Channel</th><th>Score</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Channel">LinkedIn founder updates</td>
+            <td data-label="Score">78</td>
+            <td data-label="Use">Manual, low-frequency channel after one paid social signal returns.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Channel">Indie Hackers / Maker communities</td>
+            <td data-label="Score">74</td>
+            <td data-label="Use">Use as second phase manual channel after real social test.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Channel">Email newsletter / owned list</td>
+            <td data-label="Score">71</td>
+            <td data-label="Use">Use only when list exists and privacy policy is already in place.</td>
+          </tr></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Live product links</h2>
+      <table>
+        <thead><tr><th>Product</th><th>Price</th><th>Listing</th><th>Fit note</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Product">AI Inquiry Triage Kit for Custom Orders</td>
+            <td data-label="Price">$9</td>
+            <td data-label="Listing"><a href="https://sghank.gumroad.com/l/ai-inquiry-triage-kit">https://sghank.gumroad.com/l/ai-inquiry-triage-kit</a></td>
+            <td data-label="Fit note">custom order intake and buyer message triage</td>
+          </tr>
+
+          <tr>
+            <td data-label="Product">AI Product Listing Optimizer Kit</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Listing"><a href="https://sghank.gumroad.com/l/ai-product-listing-optimizer-kit">https://sghank.gumroad.com/l/ai-product-listing-optimizer-kit</a></td>
+            <td data-label="Fit note">product page clarity and buyer-facing listing improvement</td>
+          </tr>
+
+          <tr>
+            <td data-label="Product">AI Digital Product Support Kit</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Listing"><a href="https://sghank.gumroad.com/l/ai-digital-product-support-kit">https://sghank.gumroad.com/l/ai-digital-product-support-kit</a></td>
+            <td data-label="Fit note">support macros, refund boundaries, and customer issue handling</td>
+          </tr></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Copy-ready drafts</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="body">
+            <p class="meta">LinkedIn founder update, owned profile, or maker update</p>
+            <h3>AI Inquiry Triage Kit for Custom Orders - Founder Update</h3>
+            <p class="meta">Primary link: <a href="https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html">https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html</a></p>
+            <button type="button" data-copy-target="draft-ai-inquiry-triage-kit-founder-update">Copy draft</button>
+            <pre id="draft-ai-inquiry-triage-kit-founder-update">I am packaging a small set of practical AI workflow kits for solo digital product sellers.
+
+If your current bottleneck is custom order intake and buyer message triage, AI Inquiry Triage Kit for Custom Orders is one of the live kits.
+
+Compare the live kits here: https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html
+
+Manual note: review the surface rules before posting.</pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="body">
+            <p class="meta">Owned product update, profile post, or product directory update</p>
+            <h3>AI Inquiry Triage Kit for Custom Orders - Product Note</h3>
+            <p class="meta">Primary link: <a href="https://sghank.gumroad.com/l/ai-inquiry-triage-kit">https://sghank.gumroad.com/l/ai-inquiry-triage-kit</a></p>
+            <button type="button" data-copy-target="draft-ai-inquiry-triage-kit-product-note">Copy draft</button>
+            <pre id="draft-ai-inquiry-triage-kit-product-note">AI Inquiry Triage Kit for Custom Orders is live for digital product sellers who want a reusable operating template.
+
+custom order intake and buyer message triage
+
+Listing: https://sghank.gumroad.com/l/ai-inquiry-triage-kit
+
+This is a manual template kit, not a promise of revenue, traffic, ranking, or platform approval.</pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="body">
+            <p class="meta">Existing opt-in email list only</p>
+            <h3>AI Inquiry Triage Kit for Custom Orders - Opt-In Email Note</h3>
+            <p class="meta">Primary link: <a href="https://red-mole-94.loca.lt/revenue-shopfront-20260704.html">https://red-mole-94.loca.lt/revenue-shopfront-20260704.html</a></p>
+            <button type="button" data-copy-target="draft-ai-inquiry-triage-kit-opt-in-email">Copy draft</button>
+            <pre id="draft-ai-inquiry-triage-kit-opt-in-email">Subject: A practical kit for custom order intake and buyer message triage
+
+I added AI Inquiry Triage Kit for Custom Orders to the live product ops shopfront.
+
+Use it if you want a compact workflow for custom order intake and buyer message triage.
+
+Shopfront: https://red-mole-94.loca.lt/revenue-shopfront-20260704.html
+
+Only send this to people who explicitly opted in to product updates.</pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="body">
+            <p class="meta">LinkedIn founder update, owned profile, or maker update</p>
+            <h3>AI Product Listing Optimizer Kit - Founder Update</h3>
+            <p class="meta">Primary link: <a href="https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html">https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html</a></p>
+            <button type="button" data-copy-target="draft-ai-product-listing-optimizer-kit-founder-update">Copy draft</button>
+            <pre id="draft-ai-product-listing-optimizer-kit-founder-update">I am packaging a small set of practical AI workflow kits for solo digital product sellers.
+
+If your current bottleneck is product page clarity and buyer-facing listing improvement, AI Product Listing Optimizer Kit is one of the live kits.
+
+Compare the live kits here: https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html
+
+Manual note: review the surface rules before posting.</pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="body">
+            <p class="meta">Owned product update, profile post, or product directory update</p>
+            <h3>AI Product Listing Optimizer Kit - Product Note</h3>
+            <p class="meta">Primary link: <a href="https://sghank.gumroad.com/l/ai-product-listing-optimizer-kit">https://sghank.gumroad.com/l/ai-product-listing-optimizer-kit</a></p>
+            <button type="button" data-copy-target="draft-ai-product-listing-optimizer-kit-product-note">Copy draft</button>
+            <pre id="draft-ai-product-listing-optimizer-kit-product-note">AI Product Listing Optimizer Kit is live for digital product sellers who want a reusable operating template.
+
+product page clarity and buyer-facing listing improvement
+
+Listing: https://sghank.gumroad.com/l/ai-product-listing-optimizer-kit
+
+This is a manual template kit, not a promise of revenue, traffic, ranking, or platform approval.</pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="body">
+            <p class="meta">Existing opt-in email list only</p>
+            <h3>AI Product Listing Optimizer Kit - Opt-In Email Note</h3>
+            <p class="meta">Primary link: <a href="https://red-mole-94.loca.lt/revenue-shopfront-20260704.html">https://red-mole-94.loca.lt/revenue-shopfront-20260704.html</a></p>
+            <button type="button" data-copy-target="draft-ai-product-listing-optimizer-kit-opt-in-email">Copy draft</button>
+            <pre id="draft-ai-product-listing-optimizer-kit-opt-in-email">Subject: A practical kit for product page clarity and buyer-facing listing improvement
+
+I added AI Product Listing Optimizer Kit to the live product ops shopfront.
+
+Use it if you want a compact workflow for product page clarity and buyer-facing listing improvement.
+
+Shopfront: https://red-mole-94.loca.lt/revenue-shopfront-20260704.html
+
+Only send this to people who explicitly opted in to product updates.</pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="body">
+            <p class="meta">LinkedIn founder update, owned profile, or maker update</p>
+            <h3>AI Digital Product Support Kit - Founder Update</h3>
+            <p class="meta">Primary link: <a href="https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html">https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html</a></p>
+            <button type="button" data-copy-target="draft-ai-digital-product-support-kit-founder-update">Copy draft</button>
+            <pre id="draft-ai-digital-product-support-kit-founder-update">I am packaging a small set of practical AI workflow kits for solo digital product sellers.
+
+If your current bottleneck is support macros, refund boundaries, and customer issue handling, AI Digital Product Support Kit is one of the live kits.
+
+Compare the live kits here: https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html
+
+Manual note: review the surface rules before posting.</pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="body">
+            <p class="meta">Owned product update, profile post, or product directory update</p>
+            <h3>AI Digital Product Support Kit - Product Note</h3>
+            <p class="meta">Primary link: <a href="https://sghank.gumroad.com/l/ai-digital-product-support-kit">https://sghank.gumroad.com/l/ai-digital-product-support-kit</a></p>
+            <button type="button" data-copy-target="draft-ai-digital-product-support-kit-product-note">Copy draft</button>
+            <pre id="draft-ai-digital-product-support-kit-product-note">AI Digital Product Support Kit is live for digital product sellers who want a reusable operating template.
+
+support macros, refund boundaries, and customer issue handling
+
+Listing: https://sghank.gumroad.com/l/ai-digital-product-support-kit
+
+This is a manual template kit, not a promise of revenue, traffic, ranking, or platform approval.</pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="body">
+            <p class="meta">Existing opt-in email list only</p>
+            <h3>AI Digital Product Support Kit - Opt-In Email Note</h3>
+            <p class="meta">Primary link: <a href="https://red-mole-94.loca.lt/revenue-shopfront-20260704.html">https://red-mole-94.loca.lt/revenue-shopfront-20260704.html</a></p>
+            <button type="button" data-copy-target="draft-ai-digital-product-support-kit-opt-in-email">Copy draft</button>
+            <pre id="draft-ai-digital-product-support-kit-opt-in-email">Subject: A practical kit for support macros, refund boundaries, and customer issue handling
+
+I added AI Digital Product Support Kit to the live product ops shopfront.
+
+Use it if you want a compact workflow for support macros, refund boundaries, and customer issue handling.
+
+Shopfront: https://red-mole-94.loca.lt/revenue-shopfront-20260704.html
+
+Only send this to people who explicitly opted in to product updates.</pre>
+          </div>
+        </article></div>
+    </section>
+    <section>
+      <h2>Checkout-pending products</h2>
+      <table>
+        <thead><tr><th>Product</th><th>Price</th><th>Traffic action</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Product">AI Digital Product Terms &amp; License Kit</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Traffic action">No listing traffic until owner creates checkout URL.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Product">AI Digital Product Pricing Strategy Kit</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Traffic action">No listing traffic until owner creates checkout URL.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Product">AI Digital Product Marketing Playbook Kit</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Traffic action">No listing traffic until owner creates checkout URL.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Product">AI Product Launch Email Kit</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Traffic action">No listing traffic until owner creates checkout URL.</td>
+          </tr>
+
+          <tr>
+            <td data-label="Product">AI Digital Product Metrics &amp; Iteration Kit</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Traffic action">No listing traffic until owner creates checkout URL.</td>
+          </tr></tbody>
+      </table>
+    </section>
+    <section class="notice">
+      <h2>Strict stop line</h2>
+      <ul><li>Do not auto-send, auto-post, schedule, cold DM, scrape contacts, or post where self-promotion is prohibited.</li>
+<li>Do not log in, post, email, DM, or publish from this board automatically.</li>
+<li>Do not change checkout, price, payout, tax, refund, account, credential, or platform settings.</li>
+<li>Do not promise revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.</li>
+<li>Owner must manually review channel rules and every draft before any external use.</li></ul>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('button[data-copy-target]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target || !navigator.clipboard) return;
+        await navigator.clipboard.writeText(target.textContent);
+        const label = button.textContent;
+        button.textContent = 'Copied';
+        setTimeout(() => { button.textContent = label; }, 1500);
+      });
+    });
+  </script>
+</body>
+</html>

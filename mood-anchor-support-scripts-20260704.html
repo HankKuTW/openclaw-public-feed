@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Anchor - 支援訊息草稿</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f4ee;
+      --panel: #ffffff;
+      --soft: #e8f0ee;
+      --text: #172123;
+      --muted: #5c686b;
+      --line: #cbd8d5;
+      --accent: #315f65;
+      --danger: #8b2f3c;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 980px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 20px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    .sub, .small { color: var(--muted); }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; margin-top: 14px; }
+    .crisis { border-color: #d9a7af; background: #fff7f5; }
+    .crisis h2, .crisis strong { color: var(--danger); }
+    .script-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 14px; }
+    .script-card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 12px; display: grid; gap: 8px; }
+    .message { min-height: 116px; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--soft); white-space: pre-wrap; }
+    .copy-script, .link-button {
+      min-height: 40px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: var(--accent);
+      color: #fff;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .link-button.secondary { background: var(--panel); color: var(--accent); }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101517;
+        --panel: #172023;
+        --soft: #1d2b2e;
+        --text: #eef4f2;
+        --muted: #b5c1c0;
+        --line: #334548;
+        --accent: #6ca8ad;
+        --danger: #f0a0ad;
+      }
+      .crisis { background: #27191d; }
+    }
+    @media (max-width: 640px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .copy-script, .link-button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>支援訊息草稿</h1>
+      <p class="sub">低能量、很難開口時，可以先複製一段訊息給可信任的人。</p>
+    </header>
+
+    <section class="panel">
+      <h2>使用前先確認</h2>
+      <p>這一頁只幫你準備文字。請自己選擇要不要複製、貼到哪裡、傳給誰；它不會自動發送，也不會替你聯絡任何人。</p>
+      <ul><li>這不是診斷、治療、危機服務、心理諮商或醫療建議。</li>
+        <li>這一頁不會自動發送訊息，也不會讀取聯絡人、email、DM 或帳號資料。</li>
+        <li>如果你有自傷、想死、或現在不安全的感覺，請先使用真人危機支援。</li></ul>
+    </section>
+
+    <section class="panel crisis">
+      <h2>如果現在不安全</h2>
+      <ul><li><strong>在美國可撥打或傳簡訊 988</strong>：如果你可能傷害自己、覺得撐不住，或需要立即有人陪你說話，請使用 988 Suicide &amp; Crisis Lifeline。</li>
+        <li><strong>有立即生命危險時，聯絡當地緊急服務</strong>：如果你已經有計畫、工具、或可能馬上行動，請離開危險物品並尋求現場協助。</li>
+        <li><strong>聯絡一位可信任的人</strong>：傳送一句簡短訊息：「我現在不太安全，可以陪我一下或幫我找支援嗎？」</li></ul>
+    </section>
+
+    <section aria-labelledby="scripts-title">
+      <h2 id="scripts-title">可複製訊息</h2>
+      <div class="script-grid">
+        <article class="script-card">
+          <h3>想讓人知道你今天很低落</h3>
+          <p class="small">還沒有立即危險，但不想完全一個人撐著。</p>
+          <div class="message">我今天狀態很低，想讓你知道一下。不用立刻回很長，如果你方便，回我一個字或一個表情也可以。</div>
+          <button type="button" class="copy-script" data-copied-label="已複製">複製文字</button>
+        </article>
+        <article class="script-card">
+          <h3>需要有人暫時陪著</h3>
+          <p class="small">你可以傳訊息，但不想一個人待太久。</p>
+          <div class="message">我現在有點撐不住，能不能陪我一下？可以通話、坐在旁邊，或只是在訊息裡跟我保持聯絡。</div>
+          <button type="button" class="copy-script" data-copied-label="已複製">複製文字</button>
+        </article>
+        <article class="script-card">
+          <h3>需要很具體的小幫忙</h3>
+          <p class="small">吃飯、補水、出門、預約或整理下一步變得太難。</p>
+          <div class="message">我現在很難把事情拆小。你可以幫我選一個最小下一步，或提醒我喝水/吃一點東西/離開床邊一下嗎？</div>
+          <button type="button" class="copy-script" data-copied-label="已複製">複製文字</button>
+        </article>
+        <article class="script-card">
+          <h3>現在不太安全</h3>
+          <p class="small">你擔心自己可能傷害自己、失控，或不該一個人待著。</p>
+          <div class="message">我現在不太安全，不想一個人待著。可以請你立刻陪我、幫我聯絡支援，或協助我使用 988/當地緊急資源嗎？</div>
+          <button type="button" class="copy-script" data-copied-label="已複製">複製文字</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>參考來源</h2>
+      <ul><li><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH Caring for Your Mental Health</a>：NIMH 建議在需要時與朋友或家人保持連結，尋求情緒或實際支持。</li>
+        <li><a href="https://988lifeline.org/">988 Suicide &amp; Crisis Lifeline</a>：美國可透過 988 取得 24/7 危機支援。</li>
+        <li><a href="https://988lifeline.org/get-help/what-to-expect/">988 Lifeline - What to Expect</a>：說明聯絡 988 時可能發生的流程。</li>
+        <li><a href="https://www.nhs.uk/mental-health/advice-for-life-situations-and-events/how-to-help-someone-with-depression/">NHS - How to help someone with depression</a>：NHS 建議透過訊息、電話或見面保持聯繫，減少孤立。</li></ul>
+    </section>
+
+    <div class="actions">
+      <a class="link-button secondary" href="mood-anchor-20260704.html">回到 Mood Anchor 工具</a>
+    </div>
+    <p class="small">Generated 2026-07-04T12:10:12.162Z - mood-anchor-support-scripts-20260704.html</p>
+  </main>
+
+  <script>
+    document.querySelectorAll('.copy-script').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const message = button.closest('.script-card')?.querySelector('.message')?.textContent || '';
+        await navigator.clipboard.writeText(message.trim());
+        button.textContent = button.dataset.copiedLabel;
+      });
+    });
+  </script>
+</body>
+</html>

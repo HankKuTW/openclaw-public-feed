@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OpenClaw Revenue Experiment Loop Board - 20260705</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5d6778;
+      --line: #d7e0ea;
+      --blue: #0f5d8f;
+      --green: #0f6b57;
+      --amber: #8a4d08;
+      --code: #eef3f7;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.14; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: 0; }
+    p, li, td { line-height: 1.55; }
+    a { color: var(--blue); overflow-wrap: anywhere; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--code); border-radius: 4px; padding: 2px 4px; }
+    .sub { margin: 0 0 16px; color: var(--muted); }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; margin-bottom: 16px; }
+    .links a, .panel, .lane, .experiment, .dept {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 12px;
+    }
+    .links a { text-decoration: none; font-weight: 700; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 14px; align-items: start; }
+    .lane + .lane, .experiment + .experiment, .dept + .dept, .panel + .panel { margin-top: 12px; }
+    .lane-head, .experiment-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .lane-id, .status { color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+    .pill { display: inline-block; border-radius: 999px; padding: 3px 8px; background: #e2f2ef; color: var(--green); font-size: 12px; font-weight: 700; }
+    .warn { color: var(--amber); font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    textarea {
+      width: 100%;
+      min-height: 220px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      background: var(--panel);
+      color: var(--text);
+      resize: vertical;
+      font: inherit;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    button {
+      border: 1px solid #b8c8da;
+      border-radius: 6px;
+      background: #eaf2f8;
+      color: #14324d;
+      padding: 8px 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    @media (max-width: 780px) {
+      main { padding: 16px; }
+      h1 { font-size: 26px; }
+      .grid { grid-template-columns: 1fr; }
+      .lane-head, .experiment-head { flex-direction: column; }
+      table { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>OpenClaw 收入實驗循環指揮板</h1>
+  <p class="sub">OpenClaw Revenue Experiment Loop Board · 2026-07-04T17:00:26.250Z · 20260705</p>
+  <section class="panel">
+    <h2>Owner-proxy 決策</h2>
+    <p><strong>run_listing_audit_demand_to_reply_loop_first:</strong> Run the Listing Audit demand-to-reply loop first because it is closest to revenue signal without external authority; keep Mood Anchor as a safety-reviewed trust product until aggregate signals are safe.</p>
+    <p class="warn">這是內部指揮面：不登入、不發文、不建立 checkout、不送訊息、不承諾結果。</p>
+  </section>
+  <section>
+    <h2>來源入口</h2>
+    <div class="links"><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-opportunity-radar-20260705.md">OpenClaw opportunity radar</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-autonomous-execution-board.html">OpenClaw autonomous execution board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-daily-owner-proxy-brief-20260705.md">OpenClaw daily owner-proxy brief</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-one-person-multi-agent-order-20260705.md">OpenClaw multi-agent order</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-department-command-board-20260705.html">OpenClaw department command board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-owner-proxy-command-packet-20260705.md">OpenClaw owner-proxy command packet</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-one-person-company-skill-adoption-board-20260705.html">OpenClaw skill adoption board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/one-person-revenue-evidence-refresh-20260705.md">One-person revenue evidence refresh</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/one-person-feasibility-board-20260705.html">One-person feasibility board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-launch-cockpit-20260705.html">Listing Grader launch cockpit</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-ledger-20260705.html">Listing Audit demand ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-owner-reply-handoff-20260705.html">Listing Audit owner reply handoff</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-to-reply-validation-board-20260705.html">Listing Audit demand-to-reply validation board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-channel-metrics-ledger-20260705.md">Listing Grader channel metrics ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en-20260705.html">Mood Anchor English PWA</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-validation-ledger-20260705.html">Mood Anchor validation ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-signal-ledger-20260705.html">Mood Anchor activity experiment signal ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-depression-support-command-board-20260705.html">Mood Anchor depression-support command board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-ethical-revenue-scout-20260705.html">Mood Anchor ethical revenue scout</a></div>
+  </section>
+  <div class="grid">
+    <section>
+      <h2>循環 lane</h2>
+      
+      <article class="lane" data-lane="hypothesis">
+        <div class="lane-head">
+          <h3>假設</h3>
+          <span class="lane-id">hypothesis</span>
+        </div>
+        <p><span class="pill">hypothesis</span></p>
+        <p><strong>Owner signal:</strong> OpenClaw needs a revenue-adjacent move that can proceed without account access.</p>
+        <p><strong>Team action:</strong> State one narrow buyer, one useful free surface, one paid/service path, and one falsifiable signal.</p>
+        <p><strong>Evidence:</strong> Use the opportunity radar and one-person revenue evidence refresh before inventing new inventory.</p>
+        <p><strong>Metric:</strong> hypothesis_ready and source_links_verified.</p>
+      </article>
+
+      <article class="lane" data-lane="asset_readiness">
+        <div class="lane-head">
+          <h3>資產就緒</h3>
+          <span class="lane-id">asset_readiness</span>
+        </div>
+        <p><span class="pill">asset_readiness</span></p>
+        <p><strong>Owner signal:</strong> A department asks whether another product or proof asset should be built.</p>
+        <p><strong>Team action:</strong> Check the Listing Audit proof, request pack, demand ledger, reply handoff, and validation board before adding assets.</p>
+        <p><strong>Evidence:</strong> If the current path is not used, more assets do not prove demand.</p>
+        <p><strong>Metric:</strong> ready_assets_count and unresolved_claim_risk_count.</p>
+      </article>
+
+      <article class="lane" data-lane="channel_draft">
+        <div class="lane-head">
+          <h3>通路草稿</h3>
+          <span class="lane-id">channel_draft</span>
+        </div>
+        <p><span class="pill">channel_draft</span></p>
+        <p><strong>Owner signal:</strong> Marketing wants to move demand generation forward.</p>
+        <p><strong>Team action:</strong> Prepare copy-only channel drafts and owner review notes; do not post, submit, DM, email, schedule, scrape, or automate.</p>
+        <p><strong>Evidence:</strong> Distribution can be prepared locally while the owner keeps external authority.</p>
+        <p><strong>Metric:</strong> owner_review_draft_count and public_post_url_count.</p>
+      </article>
+
+      <article class="lane" data-lane="owner_action_queue">
+        <div class="lane-head">
+          <h3>Owner-only 佇列</h3>
+          <span class="lane-id">owner_action_queue</span>
+        </div>
+        <p><span class="pill">owner_action_queue</span></p>
+        <p><strong>Owner signal:</strong> The next step needs login, public post, platform account, checkout, payment, or reply authority.</p>
+        <p><strong>Team action:</strong> Record the exact owner action, continue local QA, and route the next non-external task back to Codex.</p>
+        <p><strong>Evidence:</strong> The team should not block on the owner for internal routing.</p>
+        <p><strong>Metric:</strong> owner_only_action_count and owner_wait_avoided_count.</p>
+      </article>
+
+      <article class="lane" data-lane="signal_capture">
+        <div class="lane-head">
+          <h3>訊號收集</h3>
+          <span class="lane-id">signal_capture</span>
+        </div>
+        <p><span class="pill">signal_capture</span></p>
+        <p><strong>Owner signal:</strong> The owner has public URLs, observed replies, request classifications, or support-risk observations.</p>
+        <p><strong>Team action:</strong> Record owner-entered aggregate only; do not collect private listing text, customer messages, sensitive mood notes, or analytics logs.</p>
+        <p><strong>Evidence:</strong> A one-person company needs measured signal without scraping or outcome claims.</p>
+        <p><strong>Metric:</strong> qualified_request_count, paid_audit_count, support_risk_count, and mood_anchor_safety_issue_count.</p>
+      </article>
+
+      <article class="lane" data-lane="next_decision">
+        <div class="lane-head">
+          <h3>下一步決策</h3>
+          <span class="lane-id">next_decision</span>
+        </div>
+        <p><span class="pill">next_decision</span></p>
+        <p><strong>Owner signal:</strong> A cycle has enough aggregate evidence or a stop-line issue appears.</p>
+        <p><strong>Team action:</strong> Recommend continue, revise request pack, prepare owner-reviewed reply handoff, pause channel work, or keep Mood Anchor safety-only.</p>
+        <p><strong>Evidence:</strong> Decision gates keep revenue movement tied to actual signal.</p>
+        <p><strong>Metric:</strong> next_decision and decision_reason.</p>
+      </article>
+      <h2>當前實驗</h2>
+      
+      <article class="experiment">
+        <div class="experiment-head">
+          <h3>Listing Audit demand-to-reply validation loop</h3>
+          <span class="status">active_local</span>
+        </div>
+        <p><strong>ID:</strong> <code>listing_audit_demand_to_reply</code></p>
+        <p><strong>Hypothesis:</strong> A free Listing Friction Grader plus synthetic proof and a no-submit request pack can surface qualified audit demand before checkout work.</p>
+        <p><strong>Target signal:</strong> Owner-entered qualified request count, repeated objections, public post URL count, and paid-audit interest if the owner later creates checkout manually.</p>
+        <p><strong>Local assets:</strong></p>
+        <ul><li>Listing Friction Grader</li>
+<li>Listing Grader launch cockpit</li>
+<li>Listing Grader sample proof pack</li>
+<li>Listing Audit request pack</li>
+<li>Listing Audit demand ledger</li>
+<li>Listing Audit owner reply handoff</li>
+<li>Listing Audit demand-to-reply validation board</li></ul>
+        <p><strong>Next OpenClaw move:</strong> Revenue Ops maps each owner-entered demand classification to a copy-only reply scenario, then Analytics decides whether to continue distribution, revise boundaries, or prepare the next owner-reviewed service handoff.</p>
+        <p><strong>Stop line:</strong> No posting, replies, checkout creation, payment handling, support/refund action, private customer data, or automatic communication.</p>
+      </article>
+
+      <article class="experiment">
+        <div class="experiment-head">
+          <h3>Mood Anchor trust and safety iteration</h3>
+          <span class="status">safety_supporting</span>
+        </div>
+        <p><strong>ID:</strong> <code>mood_anchor_trust_safety_iteration</code></p>
+        <p><strong>Hypothesis:</strong> Mood Anchor can support trust and free-product distribution only while it stays private, local-first, non-medical, and crisis-resource visible.</p>
+        <p><strong>Target signal:</strong> Owner-entered aggregate observations: usefulness interest, privacy-trust concerns, support-risk mentions, and safety wording issues.</p>
+        <p><strong>Local assets:</strong></p>
+        <ul><li>Mood Anchor English PWA</li>
+<li>Mood Anchor validation ledger</li>
+<li>Mood Anchor activity experiment signal ledger</li>
+<li>Mood Anchor depression-support command board</li>
+<li>Mood Anchor ethical revenue scout</li></ul>
+        <p><strong>Next OpenClaw move:</strong> Product Studio QA and Support/Ops keep Mood Anchor in safety review while Analytics records aggregate-only signals; no paid adjacent offer moves forward without safe signals.</p>
+        <p><strong>Stop line:</strong> No diagnosis, treatment, mood outcome, crisis monitoring, server collection, account login, paid medical positioning, or checkout work.</p>
+      </article>
+    </section>
+    <aside>
+      <section class="panel">
+        <h2>Owner-only 佇列</h2>
+        <ul><li>Owner manually posts or submits channel copy and records public post URLs.</li>
+<li>Owner manually records observed public replies, request classifications, support/refund questions, and paid-audit interest as aggregate.</li>
+<li>Owner manually creates checkout, pricing, payout, tax, refund, account, or credential changes if the loop later earns that step.</li>
+<li>Owner manually decides whether Mood Anchor receives any public channel pass after safety review.</li></ul>
+      </section>
+      <section class="panel">
+        <h2>本地彙總暫存</h2>
+        <p>只填 owner-entered aggregate only。不貼 token、chat id、帳號、平台後台、agent log、客戶訊息、私人 listing text、敏感心情內容或私人分析。</p>
+        <textarea id="summaryInput" spellcheck="false">{
+  &quot;date&quot;: &quot;20260705&quot;,
+  &quot;owner_entered_aggregate_only&quot;: true,
+  &quot;public_post_url_count&quot;: 0,
+  &quot;owner_review_draft_count&quot;: 0,
+  &quot;qualified_request_count&quot;: 0,
+  &quot;support_risk_count&quot;: 0,
+  &quot;refund_question_count&quot;: 0,
+  &quot;paid_audit_interest_count&quot;: 0,
+  &quot;mood_anchor_safety_issue_count&quot;: 0,
+  &quot;next_decision&quot;: &quot;continue_listing_audit_demand_to_reply_local_loop&quot;
+}</textarea>
+        <div class="actions">
+          <button type="button" onclick="saveSummary()">Save Local</button>
+          <button type="button" onclick="copySummary()">Copy JSON</button>
+          <button type="button" onclick="exportSummary()">Export JSON</button>
+          <button type="button" onclick="clearSummary()">Clear</button>
+        </div>
+        <p id="statusLine" class="sub" aria-live="polite">Local only. No server collection.</p>
+      </section>
+    </aside>
+  </div>
+  <section class="panel">
+    <h2>部門命令</h2>
+    
+      <article class="dept">
+        <h3>CEO/Strategy</h3>
+        <p>Run one revenue experiment loop at a time.</p>
+        <ul><li>Keep Listing Audit demand-to-reply as the default active loop until owner-entered aggregate evidence says pause or pivot.</li>
+<li>Treat Mood Anchor as a trust and safety supporting lane, not a monetization lane.</li>
+<li>Resolve non-external questions from current artifacts instead of routing them back to the human owner.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Revenue Ops</h3>
+        <p>Advance the active Listing Audit loop without external authority.</p>
+        <ul><li>Map demand ledger classifications to owner reply handoff drafts and validation board decisions.</li>
+<li>Prepare only local, copy-only owner review notes for qualified request, missing URL, out-of-scope, owner-review, support/refund, and paid-audit fulfillment cases.</li>
+<li>Do not create checkout, accept payment, send replies, or touch accounts.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Product Studio QA</h3>
+        <p>Guard claim safety across Listing Audit and Mood Anchor.</p>
+        <ul><li>Review all public-feed surfaces for no revenue certainty, no platform-result promises, no medical claims, and no sensitive-data collection.</li>
+<li>Verify Mood Anchor remains RWD, offline-capable, localStorage-only, crisis-resource visible, and non-medical.</li>
+<li>Return specific copy revisions to Revenue Ops or Marketing Desk when wording creates risk.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Marketing Desk</h3>
+        <p>Prepare owner-reviewed channel drafts only.</p>
+        <ul><li>Draft channel-safe copy around the free grader, proof pack, request pack, and owner-reviewed reply handoff.</li>
+<li>Frame Mood Anchor as a private offline mood-support PWA, not as treatment or an outcome promise.</li>
+<li>Do not post, submit, schedule, DM, email, scrape, or ask for engagement.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Analytics</h3>
+        <p>Turn owner-entered aggregate signals into the next decision.</p>
+        <ul><li>Track qualified request count, missing URL count, out-of-scope count, owner-review-required count, support-risk count, and paid-audit interest only as owner-entered aggregate.</li>
+<li>Track Mood Anchor usefulness interest, privacy-trust concerns, support-risk mentions, and safety wording issues only as aggregate.</li>
+<li>Recommend continue, revise, reply-handoff, pause, or safety-only from decision gates.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Support/Ops</h3>
+        <p>Keep the loop file-based, safe, and low load.</p>
+        <ul><li>Keep OpenClaw runtime, message commands, relay dependence, and third-party plugins out of this loop.</li>
+<li>Check memory and process residue after generation or publishing work.</li>
+<li>Queue exact owner-only actions instead of asking the owner for internal clarification.</li></ul>
+      </article>
+  </section>
+  <section class="panel">
+    <h2>決策閘門</h2>
+    <table>
+      <thead><tr><th>Condition</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>qualified_request_count &gt; 0</code></td>
+          <td>Revenue Ops may prepare the next copy-only service handoff and owner-reviewed reply packet; no sending or checkout work.</td>
+        </tr>
+
+        <tr>
+          <td><code>support_risk_count &gt; 0 || refund_question_count &gt; 0</code></td>
+          <td>Support/Ops pauses distribution drafts and revises boundaries before another channel pass.</td>
+        </tr>
+
+        <tr>
+          <td><code>external_authority_required === true</code></td>
+          <td>Record the exact owner action and continue with local QA, copy review, or aggregate-field cleanup.</td>
+        </tr>
+
+        <tr>
+          <td><code>mood_anchor_safety_issue_count &gt; 0</code></td>
+          <td>Keep Mood Anchor safety-only and route revisions to Product Studio QA plus Support/Ops before any distribution draft.</td>
+        </tr>
+
+        <tr>
+          <td><code>public_post_url_count === 0 &amp;&amp; owner_review_draft_count &gt; 0</code></td>
+          <td>Do not claim market signal; keep drafts owner-ready and wait for manual public action.</td>
+        </tr>
+
+        <tr>
+          <td><code>qualified_request_count === 0 &amp;&amp; public_post_url_count &gt; 0</code></td>
+          <td>Analytics recommends revise channel copy, request pack, or buyer target before adding more inventory.</td>
+        </tr></tbody>
+    </table>
+  </section>
+  <section class="panel">
+    <h2>停止線</h2>
+    <ul><li>No external authority actions: no login, public posting, comments, DMs, emails, scheduling, checkout setup, payment, payout, tax, refund, credential, price, discount, or account changes.</li>
+<li>No OpenClaw message commands, relay dependence, long-lived agents, scraping, platform bypassing, or automatic channel actions.</li>
+<li>No certainty claims for revenue, traffic, conversion, ranking, platform approval, customer acquisition, productivity, mood, treatment, crisis response, or health outcomes.</li>
+<li>No depression-treatment claims, diagnosis language, medical advice, crisis monitoring promises, or server collection of sensitive Mood Anchor data.</li>
+<li>Analytics remains owner-entered aggregate only.</li></ul>
+  </section>
+</main>
+<script>
+const storageKey = 'openClawRevenueExperimentLoop:20260705';
+const input = document.getElementById('summaryInput');
+const statusLine = document.getElementById('statusLine');
+const stored = localStorage.getItem(storageKey);
+if (stored) input.value = stored;
+function setStatus(message) {
+  statusLine.textContent = message;
+}
+function saveSummary() {
+  localStorage.setItem(storageKey, input.value);
+  setStatus('Saved locally in this browser.');
+}
+function copySummary() {
+  const text = input.value;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => setStatus('Copied JSON for owner review.'));
+    return;
+  }
+  input.select();
+  document.execCommand('copy');
+  setStatus('Copied JSON for owner review.');
+}
+function exportSummary() {
+  const blob = new Blob([input.value], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'openclaw-revenue-experiment-loop-20260705.json';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  setStatus('Exported JSON file for owner review.');
+}
+function clearSummary() {
+  localStorage.removeItem(storageKey);
+  input.value = "{\n  \"date\": \"20260705\",\n  \"owner_entered_aggregate_only\": true,\n  \"public_post_url_count\": 0,\n  \"owner_review_draft_count\": 0,\n  \"qualified_request_count\": 0,\n  \"support_risk_count\": 0,\n  \"refund_question_count\": 0,\n  \"paid_audit_interest_count\": 0,\n  \"mood_anchor_safety_issue_count\": 0,\n  \"next_decision\": \"continue_listing_audit_demand_to_reply_local_loop\"\n}";
+  setStatus('Local summary reset.');
+}
+</script>
+</body>
+</html>

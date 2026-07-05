@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Listing Audit Demand Ledger - 20260705</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5c6876;
+      --line: #d5dee9;
+      --accent: #1b6f6a;
+      --warn: #7a4d14;
+      --code: #edf2f7;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.15; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+    .sub { margin: 0; color: var(--muted); }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; margin: 16px 0; }
+    .links a, .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 12px;
+    }
+    .links a { text-decoration: none; font-weight: 700; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 14px; align-items: start; }
+    .panel + .panel { margin-top: 14px; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+    table { width: 100%; min-width: 980px; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 9px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    th span { display: block; margin-top: 3px; color: var(--muted); font-weight: 400; }
+    input, textarea {
+      width: 100%;
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px;
+      font: inherit;
+      color: var(--text);
+      background: var(--panel);
+    }
+    textarea { min-height: 90px; resize: vertical; }
+    .source { min-width: 190px; }
+    .source strong { display: block; }
+    .source span { color: var(--muted); display: block; margin-top: 3px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    button {
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 9px 11px;
+      font: inherit;
+      cursor: pointer;
+    }
+    button.secondary { background: transparent; color: var(--accent); }
+    pre {
+      min-height: 220px;
+      overflow: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 12px;
+      background: var(--code);
+    }
+    .stop { border-left: 4px solid var(--warn); }
+    .small { color: var(--muted); font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101419;
+        --panel: #171d25;
+        --text: #edf3f7;
+        --muted: #b6c0ca;
+        --line: #344252;
+        --accent: #75b9b4;
+        --warn: #d2a05e;
+        --code: #202936;
+      }
+    }
+    @media (max-width: 760px) {
+      main { padding: 16px; }
+      h1 { font-size: 28px; }
+      /* minmax(0, 1fr): without the 0 floor, the 980px-min table sets the
+         grid item's min-content width and overflows the viewport. */
+      .grid { grid-template-columns: minmax(0, 1fr); }
+      button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Listing Audit 需求帳本</h1>
+    <p class="sub">Listing Audit Demand Ledger · 20260705 · Owner-entered aggregate only.</p>
+  </header>
+
+  <nav class="links" aria-label="Listing Audit demand ledger links">
+    <a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-request-pack-20260705.html">Listing Audit request pack</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-sample-proof-pack-20260705.html">Listing Grader sample proof pack</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-channel-metrics-ledger-20260705.md">Listing Grader channel metrics ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/service-revenue-offer-20260705.html">Digital Product Listing Audit offer</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-department-command-board-20260705.html">OpenClaw department command board</a>
+  </nav>
+
+  <section class="panel stop">
+    <h2>邊界 / Boundaries</h2>
+    <ul><li>Owner-entered aggregate only: record counts and broad themes after the owner observes public or owner-reviewed surfaces.</li>
+<li>Do not collect customer messages, emails, handles, names, private listing drafts, analytics exports, credentials, payment details, or customer records.</li>
+<li>No checkout creation, payment acceptance, invoice sending, price change, refund action, account change, public reply, DM, email, or scheduling is delegated.</li>
+<li>Do not scrape platforms, comments, profiles, directories, analytics dashboards, private docs, or support inboxes.</li>
+<li>Do not treat this ledger as proof of revenue, traffic, buyer outcomes, platform approval, ranking, or customer acquisition.</li></ul>
+  </section>
+
+  <div class="grid">
+    <section>
+      <section class="panel">
+        <h2>Aggregate demand input</h2>
+        <p class="small">Only enter owner-observed counts and broad objection themes. Do not paste customer messages, identities, private listing text, emails, handles, credentials, or payment details.</p>
+      </section>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Source</th>
+              <th><code>qualified_audit_requests</code><span>合格 audit 請求</span></th>
+<th><code>needs_public_listing_url</code><span>缺公開 listing URL</span></th>
+<th><code>out_of_scope</code><span>超出服務範圍</span></th>
+<th><code>owner_review_required</code><span>需要 owner 複核</span></th>
+<th><code>paid_audits</code><span>已付款 audit</span></th>
+<th><code>support_or_refund_questions</code><span>支援或退款問題</span></th>
+              <th>Broad objection theme</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="source"><strong>Request pack</strong><span>Owner-observed classifications from the static request pack route.</span></td>
+              
+              <td><input data-source="request_pack" data-outcome="qualified_audit_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="Request pack qualified_audit_requests" /></td>
+
+              <td><input data-source="request_pack" data-outcome="needs_public_listing_url" type="number" min="0" value="0" inputmode="numeric" aria-label="Request pack needs_public_listing_url" /></td>
+
+              <td><input data-source="request_pack" data-outcome="out_of_scope" type="number" min="0" value="0" inputmode="numeric" aria-label="Request pack out_of_scope" /></td>
+
+              <td><input data-source="request_pack" data-outcome="owner_review_required" type="number" min="0" value="0" inputmode="numeric" aria-label="Request pack owner_review_required" /></td>
+
+              <td><input data-source="request_pack" data-outcome="paid_audits" type="number" min="0" value="0" inputmode="numeric" aria-label="Request pack paid_audits" /></td>
+
+              <td><input data-source="request_pack" data-outcome="support_or_refund_questions" type="number" min="0" value="0" inputmode="numeric" aria-label="Request pack support_or_refund_questions" /></td>
+              <td><textarea data-source="request_pack" data-note="broad_objection_theme" aria-label="Request pack broad objection theme" placeholder="Broad theme only. No names, handles, customer text, private listing copy, credentials, or payment details."></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="source"><strong>Public channel replies</strong><span>Aggregate visible replies after owner-reviewed public posts only.</span></td>
+              
+              <td><input data-source="channel_replies" data-outcome="qualified_audit_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="Public channel replies qualified_audit_requests" /></td>
+
+              <td><input data-source="channel_replies" data-outcome="needs_public_listing_url" type="number" min="0" value="0" inputmode="numeric" aria-label="Public channel replies needs_public_listing_url" /></td>
+
+              <td><input data-source="channel_replies" data-outcome="out_of_scope" type="number" min="0" value="0" inputmode="numeric" aria-label="Public channel replies out_of_scope" /></td>
+
+              <td><input data-source="channel_replies" data-outcome="owner_review_required" type="number" min="0" value="0" inputmode="numeric" aria-label="Public channel replies owner_review_required" /></td>
+
+              <td><input data-source="channel_replies" data-outcome="paid_audits" type="number" min="0" value="0" inputmode="numeric" aria-label="Public channel replies paid_audits" /></td>
+
+              <td><input data-source="channel_replies" data-outcome="support_or_refund_questions" type="number" min="0" value="0" inputmode="numeric" aria-label="Public channel replies support_or_refund_questions" /></td>
+              <td><textarea data-source="channel_replies" data-note="broad_objection_theme" aria-label="Public channel replies broad objection theme" placeholder="Broad theme only. No names, handles, customer text, private listing copy, credentials, or payment details."></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="source"><strong>Service offer page</strong><span>Owner-observed interest or questions about the audit offer.</span></td>
+              
+              <td><input data-source="service_offer" data-outcome="qualified_audit_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="Service offer page qualified_audit_requests" /></td>
+
+              <td><input data-source="service_offer" data-outcome="needs_public_listing_url" type="number" min="0" value="0" inputmode="numeric" aria-label="Service offer page needs_public_listing_url" /></td>
+
+              <td><input data-source="service_offer" data-outcome="out_of_scope" type="number" min="0" value="0" inputmode="numeric" aria-label="Service offer page out_of_scope" /></td>
+
+              <td><input data-source="service_offer" data-outcome="owner_review_required" type="number" min="0" value="0" inputmode="numeric" aria-label="Service offer page owner_review_required" /></td>
+
+              <td><input data-source="service_offer" data-outcome="paid_audits" type="number" min="0" value="0" inputmode="numeric" aria-label="Service offer page paid_audits" /></td>
+
+              <td><input data-source="service_offer" data-outcome="support_or_refund_questions" type="number" min="0" value="0" inputmode="numeric" aria-label="Service offer page support_or_refund_questions" /></td>
+              <td><textarea data-source="service_offer" data-note="broad_objection_theme" aria-label="Service offer page broad objection theme" placeholder="Broad theme only. No names, handles, customer text, private listing copy, credentials, or payment details."></textarea></td>
+            </tr>
+
+            <tr>
+              <td class="source"><strong>Owner review queue</strong><span>Manual owner triage totals before any reply, payment, or checkout step.</span></td>
+              
+              <td><input data-source="owner_review" data-outcome="qualified_audit_requests" type="number" min="0" value="0" inputmode="numeric" aria-label="Owner review queue qualified_audit_requests" /></td>
+
+              <td><input data-source="owner_review" data-outcome="needs_public_listing_url" type="number" min="0" value="0" inputmode="numeric" aria-label="Owner review queue needs_public_listing_url" /></td>
+
+              <td><input data-source="owner_review" data-outcome="out_of_scope" type="number" min="0" value="0" inputmode="numeric" aria-label="Owner review queue out_of_scope" /></td>
+
+              <td><input data-source="owner_review" data-outcome="owner_review_required" type="number" min="0" value="0" inputmode="numeric" aria-label="Owner review queue owner_review_required" /></td>
+
+              <td><input data-source="owner_review" data-outcome="paid_audits" type="number" min="0" value="0" inputmode="numeric" aria-label="Owner review queue paid_audits" /></td>
+
+              <td><input data-source="owner_review" data-outcome="support_or_refund_questions" type="number" min="0" value="0" inputmode="numeric" aria-label="Owner review queue support_or_refund_questions" /></td>
+              <td><textarea data-source="owner_review" data-note="broad_objection_theme" aria-label="Owner review queue broad objection theme" placeholder="Broad theme only. No names, handles, customer text, private listing copy, credentials, or payment details."></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="actions">
+        <button type="button" id="save-ledger">Save local draft</button>
+        <button type="button" id="export-ledger">Export JSON</button>
+        <button type="button" id="clear-ledger" class="secondary">Clear local draft</button>
+      </div>
+    </section>
+
+    <aside>
+      <section class="panel">
+        <h2>OpenClaw team directives</h2>
+        <ul><li><strong>Revenue Ops</strong><br>Use this ledger to decide whether the $79 Listing Audit path needs a local owner-reviewed service reply handoff, a request-pack boundary change, or a pause before checkout work.</li>
+<li><strong>Analytics</strong><br>Record only owner-entered aggregate request classifications and broad objection themes; do not infer demand from unrecorded traffic, private messages, or scraped platform data.</li>
+<li><strong>Support/Ops</strong><br>Treat any support, refund, scope, platform-rule, or owner-review signal as a pause condition before Marketing prepares another distribution pass.</li></ul>
+      </section>
+      <section class="panel">
+        <h2>Decision rules</h2>
+        <ul><li><strong>support_or_refund_questions &gt; 0 or owner_review_required &gt; 0</strong><br>pause distribution and route Support/Ops plus Revenue Ops to clarify scope, refund, support, platform-rule, and owner-review boundaries.</li>
+<li><strong>qualified_audit_requests &gt;= 2 and support_or_refund_questions === 0</strong><br>prepare an owner-reviewed service reply and local checkout-pending handoff; do not create checkout, accept payment, send messages, or promise availability.</li>
+<li><strong>needs_public_listing_url &gt;= qualified_audit_requests and needs_public_listing_url &gt; 0</strong><br>revise the request pack boundary so sellers understand that a public English listing URL is required before audit review.</li>
+<li><strong>out_of_scope &gt; qualified_audit_requests</strong><br>revise public copy and request pack boundary language before another channel pass.</li>
+<li><strong>paid_audits &gt; 0</strong><br>prepare only a local fulfillment checklist for owner review; no checkout creation, refund action, account action, or buyer communication is delegated.</li>
+<li><strong>weak or no owner-entered demand signal</strong><br>keep the audit path as a checkout-pending service lane and continue improving proof, copy, and qualification wording.</li></ul>
+      </section>
+      <section class="panel">
+        <h2>Summary preview</h2>
+        <pre id="summary-output" aria-live="polite"></pre>
+      </section>
+    </aside>
+  </div>
+</main>
+<script>
+(() => {
+  const config = {"storageKey":"listing-audit:demand-ledger:20260705","date":"20260705","title":"Listing Audit Demand Ledger","sources":[{"id":"request_pack","label":"Request pack"},{"id":"channel_replies","label":"Public channel replies"},{"id":"service_offer","label":"Service offer page"},{"id":"owner_review","label":"Owner review queue"}],"outcomeFields":["qualified_audit_requests","needs_public_listing_url","out_of_scope","owner_review_required","paid_audits","support_or_refund_questions"],"boundaries":["Owner-entered aggregate only: record counts and broad themes after the owner observes public or owner-reviewed surfaces.","Do not collect customer messages, emails, handles, names, private listing drafts, analytics exports, credentials, payment details, or customer records.","No checkout creation, payment acceptance, invoice sending, price change, refund action, account change, public reply, DM, email, or scheduling is delegated.","Do not scrape platforms, comments, profiles, directories, analytics dashboards, private docs, or support inboxes.","Do not treat this ledger as proof of revenue, traffic, buyer outcomes, platform approval, ranking, or customer acquisition."],"decisionRules":[{"id":"pause_for_support_or_owner_review","condition":"support_or_refund_questions > 0 or owner_review_required > 0","outcome":"pause distribution and route Support/Ops plus Revenue Ops to clarify scope, refund, support, platform-rule, and owner-review boundaries."},{"id":"prepare_owner_reviewed_service_reply","condition":"qualified_audit_requests >= 2 and support_or_refund_questions === 0","outcome":"prepare an owner-reviewed service reply and local checkout-pending handoff; do not create checkout, accept payment, send messages, or promise availability."},{"id":"tighten_request_pack_boundary","condition":"needs_public_listing_url >= qualified_audit_requests and needs_public_listing_url > 0","outcome":"revise the request pack boundary so sellers understand that a public English listing URL is required before audit review."},{"id":"revise_scope_copy","condition":"out_of_scope > qualified_audit_requests","outcome":"revise public copy and request pack boundary language before another channel pass."},{"id":"handoff_paid_audit_fulfillment","condition":"paid_audits > 0","outcome":"prepare only a local fulfillment checklist for owner review; no checkout creation, refund action, account action, or buyer communication is delegated."},{"id":"keep_waiting","condition":"weak or no owner-entered demand signal","outcome":"keep the audit path as a checkout-pending service lane and continue improving proof, copy, and qualification wording."}]};
+
+  const numberInputs = Array.from(document.querySelectorAll('[data-outcome]'));
+  const noteInputs = Array.from(document.querySelectorAll('[data-note]'));
+  const summary = document.getElementById('summary-output');
+  const saveButton = document.getElementById('save-ledger');
+  const exportButton = document.getElementById('export-ledger');
+  const clearButton = document.getElementById('clear-ledger');
+
+  function readRows() {
+    return config.sources.map((source) => {
+      const outcomes = {};
+      for (const field of config.outcomeFields) {
+        const input = document.querySelector('[data-source="' + source.id + '"][data-outcome="' + field + '"]');
+        outcomes[field] = Math.max(0, Number(input?.value || 0));
+      }
+      const note = document.querySelector('[data-source="' + source.id + '"][data-note]')?.value.trim() || '';
+      return { source_id: source.id, source_label: source.label, outcomes, broad_objection_theme: note };
+    });
+  }
+
+  function buildPayload() {
+    const rows = readRows();
+    const totals = {};
+    for (const field of config.outcomeFields) totals[field] = 0;
+    for (const row of rows) {
+      for (const field of config.outcomeFields) totals[field] += row.outcomes[field] || 0;
+    }
+    return {
+      title: config.title,
+      date: config.date,
+      generated_at: new Date().toISOString(),
+      boundaries: config.boundaries,
+      totals,
+      rows,
+      decision_rules: config.decisionRules
+    };
+  }
+
+  function renderDemandSummary() {
+    const payload = buildPayload();
+    summary.textContent = JSON.stringify(payload, null, 2);
+    return payload;
+  }
+
+  function saveLedger() {
+    localStorage.setItem(config.storageKey, JSON.stringify(buildPayload()));
+    renderDemandSummary();
+  }
+
+  function loadLedger() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(config.storageKey) || 'null');
+      if (!saved || !Array.isArray(saved.rows)) return;
+      for (const row of saved.rows) {
+        for (const field of config.outcomeFields) {
+          const input = document.querySelector('[data-source="' + row.source_id + '"][data-outcome="' + field + '"]');
+          if (input) input.value = row.outcomes?.[field] ?? 0;
+        }
+        const note = document.querySelector('[data-source="' + row.source_id + '"][data-note]');
+        if (note) note.value = row.broad_objection_theme || '';
+      }
+    } catch {
+      localStorage.removeItem(config.storageKey);
+    }
+  }
+
+  function exportDemandLedger() {
+    const payload = JSON.stringify(buildPayload(), null, 2);
+    const blob = new Blob([payload + '\n'], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = 'listing-audit-demand-ledger-' + config.date + '.json';
+    document.body.append(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  numberInputs.forEach((input) => input.addEventListener('input', renderDemandSummary));
+  noteInputs.forEach((input) => input.addEventListener('input', renderDemandSummary));
+  saveButton.addEventListener('click', saveLedger);
+  exportButton.addEventListener('click', exportDemandLedger);
+  clearButton.addEventListener('click', () => {
+    localStorage.removeItem(config.storageKey);
+    numberInputs.forEach((input) => { input.value = 0; });
+    noteInputs.forEach((input) => { input.value = ''; });
+    renderDemandSummary();
+  });
+
+  loadLedger();
+  renderDemandSummary();
+})();
+</script>
+</body>
+</html>

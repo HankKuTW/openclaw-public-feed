@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Mood Anchor PWA QA Return Packet - 20260705</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #5b6678;
+      --line: #d7e0ea;
+      --accent: #235f73;
+      --soft: #eaf3f5;
+      --warn: #8a5206;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); }
+    header { background: var(--soft); border-bottom: 1px solid var(--line); }
+    header > div, main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 32px; line-height: 1.15; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li, td { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    section, article { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+    section { margin: 0 0 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 12px; }
+    .badge { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; font-size: 12px; color: var(--muted); }
+    .ok { color: #0f6b57; font-weight: 700; }
+    .warn { border-left: 4px solid var(--warn); }
+    .meta { color: var(--muted); margin: 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    @media (max-width: 780px) {
+      header > div, main { padding: 18px; }
+      h1 { font-size: 26px; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      td { border-bottom: 0; padding: 8px 0; }
+      tr { border-bottom: 1px solid var(--line); padding: 8px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="badge">openclaw_product_studio_support_analytics_returns_mood_anchor_qa_codex_reviews</p>
+      <h1>Mood Anchor PWA 驗收回覆包</h1>
+      <p class="meta">Generated: 2026-07-04T18:37:25.052Z · Public URL: <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-return-packet-20260705.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-return-packet-20260705.html</a> · Stable URL: <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-return-packet.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-return-packet.html</a></p>
+      <p>OpenClaw Product Studio QA、Support/Ops、Analytics 與 Marketing Desk 交回 Mood Anchor PWA 驗收結果；Codex 只審核本地 evidence 與 owner-proxy gate。</p>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h2>Acceptance Summary</h2>
+      <ul>
+        <li>All acceptance checks reviewed: <span class="ok">true</span></li>
+        <li>RWD/offline/localStorage checks passed: <span class="ok">true</span></li>
+        <li>Critical QA failures: <span class="ok">0</span></li>
+        <li>Safety or medical confusion: <span class="ok">0</span></li>
+        <li>Distribution decision: <code>keep_free_trust_asset_owner_manual_distribution_only</code></li>
+        <li>Next recheck trigger: <code>rerun_if_pwa_assets_copy_resource_links_or_public_feed_paths_change</code></li>
+      </ul>
+    </section>
+    <section>
+      <h2>OpenClaw QA Return</h2>
+      <table>
+        <thead><tr><th>Check</th><th>Team</th><th>Status</th><th>Evidence</th><th>Decision</th></tr></thead>
+        <tbody>
+      <tr>
+        <td><code>pwa_manifest_installability</code></td>
+        <td>Product Studio QA</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>Mood Anchor links a web manifest and icon assets; manifest checks remain tied to the static PWA and existing QA board.</td>
+        <td>Keep installability as accepted for owner-proxy review; recheck after any manifest, icon, or start_url change.</td>
+      </tr>
+
+      <tr>
+        <td><code>service_worker_offline_cache</code></td>
+        <td>Product Studio QA</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>Service-worker assets exist for the PWA path and companion pages; offline review remains static-file based.</td>
+        <td>Keep offline support accepted for owner-proxy review; re-run cache checks after any public feed path change.</td>
+      </tr>
+
+      <tr>
+        <td><code>responsive_layout_mobile_desktop</code></td>
+        <td>Product Studio QA</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>Responsive CSS and RWD acceptance board cover mobile, tablet, and desktop reading paths without server dependencies.</td>
+        <td>Keep RWD accepted for owner-proxy review; no visual distribution expansion until layout remains readable at narrow widths.</td>
+      </tr>
+
+      <tr>
+        <td><code>local_storage_only</code></td>
+        <td>Product Studio QA</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>Mood Anchor state is browser-local; no server collection, form submit, analytics script, private-note upload, or account requirement is delegated.</td>
+        <td>Keep private state local; reject any change that sends mood, activity, contact, or health-related data to a server.</td>
+      </tr>
+
+      <tr>
+        <td><code>personalization_controls</code></td>
+        <td>Product Studio QA</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>Tone, value, friction, energy, and support-style controls route to local next-step recommendations without login.</td>
+        <td>Keep personalization lightweight and local; do not add accounts or sensitive profiles.</td>
+      </tr>
+
+      <tr>
+        <td><code>personal_action_ladder</code></td>
+        <td>Product Studio QA</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>The PWA and companion cards keep a primary step, smaller backup, body/connection/solo options, and human-support routing visible.</td>
+        <td>Keep action ladders tiny and optional; do not frame them as care, monitoring, or guaranteed outcomes.</td>
+      </tr>
+
+      <tr>
+        <td><code>weekly_plan_reset_export</code></td>
+        <td>Product Studio QA</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>Weekly plan, reset, and export paths stay in browser-local state and are covered by the QA board acceptance checklist.</td>
+        <td>Keep export user-initiated and local; no sync, account, or server archive.</td>
+      </tr>
+
+      <tr>
+        <td><code>crisis_resources_visible</code></td>
+        <td>Support/Ops</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>988 and emergency-routing language remains visible in the safety surfaces; SAMHSA and 988 Lifeline sources confirm 24/7 support routing.</td>
+        <td>Keep 988 and emergency routing before optional exercises; pause distribution if crisis routing becomes unclear.</td>
+      </tr>
+
+      <tr>
+        <td><code>non_medical_copy</code></td>
+        <td>Support/Ops</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>Official sources support small self-care, help-seeking, and structured support framing; Mood Anchor remains non-clinical and free.</td>
+        <td>Keep copy as private self-support; reject claims about clinical effect, monitoring, replacement care, or outcomes.</td>
+      </tr>
+
+      <tr>
+        <td><code>companion_assets_linked</code></td>
+        <td>Marketing Desk</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>Care card, support scripts, safe-start checklist, low-day card, activity board, validation ledger, and QA board have stable public-feed links.</td>
+        <td>Marketing Desk must wait for Product Studio QA plus Support/Ops gates before drafting owner-reviewed distribution copy.</td>
+      </tr>
+
+      <tr>
+        <td><code>aggregate_only_validation</code></td>
+        <td>Analytics</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>Analytics surfaces use owner-entered aggregate counts only and avoid private mood notes, contact data, medical details, and account exports.</td>
+        <td>Continue aggregate-only validation; no sensitive notes, identities, private histories, or platform exports.</td>
+      </tr>
+
+      <tr>
+        <td><code>owner_manual_distribution</code></td>
+        <td>Marketing Desk</td>
+        <td>accepted_for_owner_proxy_review</td>
+        <td>Launch, channel, and feedback surfaces remain owner-only for any posting, replies, DMs, email, checkout, or platform action.</td>
+        <td>Keep every external action manual and owner-reviewed; no automated distribution path is approved.</td>
+      </tr></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Official Evidence</h2>
+      <div class="grid">
+      <article>
+        <h3>NIMH self-care</h3>
+        <p><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health</a></p>
+        <p>Small self-care actions and help-seeking can be framed as general support; Mood Anchor should stay personal, optional, and non-clinical.</p>
+      </article>
+
+      <article>
+        <h3>SAMHSA 988</h3>
+        <p><a href="https://www.samhsa.gov/mental-health/988">https://www.samhsa.gov/mental-health/988</a></p>
+        <p>988 is the escalation route for crisis or emotional distress; Mood Anchor should point users outward instead of trying to handle crises.</p>
+      </article>
+
+      <article>
+        <h3>988 Lifeline</h3>
+        <p><a href="https://988lifeline.org/">https://988lifeline.org/</a></p>
+        <p>Call, text, and chat support is available through 988; crisis-routing copy must stay visible.</p>
+      </article>
+
+      <article>
+        <h3>NICE depression recommendations</h3>
+        <p><a href="https://www.nice.org.uk/guidance/ng222/chapter/recommendations">https://www.nice.org.uk/guidance/ng222/chapter/recommendations</a></p>
+        <p>Structured self-help and activity planning are support concepts; Mood Anchor must not present itself as clinical care.</p>
+      </article></div>
+    </section>
+    <section>
+      <h2>Artifact Links</h2>
+      <ul>
+      <li>Mood Anchor PWA QA board: <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-board.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-board.html</a></li>
+
+      <li>Mood Anchor English PWA: <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en.html</a></li>
+
+      <li>Mood Anchor zh-TW PWA: <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor.html</a></li>
+
+      <li>Mood Anchor validation ledger: <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-validation-ledger.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-validation-ledger.html</a></li>
+
+      <li>Mood Anchor activity experiment signal ledger: <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-signal-ledger.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-signal-ledger.html</a></li>
+
+      <li>Mood Anchor depression-support command board: <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-depression-support-command-board.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-depression-support-command-board.html</a></li>
+
+      <li>OpenClaw mission traceability matrix: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-mission-traceability-matrix.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-mission-traceability-matrix.html</a></li>
+
+      <li>OpenClaw active revenue sprint board: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-active-revenue-sprint-board.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-active-revenue-sprint-board.html</a></li></ul>
+    </section>
+    <section>
+      <h2>Telegram</h2>
+      <article class="warn"><p><strong>pending_manual_delivery</strong>: missing_telegram_bot_token_or_chat_id</p><p>Use direct Telegram Bot API only after token and chat id are configured in a secure local path.</p></article>
+    </section>
+    <section>
+      <h2>Stop Lines</h2>
+      <ul><li>No external authority actions: no login, public posting, comments, DMs, emails, scheduling, checkout, payment, payout, tax, refund, credential, price, or account changes.</li><li>No certainty claims for revenue, traffic, conversion, ranking, platform approval, customer acquisition, productivity, mood, crisis response, or health outcomes.</li><li>No clinical positioning, care replacement, crisis monitoring promises, or server collection of sensitive Mood Anchor data.</li><li>No scraping, platform bypassing, unsupervised channel actions, OpenClaw runtime command dependence, or long-running control surfaces.</li></ul>
+    </section>
+  </main>
+</body>
+</html>

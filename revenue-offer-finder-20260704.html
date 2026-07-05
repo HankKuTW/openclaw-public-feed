@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find the right kit</title>
+  <style>
+    :root { color-scheme: light dark; font-family: Arial, Helvetica, sans-serif; }
+    body { margin: 0; background: #f7f8f5; color: #17201b; }
+    main { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.1; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 18px; }
+    .sub { color: #526057; margin: 0 0 16px; max-width: 780px; }
+    .summary, .route-list { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 26px; }
+    .pill, .route-button { border: 1px solid #c7d0c7; border-radius: 999px; padding: 8px 12px; background: #ffffff; color: #243128; }
+    .route-button { cursor: pointer; font: inherit; }
+    .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: 12px 0 28px; }
+    .card, .notice { border: 1px solid #d6ded6; border-radius: 8px; background: #ffffff; overflow: hidden; }
+    .cover { aspect-ratio: 16 / 9; background: #e8ece7; width: 100%; object-fit: cover; display: block; }
+    .body { padding: 14px; }
+    .meta { color: #637067; margin: 0 0 10px; }
+    .price { font-weight: 700; margin: 10px 0; }
+    .button { display: inline-block; border: 1px solid #274f34; border-radius: 6px; background: #274f34; color: #ffffff; padding: 9px 12px; text-decoration: none; }
+    .secondary { border-color: #8a956f; background: #ffffff; color: #274f34; }
+    .pending { color: #6b5b18; font-weight: 700; }
+    .notice { padding: 14px; margin-top: 18px; }
+    li { margin: 6px 0; }
+    .highlight { outline: 3px solid #7aa36f; outline-offset: 2px; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #101511; color: #eef2ed; }
+      .sub, .meta { color: #aeb8b0; }
+      .pill, .route-button, .card, .notice { background: #171f19; border-color: #2f3a32; color: #eef2ed; }
+      .cover { background: #202b23; }
+      .secondary { background: #171f19; color: #d7e7d1; border-color: #607064; }
+      .pending { color: #e0c65d; }
+    }
+    @media (max-width: 640px) {
+      main { padding: 16px; }
+      h1 { font-size: 28px; }
+      .route-button { width: 100%; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Find the right kit</h1>
+    <p class="sub">Choose the closest operating problem and go directly to the live kit when checkout is available.</p>
+    <section class="summary" aria-label="Offer finder summary">
+      <span class="pill">Live routes: 3</span>
+      <span class="pill">Checkout pending: 5</span>
+      <span class="pill"><a href="https://red-mole-94.loca.lt/revenue-shopfront-20260704.html">View full shopfront</a></span>
+      <span class="pill"><a href="https://red-mole-94.loca.lt/revenue-buyer-decision-guide-20260704.html">Choose your first kit</a></span>
+    </section>
+    <section aria-label="Buyer problem shortcuts">
+      <h2>Choose your current bottleneck</h2>
+      <div class="route-list">
+        <button class="route-button" type="button" data-route-target="route-ai-inquiry-triage-kit">Custom order requests</button>
+        <button class="route-button" type="button" data-route-target="route-ai-product-listing-optimizer-kit">Product listing clarity</button>
+        <button class="route-button" type="button" data-route-target="route-ai-digital-product-support-kit">Support and refund boundaries</button>
+        <button class="route-button" type="button" data-route-target="route-ai-digital-product-terms-license-kit">Terms Kit boundaries</button>
+        <button class="route-button" type="button" data-route-target="route-ai-digital-product-pricing-strategy-kit">Pricing and bundle decisions</button>
+        <button class="route-button" type="button" data-route-target="route-ai-digital-product-marketing-playbook-kit">Manual launch channels</button>
+        <button class="route-button" type="button" data-route-target="route-ai-product-launch-email-kit">Opt-in launch emails</button>
+        <button class="route-button" type="button" data-route-target="route-ai-digital-product-metrics-iteration-kit">Metrics and iteration</button>
+      </div>
+    </section>
+    <section>
+      <h2>Available now</h2>
+      <div class="grid">
+        <article class="card" id="route-ai-inquiry-triage-kit">
+          <img class="cover" src="assets/ai-inquiry-triage-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta"><span class="pill">Live checkout</span></p>
+            <h3>Custom order requests</h3>
+            <p class="meta">Use this when buyer messages, custom requests, and next actions need sorting before you respond.</p>
+            <p><strong>AI Inquiry Triage Kit for Custom Orders</strong></p>
+            <p class="price">$9</p>
+            <a class="button" href="https://sghank.gumroad.com/l/ai-inquiry-triage-kit">Open listing</a>
+          </div>
+        </article>
+
+        <article class="card" id="route-ai-product-listing-optimizer-kit">
+          <img class="cover" src="assets/ai-product-listing-optimizer-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta"><span class="pill">Live checkout</span></p>
+            <h3>Product listing clarity</h3>
+            <p class="meta">Use this when a product page needs clearer positioning, descriptions, FAQs, and buyer-facing proof points.</p>
+            <p><strong>AI Product Listing Optimizer Kit</strong></p>
+            <p class="price">$19</p>
+            <a class="button" href="https://sghank.gumroad.com/l/ai-product-listing-optimizer-kit">Open listing</a>
+          </div>
+        </article>
+
+        <article class="card" id="route-ai-digital-product-support-kit">
+          <img class="cover" src="assets/ai-digital-product-support-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta"><span class="pill">Live checkout</span></p>
+            <h3>Support and refund boundaries</h3>
+            <p class="meta">Use this when support replies, refund expectations, and customer issue triage need tighter operating rules.</p>
+            <p><strong>AI Digital Product Support Kit</strong></p>
+            <p class="price">$19</p>
+            <a class="button" href="https://sghank.gumroad.com/l/ai-digital-product-support-kit">Open listing</a>
+          </div>
+        </article></div>
+    </section>
+    <section>
+      <h2>Next kits in review</h2>
+      <p class="sub">These routes show planned kits that are packaged locally but do not have live checkout links yet.</p>
+      <div class="grid">
+        <article class="card" id="route-ai-digital-product-terms-license-kit">
+          <img class="cover" src="assets/ai-digital-product-terms-license-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta"><span class="pending">Checkout pending</span></p>
+            <h3>Terms Kit boundaries</h3>
+            <p class="meta">Use this when delivery terms, usage rights, refund wording, and license scope need clearer buyer-facing language.</p>
+            <p><strong>AI Digital Product Terms &amp; License Kit</strong></p>
+            <p class="price">$19</p>
+            <span class="pending">Checkout pending</span>
+          </div>
+        </article>
+
+        <article class="card" id="route-ai-digital-product-pricing-strategy-kit">
+          <img class="cover" src="assets/ai-digital-product-pricing-strategy-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta"><span class="pending">Checkout pending</span></p>
+            <h3>Pricing and bundle decisions</h3>
+            <p class="meta">Use this when price presentation, bundles, objections, and offer framing need a practical review.</p>
+            <p><strong>AI Digital Product Pricing Strategy Kit</strong></p>
+            <p class="price">$19</p>
+            <span class="pending">Checkout pending</span>
+          </div>
+        </article>
+
+        <article class="card" id="route-ai-digital-product-marketing-playbook-kit">
+          <img class="cover" src="assets/ai-digital-product-marketing-playbook-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta"><span class="pending">Checkout pending</span></p>
+            <h3>Manual launch channels</h3>
+            <p class="meta">Use this when launch messages and channel choices need a safer plan before public distribution.</p>
+            <p><strong>AI Digital Product Marketing Playbook Kit</strong></p>
+            <p class="price">$19</p>
+            <span class="pending">Checkout pending</span>
+          </div>
+        </article>
+
+        <article class="card" id="route-ai-product-launch-email-kit">
+          <img class="cover" src="assets/ai-product-launch-email-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta"><span class="pending">Checkout pending</span></p>
+            <h3>Opt-in launch emails</h3>
+            <p class="meta">Use this when an opt-in list needs a launch sequence, response handling, and pre-send compliance checks.</p>
+            <p><strong>AI Product Launch Email Kit</strong></p>
+            <p class="price">$19</p>
+            <span class="pending">Checkout pending</span>
+          </div>
+        </article>
+
+        <article class="card" id="route-ai-digital-product-metrics-iteration-kit">
+          <img class="cover" src="assets/ai-digital-product-metrics-iteration-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta"><span class="pending">Checkout pending</span></p>
+            <h3>Metrics and iteration</h3>
+            <p class="meta">Use this when launch data needs capture, review, and conservative next-action decisions.</p>
+            <p><strong>AI Digital Product Metrics &amp; Iteration Kit</strong></p>
+            <p class="price">$19</p>
+            <span class="pending">Checkout pending</span>
+          </div>
+        </article></div>
+    </section>
+    <section class="notice">
+      <h2>Purchase boundary</h2>
+      <ul><li>Do not collect buyer data on this page.</li>
+<li>Do not create listings, edit checkout, change prices, or change payment settings automatically.</li>
+<li>Do not promise revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.</li>
+<li>Only live external checkout links should be used for purchases.</li></ul>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll('[data-route-target]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const card = document.getElementById(button.dataset.routeTarget);
+        if (!card) return;
+        document.querySelectorAll('.highlight').forEach((item) => item.classList.remove('highlight'));
+        card.classList.add('highlight');
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+  </script>
+</body>
+</html>

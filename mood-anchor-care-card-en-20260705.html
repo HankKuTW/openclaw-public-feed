@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Print it and keep it visible. On hard days, skip thinking — just do one box." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mood Anchor - Self-Care Pocket Card" />
+  <meta property="og:description" content="Print it and keep it visible. On hard days, skip thinking — just do one box." />
+  <meta name="twitter:card" content="summary" />
+  <title>Mood Anchor - Self-Care Pocket Card</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, "Noto Sans TC", sans-serif; }
+    body { margin: 0; background: #f6f4ee; color: #172123; }
+    .card { max-width: 720px; margin: 16px auto; background: #fff; border: 1px solid #cbd8d5; border-radius: 8px; padding: 22px; }
+    h1 { font-size: 26px; margin: 0 0 4px; }
+    .sub { color: #5c686b; margin: 0 0 16px; }
+    h2 { font-size: 16px; margin: 16px 0 8px; border-left: 4px solid #315f65; padding-left: 8px; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { display: flex; gap: 8px; align-items: baseline; padding: 5px 0; line-height: 1.5; }
+    .box { display: inline-block; min-width: 14px; height: 14px; border: 1.5px solid #315f65; border-radius: 3px; transform: translateY(2px); }
+    .crisis { border: 1px solid #d9a7af; background: #fff7f5; border-radius: 6px; padding: 10px 12px; margin-top: 14px; }
+    .crisis h2 { border-color: #8b2f3c; color: #8b2f3c; margin-top: 0; }
+    .contact { margin-top: 14px; padding-top: 10px; border-top: 1px dashed #cbd8d5; }
+    .contact-line { display: inline-block; min-width: 320px; border-bottom: 1.5px solid #172123; height: 1.2em; }
+    .hint { color: #5c686b; font-size: 13px; }
+    .boundary { font-size: 12.5px; color: #5c686b; margin-top: 14px; line-height: 1.5; }
+    .actions-bar { max-width: 720px; margin: 0 auto 24px; display: flex; gap: 10px; }
+    .actions-bar a, .actions-bar button { font: inherit; padding: 8px 12px; border: 1px solid #315f65; border-radius: 6px; background: #315f65; color: #fff; text-decoration: none; cursor: pointer; }
+    .actions-bar a.secondary { background: #fff; color: #315f65; }
+    @media print {
+      body { background: #fff; }
+      .card { border: none; margin: 0; max-width: none; }
+      .actions-bar { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Self-Care Pocket Card</h1>
+    <p class="sub">Print it and keep it visible. On hard days, skip thinking — just do one box.</p>
+
+    <h2>When you have almost no energy (30 sec - 2 min)</h2>
+    <ul>
+        <li><span class="box" aria-hidden="true"></span>Drink a few sips of water, then put the cup where you can see it.</li>
+        <li><span class="box" aria-hidden="true"></span>Move to a window or doorway and name three colors you can see.</li>
+        <li><span class="box" aria-hidden="true"></span>Send one sentence to a trusted person. It does not need to explain everything.</li>
+        <li><span class="box" aria-hidden="true"></span>Wash your face or hands. Nothing else has to be finished.</li>
+    </ul>
+
+    <h2>When you have a little energy (5 - 10 min)</h2>
+    <ul>
+        <li><span class="box" aria-hidden="true"></span>Choose a task that can end within ten minutes and do only the first step.</li>
+        <li><span class="box" aria-hidden="true"></span>Walk to the outside door, hallway, or stairs and come back. Speed does not matter.</li>
+        <li><span class="box" aria-hidden="true"></span>Write one stuck item as three next steps, then do only the first one.</li>
+    </ul>
+
+    <div class="crisis">
+      <h2>If you are not safe right now</h2>
+      <ul>
+        <li><strong>Immediate danger: call your local emergency number now</strong> — If you may act soon, have a plan or means, or need urgent medical help, move away from danger and seek in-person help now.</li>
+        <li><strong>United States: call, text, or chat 988</strong> — The 988 Suicide &amp; Crisis Lifeline offers free, confidential support by call, text, or chat.</li>
+        <li><strong>Canada: call or text 9-8-8</strong> — 9-8-8 provides suicide crisis support across Canada by phone or text, 24 hours a day.</li>
+        <li><strong>United Kingdom and Ireland: call Samaritans at 116 123</strong> — If you need urgent emotional support in the United Kingdom or Ireland, call Samaritans at 116 123 any time.</li>
+        <li><strong>Other countries: Find a Helpline</strong> — Use Find a Helpline to locate verified local emotional support by country, topic, phone, text, or chat.</li>
+        <li><strong>Trusted person: send one short message</strong> — Try: &quot;I do not feel safe being alone right now. Can you stay with me or help me contact support?&quot;</li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <strong>My trusted contact:</strong> <span class="contact-line"></span>
+      <div class="hint">(Write the name and contact now, so you do not have to think later.)</div>
+    </div>
+
+    <p class="boundary">This card is not diagnosis, treatment, or a crisis service. If you have thoughts of self-harm or not wanting to live, use the crisis resources above first.</p>
+  </div>
+  <div class="actions-bar">
+    <button onclick="window.print()">Print this page</button>
+    <a class="secondary" href="mood-anchor-en-20260705.html">Back to the Mood Anchor tool</a>
+  </div>
+</body>
+</html>

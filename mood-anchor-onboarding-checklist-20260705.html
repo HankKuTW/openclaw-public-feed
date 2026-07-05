@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Anchor - 安全開始清單</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f4ee;
+      --panel: #ffffff;
+      --soft: #e8f0ee;
+      --text: #172123;
+      --muted: #5c686b;
+      --line: #cbd8d5;
+      --accent: #315f65;
+      --danger: #8b2f3c;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 980px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 20px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    .sub, .small { color: var(--muted); }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; margin-top: 14px; }
+    .crisis { border-color: #d9a7af; background: #fff7f5; }
+    .crisis h2, .crisis strong { color: var(--danger); }
+    .steps { display: grid; gap: 10px; margin-top: 14px; }
+    .step { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 12px; }
+    .step label { display: flex; gap: 10px; align-items: flex-start; font-weight: 700; }
+    .step input { min-width: 18px; min-height: 18px; margin-top: 2px; accent-color: var(--accent); }
+    .step p { margin: 6px 0 0 28px; }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .link-button {
+      min-height: 40px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .link-button.secondary { background: var(--panel); color: var(--accent); }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101517;
+        --panel: #172023;
+        --soft: #1d2b2e;
+        --text: #eef4f2;
+        --muted: #b5c1c0;
+        --line: #334548;
+        --accent: #6ca8ad;
+        --danger: #f0a0ad;
+      }
+      .crisis { background: #27191d; }
+    }
+    @media (max-width: 640px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .link-button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>安全開始清單</h1>
+      <p class="sub">第一次使用 Mood Anchor 前，先用三分鐘確認安全、隱私和支援出口。</p>
+    </header>
+
+    <section class="panel crisis">
+      <h2>如果現在不安全</h2>
+      <ul><li><strong>在美國可撥打或傳簡訊 988</strong>：如果你可能傷害自己、覺得撐不住，或需要立即有人陪你說話，請使用 988 Suicide &amp; Crisis Lifeline。</li>
+        <li><strong>有立即生命危險時，聯絡當地緊急服務</strong>：如果你已經有計畫、工具、或可能馬上行動，請離開危險物品並尋求現場協助。</li>
+        <li><strong>聯絡一位可信任的人</strong>：傳送一句簡短訊息：「我現在不太安全，可以陪我一下或幫我找支援嗎？」</li></ul>
+    </section>
+
+    <section aria-labelledby="steps-title">
+      <h2 id="steps-title">三分鐘開始檢查</h2>
+      <div class="steps">
+        <article class="step">
+          <label><input type="checkbox" /> <span>先確認現在是否安全</span></label>
+          <p>如果現在不安全、可能傷害自己、或不該一個人待著，先使用 988、當地緊急服務，或請可信任的人陪你。</p>
+        </article>
+        <article class="step">
+          <label><input type="checkbox" /> <span>確認資料只在本機</span></label>
+          <p>Mood Anchor 的紀錄只存在這台裝置的瀏覽器 localStorage；清除瀏覽器資料會刪除紀錄。</p>
+        </article>
+        <article class="step">
+          <label><input type="checkbox" /> <span>先準備真人支援出口</span></label>
+          <p>先打開自我照顧小卡和支援訊息草稿；狀態變差時不用重新想要怎麼開口。</p>
+        </article>
+        <article class="step">
+          <label><input type="checkbox" /> <span>只做一個很小的步驟</span></label>
+          <p>第一次不用完整填完所有想法；只選一個語氣、一個方向，讓工具給你一個小到能開始的下一步。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>使用邊界</h2>
+      <ul><li>這不是診斷、治療、危機服務、心理諮商或醫療建議。</li>
+        <li>這個工具不會自動判斷危機，也不能監測你的安全。</li>
+        <li>如果有自傷、想死、或現在不安全的感覺，請先使用真人危機支援。</li>
+        <li>不要把分數當成醫療評估；它只幫你整理今天的狀態。</li></ul>
+    </section>
+
+    <section class="panel">
+      <h2>下一步</h2>
+      <div class="links">
+        <a class="link-button" href="mood-anchor-20260705.html">回到 Mood Anchor 工具</a>
+        <a class="link-button secondary" href="mood-anchor-care-card-20260705.html">開啟自我照顧小卡</a>
+        <a class="link-button secondary" href="mood-anchor-support-scripts-20260705.html">開啟支援訊息草稿</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>參考來源</h2>
+      <ul><li><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH Caring for Your Mental Health</a>：NIMH 建議照顧身體、睡眠、放鬆活動，並與朋友或家人保持連結。</li>
+        <li><a href="https://www.nimh.nih.gov/health/find-help">NIMH Help for Mental Illnesses</a>：NIMH 指出生命危險時應打當地緊急電話；美國也可使用 988。</li>
+        <li><a href="https://988lifeline.org/get-help/what-to-expect/">988 Lifeline - What to Expect</a>：說明聯絡 988 時可能發生的流程與支援方式。</li>
+        <li><a href="https://findahelpline.com/">Find a Helpline</a>：可依國家尋找電話、簡訊、聊天或 WhatsApp 支援資源。</li></ul>
+    </section>
+    <p class="small">Generated 2026-07-05T06:50:38.265Z - mood-anchor-onboarding-checklist-20260705.html</p>
+  </main>
+</body>
+</html>

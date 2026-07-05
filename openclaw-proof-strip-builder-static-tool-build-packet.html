@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OpenClaw Proof Strip Builder Static Tool Build Packet - 20260705</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #5d6878;
+      --line: #d6dee8;
+      --accent: #225c7a;
+      --soft: #eaf2f6;
+      --warn: #8a5206;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); }
+    header { background: var(--soft); border-bottom: 1px solid var(--line); }
+    header > div, main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 32px; line-height: 1.15; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li, td { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    section, article { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+    section { margin: 0 0 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 12px; }
+    .badge { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; font-size: 12px; color: var(--muted); }
+    .warn { border-left: 4px solid var(--warn); }
+    .meta { color: var(--muted); margin: 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    @media (max-width: 780px) {
+      header > div, main { padding: 18px; }
+      h1 { font-size: 26px; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      td { border-bottom: 0; padding: 8px 0; }
+      tr { border-bottom: 1px solid var(--line); padding: 8px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="badge">openclaw_product_studio_returns_static_tool_build_packet_codex_reviews_before_publish</p>
+      <h1>OpenClaw Proof Strip Builder 靜態工具建置封包</h1>
+      <p class="meta">Generated: 2026-07-04T19:36:06.219Z · Public URL: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-static-tool-build-packet-20260705.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-static-tool-build-packet-20260705.html</a> · Stable URL: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-static-tool-build-packet.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-static-tool-build-packet.html</a></p>
+      <p>OpenClaw 交回靜態工具建置封包；Codex 下一步審核，仍不直接發布公開工具。</p>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h2>Source Review</h2>
+      <article>
+        <p><strong>Source:</strong> <code>openclaw_proof_strip_builder_codex_review_packet</code> · <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-codex-review-packet.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-codex-review-packet.html</a></p>
+        <p>Codex authorized OpenClaw to return a static tool build packet with strict no-network and owner-review constraints.</p>
+        <p><strong>Status:</strong> <code>build_packet_ready_for_codex_review</code> · <strong>Boundary:</strong> <code>packet_only_no_public_tool_publish</code></p>
+      </article>
+    </section>
+    <section>
+      <h2>Build File Contract</h2>
+      <ul><li><strong>Planned output file:</strong> proof-strip-builder-static-tool.html</li><li><strong>Runtime:</strong> single_static_html_no_network_optional_local_storage</li><li><strong>Dependencies:</strong> html, css, vanilla_js</li><li><strong>External assets:</strong> none</li><li><strong>Publish boundary:</strong> Do not publish the tool file until Codex reviews this build packet and the owner keeps external authority.</li></ul>
+    </section>
+    <section>
+      <h2>UI Contract</h2>
+      <div class="grid">
+        <article><h3>Sections</h3><ul><li><code>input_panel</code></li><li><code>live_preview_panel</code></li><li><code>proof_strip_output_panel</code></li><li><code>owner_review_checklist</code></li><li><code>export_panel</code></li><li><code>privacy_claims_notice</code></li></ul></article>
+        <article><h3>States</h3><ul><li><code>empty_state</code></li><li><code>draft_state</code></li><li><code>invalid_public_fact_warning</code></li><li><code>copy_ready_state</code></li><li><code>export_ready_state</code></li><li><code>reset_confirm_state</code></li></ul></article>
+        <article><h3>Fields</h3><ul><li><code>buyer_profile</code></li><li><code>public_result_note</code></li><li><code>proof_type</code></li><li><code>public_proof_note</code></li><li><code>risk_reversal_note</code></li><li><code>owner_review_cta</code></li><li><code>credibility_caveat</code></li></ul><p>Reject private customer records, private listing text, credentials, message exports, platform exports, or sensitive Mood Anchor data.</p></article>
+      </div>
+    </section>
+    <section>
+      <h2>Local State And Network Boundary</h2>
+      <article>
+        <p><strong>Local state:</strong> <code>openclaw_proof_strip_builder_draft_v1</code></p>
+        <p>Owner can clear the draft locally; JSON export stays manual and owner-controlled.</p>
+        <p>The planned tool must run from a local or static host without remote requests, account access, background workers, browser relay, or gateway control.</p>
+        <ul><li><code>no_remote_script_sources</code></li><li><code>no_remote_api_calls</code></li><li><code>no_tracking_pixels</code></li><li><code>no_form_submission_targets</code></li><li><code>no_external_share_actions</code></li></ul>
+      </article>
+    </section>
+    <section>
+      <h2>Department Build Returns</h2>
+      <div class="grid">
+      <article>
+        <h3>Product Studio QA</h3>
+        <p><strong>Return:</strong> The build packet is ready as a single static HTML plan with one target file, local-only state, and no public publish action.</p>
+        <p><strong>Evidence:</strong> The file contract lists vanilla browser dependencies only and no external assets.</p>
+      </article>
+
+      <article>
+        <h3>UX/RWD</h3>
+        <p><strong>Return:</strong> The planned flow stays mobile-first: inputs, live preview, proof strip output, review checklist, export, then privacy notice.</p>
+        <p><strong>Evidence:</strong> The UI states cover empty, draft, warning, copy-ready, export-ready, and reset-confirm paths.</p>
+      </article>
+
+      <article>
+        <h3>Support/Ops</h3>
+        <p><strong>Return:</strong> The packet keeps privacy and claims boundaries explicit before any implementation review.</p>
+        <p><strong>Evidence:</strong> Private records, credentials, platform exports, outcome certainty, and health claims are outside scope.</p>
+      </article>
+
+      <article>
+        <h3>Analytics</h3>
+        <p><strong>Return:</strong> Only aggregate-only owner-entered counts may be tracked outside the tool.</p>
+        <p><strong>Evidence:</strong> No analytics script, user identifier, customer record, platform import, or sensitive support data is authorized.</p>
+      </article>
+
+      <article>
+        <h3>Revenue Ops</h3>
+        <p><strong>Return:</strong> The build bridges to Listing Audit by helping sellers draft owner-reviewed proof copy that can surface deeper audit demand.</p>
+        <p><strong>Evidence:</strong> The packet does not add checkout, pricing, payment, or a separate paid lane.</p>
+      </article>
+
+      <article>
+        <h3>Marketing Desk</h3>
+        <p><strong>Return:</strong> Public copy waits for Codex review and owner-reviewed wording.</p>
+        <p><strong>Evidence:</strong> No posting, replies, messages, email, scheduling, channel plan, or public distribution task is delegated.</p>
+      </article>
+
+      <article>
+        <h3>CEO/Strategy</h3>
+        <p><strong>Return:</strong> Keep this as reversible local progress while the 24-hour traffic window is still pending.</p>
+        <p><strong>Evidence:</strong> The packet adds no service, model call, crawler, scheduler, or memory-heavy process.</p>
+      </article></div>
+    </section>
+    <section>
+      <h2>Acceptance Checks</h2>
+      <table>
+        <thead><tr><th>Check</th><th>Status</th><th>Evidence</th></tr></thead>
+        <tbody>
+      <tr>
+        <td><code>static_single_file_gate</code></td>
+        <td>ready_for_codex_review</td>
+        <td>The planned output is one HTML file with inline CSS and vanilla JavaScript only.</td>
+      </tr>
+
+      <tr>
+        <td><code>no_network_calls_gate</code></td>
+        <td>ready_for_codex_review</td>
+        <td>The packet forbids remote scripts, remote APIs, tracking pixels, share actions, and submission targets.</td>
+      </tr>
+
+      <tr>
+        <td><code>local_storage_optional_gate</code></td>
+        <td>ready_for_codex_review</td>
+        <td>The only local state key is optional and owner-resettable.</td>
+      </tr>
+
+      <tr>
+        <td><code>owner_entered_public_facts_gate</code></td>
+        <td>ready_for_codex_review</td>
+        <td>All fields are owner-entered public facts plus caveat wording; private source data is rejected.</td>
+      </tr>
+
+      <tr>
+        <td><code>rwd_no_overlap_gate</code></td>
+        <td>ready_for_codex_review</td>
+        <td>The implementation must use stable responsive dimensions and prevent long labels from overlapping controls.</td>
+      </tr>
+
+      <tr>
+        <td><code>claims_safety_gate</code></td>
+        <td>ready_for_codex_review</td>
+        <td>The generated copy cannot promise sales, buyer action, ranking, approval, traffic, conversion, productivity, or health outcomes.</td>
+      </tr>
+
+      <tr>
+        <td><code>external_authority_stop_line_gate</code></td>
+        <td>ready_for_codex_review</td>
+        <td>External actions remain owner-only: posting, replies, messages, email, checkout, pricing, account, payment, payout, tax, refund, and credentials.</td>
+      </tr>
+
+      <tr>
+        <td><code>codex_review_before_publish_gate</code></td>
+        <td>ready_for_codex_review</td>
+        <td>The next packet is a Codex build review packet, not a public tool publish.</td>
+      </tr></tbody>
+      </table>
+    </section>
+    <section>
+      <h2>Next Order</h2>
+      <article>
+        <p><strong>Expected next packet:</strong> <code>codex_proof_strip_builder_static_tool_build_review_packet</code></p>
+        <p><strong>Condition:</strong> Codex reviews this build packet before OpenClaw prepares or publishes the public static tool artifact.</p>
+        <p><strong>Stop if:</strong> Any proposed build adds remote requests, external authority actions, private data ingestion, account access, outcome certainty, or runtime expansion.</p>
+      </article>
+    </section>
+    <section>
+      <h2>Evidence Links</h2>
+      <ul><li>OpenClaw Proof Strip Builder Codex review packet: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-codex-review-packet.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-codex-review-packet.html</a></li>
+<li>OpenClaw Proof Strip Builder prototype return packet: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-return-packet.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-return-packet.html</a></li>
+<li>OpenClaw Proof Strip Builder prototype dispatch: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-dispatch.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-proof-strip-builder-prototype-dispatch.html</a></li>
+<li>Dashboard remote access status: <a href="https://hankkutw.github.io/openclaw-public-feed/dashboard-remote-access-20260705.html">https://hankkutw.github.io/openclaw-public-feed/dashboard-remote-access-20260705.html</a></li></ul>
+    </section>
+    <section>
+      <h2>Telegram</h2>
+      <article class="warn"><p><strong>pending_manual_delivery</strong>: missing_telegram_bot_token_or_chat_id</p><p>Send through direct Telegram Bot API only after credentials are configured in a secure local path.</p></article>
+    </section>
+    <section>
+      <h2>Stop Lines</h2>
+      <ul><li>This is a build packet for Codex review, not the public Proof Strip Builder tool.</li><li>Do not publish proof-strip-builder-static-tool.html until Codex reviews the build and the owner keeps external authority.</li><li>Do not add network calls, tracking, remote scripts, submission targets, accounts, credentials, platform imports, or backend storage.</li><li>Do not claim sales, buyer action, traffic, conversion, ranking, approval, productivity, or health outcomes.</li><li>Do not take external authority actions: posting, replies, messages, email, checkout, pricing, account settings, payment, payout, tax, refund, or credential changes.</li></ul>
+    </section>
+  </main>
+</body>
+</html>

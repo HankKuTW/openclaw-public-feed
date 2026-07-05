@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OpenClaw Continuous Exploration Board - 20260705</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #5b6678;
+      --line: #d7e0ea;
+      --accent: #245f73;
+      --green: #0f6b57;
+      --warn: #8a4d08;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 32px; line-height: 1.14; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 18px; letter-spacing: 0; }
+    p, li, td { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    code, textarea { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .sub { color: var(--muted); margin: 0 0 16px; }
+    section, article {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 14px;
+    }
+    section { margin: 0 0 14px; }
+    .grid { display: grid; gap: 12px; }
+    .two { grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+    .cases, .lanes { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .badge { display: inline-block; width: fit-content; border-radius: 999px; padding: 3px 9px; font-size: 12px; font-weight: 700; }
+    .active_next { color: var(--green); background: #dff5e9; }
+    .local_concept_only, .research_queue, .watchlist, .safety_supporting { color: var(--warn); background: #fff2cc; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    textarea {
+      width: 100%;
+      min-height: 220px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      background: var(--panel);
+      color: var(--ink);
+      resize: vertical;
+      font-size: 13px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    button {
+      border: 1px solid #b8c8da;
+      border-radius: 6px;
+      background: #eaf2f8;
+      color: #14324d;
+      padding: 8px 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111618;
+        --panel: #171f22;
+        --ink: #edf5f7;
+        --muted: #b9c4ca;
+        --line: #34464d;
+        --accent: #8fc8d8;
+      }
+    }
+    @media (max-width: 780px) {
+      main { padding: 16px; }
+      h1 { font-size: 26px; }
+      table { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>OpenClaw 持續探索指揮板</h1>
+  <p class="sub">OpenClaw Continuous Exploration Board · 2026-07-04T17:42:35.438Z · reviewed 2026-07-05</p>
+  <section>
+    <h2>Owner-proxy purpose</h2>
+    <p>Direct OpenClaw to keep exploring source-backed one-person revenue possibilities after the one-person research and Mood Anchor PWA lanes exist, without asking the owner for internal decisions.</p>
+    <p><strong>Telegram:</strong> pending_manual_delivery · missing_telegram_bot_token_or_chat_id</p>
+  </section>
+  <section>
+    <h2>source-backed one-person revenue cases</h2>
+    <div class="grid cases">
+      <article>
+        <h3>Carrd</h3>
+        <p><a href="https://saasclub.io/podcast/carrd-founder-aj-side-project-to-profitable-saas/">https://saasclub.io/podcast/carrd-founder-aj-side-project-to-profitable-saas/</a></p>
+        <p><strong>Reported result:</strong> $30K MRR one-person SaaS in the cited SaaS Club founder interview.</p>
+        <p><strong>Pattern:</strong> Let users build before signup, keep first-use friction near zero, and use public output as distribution.</p>
+        <p><strong>OpenClaw feasibility:</strong> High fit for Listing Friction Grader, request packs, and future simple browser-native seller tools.</p>
+        <p><strong>Caution:</strong> Do not assume Carrd-level audience, template library, product polish, or organic made-with loop.</p>
+      </article>
+
+      <article>
+        <h3>Photopea</h3>
+        <p><a href="https://www.failory.com/interview/photopea">https://www.failory.com/interview/photopea</a></p>
+        <p><strong>Reported result:</strong> $100K/month from ads in the cited Failory solo-founder interview.</p>
+        <p><strong>Pattern:</strong> Browser-native utility with very low hosting burden can become durable when usage depth is high.</p>
+        <p><strong>OpenClaw feasibility:</strong> Medium fit for local-first architecture; low fit for ad-scale expectations or deep-editor scope.</p>
+        <p><strong>Caution:</strong> Do not copy scope depth. Photopea took years and broad demand; OpenClaw should copy the local-first serving model only.</p>
+      </article>
+
+      <article>
+        <h3>Bannerbear</h3>
+        <p><a href="https://www.bannerbear.com/journey-to-10k-mrr/">https://www.bannerbear.com/journey-to-10k-mrr/</a></p>
+        <p><strong>Reported result:</strong> $10K MRR founder-documented SaaS milestone.</p>
+        <p><strong>Pattern:</strong> A focused workflow that solves repeated operational pain can become a paid B2B path.</p>
+        <p><strong>OpenClaw feasibility:</strong> High fit for validating Listing Audit demand before building listing-rewrite automation.</p>
+        <p><strong>Caution:</strong> Do not build workflow SaaS before qualified requests repeat and support load is understood.</p>
+      </article>
+
+      <article>
+        <h3>Nomad List and Remote OK</h3>
+        <p><a href="https://levels.io/4-years-to-1m-revenue-nomad-list-remote-ok">https://levels.io/4-years-to-1m-revenue-nomad-list-remote-ok</a></p>
+        <p><strong>Reported result:</strong> $83K+ monthly revenue milestone from two apps, one VPS, no ad budget, and no funding in the founder post.</p>
+        <p><strong>Pattern:</strong> A global English audience plus low-overhead public utility can compound across a portfolio.</p>
+        <p><strong>OpenClaw feasibility:</strong> Medium fit for global English digital-product sellers; lower fit for community or job-board operations.</p>
+        <p><strong>Caution:</strong> Do not copy moderation-heavy community or marketplace models before owner-entered demand justifies the load.</p>
+      </article>
+
+      <article>
+        <h3>TypingMind</h3>
+        <p><a href="https://news.tonydinh.com/p/nov-2024-my-first-million">https://news.tonydinh.com/p/nov-2024-my-first-million</a></p>
+        <p><strong>Reported result:</strong> $1M in last-12-month revenue in the founder newsletter, after an earlier $500K milestone.</p>
+        <p><strong>Pattern:</strong> Early niche timing plus a useful wrapper around a new platform can sell before a large team exists.</p>
+        <p><strong>OpenClaw feasibility:</strong> Watchlist fit only: use current internal workflows to identify repeated pain before building any AI wrapper.</p>
+        <p><strong>Caution:</strong> Do not chase AI timing without distribution, buyer urgency, and a narrow workflow signal.</p>
+      </article></div>
+  </section>
+  <section>
+    <h2>探索 lane</h2>
+    <div class="grid lanes">
+      <article data-lane="listing_audit_demand_to_reply">
+        <h3>Listing Audit demand-to-reply validation</h3>
+        <p><span class="badge active_next">active_next</span></p>
+        <p><strong>Department:</strong> Revenue Ops</p>
+        <p><strong>Hypothesis:</strong> The nearest revenue path is not another product; it is proving whether free grader interest turns into qualified owner-reviewed audit requests.</p>
+        <p><strong>Allowed local move:</strong> Keep demand ledger, request pack, reply handoff, validation board, and owner-entered metrics fields current.</p>
+        <p><strong>Success signal:</strong> qualified_request_count &gt;= 3 with zero support/refund confusion and at least one owner-approved reply path.</p>
+        <p><strong>Stop line:</strong> No posting, replies, DMs, email, checkout, payment, refund, account changes, or customer communication.</p>
+      </article>
+
+      <article data-lane="b2b_listing_rewrite_workflow">
+        <h3>B2B listing rewrite workflow concept</h3>
+        <p><span class="badge local_concept_only">local_concept_only</span></p>
+        <p><strong>Department:</strong> CEO/Strategy</p>
+        <p><strong>Hypothesis:</strong> If Listing Audit requests repeat, a narrow repeatable rewrite workflow could become the next paid operating lane.</p>
+        <p><strong>Allowed local move:</strong> Draft only problem, buyer, inputs, outputs, manual service version, and proof required before automation.</p>
+        <p><strong>Success signal:</strong> Three repeated request patterns from owner-entered demand classifications.</p>
+        <p><strong>Stop line:</strong> No pricing page, recurring checkout, public launch, or automation build before repeated demand.</p>
+      </article>
+
+      <article data-lane="browser_native_seller_tools">
+        <h3>Browser-native seller tools</h3>
+        <p><span class="badge research_queue">research_queue</span></p>
+        <p><strong>Department:</strong> Product Studio QA</p>
+        <p><strong>Hypothesis:</strong> Carrd and Photopea suggest that low-load browser-native utilities can distribute well when the first session creates value.</p>
+        <p><strong>Allowed local move:</strong> Collect local ideas for digital-product sellers that run entirely in static HTML with optional localStorage.</p>
+        <p><strong>Success signal:</strong> A tool idea with one clear buyer pain, no server collection, and a first-screen result in under two minutes.</p>
+        <p><strong>Stop line:</strong> No account system, scraping, upload of private customer data, or heavy background runtime.</p>
+      </article>
+
+      <article data-lane="ai_workflow_wrapper_watchlist">
+        <h3>AI workflow wrapper watchlist</h3>
+        <p><span class="badge watchlist">watchlist</span></p>
+        <p><strong>Department:</strong> Research Desk</p>
+        <p><strong>Hypothesis:</strong> TypingMind shows platform-wrapper timing can work, but OpenClaw should only copy it after internal repeated pain is visible.</p>
+        <p><strong>Allowed local move:</strong> Track repeated manual OpenClaw workflows that could later become an AI-assisted local tool.</p>
+        <p><strong>Success signal:</strong> A repeated internal workflow occurs at least five times and has a clear buyer outside this workspace.</p>
+        <p><strong>Stop line:</strong> No model-proxy product, API billing, credential handling, or AI claims before real workflow evidence.</p>
+      </article>
+
+      <article data-lane="mood_anchor_trust_asset">
+        <h3>Mood Anchor trust asset</h3>
+        <p><span class="badge safety_supporting">safety_supporting</span></p>
+        <p><strong>Department:</strong> Support/Ops</p>
+        <p><strong>Hypothesis:</strong> Mood Anchor can support trust and public usefulness only while it stays free, private, local-first, and non-medical.</p>
+        <p><strong>Allowed local move:</strong> Keep QA board, validation ledger, crisis-resource copy, and aggregate-only signal fields current.</p>
+        <p><strong>Success signal:</strong> All safety QA checks pass with zero medical, crisis, or privacy confusion.</p>
+        <p><strong>Stop line:</strong> No paid mental-health offer, diagnosis, treatment, symptom-reduction promise, crisis monitoring, or server collection.</p>
+      </article></div>
+  </section>
+  <section>
+    <h2>部門命令</h2>
+    <div class="grid two">
+      <article>
+        <h3>CEO/Strategy</h3>
+        <p><strong>Order:</strong> Use this board as the current owner-proxy exploration decision: active revenue exploration stays on Listing Audit demand-to-reply; other lanes stay local concept or watchlist.</p>
+        <p><strong>Evidence:</strong> Source-backed one-person revenue cases and current OpenClaw artifacts.</p>
+      </article>
+
+      <article>
+        <h3>Research Desk</h3>
+        <p><strong>Order:</strong> Keep source notes fresh and separate copyable patterns from scale assumptions. Refresh public evidence before changing priorities.</p>
+        <p><strong>Evidence:</strong> Carrd, Photopea, Bannerbear, Levels, and TypingMind source URLs on this board.</p>
+      </article>
+
+      <article>
+        <h3>Revenue Ops</h3>
+        <p><strong>Order:</strong> Advance only local Listing Audit demand-to-reply artifacts until owner-entered demand classifications justify the next paid workflow.</p>
+        <p><strong>Evidence:</strong> Request pack, demand ledger, owner reply handoff, validation board, and revenue experiment loop.</p>
+      </article>
+
+      <article>
+        <h3>Product Studio QA</h3>
+        <p><strong>Order:</strong> Evaluate browser-native seller-tool concepts only if they can be static, RWD, useful before signup, and low load.</p>
+        <p><strong>Evidence:</strong> Carrd and Photopea patterns plus current Listing Friction Grader/Mood Anchor architecture.</p>
+      </article>
+
+      <article>
+        <h3>Analytics</h3>
+        <p><strong>Order:</strong> Use owner-entered aggregate only: request counts, repeated pain patterns, objections, support/refund questions, safety confusion, and QA pass/fail counts.</p>
+        <p><strong>Evidence:</strong> Demand ledger, channel metrics ledger, Mood Anchor validation ledger, and PWA QA board.</p>
+      </article>
+
+      <article>
+        <h3>Support/Ops</h3>
+        <p><strong>Order:</strong> Enforce no external authority, no sensitive server collection, no runtime expansion, and no outcome promises across all exploration lanes.</p>
+        <p><strong>Evidence:</strong> Runtime guardrails, remote access smoke status, and stop lines.</p>
+      </article></div>
+  </section>
+  <section>
+    <h2>決策閘門</h2>
+    <table>
+      <thead><tr><th>Condition</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>qualified_request_count &gt;= 3</code></td>
+          <td>CEO/Strategy may approve a local B2B listing rewrite workflow concept brief; still no checkout or external launch.</td>
+        </tr>
+
+        <tr>
+          <td><code>repeated_workflow_pattern_count &gt;= 5</code></td>
+          <td>Research Desk may write an AI/local-tool watchlist brief; Support/Ops must review credential and runtime risk first.</td>
+        </tr>
+
+        <tr>
+          <td><code>support_or_medical_risk &gt; 0</code></td>
+          <td>Pause Mood Anchor distribution and adjacent monetization exploration; route to Support/Ops and Product Studio QA.</td>
+        </tr>
+
+        <tr>
+          <td><code>available_memory_gib &lt; 1</code></td>
+          <td>Stop direct runtime work and keep exploration file-based only.</td>
+        </tr></tbody>
+    </table>
+  </section>
+  <section>
+    <h2>本地探索摘要</h2>
+    <p>只填 owner-entered aggregate only。不貼私人心情筆記、客戶訊息、平台私訊、帳號資料、憑證、醫療細節或分析匯出。</p>
+    <textarea id="explorationSummaryInput" spellcheck="false">{
+  &quot;date&quot;: &quot;20260705&quot;,
+  &quot;owner_entered_aggregate_only&quot;: true,
+  &quot;active_lane&quot;: &quot;listing_audit_demand_to_reply&quot;,
+  &quot;qualified_request_count&quot;: 0,
+  &quot;repeated_workflow_pattern_count&quot;: 0,
+  &quot;support_or_medical_risk&quot;: 0,
+  &quot;available_memory_gib&quot;: null,
+  &quot;next_decision&quot;: &quot;continue_listing_audit_demand_to_reply_validation&quot;
+}</textarea>
+    <div class="actions">
+      <button type="button" onclick="saveExplorationSummary()">Save Local</button>
+      <button type="button" onclick="copyExplorationSummary()">Copy JSON</button>
+      <button type="button" onclick="exportExplorationSummary()">Export JSON</button>
+      <button type="button" onclick="clearExplorationSummary()">Clear</button>
+    </div>
+    <p id="explorationStatusLine" class="sub" aria-live="polite">Local only. No server collection.</p>
+  </section>
+  <section>
+    <h2>Runtime guardrails</h2>
+    <ul><li>No OpenClaw runtime, browser relay, message command, scraper, or long-lived agent is required for this board.</li>
+<li>Use static files, short npm scripts, source-backed notes, and owner-entered aggregate metrics only.</li>
+<li>Do not install third-party skills, plugins, packages, or background services for exploration without a separate allowlist review.</li>
+<li>Stop direct runtime work if available memory drops below 1GiB.</li></ul>
+  </section>
+  <section>
+    <h2>Owner-only 佇列</h2>
+    <ul><li>Owner chooses and performs public posts, submissions, replies, DMs, emails, checkout setup, account changes, and payment/refund/tax actions.</li>
+<li>Owner records public URLs, observed replies, request classifications, paid-audit interest, support/refund questions, and safety confusion counts.</li>
+<li>Owner supplies Telegram Bot API token and chat id through secure local configuration if external notifications should be delivered.</li></ul>
+  </section>
+  <section>
+    <h2>停止線</h2>
+    <ul><li>No external authority actions: no login, public posting, comments, DMs, emails, scheduling, checkout setup, payment, payout, tax, refund, credential, price, or account changes.</li>
+<li>No certainty claims for revenue, traffic, conversion, ranking, platform approval, customer acquisition, productivity, mood, treatment, crisis response, or health outcomes.</li>
+<li>No server collection of sensitive Mood Anchor data, pasted private listing text, customer records, credentials, medical information, analytics exports, or platform messages.</li>
+<li>No scraping, platform bypassing, automatic channel actions, OpenClaw message commands, relay dependence, or long-running runtime control surfaces.</li></ul>
+  </section>
+</main>
+<script>
+const explorationStorageKey = 'openClawContinuousExploration:20260705';
+const explorationSummaryInput = document.getElementById('explorationSummaryInput');
+const explorationStatusLine = document.getElementById('explorationStatusLine');
+const storedExplorationSummary = localStorage.getItem(explorationStorageKey);
+if (storedExplorationSummary) explorationSummaryInput.value = storedExplorationSummary;
+function setExplorationStatus(message) {
+  explorationStatusLine.textContent = message;
+}
+function saveExplorationSummary() {
+  localStorage.setItem(explorationStorageKey, explorationSummaryInput.value);
+  setExplorationStatus('Saved locally in this browser.');
+}
+function copyExplorationSummary() {
+  const text = explorationSummaryInput.value;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => setExplorationStatus('Copied JSON for owner-proxy review.'));
+    return;
+  }
+  explorationSummaryInput.select();
+  document.execCommand('copy');
+  setExplorationStatus('Copied JSON for owner-proxy review.');
+}
+function exportExplorationSummary() {
+  const blob = new Blob([explorationSummaryInput.value], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'openclaw-continuous-exploration-summary-20260705.json';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  setExplorationStatus('Exported JSON file for owner-proxy review.');
+}
+function clearExplorationSummary() {
+  localStorage.removeItem(explorationStorageKey);
+  explorationSummaryInput.value = "{\n  \"date\": \"20260705\",\n  \"owner_entered_aggregate_only\": true,\n  \"active_lane\": \"listing_audit_demand_to_reply\",\n  \"qualified_request_count\": 0,\n  \"repeated_workflow_pattern_count\": 0,\n  \"support_or_medical_risk\": 0,\n  \"available_memory_gib\": null,\n  \"next_decision\": \"continue_listing_audit_demand_to_reply_validation\"\n}";
+  setExplorationStatus('Local exploration summary reset.');
+}
+</script>
+</body>
+</html>

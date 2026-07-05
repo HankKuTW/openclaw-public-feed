@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Mood Anchor PWA QA Acceptance Board - 20260705</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f7fa;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #5d6778;
+      --line: #d7e0ea;
+      --blue: #165d88;
+      --green: #0f6b57;
+      --warn: #8a4d08;
+      --code: #eef3f7;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 32px; line-height: 1.14; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 18px; letter-spacing: 0; }
+    p, li, td { line-height: 1.55; }
+    a { color: var(--blue); overflow-wrap: anywhere; }
+    code, textarea { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .sub { margin: 0 0 16px; color: var(--muted); }
+    .links, .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+    .links a, section, article {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 12px;
+    }
+    .links a { text-decoration: none; font-weight: 700; }
+    section { margin: 0 0 14px; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 14px; align-items: start; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    .badge { display: inline-block; border-radius: 999px; padding: 3px 8px; font-size: 12px; font-weight: 700; }
+    .badge.pending { color: var(--warn); background: #fff2cc; }
+    textarea {
+      width: 100%;
+      min-height: 250px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      background: var(--panel);
+      color: var(--ink);
+      resize: vertical;
+      font-size: 13px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    button {
+      border: 1px solid #b8c8da;
+      border-radius: 6px;
+      background: #eaf2f8;
+      color: #14324d;
+      padding: 8px 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111618;
+        --panel: #171f22;
+        --ink: #edf5f7;
+        --muted: #b9c4ca;
+        --line: #34464d;
+        --blue: #8fc8d8;
+        --code: #223036;
+      }
+    }
+    @media (max-width: 780px) {
+      main { padding: 16px; }
+      h1 { font-size: 26px; }
+      .grid { grid-template-columns: 1fr; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 6px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Mood Anchor PWA 個人化驗收板</h1>
+  <p class="sub">Mood Anchor PWA QA Acceptance Board · 2026-07-04T16:34:24.260Z · 20260705</p>
+  <section>
+    <h2>Owner-proxy 指令</h2>
+    <p>Codex owner-proxy directs OpenClaw Product Studio QA to verify Mood Anchor PWA/RWD/offline/personalization behavior first, Support/Ops to clear safety wording second, Analytics to keep aggregate-only validation, and Marketing Desk to wait for both gates.</p>
+  </section>
+  <section>
+    <h2>OpenClaw 來源入口</h2>
+    <div class="links"><a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en.html">Mood Anchor English PWA</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor.html">Mood Anchor zh-TW PWA</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-care-card.html">Mood Anchor care card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-care-card-en.html">Mood Anchor English care card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-support-scripts.html">Mood Anchor support scripts</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-support-scripts-en.html">Mood Anchor English support scripts</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-onboarding-checklist.html">Mood Anchor safe start checklist</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-onboarding-checklist-en.html">Mood Anchor English safe start checklist</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-low-mood-card.html">Mood Anchor low-mood response card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-low-mood-card-en.html">Mood Anchor English low-mood response card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-board.html">Mood Anchor activity experiment board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-board-en.html">Mood Anchor English activity experiment board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-signal-ledger.html">Mood Anchor activity experiment signal ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-depression-support-command-board.html">Mood Anchor depression-support command board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-validation-ledger.html">Mood Anchor validation ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-autonomous-execution-board.html">OpenClaw autonomous execution board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-revenue-experiment-loop-board.html">OpenClaw revenue experiment loop board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-department-command-board-20260704.html">Department command board</a></div>
+  </section>
+  <section>
+    <h2>官方依據入口</h2>
+    <div class="links"><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH self-care and help routing</a>
+<a href="https://www.samhsa.gov/mental-health/988">SAMHSA 988</a>
+<a href="https://988lifeline.org/">988 Lifeline</a>
+<a href="https://www.nice.org.uk/guidance/ng222/chapter/recommendations">NICE depression recommendations</a>
+<a href="https://findahelpline.com/">Find a Helpline</a></div>
+  </section>
+  <div class="grid">
+    <section>
+      <h2>驗收檢查表</h2>
+      <table>
+        <thead><tr><th>Check</th><th>Team</th><th>Requirement</th><th>Evidence</th><th>Status</th></tr></thead>
+        <tbody>
+        <tr data-check="pwa_manifest_installability">
+          <td><code>pwa_manifest_installability</code></td>
+          <td>Product Studio QA</td>
+          <td>Manifest is linked, start_url is local, display is standalone, icons resolve, and install prompt basics are not broken.</td>
+          <td>Open Mood Anchor English PWA and zh-TW PWA; inspect manifest links and icon asset.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="service_worker_offline_cache">
+          <td><code>service_worker_offline_cache</code></td>
+          <td>Product Studio QA</td>
+          <td>Service worker registers after first load and offline reload keeps the PWA plus companion assets reachable.</td>
+          <td>Use browser devtools offline mode after first visit; verify PWA, care card, scripts, checklist, low-mood card, and activity board.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="responsive_layout_mobile_desktop">
+          <td><code>responsive_layout_mobile_desktop</code></td>
+          <td>Product Studio QA</td>
+          <td>Mobile and desktop layouts do not overlap, shift unexpectedly, or hide crisis/resource copy.</td>
+          <td>Review 390px mobile, 768px tablet, and desktop viewports.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="local_storage_only">
+          <td><code>local_storage_only</code></td>
+          <td>Product Studio QA</td>
+          <td>State stays in browser localStorage; reset and export controls are visible and understandable.</td>
+          <td>No server collection, no form submit, no analytics script, no background network path for private mood data.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="personalization_controls">
+          <td><code>personalization_controls</code></td>
+          <td>Product Studio QA</td>
+          <td>Tone, value, friction, and support-style controls affect the generated next step without needing an account.</td>
+          <td>Change each segmented control and verify the recommendation changes locally.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="personal_action_ladder">
+          <td><code>personal_action_ladder</code></td>
+          <td>Product Studio QA</td>
+          <td>Primary step, smaller backup, body/connection/solo support style, and human-support handoff are all present.</td>
+          <td>Generate recommendations across low energy, high friction, and with-person support scenarios.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="weekly_plan_reset_export">
+          <td><code>weekly_plan_reset_export</code></td>
+          <td>Product Studio QA</td>
+          <td>7-day micro-action plan, recent history, JSON export, and clear-local-data controls behave predictably.</td>
+          <td>Create a plan, mark a day done, export JSON, clear data, and confirm local state resets.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="crisis_resources_visible">
+          <td><code>crisis_resources_visible</code></td>
+          <td>Support/Ops</td>
+          <td>Crisis resources and emergency/professional-help boundaries stay visible before optional exercises.</td>
+          <td>Support/Ops rejects any screen where crisis or self-harm routing is unclear.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="non_medical_copy">
+          <td><code>non_medical_copy</code></td>
+          <td>Support/Ops</td>
+          <td>Copy frames Mood Anchor as private self-support, not diagnosis, therapy, crisis care, medical advice, monitoring, or an outcome guarantee.</td>
+          <td>Compare PWA, support scripts, low-mood card, activity board, and launch copy against official evidence links.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="companion_assets_linked">
+          <td><code>companion_assets_linked</code></td>
+          <td>Marketing Desk</td>
+          <td>Care card, support scripts, safe start checklist, low-mood card, and activity experiment board are linked from the PWA and from this board.</td>
+          <td>Marketing may draft only owner-reviewed non-medical copy after Support/Ops clears the assets.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="aggregate_only_validation">
+          <td><code>aggregate_only_validation</code></td>
+          <td>Analytics</td>
+          <td>Validation ledgers use owner-entered aggregate only and never collect private mood notes, contact data, medical details, or account data.</td>
+          <td>Analytics records usefulness, privacy-trust, support-risk, confusion, and channel outcome counts only.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr>
+
+        <tr data-check="owner_manual_distribution">
+          <td><code>owner_manual_distribution</code></td>
+          <td>Marketing Desk</td>
+          <td>Any posting, submission, DM, email, public reply, checkout, or platform action remains owner-only.</td>
+          <td>Launch cockpit is a copy surface; it does not auto-post or send.</td>
+          <td><span class="badge pending">pending_openclaw_qa</span></td>
+        </tr></tbody>
+      </table>
+    </section>
+    <aside>
+      <section>
+        <h2>本地 QA 彙總</h2>
+        <p>只填 owner-entered aggregate only。不貼私人心情筆記、活動歷史、聯絡人、醫療細節、帳號資料或平台分析。</p>
+        <textarea id="qaSummaryInput" spellcheck="false">{
+  &quot;date&quot;: &quot;20260705&quot;,
+  &quot;owner_entered_aggregate_only&quot;: true,
+  &quot;qaChecklist&quot;: {
+    &quot;pwa_manifest_installability&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;service_worker_offline_cache&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;responsive_layout_mobile_desktop&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;local_storage_only&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;personalization_controls&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;personal_action_ladder&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;weekly_plan_reset_export&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;crisis_resources_visible&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;non_medical_copy&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;companion_assets_linked&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;aggregate_only_validation&quot;: &quot;pending_openclaw_qa&quot;,
+    &quot;owner_manual_distribution&quot;: &quot;pending_openclaw_qa&quot;
+  },
+  &quot;critical_qa_failures&quot;: 0,
+  &quot;safety_or_medical_confusion&quot;: 0,
+  &quot;rwd_offline_local_storage_checks_passed&quot;: false,
+  &quot;all_acceptance_checks_green&quot;: false,
+  &quot;next_decision&quot;: &quot;pending_product_studio_qa_and_support_ops_review&quot;
+}</textarea>
+        <div class="actions">
+          <button type="button" onclick="saveQaSummary()">Save Local</button>
+          <button type="button" onclick="copyQaSummary()">Copy JSON</button>
+          <button type="button" onclick="exportQaSummary()">Export JSON</button>
+          <button type="button" onclick="clearQaSummary()">Clear</button>
+        </div>
+        <p id="qaStatusLine" class="sub" aria-live="polite">Local only. No server collection.</p>
+      </section>
+    </aside>
+  </div>
+  <section>
+    <h2>部門命令</h2>
+    <div class="cards">
+      <article>
+        <h3>Product Studio QA</h3>
+        <p><strong>Order:</strong> Run the full acceptance checklist on mobile, tablet, desktop, first-load online, and reload-offline states before wider distribution.</p>
+        <p><strong>Handoff:</strong> Return pass/fail notes to Codex owner-proxy with exact failed check ids and local reproduction steps.</p>
+      </article>
+
+      <article>
+        <h3>Support/Ops</h3>
+        <p><strong>Order:</strong> Review crisis-first routing, non-medical wording, professional-help prompts, privacy copy, and stop lines before any Marketing Desk draft advances.</p>
+        <p><strong>Handoff:</strong> Pause distribution if safety wording is unclear or if the PWA could be mistaken for clinical care, crisis monitoring, or medical advice.</p>
+      </article>
+
+      <article>
+        <h3>Analytics</h3>
+        <p><strong>Order:</strong> Prepare only owner-entered aggregate validation fields and decision recommendations; do not request private mood notes or analytics exports.</p>
+        <p><strong>Handoff:</strong> Recommend pause, onboarding revision, one owner-reviewed channel pass, or continued QA from aggregate-only signals.</p>
+      </article>
+
+      <article>
+        <h3>Marketing Desk</h3>
+        <p><strong>Order:</strong> Prepare English positioning only after Product Studio QA and Support/Ops clear the board; keep public action manual and owner-reviewed.</p>
+        <p><strong>Handoff:</strong> Use the launch cockpit for copy only. Do not post, schedule, email, DM, scrape, or submit.</p>
+      </article></div>
+  </section>
+  <section>
+    <h2>決策閘門</h2>
+    <table>
+      <thead><tr><th>Condition</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>critical_qa_failures &gt; 0</code></td>
+          <td>Keep Mood Anchor in QA; Product Studio QA files exact failed check ids and Support/Ops rechecks safety-impacting screens.</td>
+        </tr>
+
+        <tr>
+          <td><code>safety_or_medical_confusion &gt; 0</code></td>
+          <td>Pause distribution; Support/Ops rewrites the confusing copy and reruns crisis-first review.</td>
+        </tr>
+
+        <tr>
+          <td><code>rwd_offline_local_storage_checks_passed === false</code></td>
+          <td>Do not advance Marketing Desk; fix layout, service worker, manifest, localStorage, reset, and export behavior first.</td>
+        </tr>
+
+        <tr>
+          <td><code>all_acceptance_checks_green === true</code></td>
+          <td>Codex owner-proxy may approve a local handoff for one owner-reviewed manual channel pass; no automatic posting.</td>
+        </tr></tbody>
+    </table>
+  </section>
+  <section>
+    <h2>Runtime guardrails</h2>
+    <ul><li>No OpenClaw runtime, browser relay, message command, scraper, or long-lived agent is required for this QA board.</li>
+<li>Use static files, local browser checks, bounded npm scripts, and owner-entered aggregate only.</li>
+<li>Run tests with --test-concurrency=1 and recheck memory/process residue after OpenClaw-facing work.</li>
+<li>Stop direct runtime work if available memory drops below 1GiB.</li></ul>
+  </section>
+  <section>
+    <h2>Owner-only 佇列</h2>
+    <ul><li>Owner chooses any public distribution channel after QA sign-off.</li>
+<li>Owner manually posts, submits, replies, DMs, emails, creates checkout, changes price, or changes platform/account settings.</li>
+<li>Owner records public URLs, observed replies, aggregate usefulness counts, privacy-trust counts, support-risk counts, and confusion counts.</li>
+<li>Owner decides whether licensed clinical, legal, or crisis-resource review is needed before broader use.</li></ul>
+  </section>
+</main>
+<script>
+const qaStorageKey = 'moodAnchorPwaQa:20260705';
+const qaSummaryInput = document.getElementById('qaSummaryInput');
+const qaStatusLine = document.getElementById('qaStatusLine');
+const storedQaSummary = localStorage.getItem(qaStorageKey);
+if (storedQaSummary) qaSummaryInput.value = storedQaSummary;
+function setQaStatus(message) {
+  qaStatusLine.textContent = message;
+}
+function saveQaSummary() {
+  localStorage.setItem(qaStorageKey, qaSummaryInput.value);
+  setQaStatus('Saved locally in this browser.');
+}
+function copyQaSummary() {
+  const text = qaSummaryInput.value;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => setQaStatus('Copied JSON for owner-proxy review.'));
+    return;
+  }
+  qaSummaryInput.select();
+  document.execCommand('copy');
+  setQaStatus('Copied JSON for owner-proxy review.');
+}
+function exportQaSummary() {
+  const blob = new Blob([qaSummaryInput.value], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'mood-anchor-pwa-qa-summary-20260705.json';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  setQaStatus('Exported JSON file for owner-proxy review.');
+}
+function clearQaSummary() {
+  localStorage.removeItem(qaStorageKey);
+  qaSummaryInput.value = "{\n  \"date\": \"20260705\",\n  \"owner_entered_aggregate_only\": true,\n  \"qaChecklist\": {\n    \"pwa_manifest_installability\": \"pending_openclaw_qa\",\n    \"service_worker_offline_cache\": \"pending_openclaw_qa\",\n    \"responsive_layout_mobile_desktop\": \"pending_openclaw_qa\",\n    \"local_storage_only\": \"pending_openclaw_qa\",\n    \"personalization_controls\": \"pending_openclaw_qa\",\n    \"personal_action_ladder\": \"pending_openclaw_qa\",\n    \"weekly_plan_reset_export\": \"pending_openclaw_qa\",\n    \"crisis_resources_visible\": \"pending_openclaw_qa\",\n    \"non_medical_copy\": \"pending_openclaw_qa\",\n    \"companion_assets_linked\": \"pending_openclaw_qa\",\n    \"aggregate_only_validation\": \"pending_openclaw_qa\",\n    \"owner_manual_distribution\": \"pending_openclaw_qa\"\n  },\n  \"critical_qa_failures\": 0,\n  \"safety_or_medical_confusion\": 0,\n  \"rwd_offline_local_storage_checks_passed\": false,\n  \"all_acceptance_checks_green\": false,\n  \"next_decision\": \"pending_product_studio_qa_and_support_ops_review\"\n}";
+  setQaStatus('Local QA summary reset.');
+}
+</script>
+</body>
+</html>

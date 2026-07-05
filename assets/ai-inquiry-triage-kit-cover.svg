@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI Inquiry Triage Kit for Custom Orders</title>
+  <desc id="desc">Cover image for a digital product that turns messy customer messages into briefs, checklists, and reply drafts.</desc>
+  <rect width="1600" height="900" fill="#f6f5f0"/>
+  <rect x="120" y="100" width="1360" height="700" rx="28" fill="#ffffff" stroke="#242424" stroke-width="4"/>
+  <text x="180" y="210" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#161616">AI Inquiry Triage Kit</text>
+  <text x="184" y="284" font-family="Arial, Helvetica, sans-serif" font-size="38" fill="#3f3f3f">for Custom Orders</text>
+  <rect x="185" y="345" width="520" height="74" rx="12" fill="#e8f3ff" stroke="#1d5f99" stroke-width="3"/>
+  <text x="220" y="393" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#123f66">Messy inquiry</text>
+  <text x="220" y="474" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#323232">"Can you make 50 custom hats fast?"</text>
+  <path d="M735 478 H885" stroke="#161616" stroke-width="10" stroke-linecap="round"/>
+  <path d="M855 442 L895 478 L855 514" fill="none" stroke="#161616" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="925" y="345" width="500" height="300" rx="18" fill="#f2fbf0" stroke="#2d7a34" stroke-width="3"/>
+  <text x="965" y="402" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#245d29">Structured output</text>
+  <text x="965" y="470" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#323232">1. Inquiry brief</text>
+  <text x="965" y="520" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#323232">2. Missing-info checklist</text>
+  <text x="965" y="570" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#323232">3. Reply draft</text>
+  <text x="184" y="710" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#242424">Prompt pack + tracker template + 20 worked examples</text>
+</svg>

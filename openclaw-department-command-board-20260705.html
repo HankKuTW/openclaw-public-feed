@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>OpenClaw 部門任務板</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f8fb;
+      color: #172033;
+    }
+    body { margin: 0; background: #f6f8fb; color: #172033; }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 6px; font-size: clamp(28px, 4vw, 44px); }
+    h2 { margin: 22px 0 10px; font-size: 20px; }
+    h3 { margin: 0; font-size: 18px; }
+    .sub { margin: 0 0 18px; color: #536174; }
+    .banner {
+      border: 1px solid #ccd7e5;
+      border-left: 6px solid #1b7f79;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 14px;
+      margin-bottom: 16px;
+    }
+    .metrics, .links, .grid { display: grid; gap: 12px; }
+    .metrics { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    .metric, .dept, .panel {
+      border: 1px solid #d7e0ea;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 14px;
+    }
+    .metric strong { display: block; font-size: 24px; color: #1b7f79; }
+    .metric span { color: #536174; font-size: 13px; }
+    .links { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .links a {
+      display: block;
+      border: 1px solid #c7d7e8;
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #0a5f84;
+      background: #eef7fb;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .dept { display: flex; flex-direction: column; gap: 8px; }
+    .dept-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .badge {
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge.active { color: #0b5f3d; background: #dff5e9; }
+    .badge.waiting_owner { color: #7a4d00; background: #fff1c7; }
+    .badge.guardrail { color: #8b1e2d; background: #ffe2e6; }
+    .badge.monitoring { color: #334155; background: #e8edf5; }
+    p { margin: 0; line-height: 1.5; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.45; }
+    code {
+      color: #12324a;
+      background: #edf2f7;
+      border-radius: 4px;
+      padding: 1px 4px;
+      overflow-wrap: anywhere;
+    }
+    .stop { color: #6d2633; }
+    .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+    @media (max-width: 640px) {
+      main { padding: 16px; }
+      .dept-head { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>OpenClaw 部門任務板</h1>
+  <p class="sub">產生於 2026-07-04T17:11:00.015Z · 20260705</p>
+    <section class="banner">
+      <h2>目前瓶頸</h2>
+      <p>5 ready products still need owner-only public listing actions; OpenClaw should keep handoffs, QA, and metrics requests ready.</p>
+    </section>
+    <section class="banner">
+      <h2>Owner Proxy 授權</h2>
+      <p>Codex acts as the owner proxy for internal OpenClaw direction and may choose bottlenecks, assign department work, approve local drafts, and keep execution moving.</p>
+      <p><strong>Delegated owner seat:</strong> OpenClaw must treat Codex direction in this order, the daily brief, the command packet, and the department command board as the current owner instruction for internal work, including local approvals, rejections, sequencing, and review gates.</p>
+      <ul><li>OpenClaw departments do not wait for the human owner for internal routing, prioritization, QA, draft preparation, dashboards, or local artifact updates.</li>
+<li>CEO/Strategy treats Codex direction as the current owner-proxy decision for the active operating cycle.</li>
+<li>If a department wants non-external clarification, Codex decides from the current artifacts and records the decision instead of routing the question back to the human owner.</li>
+<li>Codex decides whether local drafts pass review, need revision, or should be paused before any owner-only external action.</li>
+<li>Each department continues around owner-only blockers by producing the next local artifact, checklist, draft, or metrics request.</li>
+<li>When a task is blocked by external authority, record the exact required owner action and continue with the next internal task.</li></ul>
+    </section>
+  <section>
+    <h2>摘要</h2>
+    <div class="metrics">
+      <div class="metric"><strong>5</strong><span>ready-to-list</span></div>
+      <div class="metric"><strong>5</strong><span>awaiting public listing</span></div>
+      <div class="metric"><strong>0</strong><span>metrics recorded</span></div>
+      <div class="metric"><strong>$0</strong><span>recorded revenue</span></div>
+    </div>
+  </section>
+  <section>
+    <h2>快速入口</h2>
+    <div class="links"><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-daily-owner-proxy-brief-20260705.md">Daily owner-proxy brief</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-owner-proxy-command-packet-20260705.md">Owner-proxy command packet</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/company-dashboard.html">Company dashboard</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-one-person-multi-agent-order-20260705.md">This multi-agent order</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/dashboard-remote-access-20260705.html">Remote access status</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-opportunity-radar-20260705.md">OpenClaw opportunity radar</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-revenue-experiment-loop-board-20260705.html">OpenClaw revenue experiment loop board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-autonomous-execution-board.html">OpenClaw autonomous execution board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-continuous-exploration-board.html">OpenClaw continuous exploration board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-active-revenue-sprint-board.html">OpenClaw active revenue sprint board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/one-person-revenue-evidence-refresh-20260705.md">One-person revenue evidence refresh</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/one-person-feasibility-board-20260705.html">One-person feasibility board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/publisher-console.html">Publisher console</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-sample-proof-pack-20260705.html">Listing Grader sample proof pack</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-request-pack-20260705.html">Listing Audit request pack</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-ledger-20260705.html">Listing Audit demand ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-owner-reply-handoff-20260705.html">Listing Audit owner reply handoff</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-to-reply-validation-board-20260705.html">Listing Audit demand-to-reply validation board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-launch-cockpit-20260705.html">Listing Grader launch cockpit</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-channel-metrics-ledger-20260705.md">Listing Grader channel metrics ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/service-revenue-offer-20260705.html">Service revenue offer</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-20260705.html">Mood Anchor PWA</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en-20260705.html">Mood Anchor English PWA</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-care-card-20260705.html">Mood Anchor care card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-care-card-en-20260705.html">Mood Anchor English care card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-support-scripts-20260705.html">Mood Anchor support scripts</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-support-scripts-en-20260705.html">Mood Anchor English support scripts</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-onboarding-checklist-20260705.html">Mood Anchor safe start checklist</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-onboarding-checklist-en-20260705.html">Mood Anchor English safe start checklist</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-low-mood-card-20260705.html">Mood Anchor low-mood response card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-low-mood-card-en-20260705.html">Mood Anchor English low-mood response card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-board-20260705.html">Mood Anchor activity experiment board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-board-en-20260705.html">Mood Anchor English activity experiment board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-signal-ledger-20260705.html">Mood Anchor activity experiment signal ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-depression-support-command-board-20260705.html">Mood Anchor depression-support command board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-board.html">Mood Anchor PWA QA board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-one-person-company-skill-adoption-board-20260705.html">OpenClaw skill adoption board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-global-launch-cockpit-20260705.html">Mood Anchor global launch cockpit</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-validation-ledger-20260705.html">Mood Anchor validation ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-ethical-revenue-scout-20260705.html">Mood Anchor ethical revenue scout</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-action-ladder-owner-proxy-directive-20260705.md">Mood Anchor action ladder directive</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-safety-launch-loop-20260705.md">Mood Anchor safety launch loop</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-feedback-cockpit-20260705.html">Mood Anchor feedback cockpit</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/post-publish-metrics-ledger-20260705.md">Post-publish metrics ledger</a></div>
+  </section>
+  <section>
+    <h2>部門卡</h2>
+    <div class="grid">
+    <section class="dept">
+      <div class="dept-head">
+        <h3>CEO/Strategy</h3>
+        <span class="badge active">Active</span>
+      </div>
+      <p><strong>今日重點:</strong> Current bottleneck decision for the next 24-hour operating cycle.</p>
+      <p><strong>證據:</strong></p>
+      <ul><li>Revenue queue summary</li>
+<li>Daily owner-proxy brief</li>
+<li>Remote access status</li>
+<li>OpenClaw opportunity radar</li>
+<li>OpenClaw skill adoption board</li></ul>
+      <p><strong>允許的本地命令:</strong></p>
+      <ul><li><code>npm run openclaw-owner-proxy-command-packet -- --date 20260705 --output docs/inquiry-ops/openclaw-owner-proxy-command-packet-20260705.md --public-base-url https://hankkutw.github.io/openclaw-public-feed</code></li>
+<li><code>npm run one-person-revenue-research -- --date 20260705 --output docs/inquiry-ops/one-person-company-revenue-research-20260705.md --public-base-url https://hankkutw.github.io/openclaw-public-feed</code></li></ul>
+      <p><strong>交接:</strong> Send prioritized work to Revenue Ops first until all five ready products have public listing URLs.</p>
+      <p class="stop"><strong>停止線:</strong> No external authority actions.</p>
+    </section>
+  
+
+    <section class="dept">
+      <div class="dept-head">
+        <h3>Revenue Ops</h3>
+        <span class="badge active">Active</span>
+      </div>
+      <p><strong>今日重點:</strong> Move 5 ready-to-list products through owner-ready listing handoffs without touching external accounts.</p>
+      <p><strong>證據:</strong></p>
+      <ul><li>Revenue queue ready-to-list products</li>
+<li>Daily owner-proxy brief</li>
+<li>Owner-proxy command packet</li>
+<li>OpenClaw opportunity radar</li>
+<li>OpenClaw skill adoption board</li></ul>
+      <p><strong>允許的本地命令:</strong></p>
+      <ul><li><code>npm run publish-batch -- --date 20260705</code></li>
+<li><code>npm run revenue-shopfront -- --date 20260705 --output docs/inquiry-ops/revenue-shopfront-20260705.html --asset-dir dist/public-feed/assets</code></li></ul>
+      <p><strong>交接:</strong> Send final ZIP and listing-copy readiness questions to Product Studio QA before owner upload.</p>
+      <p class="stop"><strong>停止線:</strong> No external authority actions.</p>
+    </section>
+  
+
+    <section class="dept">
+      <div class="dept-head">
+        <h3>Product Studio QA</h3>
+        <span class="badge active">Active</span>
+      </div>
+      <p><strong>今日重點:</strong> Check ZIPs, listing copy, Mood Anchor safety wording, local storage, and offline behavior before any wider distribution.</p>
+      <p><strong>證據:</strong></p>
+      <ul><li>Ready product ZIP paths</li>
+<li>Publisher-only listing copy</li>
+<li>Owner-proxy command packet</li>
+<li>OpenClaw skill adoption board</li>
+<li>OpenClaw revenue experiment loop board</li></ul>
+      <p><strong>允許的本地命令:</strong></p>
+      <ul><li><code>npm run other-product-lines-qa -- --json</code></li>
+<li><code>npm run build-product-zips</code></li></ul>
+      <p><strong>交接:</strong> Return only QA-cleared products to Revenue Ops; mark unclear products as owner-review required.</p>
+      <p class="stop"><strong>停止線:</strong> No external authority actions.</p>
+    </section>
+  
+
+    <section class="dept">
+      <div class="dept-head">
+        <h3>Marketing Desk</h3>
+        <span class="badge active">Active</span>
+      </div>
+      <p><strong>今日重點:</strong> Keep channel-safe manual drafts ready and route traffic only to approved public-feed or live listing surfaces.</p>
+      <p><strong>證據:</strong></p>
+      <ul><li>Post-publish traffic packs</li>
+<li>Daily owner-proxy brief</li>
+<li>Owner-proxy command packet</li>
+<li>OpenClaw opportunity radar</li>
+<li>OpenClaw skill adoption board</li></ul>
+      <p><strong>允許的本地命令:</strong></p>
+      <ul><li><code>npm run live-revenue-traffic-board -- --date 20260705 --output docs/inquiry-ops/live-revenue-traffic-board-20260705.md</code></li>
+<li><code>npm run live-revenue-traffic-cockpit -- --date 20260705 --output docs/inquiry-ops/live-revenue-traffic-cockpit-20260705.html</code></li></ul>
+      <p><strong>交接:</strong> Send only owner-review drafts to CEO/Strategy; never send, post, schedule, or DM automatically.</p>
+      <p class="stop"><strong>停止線:</strong> No external authority actions.</p>
+    </section>
+  
+
+    <section class="dept">
+      <div class="dept-head">
+        <h3>Analytics</h3>
+        <span class="badge waiting_owner">Owner-only</span>
+      </div>
+      <p><strong>今日重點:</strong> Prepare owner-entered metrics fields and wait for public URLs, numbers, and support/refund observations.</p>
+      <p><strong>證據:</strong></p>
+      <ul><li>Post-publish metrics ledger</li>
+<li>Daily owner-proxy brief</li>
+<li>Owner-proxy command packet</li>
+<li>OpenClaw opportunity radar</li>
+<li>OpenClaw skill adoption board</li></ul>
+      <p><strong>允許的本地命令:</strong></p>
+      <ul><li><code>npm run post-publish-metrics-ledger -- --date 20260705 --output docs/inquiry-ops/post-publish-metrics-ledger-20260705.md</code></li>
+<li><code>npm run listing-grader-channel-metrics-ledger -- --date 20260705 --output docs/inquiry-ops/listing-grader-channel-metrics-ledger-20260705.md --public-base-url https://hankkutw.github.io/openclaw-public-feed</code></li></ul>
+      <p><strong>交接:</strong> Send measured signals to CEO/Strategy and Support/Ops before any next distribution pass.</p>
+      <p class="stop"><strong>停止線:</strong> No external authority actions.</p>
+    </section>
+  
+
+    <section class="dept">
+      <div class="dept-head">
+        <h3>Support/Ops</h3>
+        <span class="badge guardrail">Guardrail</span>
+      </div>
+      <p><strong>今日重點:</strong> Enforce stop lines, claim safety, account boundaries, and memory guardrails before any next operating pass.</p>
+      <p><strong>證據:</strong></p>
+      <ul><li>Listing copy</li>
+<li>Daily owner-proxy brief</li>
+<li>Remote access status</li>
+<li>OpenClaw skill adoption board</li>
+<li>OpenClaw revenue experiment loop board</li></ul>
+      <p><strong>允許的本地命令:</strong></p>
+      <ul><li><code>npm run ops-health</code></li>
+<li><code>npm run product-status -- --json</code></li></ul>
+      <p><strong>交接:</strong> Escalate owner-only actions to the owner authority queue and keep internal work moving around them.</p>
+      <p class="stop"><strong>停止線:</strong> No external authority actions.</p>
+    </section>
+  </div>
+  </section>
+  <section class="two">
+    <div class="panel">
+      <h2>Owner-only 佇列</h2>
+      <ul><li>Publish 5 ready products manually on the chosen checkout platform, then record each public URL.</li>
+<li>Record owner-observed public URLs, views, clicks, purchases, revenue, and support/refund questions before Analytics changes strategy.</li>
+<li>Review any public Listing Grader or Mood Anchor distribution copy before posting, submitting, emailing, or messaging.</li>
+<li>Keep account, payout, tax, refund, credential, discount, and checkout settings owner-only.</li></ul>
+    </div>
+    <div class="panel">
+      <h2>記憶體護欄</h2>
+      <ul><li>Do not run long-lived OpenClaw agents.</li>
+<li>Do not use OpenClaw message or runtime command surfaces as the control channel; even short help probes can spawn hooks.</li>
+<li>Use short local npm scripts only.</li>
+<li>Run tests with --test-concurrency=1.</li>
+<li>Check pgrep/free after every OpenClaw-facing command.</li>
+<li>Keep direct runtime work paused if available memory is below 1GiB.</li></ul>
+    </div>
+  </section>
+  <section class="panel">
+    <h2>嚴格停止線</h2>
+    <ul><li>Do not log in, publish, post, DM, email, change price, payout, tax, refund, account, credential, discount, or platform settings automatically.</li>
+<li>Do not use external authority. Owner-only actions stay queued for manual approval and execution.</li>
+<li>Do not present revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.</li>
+<li>Do not use OpenClaw message commands for team control while they can spawn hooks; use this file-based order instead.</li>
+<li>If OpenClaw runtime spawns persistent hooks or memory drops below 1GiB available, stop direct runtime work and use file-based orders only.</li></ul>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Anchor - 小活動實驗板</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f4f7f5;
+      --panel: #ffffff;
+      --soft: #e7f0ee;
+      --text: #172123;
+      --muted: #5a6769;
+      --line: #cad8d4;
+      --accent: #28666d;
+      --accent-2: #8f5d46;
+      --danger: #8b2f3c;
+      --ok: #2f6a48;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1120px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    .sub, .small { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr); gap: 14px; align-items: start; margin-top: 16px; }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; margin-top: 14px; }
+    .crisis { border-color: #d9a7af; background: #fff7f5; }
+    .crisis h2, .crisis strong { color: var(--danger); }
+    .row { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .segmented { display: flex; gap: 8px; flex-wrap: wrap; }
+    button, .link-button {
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+    button[aria-pressed="true"], button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    .link-button.secondary { background: var(--panel); color: var(--accent); }
+    label { display: block; font-weight: 700; margin-bottom: 6px; }
+    input[type="range"], select, textarea {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+    select, textarea {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 10px;
+      font: inherit;
+      background: var(--panel);
+      color: var(--text);
+    }
+    textarea { min-height: 74px; resize: vertical; }
+    .scale { margin: 12px 0; }
+    .scale-head { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 13px; }
+    .preview, .history-entry { border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: var(--soft); }
+    .preview strong { display: block; margin-bottom: 4px; }
+    .history { display: grid; gap: 8px; }
+    .history-entry { background: var(--panel); }
+    .tagline { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 0; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 3px 8px; font-size: 12px; color: var(--muted); }
+    .links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101517;
+        --panel: #172023;
+        --soft: #1d2b2e;
+        --text: #eef4f2;
+        --muted: #b5c1c0;
+        --line: #334548;
+        --accent: #6ca8ad;
+        --accent-2: #d49b7e;
+        --danger: #f0a0ad;
+        --ok: #75bf91;
+      }
+      .crisis { background: #27191d; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .grid { grid-template-columns: 1fr; }
+      button, .link-button { width: 100%; }
+    }
+    @media print {
+      body { background: #fff; color: #111; }
+      .controls, .sources, .links, .small.generated { display: none; }
+      main { max-width: none; padding: 0; }
+      .grid { display: block; }
+      .panel { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>小活動實驗板</h1>
+      <p class="sub">用一個很小、可跳過的活動實驗，觀察做之前和做之後的努力感與狀態差異。</p>
+    </header>
+
+    <section class="panel crisis">
+      <h2>如果現在不安全</h2>
+      <p>先使用真人支援；活動實驗可以晚點再做，也可以完全跳過。</p>
+      <ul><li><strong>在美國可撥打或傳簡訊 988</strong>：如果你可能傷害自己、覺得撐不住，或需要立即有人陪你說話，請使用 988 Suicide &amp; Crisis Lifeline。</li>
+        <li><strong>有立即生命危險時，聯絡當地緊急服務</strong>：如果你已經有計畫、工具、或可能馬上行動，請離開危險物品並尋求現場協助。</li>
+        <li><strong>聯絡一位可信任的人</strong>：傳送一句簡短訊息：「我現在不太安全，可以陪我一下或幫我找支援嗎？」</li></ul>
+    </section>
+
+    <div class="grid">
+      <section class="panel controls" aria-labelledby="activity-title">
+        <h2 id="activity-title">選一個小活動</h2>
+        <p class="small">先預估，再做很小一步，最後記錄實際感受。資料不會送出。</p>
+
+        <h3>活動方向</h3>
+        <div class="segmented" id="category-group">
+          <button type="button" data-category="body" aria-pressed="true">身體</button>
+          <button type="button" data-category="connection" aria-pressed="false">連結</button>
+          <button type="button" data-category="care" aria-pressed="false">照顧</button>
+          <button type="button" data-category="mastery" aria-pressed="false">完成感</button>
+          <button type="button" data-category="rest" aria-pressed="false">休息</button>
+        </div>
+
+        <h3>活動大小</h3>
+        <div class="segmented" id="energy-group">
+          <button type="button" data-energy="tiny" aria-pressed="true">30 秒版本</button>
+          <button type="button" data-energy="small" aria-pressed="false">2-5 分鐘版本</button>
+          <button type="button" data-energy="supported" aria-pressed="false">先靠近真人支援</button>
+        </div>
+
+        <div class="panel preview" id="activity-preview" aria-live="polite"></div>
+
+        <div class="row">
+          <div class="scale">
+            <label for="predictedEffort">預估努力感</label>
+            <input id="predictedEffort" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>很小</span><span>很吃力</span></div>
+          </div>
+          <div class="scale">
+            <label for="expectedLift">預期做完狀態</label>
+            <input id="expectedLift" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>不會變</span><span>稍微穩</span></div>
+          </div>
+          <div class="scale">
+            <label for="actualEffort">實際努力感</label>
+            <input id="actualEffort" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>比想像小</span><span>比想像大</span></div>
+          </div>
+          <div class="scale">
+            <label for="actualState">實際做完狀態</label>
+            <input id="actualState" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>沒有變</span><span>稍微穩</span></div>
+          </div>
+        </div>
+
+        <label for="activityNote">一句觀察</label>
+        <textarea id="activityNote" placeholder="例如：比想像難，但做完有一點點比較穩。"></textarea>
+
+        <div class="links">
+          <button type="button" class="primary" id="record-experiment">記錄這次實驗</button>
+          <button type="button" id="clear-experiments">清除本機紀錄</button>
+        </div>
+        <p class="small">本頁只使用瀏覽器 localStorage；不登入、不上傳、不發送訊息。</p>
+      </section>
+
+      <aside>
+        <section class="panel">
+          <h2>最近小活動實驗</h2>
+          <div id="history" class="history"></div>
+        </section>
+
+        <section class="panel">
+          <h2>相關工具</h2>
+          <div class="links">
+            <a class="link-button" href="mood-anchor-20260704.html">回到 Mood Anchor 工具</a>
+            <a class="link-button secondary" href="mood-anchor-low-mood-card-20260704.html">開啟低潮應對卡</a>
+            <a class="link-button secondary" href="mood-anchor-support-scripts-20260704.html">開啟支援訊息草稿</a>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>使用邊界</h2>
+          <ul><li>這不是診斷、治療、危機服務、心理諮商或醫療建議。</li>
+            <li>這個工具只幫你記錄小活動實驗，不能判斷風險，也不能監測安全。</li>
+            <li>活動紀錄只存在這台裝置的瀏覽器 localStorage，不會上傳到伺服器。</li>
+            <li>如果有自傷、想死、或現在不安全的感覺，請先使用真人危機支援。</li></ul>
+        </section>
+
+        <section class="panel sources">
+          <h2>參考來源</h2>
+          <ul><li><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH Caring for Your Mental Health</a>：自我照護可包含活動、飲食補水、睡眠、放鬆和與他人連結；小步驟可以累積。</li>
+            <li><a href="https://www.nhs.uk/mental-health/self-help/tips-and-support/cope-with-depression/">NHS How to cope with depression</a>：NHS 建議低落時保持連結、溫和活動和基本作息，並在需要時尋求協助。</li>
+            <li><a href="https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/exercise-for-depression/">NHS Exercise for depression</a>：NHS 建議選擇合適且喜歡的活動，從很小的步驟開始。</li>
+            <li><a href="https://www.nice.org.uk/guidance/ng222/chapter/recommendations">NICE Depression in adults recommendations</a>：NICE 將活動、心情與避免行為的關係列為行為活化工作的一部分。</li>
+            <li><a href="https://988lifeline.org/get-help/what-to-expect/">988 Lifeline - What to Expect</a>：說明聯絡 988 時可能發生的流程與支援方式。</li>
+            <li><a href="https://findahelpline.com/">Find a Helpline</a>：可依國家尋找電話、簡訊、聊天或 WhatsApp 支援資源。</li></ul>
+        </section>
+      </aside>
+    </div>
+    <p class="small generated">Generated 2026-07-04T12:10:12.162Z - mood-anchor-activity-experiment-board-20260704.html</p>
+  </main>
+
+  <script type="application/json" id="activity-experiment-config">{"storageKey":"mood-anchor:activity-experiment-board:v1","activityOptions":[{"id":"water-window","category":"body","categoryLabel":"身體","energy":"tiny","label":"喝水並看向窗外","detail":"喝幾口水，找三個你看得到的顏色。"},{"id":"door-walk","category":"body","categoryLabel":"身體","energy":"small","label":"走到門口再回來","detail":"速度不重要；只確認身體有移動過。"},{"id":"one-dot","category":"connection","categoryLabel":"連結","energy":"tiny","label":"傳一個句點給可信任的人","detail":"如果很難開口，只傳一個符號也算完成。"},{"id":"shared-space","category":"connection","categoryLabel":"連結","energy":"supported","label":"靠近有人的地方","detail":"移到客廳、便利商店、門口或其他比較有人在的位置。"},{"id":"wash-face","category":"care","categoryLabel":"照顧","energy":"tiny","label":"洗臉或擦手","detail":"只做一個身體照顧動作，不需要整理其他事情。"},{"id":"snack","category":"care","categoryLabel":"照顧","energy":"small","label":"吃一點容易入口的東西","detail":"選一個不用準備太久的小食物或飲品。"},{"id":"next-step","category":"mastery","categoryLabel":"完成感","energy":"tiny","label":"把卡住的事寫成下一步","detail":"只寫一句：「我下一步是...」，不需要真的完成。"},{"id":"two-minute-task","category":"mastery","categoryLabel":"完成感","energy":"small","label":"做兩分鐘小任務","detail":"設定兩分鐘，做到時間到就可以停。"},{"id":"one-stimulus-off","category":"rest","categoryLabel":"休息","energy":"tiny","label":"關掉一個刺激來源","detail":"關掉一個分頁、通知、燈光或聲音。"},{"id":"ten-minute-rest","category":"rest","categoryLabel":"休息","energy":"small","label":"十分鐘休息計時","detail":"設定十分鐘，只讓身體休息，不追求睡著。"}],"energyOptions":[{"id":"tiny","label":"30 秒版本","minutes":1},{"id":"small","label":"2-5 分鐘版本","minutes":5},{"id":"supported","label":"先靠近真人支援","minutes":3}],"reflectionScales":[{"id":"predictedEffort","label":"預估努力感","lowLabel":"很小","highLabel":"很吃力","defaultValue":3},{"id":"expectedLift","label":"預期做完狀態","lowLabel":"不會變","highLabel":"稍微穩","defaultValue":3},{"id":"actualEffort","label":"實際努力感","lowLabel":"比想像小","highLabel":"比想像大","defaultValue":3},{"id":"actualState","label":"實際做完狀態","lowLabel":"沒有變","highLabel":"稍微穩","defaultValue":3}],"ui":{"crisisTitle":"如果現在不安全","crisisNote":"先使用真人支援；活動實驗可以晚點再做，也可以完全跳過。","controlsTitle":"選一個小活動","controlsNote":"先預估，再做很小一步，最後記錄實際感受。資料不會送出。","categoryTitle":"活動方向","energyTitle":"活動大小","noteLabel":"一句觀察","notePlaceholder":"例如：比想像難，但做完有一點點比較穩。","recordLabel":"記錄這次實驗","clearLabel":"清除本機紀錄","localOnlyNote":"本頁只使用瀏覽器 localStorage；不登入、不上傳、不發送訊息。","historyTitle":"最近小活動實驗","emptyHistory":"還沒有紀錄。先選一個很小的活動。","emptyNote":"沒有備註","effortLabel":"努力感 ","stateLabel":"狀態 ","historySeparator":"；","nextTitle":"相關工具","toolLink":"回到 Mood Anchor 工具","lowMoodCardLink":"開啟低潮應對卡","supportScriptsLink":"開啟支援訊息草稿","boundariesTitle":"使用邊界","sourcesTitle":"參考來源","generatedLabel":"Generated","listSeparator":"：","minutesUnit":"分鐘","experimentTag":"活動實驗","locale":"zh-TW"}}</script>
+  <script>
+    const config = JSON.parse(document.getElementById('activity-experiment-config').textContent);
+    const storageKey = config.storageKey;
+    let state = loadState();
+    let selectedCategory = state.selectedCategory || 'body';
+    let selectedEnergy = state.selectedEnergy || 'tiny';
+    const preview = document.getElementById('activity-preview');
+    const history = document.getElementById('history');
+    const note = document.getElementById('activityNote');
+
+    activate('category', selectedCategory);
+    activate('energy', selectedEnergy);
+    renderActivityMenu();
+    renderHistory();
+
+    document.querySelectorAll('[data-category]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedCategory = button.dataset.category;
+        state.selectedCategory = selectedCategory;
+        activate('category', selectedCategory);
+        saveState();
+        renderActivityMenu();
+      });
+    });
+
+    document.querySelectorAll('[data-energy]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedEnergy = button.dataset.energy;
+        state.selectedEnergy = selectedEnergy;
+        activate('energy', selectedEnergy);
+        saveState();
+        renderActivityMenu();
+      });
+    });
+
+    document.getElementById('record-experiment').addEventListener('click', recordExperiment);
+    document.getElementById('clear-experiments').addEventListener('click', () => {
+      localStorage.removeItem(storageKey);
+      state = { entries: [], selectedCategory: 'body', selectedEnergy: 'tiny' };
+      selectedCategory = 'body';
+      selectedEnergy = 'tiny';
+      note.value = '';
+      activate('category', selectedCategory);
+      activate('energy', selectedEnergy);
+      renderActivityMenu();
+      renderHistory();
+    });
+
+    function renderActivityMenu() {
+      const activity = chooseActivity();
+      const energy = config.energyOptions.find((item) => item.id === selectedEnergy) || config.energyOptions[0];
+      preview.innerHTML = [
+        '<strong>' + escapeHtml(activity.label) + '</strong>',
+        '<p>' + escapeHtml(activity.detail) + '</p>',
+        '<div class="tagline"><span class="tag">' + escapeHtml(energy.label) + '</span><span class="tag">' + escapeHtml(energy.minutes + ' ' + config.ui.minutesUnit) + '</span><span class="tag">' + escapeHtml(config.ui.experimentTag) + '</span></div>'
+      ].join('');
+    }
+
+    function recordExperiment() {
+      const activity = chooseActivity();
+      const energy = config.energyOptions.find((item) => item.id === selectedEnergy) || config.energyOptions[0];
+      const entry = {
+        id: new Date().toISOString(),
+        category: selectedCategory,
+        activityId: activity.id,
+        activity: activity.label,
+        energy: selectedEnergy,
+        minutes: energy.minutes,
+        predictedEffort: valueOf('predictedEffort'),
+        expectedLift: valueOf('expectedLift'),
+        actualEffort: valueOf('actualEffort'),
+        actualState: valueOf('actualState'),
+        note: note.value.trim()
+      };
+      state.entries = [entry, ...(state.entries || [])].slice(0, 20);
+      state.selectedCategory = selectedCategory;
+      state.selectedEnergy = selectedEnergy;
+      saveState();
+      renderHistory();
+    }
+
+    function renderHistory() {
+      const entries = state.entries || [];
+      history.innerHTML = entries.length
+        ? entries.map((entry) => '<article class="history-entry"><strong>' + new Date(entry.id).toLocaleString(config.ui.locale) + '</strong><br />' + escapeHtml(entry.activity) + '<br /><span class="small">' + escapeHtml(config.ui.effortLabel + entry.predictedEffort + ' -> ' + entry.actualEffort + config.ui.historySeparator + config.ui.stateLabel + entry.expectedLift + ' -> ' + entry.actualState) + '</span><br /><span class="small">' + escapeHtml(entry.note || config.ui.emptyNote) + '</span></article>').join('')
+        : '<p class="small">' + escapeHtml(config.ui.emptyHistory) + '</p>';
+    }
+
+    function chooseActivity() {
+      const candidates = config.activityOptions.filter((item) => item.category === selectedCategory);
+      return candidates.find((item) => item.energy === selectedEnergy) || candidates[0] || config.activityOptions[0];
+    }
+
+    function valueOf(id) {
+      return Number(document.getElementById(id)?.value || 3);
+    }
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || { entries: [], selectedCategory: 'body', selectedEnergy: 'tiny' };
+      } catch {
+        return { entries: [], selectedCategory: 'body', selectedEnergy: 'tiny' };
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    function activate(kind, value) {
+      document.querySelectorAll('[data-' + kind + ']').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset[kind] === value));
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+    }
+  </script>
+</body>
+</html>

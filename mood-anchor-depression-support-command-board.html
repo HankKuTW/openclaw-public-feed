@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Mood Anchor Depression-Support Personalization Command Board - 20260705</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5d6778;
+      --line: #d7e0ea;
+      --blue: #0f5d8f;
+      --green: #0f6b57;
+      --warn: #8a4d08;
+      --red: #8b1e2d;
+      --code: #eef3f7;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.14; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: 0; }
+    p, li, td { line-height: 1.55; }
+    a { color: var(--blue); overflow-wrap: anywhere; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .sub { margin: 0 0 16px; color: var(--muted); }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; margin-bottom: 16px; }
+    .links a, .panel, .lane, .dept, .evidence {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 12px;
+    }
+    .links a { text-decoration: none; font-weight: 700; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 14px; align-items: start; }
+    .lane + .lane, .dept + .dept, .panel + .panel, .evidence + .evidence { margin-top: 12px; }
+    .lane-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .lane-id { color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+    .pill { display: inline-block; border-radius: 999px; padding: 3px 8px; background: #e2f2ef; color: var(--green); font-size: 12px; font-weight: 700; }
+    .warn { color: var(--warn); font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    textarea {
+      width: 100%;
+      min-height: 220px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      background: var(--panel);
+      color: var(--text);
+      resize: vertical;
+      font: inherit;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    button {
+      border: 1px solid #b8c8da;
+      border-radius: 6px;
+      background: #eaf2f8;
+      color: #14324d;
+      padding: 8px 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    @media (max-width: 780px) {
+      main { padding: 16px; }
+      h1 { font-size: 26px; }
+      .grid { grid-template-columns: 1fr; }
+      .lane-head { flex-direction: column; }
+      table { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Mood Anchor 低心情支援個人化指揮板</h1>
+  <p class="sub">Mood Anchor Depression-Support Personalization Command Board · 2026-07-04T17:00:11.486Z · 20260705</p>
+  <section>
+    <h2>OpenClaw 來源文件</h2>
+    <div class="links"><a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-20260705.html">Mood Anchor PWA</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en-20260705.html">Mood Anchor English PWA</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-care-card-20260705.html">Mood Anchor care card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-care-card-en-20260705.html">Mood Anchor English care card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-support-scripts-20260705.html">Mood Anchor support scripts</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-support-scripts-en-20260705.html">Mood Anchor English support scripts</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-onboarding-checklist-20260705.html">Mood Anchor safe start checklist</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-onboarding-checklist-en-20260705.html">Mood Anchor English safe start checklist</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-low-mood-card-20260705.html">Mood Anchor low-mood response card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-low-mood-card-en-20260705.html">Mood Anchor English low-mood response card</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-board-20260705.html">Mood Anchor activity experiment board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-board-en-20260705.html">Mood Anchor English activity experiment board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-activity-experiment-signal-ledger-20260705.html">Mood Anchor activity experiment signal ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-validation-ledger-20260705.html">Mood Anchor validation ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-global-launch-cockpit-20260705.html">Mood Anchor global launch cockpit</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-feedback-cockpit-20260705.html">Mood Anchor feedback cockpit</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-action-ladder-owner-proxy-directive-20260705.md">Mood Anchor action ladder directive</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-one-person-multi-agent-order-20260705.md">OpenClaw multi-agent order</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-daily-owner-proxy-brief-20260705.md">OpenClaw daily owner-proxy brief</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-department-command-board-20260705.html">OpenClaw department command board</a></div>
+  </section>
+  <section>
+    <h2>官方依據</h2>
+    <div class="links"><a href="https://www.nice.org.uk/guidance/ng222/chapter/recommendations">NICE NG222</a>
+<a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH</a>
+<a href="https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/exercise-for-depression/">NHS</a>
+<a href="https://www.nhsinform.scot/illnesses-and-conditions/mental-health/mental-health-self-help-guides/depression-self-help-guide/">NHS inform</a>
+<a href="https://988lifeline.org/">988 Lifeline</a>
+<a href="https://www.cdc.gov/social-connectedness/about/index.html">CDC</a></div>
+    
+      <article class="evidence">
+        <h3>NICE NG222</h3>
+        <p><strong>Evidence:</strong> Guided self-help may use digital CBT, behavioural activation, problem-solving, or psychoeducation material with practitioner support.</p>
+        <p><strong>Team rule:</strong> Keep Mood Anchor as local self-support and product QA only; do not present guided self-help as something this PWA provides without practitioner involvement.</p>
+      </article>
+
+      <article class="evidence">
+        <h3>NIMH</h3>
+        <p><strong>Evidence:</strong> Self-care can support treatment and recovery, and people should seek professional help for severe or distressing symptoms lasting two weeks or more.</p>
+        <p><strong>Team rule:</strong> Include professional help routing in the safe-start and low-mood flows; do not frame owner-entered signals as clinical progress.</p>
+      </article>
+
+      <article class="evidence">
+        <h3>NHS</h3>
+        <p><strong>Evidence:</strong> Exercise and self-help materials can help some people cope, and people who feel down for a while or not like themselves should see a GP.</p>
+        <p><strong>Team rule:</strong> Tiny activity experiments must stay optional, small, and low-pressure; include a GP/professional-help prompt when low mood persists or feels unusual.</p>
+      </article>
+
+      <article class="evidence">
+        <h3>NHS inform</h3>
+        <p><strong>Evidence:</strong> The self-help guide is CBT-based, keeps privacy by not requiring login, and is not intended for crisis use.</p>
+        <p><strong>Team rule:</strong> Keep Mood Anchor no-login, local-first, and explicit that crisis moments require dedicated crisis or emergency support.</p>
+      </article>
+
+      <article class="evidence">
+        <h3>988 Lifeline</h3>
+        <p><strong>Evidence:</strong> 988 provides call, text, and chat crisis support in the United States.</p>
+        <p><strong>Team rule:</strong> Crisis-first routing overrides all personalization; if crisis or self-harm confusion appears, pause distribution and strengthen emergency-resource copy.</p>
+      </article>
+
+      <article class="evidence">
+        <h3>CDC</h3>
+        <p><strong>Evidence:</strong> Social connection and support can help people manage stress, anxiety, and depression.</p>
+        <p><strong>Team rule:</strong> Trusted-person scripts may support connection, but they remain copy-only drafts; no contact access, auto-send, or automated outreach.</p>
+      </article>
+  </section>
+  <div class="grid">
+    <section>
+      <h2>七條產品 lane</h2>
+      
+      <article class="lane" data-lane="crisis_first_routing">
+        <div class="lane-head">
+          <h3>危機優先路由</h3>
+          <span class="lane-id">crisis_first_routing</span>
+        </div>
+        <p><span class="pill">crisis_first_routing</span></p>
+        <p><strong>Owner signal:</strong> Any reviewer sees unclear crisis, self-harm, emergency, or safety wording.</p>
+        <p><strong>Team action:</strong> Support/Ops pauses distribution and Product Studio QA moves crisis resources, emergency wording, and professional-help routing above all optional exercises.</p>
+        <p><strong>Metric:</strong> crisis_or_self_harm_confusion count from owner-entered aggregate review only.</p>
+      </article>
+
+      <article class="lane" data-lane="personal_action_ladder">
+        <div class="lane-head">
+          <h3>個人行動階梯</h3>
+          <span class="lane-id">personal_action_ladder</span>
+        </div>
+        <p><span class="pill">personal_action_ladder</span></p>
+        <p><strong>Owner signal:</strong> User needs a primary step, smaller backup step, preferred support style, and clear fallback when energy is low.</p>
+        <p><strong>Team action:</strong> Product Studio QA checks that personalization stays localStorage-only and never implies diagnosis or automatic assessment.</p>
+        <p><strong>Metric:</strong> aggregate usefulness signal for whether the ladder made the next small step clearer.</p>
+      </article>
+
+      <article class="lane" data-lane="tiny_activity_experiment">
+        <div class="lane-head">
+          <h3>微小活動實驗</h3>
+          <span class="lane-id">tiny_activity_experiment</span>
+        </div>
+        <p><span class="pill">tiny_activity_experiment</span></p>
+        <p><strong>Owner signal:</strong> User can choose a tiny activity, predict effort, record actual effort, and reflect without sensitive mood history collection.</p>
+        <p><strong>Team action:</strong> Analytics uses owner-entered aggregate activity-board observations only; Marketing describes it as a small private experiment, not a result guarantee.</p>
+        <p><strong>Metric:</strong> owner-entered counts for completed experiments, too-hard steps, and clearer-next-step reports.</p>
+      </article>
+
+      <article class="lane" data-lane="low_mood_response_card">
+        <div class="lane-head">
+          <h3>低心情回應卡</h3>
+          <span class="lane-id">low_mood_response_card</span>
+        </div>
+        <p><span class="pill">low_mood_response_card</span></p>
+        <p><strong>Owner signal:</strong> User wants a low-energy if-then card for stuck, numb, isolated, or overwhelmed moments.</p>
+        <p><strong>Team action:</strong> Support/Ops checks the card does not promise monitoring, crisis detection, or outcome certainty.</p>
+        <p><strong>Metric:</strong> aggregate support-risk and clarity notes only.</p>
+      </article>
+
+      <article class="lane" data-lane="trusted_person_support_scripts">
+        <div class="lane-head">
+          <h3>可信任的人支援文案</h3>
+          <span class="lane-id">trusted_person_support_scripts</span>
+        </div>
+        <p><span class="pill">trusted_person_support_scripts</span></p>
+        <p><strong>Owner signal:</strong> User wants help asking a trusted person for presence, practical help, or check-in support.</p>
+        <p><strong>Team action:</strong> Marketing and Support/Ops keep scripts copy-only; no sending, email, DM, contact reading, or address-book access.</p>
+        <p><strong>Metric:</strong> owner-entered aggregate usefulness and confusion counts.</p>
+      </article>
+
+      <article class="lane" data-lane="local_first_privacy_controls">
+        <div class="lane-head">
+          <h3>本機優先隱私控制</h3>
+          <span class="lane-id">local_first_privacy_controls</span>
+        </div>
+        <p><span class="pill">local_first_privacy_controls</span></p>
+        <p><strong>Owner signal:</strong> User expects no account, no server collection, and browser-local reset/export controls.</p>
+        <p><strong>Team action:</strong> Product Studio QA verifies localStorage isolation, clear reset/export behavior, and no network collection path.</p>
+        <p><strong>Metric:</strong> rwd_offline_local_storage_checks_passed plus privacy-trust observations.</p>
+      </article>
+
+      <article class="lane" data-lane="rwd_offline_pwa">
+        <div class="lane-head">
+          <h3>RWD / 離線 PWA</h3>
+          <span class="lane-id">rwd_offline_pwa</span>
+        </div>
+        <p><span class="pill">rwd_offline_pwa</span></p>
+        <p><strong>Owner signal:</strong> User opens the tool on mobile or flaky connectivity and expects core content to remain available.</p>
+        <p><strong>Team action:</strong> Product Studio QA checks mobile layout, service worker, manifest, stable sizing, and print companion links.</p>
+        <p><strong>Metric:</strong> offline smoke status, mobile layout status, and broken-link count.</p>
+      </article>
+    </section>
+    <aside>
+      <section class="panel">
+        <h2>Owner-only 佇列</h2>
+        <ul><li>Owner chooses any public distribution channel and performs public distribution manually.</li>
+<li>Owner records public URLs, observed replies, usefulness counts, privacy-trust counts, support-risk counts, and safety-confusion counts.</li>
+<li>Owner decides whether a licensed clinical, legal, or crisis-resource review is needed before broader use.</li>
+<li>Owner approves any public language change that could affect medical, crisis, professional-help, or privacy expectations.</li></ul>
+      </section>
+      <section class="panel">
+        <h2>本地彙總暫存</h2>
+        <p>只填 owner-entered aggregate only。不貼私人心情筆記、活動歷史、聯絡人、醫療細節、帳號資料或平台分析。</p>
+        <textarea id="summaryInput" spellcheck="false">{
+  &quot;date&quot;: &quot;20260705&quot;,
+  &quot;owner_entered_aggregate_only&quot;: true,
+  &quot;lanes&quot;: {
+    &quot;crisis_first_routing&quot;: 0,
+    &quot;personal_action_ladder&quot;: 0,
+    &quot;tiny_activity_experiment&quot;: 0,
+    &quot;low_mood_response_card&quot;: 0,
+    &quot;trusted_person_support_scripts&quot;: 0,
+    &quot;local_first_privacy_controls&quot;: 0,
+    &quot;rwd_offline_pwa&quot;: 0
+  },
+  &quot;rwd_offline_local_storage_checks_passed&quot;: false,
+  &quot;aggregate_usefulness_signal&quot;: 0,
+  &quot;safety_confusion&quot;: 0,
+  &quot;next_decision&quot;: &quot;pending_product_studio_and_support_ops_review&quot;
+}</textarea>
+        <div class="actions">
+          <button type="button" onclick="saveSummary()">Save Local</button>
+          <button type="button" onclick="copySummary()">Copy JSON</button>
+          <button type="button" onclick="exportSummary()">Export JSON</button>
+          <button type="button" onclick="clearSummary()">Clear</button>
+        </div>
+        <p id="statusLine" class="sub" aria-live="polite">Local only. No server collection.</p>
+      </section>
+    </aside>
+  </div>
+  <section class="panel">
+    <h2>部門任務</h2>
+    
+      <article class="dept">
+        <h3>Product Studio QA</h3>
+        <p>Verify Mood Anchor is a private, responsive, offline-capable support tool with personalization that stays local.</p>
+        <ul><li>Run through the seven feature lanes on mobile and desktop, including offline reload after first visit.</li>
+<li>Confirm action ladder, low-mood card, activity experiment board, support scripts, and care cards use localStorage or static copy only.</li>
+<li>Check crisis-first routing, professional-help prompts, reset/export controls, service worker, manifest, and stable layout before any wider distribution.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Support/Ops</h3>
+        <p>Enforce safety boundaries before public distribution.</p>
+        <ul><li>Pause if crisis, self-harm, emergency, treatment, therapy, diagnosis, monitoring, or medical-advice confusion appears.</li>
+<li>Check all user-facing copy against the official evidence anchors and the exact boundaries on this board.</li>
+<li>Confirm no forms, no mailto links, no auto-send, no contact access, no OpenClaw message control, and no server collection.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Analytics</h3>
+        <p>Use owner-entered aggregate only.</p>
+        <ul><li>Record only aggregate usefulness, privacy-trust, too-hard-step, support-risk, and safety-confusion counts after owner review.</li>
+<li>Do not collect private mood notes, activity history, personal contacts, medical details, account data, or scraped analytics.</li>
+<li>Recommend pause, onboarding revision, one owner-reviewed channel pass, or further local QA from decision gates only.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Marketing Desk</h3>
+        <p>Prepare non-medical English positioning without posting.</p>
+        <ul><li>Describe Mood Anchor as a private offline mood-support PWA with crisis resources and trusted-person scripts.</li>
+<li>Link to the English PWA, care card, support scripts, safe-start checklist, low-mood card, and activity experiment board only after Support/Ops signs off.</li>
+<li>Do not post, submit, schedule, DM, email, or make revenue, attention, health, or outcome promises.</li></ul>
+      </article>
+  </section>
+  <section class="panel">
+    <h2>決策閘門</h2>
+    <table>
+      <thead><tr><th>Condition</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>crisis_or_self_harm_confusion &gt; 0</code></td>
+          <td>Pause distribution; Support/Ops strengthens crisis-first routing and Product Studio QA reruns safety copy review.</td>
+        </tr>
+
+        <tr>
+          <td><code>rwd_offline_local_storage_checks_passed === false</code></td>
+          <td>Keep the tool in QA; Product Studio fixes offline, mobile, localStorage, reset, copy, and export behavior before any channel draft.</td>
+        </tr>
+
+        <tr>
+          <td><code>support_or_medical_claim_confusion &gt; 0</code></td>
+          <td>Pause Marketing Desk; remove confusing copy and rerun evidence-bound support-language review.</td>
+        </tr>
+
+        <tr>
+          <td><code>aggregate_usefulness_signal &gt;= 3 &amp;&amp; safety_confusion === 0</code></td>
+          <td>Prepare one owner-reviewed manual channel pass using the global launch cockpit and validation ledger; no automatic posting.</td>
+        </tr></tbody>
+    </table>
+  </section>
+  <section class="panel">
+    <h2>停止線</h2>
+    <ul><li>Mood Anchor is not diagnosis, treatment, therapy, crisis care, or medical advice; it is a local self-support and reflection tool.</li>
+<li>No server collection: use localStorage, copy controls, export controls, and owner-entered aggregate only.</li>
+<li>Do not collect private mood notes, activity history, personal contacts, medical details, account data, analytics, or customer messages.</li>
+<li>Do not promise revenue, attention, productivity, mood, safety, clinical, crisis, or health outcomes.</li>
+<li>Do not send, post, schedule, email, DM, submit, scrape, auto-reply, contact a trusted person, or use OpenClaw message commands from this board.</li>
+<li>Crisis or self-harm confusion pauses distribution and routes to emergency/crisis-resource copy review before any other task.</li></ul>
+  </section>
+</main>
+<script>
+const storageKey = 'moodAnchorDepressionSupportCommand:20260705';
+const input = document.getElementById('summaryInput');
+const statusLine = document.getElementById('statusLine');
+const stored = localStorage.getItem(storageKey);
+if (stored) input.value = stored;
+function setStatus(message) {
+  statusLine.textContent = message;
+}
+function saveSummary() {
+  localStorage.setItem(storageKey, input.value);
+  setStatus('Saved locally in this browser.');
+}
+function copySummary() {
+  const text = input.value;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => setStatus('Copied JSON for owner review.'));
+    return;
+  }
+  input.select();
+  document.execCommand('copy');
+  setStatus('Copied JSON for owner review.');
+}
+function exportSummary() {
+  const blob = new Blob([input.value], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'mood-anchor-depression-support-command-20260705.json';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  setStatus('Exported JSON file for owner review.');
+}
+function clearSummary() {
+  localStorage.removeItem(storageKey);
+  input.value = "{\n  \"date\": \"20260705\",\n  \"owner_entered_aggregate_only\": true,\n  \"lanes\": {\n    \"crisis_first_routing\": 0,\n    \"personal_action_ladder\": 0,\n    \"tiny_activity_experiment\": 0,\n    \"low_mood_response_card\": 0,\n    \"trusted_person_support_scripts\": 0,\n    \"local_first_privacy_controls\": 0,\n    \"rwd_offline_pwa\": 0\n  },\n  \"rwd_offline_local_storage_checks_passed\": false,\n  \"aggregate_usefulness_signal\": 0,\n  \"safety_confusion\": 0,\n  \"next_decision\": \"pending_product_studio_and_support_ops_review\"\n}";
+  setStatus('Local summary reset.');
+}
+</script>
+</body>
+</html>

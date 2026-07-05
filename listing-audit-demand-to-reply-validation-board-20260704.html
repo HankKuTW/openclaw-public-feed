@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Listing Audit Demand-to-Reply Validation Board - 20260704</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5d6778;
+      --line: #d7e0ea;
+      --blue: #0f5d8f;
+      --green: #0f6b57;
+      --warn: #8a4d08;
+      --code: #eef3f7;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.14; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: 0; }
+    p, li, td { line-height: 1.55; }
+    a { color: var(--blue); overflow-wrap: anywhere; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .sub { margin: 0 0 16px; color: var(--muted); }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; margin-bottom: 16px; }
+    .links a, .panel, .lane, .dept {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 12px;
+    }
+    .links a { text-decoration: none; font-weight: 700; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 14px; align-items: start; }
+    .lane + .lane, .dept + .dept, .panel + .panel { margin-top: 12px; }
+    .lane-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .lane-id { color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+    .pill { display: inline-block; border-radius: 999px; padding: 3px 8px; background: #e2f2ef; color: var(--green); font-size: 12px; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; border: 1px solid var(--line); border-radius: 6px; padding: 12px; background: var(--code); line-height: 1.5; }
+    textarea {
+      width: 100%;
+      min-height: 180px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      background: var(--panel);
+      color: var(--text);
+      resize: vertical;
+      font: inherit;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    button {
+      border: 1px solid #b8c8da;
+      border-radius: 6px;
+      background: #eaf2f8;
+      color: #14324d;
+      padding: 8px 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .warn { color: var(--warn); font-weight: 700; }
+    @media (max-width: 780px) {
+      main { padding: 16px; }
+      h1 { font-size: 26px; }
+      .grid { grid-template-columns: 1fr; }
+      .lane-head { flex-direction: column; }
+      table { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Listing Audit 需求到回覆驗證板</h1>
+  <p class="sub">Listing Audit Demand-to-Reply Validation Board · 2026-07-04T14:52:33.718Z · 20260704</p>
+  <section>
+    <h2>來源文件</h2>
+    <div class="links"><a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-ledger-20260704.html">Listing Audit demand ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-owner-reply-handoff-20260704.html">Listing Audit owner reply handoff</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-request-pack-20260704.html">Listing Audit request pack</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-sample-proof-pack-20260704.html">Listing Grader sample proof pack</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-grader-channel-metrics-ledger-20260704.md">Listing Grader channel metrics ledger</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/service-revenue-offer-20260704.html">Digital Product Listing Audit offer</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-opportunity-radar-20260704.md">OpenClaw opportunity radar</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-one-person-multi-agent-order-20260704.md">OpenClaw multi-agent order</a></div>
+  </section>
+  <div class="grid">
+    <section>
+      <h2>六條驗證 lane</h2>
+      
+      <article class="lane" data-lane="qualified_audit_request">
+        <div class="lane-head">
+          <h3>合格 audit 請求</h3>
+          <span class="lane-id">qualified_audit_request</span>
+        </div>
+        <p><span class="pill">qualified_audit_request</span></p>
+        <p><strong>Owner signal:</strong> Owner has a public English listing URL and the request fits listing clarity, offer positioning, proof, pricing presentation, or trust-friction review.</p>
+        <p><strong>Team action:</strong> Revenue Ops maps the request to the qualified-audit reply draft and prepares local owner-review notes only.</p>
+        <p><strong>Metric:</strong> Count qualified requests and note source channel after the owner records it.</p>
+      </article>
+
+      <article class="lane" data-lane="needs_public_listing_url">
+        <div class="lane-head">
+          <h3>缺公開 listing URL</h3>
+          <span class="lane-id">needs_public_listing_url</span>
+        </div>
+        <p><span class="pill">needs_public_listing_url</span></p>
+        <p><strong>Owner signal:</strong> Interest exists but the requester did not provide a public visitor-openable listing URL.</p>
+        <p><strong>Team action:</strong> Revenue Ops maps to the missing-URL draft and Marketing Desk tightens future request-pack wording.</p>
+        <p><strong>Metric:</strong> Count missing-URL cases and compare them with qualified requests before another channel pass.</p>
+      </article>
+
+      <article class="lane" data-lane="out_of_scope">
+        <div class="lane-head">
+          <h3>超出服務範圍</h3>
+          <span class="lane-id">out_of_scope</span>
+        </div>
+        <p><span class="pill">out_of_scope</span></p>
+        <p><strong>Owner signal:</strong> Request asks for ads, SEO implementation, store setup, legal/account advice, code work, or ongoing operations.</p>
+        <p><strong>Team action:</strong> Revenue Ops maps to the out-of-scope draft and keeps the free grader as the fallback surface.</p>
+        <p><strong>Metric:</strong> Count scope mismatch reasons as aggregate objections only.</p>
+      </article>
+
+      <article class="lane" data-lane="owner_review_required">
+        <div class="lane-head">
+          <h3>需要 owner 複核</h3>
+          <span class="lane-id">owner_review_required</span>
+        </div>
+        <p><span class="pill">owner_review_required</span></p>
+        <p><strong>Owner signal:</strong> Scope, timing, platform-rule fit, sensitive data, support risk, or buyer status is unclear.</p>
+        <p><strong>Team action:</strong> Support/Ops pauses reply use until Codex records a local review decision or the owner handles an external-authority item.</p>
+        <p><strong>Metric:</strong> Count owner-review cases separately from qualified demand.</p>
+      </article>
+
+      <article class="lane" data-lane="support_or_refund_questions">
+        <div class="lane-head">
+          <h3>支援或退款問題</h3>
+          <span class="lane-id">support_or_refund_questions</span>
+        </div>
+        <p><span class="pill">support_or_refund_questions</span></p>
+        <p><strong>Owner signal:</strong> Message relates to support, refund, delivery, dissatisfaction, platform dispute, account, or payment trouble.</p>
+        <p><strong>Team action:</strong> Support/Ops pauses distribution and blocks sales routing; no refund or support reply is delegated.</p>
+        <p><strong>Metric:</strong> Count support/refund questions as a pause signal, not as leads.</p>
+      </article>
+
+      <article class="lane" data-lane="paid_audit_fulfillment">
+        <div class="lane-head">
+          <h3>已付款 audit 交付</h3>
+          <span class="lane-id">paid_audit_fulfillment</span>
+        </div>
+        <p><span class="pill">paid_audit_fulfillment</span></p>
+        <p><strong>Owner signal:</strong> The owner has confirmed payment outside this board and needs a fulfillment reply draft.</p>
+        <p><strong>Team action:</strong> Revenue Ops prepares only the local fulfillment note; owner edits and sends any real reply manually.</p>
+        <p><strong>Metric:</strong> Count paid-audit confirmations only after owner confirmation.</p>
+      </article>
+    </section>
+    <aside>
+      <section class="panel">
+        <h2>Owner-only 佇列</h2>
+        <ul><li>Owner supplies the public post URL and source channel after any manual public action.</li>
+<li>Owner records observed replies, qualified audit requests, missing URL counts, objections, support/refund questions, and paid-audit confirmations.</li>
+<li>Owner confirms any payment, checkout, invoice, refund, delivery timing, or support context outside this board.</li>
+<li>Only the owner sends or replies manually after editing any draft.</li></ul>
+      </section>
+      <section class="panel">
+        <h2>本地彙總暫存</h2>
+        <p>只填 owner-entered aggregate only，不貼客戶訊息、私人 listing text、帳號資料或付款資訊。</p>
+        <textarea id="summaryInput" spellcheck="false">{
+  &quot;date&quot;: &quot;20260704&quot;,
+  &quot;lanes&quot;: {
+    &quot;qualified_audit_request&quot;: 0,
+    &quot;needs_public_listing_url&quot;: 0,
+    &quot;out_of_scope&quot;: 0,
+    &quot;owner_review_required&quot;: 0,
+    &quot;support_or_refund_questions&quot;: 0,
+    &quot;paid_audit_fulfillment&quot;: 0
+  },
+  &quot;owner_entered_aggregate_only&quot;: true,
+  &quot;next_decision&quot;: &quot;pending_owner_entered_counts&quot;
+}</textarea>
+        <div class="actions">
+          <button type="button" onclick="saveSummary()">Save Local</button>
+          <button type="button" onclick="copySummary()">Copy JSON</button>
+          <button type="button" onclick="exportSummary()">Export JSON</button>
+          <button type="button" onclick="clearSummary()">Clear</button>
+        </div>
+        <p id="statusLine" class="sub" aria-live="polite">Local only. No server collection.</p>
+      </section>
+    </aside>
+  </div>
+  <section class="panel">
+    <h2>部門任務</h2>
+    
+      <article class="dept">
+        <h3>Revenue Ops</h3>
+        <p>Map demand-ledger classifications to owner-reply-handoff scenarios.</p>
+        <ul><li>Use the six validation lanes to choose the copy-only draft that matches the owner-entered classification.</li>
+<li>Prepare checkout-pending wording only; no checkout creation, invoices, prices, refunds, or customer commitments.</li>
+<li>Hand off qualified-audit notes to Codex for local review before any owner-only reply or payment path.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Marketing Desk</h3>
+        <p>Prepare channel-safe prompts without posting.</p>
+        <ul><li>Use missing-URL and out-of-scope counts to revise request-pack wording and channel prompts.</li>
+<li>Do not post, submit, schedule, DM, email, comment, scrape, or auto-publish.</li>
+<li>Keep drafts pointed at the free grader, request pack, proof pack, and owner-reviewed reply handoff.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Analytics</h3>
+        <p>Use owner-entered aggregate only.</p>
+        <ul><li>Record public post URL, reply counts, qualified requests, missing URLs, support/refund questions, and paid-audit confirmations only after the owner supplies them.</li>
+<li>Do not scrape analytics, comments, profiles, directories, private listing text, or customer messages.</li>
+<li>Recommend pause, request-pack wording revision, or owner-reviewed service reply packet from aggregate counts only.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Support/Ops</h3>
+        <p>Apply pause rules before any next channel pass.</p>
+        <ul><li>Pause distribution when support/refund, owner-review, sensitive-data, account, payment, or platform-rule risk appears.</li>
+<li>Confirm the board remains static, local-only, no-server, and low-load after generation.</li>
+<li>Block revenue, traffic, conversion, ranking, platform approval, customer acquisition, treatment, or health-outcome promises.</li></ul>
+      </article>
+  </section>
+  <section class="panel">
+    <h2>決策閘門</h2>
+    <table>
+      <thead><tr><th>Condition</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>support_or_refund_questions &gt; 0</code></td>
+          <td>Pause distribution and route the record to Support/Ops owner-only review before any sales or channel action.</td>
+        </tr>
+
+        <tr>
+          <td><code>qualified_audit_request &gt;= 2 &amp;&amp; support_or_refund_questions === 0</code></td>
+          <td>Prepare an owner-reviewed service reply packet using the demand ledger, owner reply handoff, and proof pack.</td>
+        </tr>
+
+        <tr>
+          <td><code>needs_public_listing_url &gt;= qualified_audit_request</code></td>
+          <td>Tighten request-pack and channel wording around one public English listing URL before another channel pass.</td>
+        </tr>
+
+        <tr>
+          <td><code>owner_review_required &gt; 0</code></td>
+          <td>Create a Codex owner-proxy review queue and do not use reply drafts until the unclear scope is resolved.</td>
+        </tr></tbody>
+    </table>
+  </section>
+  <section class="panel">
+    <h2>停止線</h2>
+    <ul><li>Do not send, post, schedule, DM, email, submit, publish, comment, scrape, or auto-reply from this board.</li>
+<li>No checkout creation, invoice sending, price change, discount, refund, payment acceptance, payout, tax, credential, or account action is delegated.</li>
+<li>Analytics remains owner-entered aggregate only; no scraped analytics, private listing text, customer messages, profiles, directories, or platform pages.</li>
+<li>Do not request or store credentials, private analytics, buyer records, customer messages, payout details, tax information, account screenshots, or private dashboard data.</li>
+<li>Do not promise revenue, traffic, conversion, ranking, platform approval, customer acquisition, productivity, mood, treatment, crisis response, or health outcomes.</li>
+<li>Keep this page static and low-load: localStorage plus copy/export controls only, no server collection.</li></ul>
+  </section>
+</main>
+<script>
+const storageKey = 'listingAuditDemandToReplyValidation:20260704';
+const input = document.getElementById('summaryInput');
+const statusLine = document.getElementById('statusLine');
+const stored = localStorage.getItem(storageKey);
+if (stored) input.value = stored;
+function setStatus(message) {
+  statusLine.textContent = message;
+}
+function saveSummary() {
+  localStorage.setItem(storageKey, input.value);
+  setStatus('Saved locally in this browser.');
+}
+function copySummary() {
+  const text = input.value;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => setStatus('Copied JSON for owner review.'));
+    return;
+  }
+  input.select();
+  document.execCommand('copy');
+  setStatus('Copied JSON for owner review.');
+}
+function exportSummary() {
+  const blob = new Blob([input.value], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'listing-audit-demand-to-reply-validation-20260704.json';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  setStatus('Exported JSON file for owner review.');
+}
+function clearSummary() {
+  localStorage.removeItem(storageKey);
+  input.value = "{\n  \"date\": \"20260704\",\n  \"lanes\": {\n    \"qualified_audit_request\": 0,\n    \"needs_public_listing_url\": 0,\n    \"out_of_scope\": 0,\n    \"owner_review_required\": 0,\n    \"support_or_refund_questions\": 0,\n    \"paid_audit_fulfillment\": 0\n  },\n  \"owner_entered_aggregate_only\": true,\n  \"next_decision\": \"pending_owner_entered_counts\"\n}";
+  setStatus('Local summary reset.');
+}
+</script>
+</body>
+</html>

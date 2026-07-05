@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#315f65" />
+  <meta name="description" content="Offline, local-only mood support and tiny next-step PWA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mood Anchor - Mood Support PWA" />
+  <meta property="og:description" content="Offline, local-only mood support and tiny next-step PWA." />
+  <meta property="og:url" content="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en-20260705.html" />
+  <meta name="twitter:card" content="summary" />
+  <title>Mood Anchor - Mood Support PWA</title>
+  <link rel="manifest" href="mood-anchor-en-manifest-20260705.webmanifest" />
+  <link rel="icon" href="mood-anchor-icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="mood-anchor-icon-180.png" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f4ee;
+      --panel: #ffffff;
+      --panel-strong: #e8f0ee;
+      --text: #172123;
+      --muted: #5c686b;
+      --line: #cbd8d5;
+      --accent: #315f65;
+      --accent-2: #8f5d46;
+      --danger: #8b2f3c;
+      --ok: #2f6a48;
+    }
+    * { box-sizing: border-box; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1120px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 34px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 22px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p { line-height: 1.55; }
+    .sub { color: var(--muted); max-width: 760px; margin: 0; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr); gap: 14px; align-items: start; margin-top: 16px; }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; }
+    .panel + .panel { margin-top: 14px; }
+    .crisis { border-color: #d9a7af; background: #fff7f5; }
+    .crisis strong { color: var(--danger); }
+    .row { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    label { display: block; font-weight: 700; margin-bottom: 6px; }
+    input[type="text"], select, textarea {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 10px;
+      font: inherit;
+      background: var(--panel);
+      color: var(--text);
+    }
+    textarea { min-height: 74px; resize: vertical; }
+    .segmented { display: flex; gap: 8px; flex-wrap: wrap; }
+    .choice, button, .link-button {
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+    .choice[aria-pressed="true"], button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .link-button { display: inline-flex; align-items: center; text-decoration: none; }
+    button.secondary { border-color: var(--accent-2); color: var(--accent-2); }
+    .scale { margin: 12px 0; }
+    .scale-head { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 13px; }
+    input[type="range"] { width: 100%; accent-color: var(--accent); }
+    .checks { display: grid; gap: 8px; }
+    .checks label { display: flex; gap: 8px; align-items: start; font-weight: 400; }
+    .result { background: var(--panel-strong); border-color: #a8c1bd; }
+    .result.danger { background: #fff1f2; border-color: #d18a96; }
+    .result h3 { font-size: 20px; }
+    .ladder-list { display: grid; gap: 8px; margin: 10px 0 0; }
+    .ladder-item { border-left: 4px solid var(--accent); padding-left: 10px; }
+    .ladder-item strong { display: block; margin-bottom: 2px; }
+    .history { display: grid; gap: 8px; }
+    .entry { border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--panel); }
+    .bars { display: grid; gap: 8px; margin-top: 10px; }
+    .bar { display: grid; grid-template-columns: 96px 1fr 28px; gap: 8px; align-items: center; font-size: 13px; }
+    .track { height: 10px; background: #dce5e2; border-radius: 999px; overflow: hidden; }
+    .fill { height: 100%; background: var(--ok); width: 0%; }
+    .weekly-plan { display: grid; gap: 8px; margin-top: 10px; }
+    .plan-day { border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--panel); }
+    .plan-day label { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; margin: 0; }
+    .plan-day.done { opacity: 0.72; }
+    .sources a { overflow-wrap: anywhere; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .small { color: var(--muted); font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101517;
+        --panel: #172023;
+        --panel-strong: #1d2b2e;
+        --text: #eef4f2;
+        --muted: #b5c1c0;
+        --line: #334548;
+        --accent: #6ca8ad;
+        --accent-2: #d49b7e;
+        --danger: #f0a0ad;
+        --ok: #75bf91;
+      }
+      .crisis, .result.danger { background: #27191d; }
+      .track { background: #2d3b3f; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .grid { grid-template-columns: 1fr; }
+      .panel { padding: 12px; }
+      .choice, button, .link-button { width: 100%; }
+      .bar { grid-template-columns: 76px 1fr 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Mood Anchor</h1>
+      <p class="sub">An offline, local-only mood support tool for choosing one tiny next step on a low day.</p>
+    </header>
+
+    <section class="panel crisis" aria-labelledby="crisis-title">
+      <h2 id="crisis-title">If you are not safe right now, contact a real person first</h2>
+      <p><strong>This is not therapy, treatment, or a crisis service.</strong> If you might harm yourself, do not want to live, or feel like you may lose control, use human support before using this tool.</p>
+      <ul><li><strong>Immediate danger: call your local emergency number now</strong>: If you may act soon, have a plan or means, or need urgent medical help, move away from danger and seek in-person help now.</li>
+<li><strong>United States: call, text, or chat 988</strong>: The 988 Suicide &amp; Crisis Lifeline offers free, confidential support by call, text, or chat.</li>
+<li><strong>Canada: call or text 9-8-8</strong>: 9-8-8 provides suicide crisis support across Canada by phone or text, 24 hours a day.</li>
+<li><strong>United Kingdom and Ireland: call Samaritans at 116 123</strong>: If you need urgent emotional support in the United Kingdom or Ireland, call Samaritans at 116 123 any time.</li>
+<li><strong>Other countries: Find a Helpline</strong>: Use Find a Helpline to locate verified local emotional support by country, topic, phone, text, or chat.</li>
+<li><strong>Trusted person: send one short message</strong>: Try: &quot;I do not feel safe being alone right now. Can you stay with me or help me contact support?&quot;</li></ul>
+    </section>
+
+    <div class="grid">
+      <section>
+        <form id="checkin-form" class="panel">
+          <h2>Today check-in</h2>
+          <div class="row">
+            <div>
+              <label for="name">What should this tool call you?</label>
+              <input id="name" name="name" type="text" autocomplete="nickname" placeholder="For example: Hank" />
+            </div>
+            <div>
+              <label>Prompt tone</label>
+              <div class="segmented" id="tone-group">
+                <button type="button" class="choice" data-tone="gentle" aria-pressed="true">Gentle</button>
+<button type="button" class="choice" data-tone="direct" aria-pressed="false">Direct</button>
+<button type="button" class="choice" data-tone="minimal" aria-pressed="false">Minimal</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>What kind of tiny step do you want to move toward today?</h3>
+            <div class="segmented" id="value-group">
+              <button type="button" class="choice" data-value="connection" aria-pressed="true">Connection</button>
+<button type="button" class="choice" data-value="body" aria-pressed="false">Body</button>
+<button type="button" class="choice" data-value="care" aria-pressed="false">Care</button>
+<button type="button" class="choice" data-value="mastery" aria-pressed="false">Completion</button>
+<button type="button" class="choice" data-value="rest" aria-pressed="false">Rest</button>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Personal action ladder</h3>
+            <p class="small">Match today&#39;s friction and support preference to one primary step, a smaller backup, and a human-support handoff.</p>
+            <div class="row">
+              <div>
+                <label>Current friction</label>
+                <div class="segmented" id="friction-group">
+                  <button type="button" class="choice" data-friction="tiny" aria-pressed="true">30-second version</button>
+<button type="button" class="choice" data-friction="small" aria-pressed="false">2-5 minute version</button>
+<button type="button" class="choice" data-friction="supported" aria-pressed="false">Start near support</button>
+                </div>
+              </div>
+              <div>
+                <label>Preferred support style</label>
+                <div class="segmented" id="support-mode-group">
+                  <button type="button" class="choice" data-support-mode="solo" aria-pressed="true">Solo</button>
+<button type="button" class="choice" data-support-mode="body_first" aria-pressed="false">Body first</button>
+<button type="button" class="choice" data-support-mode="with_person" aria-pressed="false">Near a real person</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="scale">
+            <label for="mood">Low mood level</label>
+            <input id="mood" name="mood" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>Very low</span><span>More steady</span></div>
+          </div>
+
+          <div class="scale">
+            <label for="energy">Usable energy</label>
+            <input id="energy" name="energy" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>Almost none</span><span>Some energy</span></div>
+          </div>
+
+          <div class="scale">
+            <label for="overwhelm">Stress or overwhelm</label>
+            <input id="overwhelm" name="overwhelm" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>Manageable</span><span>Very overwhelmed</span></div>
+          </div>
+
+          <div class="scale">
+            <label for="sleep">Sleep recovery</label>
+            <input id="sleep" name="sleep" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>Poor</span><span>Somewhat restored</span></div>
+          </div>
+
+          <div class="scale">
+            <label for="connection">Connection with people</label>
+            <input id="connection" name="connection" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>Very isolated</span><span>Someone is reachable</span></div>
+          </div>
+
+          <div class="panel">
+            <h3>Safety check</h3>
+            <div class="checks">
+              <label><input type="checkbox" name="safety" value="self_harm" /> I am having thoughts of harming myself or not wanting to live</label>
+<label><input type="checkbox" name="safety" value="not_safe" /> I do not feel safe right now</label>
+<label><input type="checkbox" name="safety" value="cannot_care" /> I am struggling to meet basic needs</label>
+            </div>
+          </div>
+
+          <label for="note">One sentence about what feels stuck</label>
+          <textarea id="note" name="note" placeholder="A few words is enough."></textarea>
+
+          <div class="actions">
+            <button class="primary" type="submit">Generate one tiny next step</button>
+            <button class="secondary" type="button" id="export-json">Export JSON</button>
+            <button type="button" id="clear-data">Clear local data</button>
+          </div>
+          <p class="small">Data stays in this browser localStorage and is not sent to a server.</p>
+        </form>
+      </section>
+
+      <aside>
+        <section id="result" class="panel result" aria-live="polite">
+          <h2>Your next tiny step</h2>
+          <p>After you check in, this area will suggest one small step based on energy, focus, and safety signals.</p>
+        </section>
+
+        <section class="panel">
+          <h2>7-day micro-action plan</h2>
+          <p class="small">This is not a treatment plan; skipping, shrinking, or replacing a step is allowed.</p>
+          <button type="button" id="create-weekly-plan">Create 7-day micro-action plan</button>
+          <div id="weekly-plan" class="weekly-plan"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Self-Care Pocket Card</h2>
+          <p class="small">A printable card for hard moments, with crisis resources, a trusted-contact line, and low-energy steps.</p>
+          <a class="link-button" href="mood-anchor-care-card-en-20260705.html">Open pocket card</a>
+        </section>
+
+        <section class="panel">
+          <h2>Support Message Scripts</h2>
+          <p class="small">Ready-to-copy help messages for moments when asking is hard. This page does not send messages.</p>
+          <a class="link-button" href="mood-anchor-support-scripts-en-20260705.html">Open support scripts</a>
+        </section>
+
+        <section class="panel">
+          <h2>Safe Start Checklist</h2>
+          <p class="small">A three-minute first-use checklist for crisis support, local-only data boundaries, the pocket card, and support scripts.</p>
+          <a class="link-button" href="mood-anchor-onboarding-checklist-en-20260705.html">Open safe start checklist</a>
+        </section>
+
+        <section class="panel">
+          <h2>Low-Mood Response Card</h2>
+          <p class="small">Turn low energy, isolation, numbness, or stuckness into a local-only three-step response card.</p>
+          <a class="link-button" href="mood-anchor-low-mood-card-en-20260705.html">Open low-mood response card</a>
+        </section>
+
+        <section class="panel">
+          <h2>Activity Experiment Board</h2>
+          <p class="small">Run one tiny optional activity experiment, then compare predicted effort with what actually happened.</p>
+          <a class="link-button" href="mood-anchor-activity-experiment-board-en-20260705.html">Open activity experiment board</a>
+        </section>
+
+        <section class="panel">
+          <h2>Last 7 entries</h2>
+          <div id="trend-bars" class="bars"></div>
+          <div id="history" class="history"></div>
+        </section>
+
+        <section class="panel sources">
+          <h2>Safety sources</h2>
+          <ul><li><a href="https://988lifeline.org/">988 Suicide &amp; Crisis Lifeline</a>: U.S. call, text, and chat support is available 24/7/365.</li>
+<li><a href="https://988.ca/">Canada 9-8-8</a>: Canada offers 24/7/365 crisis support by calling or texting 9-8-8.</li>
+<li><a href="https://www.canada.ca/en/public-health/services/mental-health-services/mental-health-get-help.html">Canada.ca mental health crisis guidance</a>: Canada.ca says to call 9-1-1 for immediate danger and 9-8-8 for suicide crisis support.</li>
+<li><a href="https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/">Samaritans phone support</a>: Samaritans provides free phone support at 116 123 in the United Kingdom and Ireland.</li>
+<li><a href="https://findahelpline.com/">Find a Helpline</a>: Find a Helpline lists verified emotional support services across many countries.</li>
+<li><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH Caring for Your Mental Health</a>: NIMH lists self-care ideas such as movement, regular meals, hydration, sleep, relaxing activities, and staying connected.</li>
+<li><a href="https://www.nice.org.uk/guidance/ng222/chapter/recommendations">NICE Depression in Adults Guidance</a>: NICE guidance supports structured care and activity-focused approaches under proper clinical context.</li></ul>
+        </section>
+
+        <section class="panel">
+          <h2>Usage boundary</h2>
+          <ul><li>This is not therapy, diagnosis, treatment, crisis counseling, or medical advice.</li>
+<li>This is not a crisis service and it cannot monitor your safety.</li>
+<li>Do not use the scores as a medical assessment; they only help organize today.</li>
+<li>If you have self-harm thoughts, want to die, or feel unsafe, use human crisis support first.</li>
+<li>Your entries stay only in this browser localStorage; clearing browser data removes them.</li></ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <script type="application/json" id="mood-anchor-config">{"storageKey":"mood-anchor:en:v1","tones":[{"id":"gentle","label":"Gentle"},{"id":"direct","label":"Direct"},{"id":"minimal","label":"Minimal"}],"values":[{"id":"connection","label":"Connection","examples":["Send one short message to a trusted person","Move near a safe public or shared space"]},{"id":"body","label":"Body","examples":["Drink water","Stretch","Walk to the doorway and back"]},{"id":"care","label":"Care","examples":["Eat something small","Wash your face","Clear one small spot nearby"]},{"id":"mastery","label":"Completion","examples":["Do a two-minute task","Write one stuck item as a next step"]},{"id":"rest","label":"Rest","examples":["Turn off one stimulus","Lie down with a ten-minute timer"]}],"frictionOptions":[{"id":"tiny","label":"30-second version"},{"id":"small","label":"2-5 minute version"},{"id":"supported","label":"Start near support"}],"supportModes":[{"id":"solo","label":"Solo"},{"id":"body_first","label":"Body first"},{"id":"with_person","label":"Near a real person"}],"scales":[{"id":"mood","label":"Low mood level","min":1,"max":5,"lowLabel":"Very low","highLabel":"More steady"},{"id":"energy","label":"Usable energy","min":1,"max":5,"lowLabel":"Almost none","highLabel":"Some energy"},{"id":"overwhelm","label":"Stress or overwhelm","min":1,"max":5,"lowLabel":"Manageable","highLabel":"Very overwhelmed"},{"id":"sleep","label":"Sleep recovery","min":1,"max":5,"lowLabel":"Poor","highLabel":"Somewhat restored"},{"id":"connection","label":"Connection with people","min":1,"max":5,"lowLabel":"Very isolated","highLabel":"Someone is reachable"}],"safetyFlags":[{"id":"self_harm","label":"I am having thoughts of harming myself or not wanting to live"},{"id":"not_safe","label":"I do not feel safe right now"},{"id":"cannot_care","label":"I am struggling to meet basic needs"}],"actions":[{"id":"water","value":"body","minutes":2,"energy":"low","label":"Drink a few sips of water, then put the cup where you can see it."},{"id":"window","value":"body","minutes":2,"energy":"low","label":"Move to a window or doorway and name three colors you can see."},{"id":"message","value":"connection","minutes":5,"energy":"low","label":"Send one sentence to a trusted person. It does not need to explain everything."},{"id":"wash","value":"care","minutes":5,"energy":"low","label":"Wash your face or hands. Nothing else has to be finished."},{"id":"tiny-task","value":"mastery","minutes":10,"energy":"medium","label":"Choose a task that can end within ten minutes and do only the first step."},{"id":"walk","value":"body","minutes":10,"energy":"medium","label":"Walk to the outside door, hallway, or stairs and come back. Speed does not matter."},{"id":"reset","value":"rest","minutes":10,"energy":"low","label":"Set a ten-minute timer, turn off one stimulus, and let your body rest."},{"id":"plan","value":"mastery","minutes":20,"energy":"high","label":"Write one stuck item as three next steps, then do only the first one."}],"actionLadder":{"title":"Personal action ladder","prompt":"Match today's friction and support preference to one primary step, a smaller backup, and a human-support handoff.","frictionLabel":"Current friction","supportModeLabel":"Preferred support style","primaryLabel":"Primary step","backupLabel":"Smaller backup","supportLabel":"Support style","handoffLabel":"When to use human support","backupActions":{"low":["Do only 30 seconds: sit upright, put both feet on the floor, drink water, or look toward a window."],"medium":["Cut the primary step in half: do only the first movement, then stop if stopping helps."],"connection":["Send one word or emoji to a trusted person. You do not need to explain the whole situation."]},"supportActions":{"solo":"Set a two-minute timer. When it ends, you are allowed to stop.","bodyFirst":"Start with body care: water, washing your face, stretching, or moving into better light.","withPerson":"Move closer to a real person: send a short message, sit in a shared safe space, or ask someone trusted to stay nearby."},"handoffLine":"If even the backup step is not possible, basic needs are hard to meet, or the low mood is getting heavier, switch to human support, professional help, local emergency services, or crisis support.","lightHandoffLine":"If the step leaves you feeling less safe, more overwhelmed, or more alone, stop using the tool and contact human support first."},"weeklyPlan":{"title":"7-day micro-action plan","horizon_days":7,"principles":["One small action is enough for a day.","Skipping, shrinking, or replacing a step is allowed.","If you feel unsafe or have self-harm thoughts, use crisis support first."]},"crisisActions":[{"id":"emergency","label":"Immediate danger: call your local emergency number now","detail":"If you may act soon, have a plan or means, or need urgent medical help, move away from danger and seek in-person help now."},{"id":"us-988","label":"United States: call, text, or chat 988","detail":"The 988 Suicide & Crisis Lifeline offers free, confidential support by call, text, or chat."},{"id":"canada-988","label":"Canada: call or text 9-8-8","detail":"9-8-8 provides suicide crisis support across Canada by phone or text, 24 hours a day."},{"id":"uk-ie-samaritans","label":"United Kingdom and Ireland: call Samaritans at 116 123","detail":"If you need urgent emotional support in the United Kingdom or Ireland, call Samaritans at 116 123 any time."},{"id":"find-a-helpline","label":"Other countries: Find a Helpline","detail":"Use Find a Helpline to locate verified local emotional support by country, topic, phone, text, or chat."},{"id":"trusted-person","label":"Trusted person: send one short message","detail":"Try: \"I do not feel safe being alone right now. Can you stay with me or help me contact support?\""}],"ui":{"pageTitleSuffix":"Mood Support PWA","manifestDescription":"Offline, local-only mood support and tiny next-step PWA.","crisisTitle":"If you are not safe right now, contact a real person first","crisisLeadStrong":"This is not therapy, treatment, or a crisis service.","crisisLeadBody":"If you might harm yourself, do not want to live, or feel like you may lose control, use human support before using this tool.","checkInTitle":"Today check-in","nameLabel":"What should this tool call you?","namePlaceholder":"For example: Hank","toneLabel":"Prompt tone","valuePromptTitle":"What kind of tiny step do you want to move toward today?","safetyCheckTitle":"Safety check","noteLabel":"One sentence about what feels stuck","notePlaceholder":"A few words is enough.","submitLabel":"Generate one tiny next step","exportLabel":"Export JSON","clearLabel":"Clear local data","localStorageNote":"Data stays in this browser localStorage and is not sent to a server.","resultTitle":"Your next tiny step","resultEmpty":"After you check in, this area will suggest one small step based on energy, focus, and safety signals.","weeklyPlanNote":"This is not a treatment plan; skipping, shrinking, or replacing a step is allowed.","createWeeklyPlanLabel":"Create 7-day micro-action plan","careCardTitle":"Self-Care Pocket Card","careCardNote":"A printable card for hard moments, with crisis resources, a trusted-contact line, and low-energy steps.","careCardOpenLabel":"Open pocket card","supportScriptsTitle":"Support Message Scripts","supportScriptsNote":"Ready-to-copy help messages for moments when asking is hard. This page does not send messages.","supportScriptsOpenLabel":"Open support scripts","onboardingChecklistTitle":"Safe Start Checklist","onboardingChecklistNote":"A three-minute first-use checklist for crisis support, local-only data boundaries, the pocket card, and support scripts.","onboardingChecklistOpenLabel":"Open safe start checklist","lowMoodCardTitle":"Low-Mood Response Card","lowMoodCardNote":"Turn low energy, isolation, numbness, or stuckness into a local-only three-step response card.","lowMoodCardOpenLabel":"Open low-mood response card","activityExperimentBoardTitle":"Activity Experiment Board","activityExperimentBoardNote":"Run one tiny optional activity experiment, then compare predicted effort with what actually happened.","activityExperimentBoardOpenLabel":"Open activity experiment board","historyTitle":"Last 7 entries","sourcesTitle":"Safety sources","boundaryTitle":"Usage boundary","listSeparator":": ","confirmClear":"Clear Mood Anchor records from this device?","clearedMessage":"Local data has been cleared.","exportFileName":"mood-anchor-en-export.json","crisisRecommendation":{"title":"Put safety first","body":"You selected a high-risk signal. The priority now is not completing a task; it is getting human support and not staying alone with this.","action":"Use crisis support first."},"withinMinutesLabel":"minutes: ","nowLabel":"Now: ","locale":"en-US","moodShort":"Mood","energyShort":"Energy","emptyNote":"No note","emptyHistory":"No entries yet.","dayLabelPrefix":"Day ","dayLabelSuffix":"","emptyWeeklyPlan":"No plan yet. Check in once, or build a 7-day plan from your current focus.","minutesUnit":"minutes","planActionSeparator":": ","nameAddress":"{name}, ","toneTitles":{"gentle":"go slowly and choose one small anchor","direct":"do one smallest viable thing","minimal":"next step"},"reflections":{"lowEnergy":"Energy is low today, so choose something that does not require willpower.","lowConnection":"Connection feels low today. Moving a little closer to a person or safe shared space may matter most.","highOverwhelm":"When overwhelm is high, shrink the scope. You do not need to solve everything at once.","steady":"Choose one small step, then notice whether anything feels even slightly different."},"noscript":"JavaScript is required to save local entries. Crisis resources can still be contacted directly.","moreToolsLabel":"More free tools from the same one-person studio"}}</script>
+  <script>
+    const config = JSON.parse(document.getElementById('mood-anchor-config').textContent);
+    const storageKey = config.storageKey;
+    let state = loadState();
+    let selectedTone = state.profile?.tone || 'gentle';
+    let selectedValue = state.profile?.value || 'connection';
+    let selectedFriction = state.profile?.friction || 'tiny';
+    let selectedSupportMode = state.profile?.supportMode || 'solo';
+
+    const form = document.getElementById('checkin-form');
+    const result = document.getElementById('result');
+    const history = document.getElementById('history');
+    const trendBars = document.getElementById('trend-bars');
+    const weeklyPlan = document.getElementById('weekly-plan');
+    const nameInput = document.getElementById('name');
+
+    nameInput.value = state.profile?.name || '';
+    activateChoice('tone', selectedTone);
+    activateChoice('value', selectedValue);
+    activateChoice('friction', selectedFriction);
+    activateChoice('support-mode', selectedSupportMode);
+    renderHistory();
+    renderWeeklyPlan();
+
+    document.querySelectorAll('[data-tone]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedTone = button.dataset.tone;
+        activateChoice('tone', selectedTone);
+        saveProfile();
+      });
+    });
+
+    document.querySelectorAll('[data-value]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedValue = button.dataset.value;
+        activateChoice('value', selectedValue);
+        saveProfile();
+      });
+    });
+
+    document.querySelectorAll('[data-friction]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedFriction = button.dataset.friction;
+        activateChoice('friction', selectedFriction);
+        saveProfile();
+      });
+    });
+
+    document.querySelectorAll('[data-support-mode]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedSupportMode = button.dataset.supportMode;
+        activateChoice('support-mode', selectedSupportMode);
+        saveProfile();
+      });
+    });
+
+    nameInput.addEventListener('input', saveProfile);
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const entry = buildEntry();
+      const recommendation = recommend(entry);
+      state.entries = [entry, ...(state.entries || [])].slice(0, 30);
+      saveState();
+      renderRecommendation(recommendation, entry);
+      renderHistory();
+    });
+
+    document.getElementById('create-weekly-plan').addEventListener('click', () => {
+      state.weeklyPlan = buildWeeklyPlan();
+      saveState();
+      renderWeeklyPlan();
+    });
+
+    document.getElementById('export-json').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = config.ui.exportFileName;
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('clear-data').addEventListener('click', () => {
+      if (!confirm(config.ui.confirmClear)) return;
+      localStorage.removeItem(storageKey);
+      state = { profile: {}, entries: [], weeklyPlan: null };
+      selectedTone = 'gentle';
+      selectedValue = 'connection';
+      selectedFriction = 'tiny';
+      selectedSupportMode = 'solo';
+      nameInput.value = '';
+      activateChoice('tone', selectedTone);
+      activateChoice('value', selectedValue);
+      activateChoice('friction', selectedFriction);
+      activateChoice('support-mode', selectedSupportMode);
+      renderHistory();
+      renderWeeklyPlan();
+      result.className = 'panel result';
+      result.innerHTML = '<h2>' + escapeHtml(config.ui.resultTitle) + '</h2><p>' + escapeHtml(config.ui.clearedMessage) + '</p>';
+    });
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('mood-anchor-en-service-worker-20260705.js').catch(() => {});
+      });
+    }
+
+    function buildEntry() {
+      const formData = new FormData(form);
+      const scales = {};
+      config.scales.forEach((scale) => {
+        scales[scale.id] = Number(formData.get(scale.id) || 3);
+      });
+      return {
+        id: new Date().toISOString(),
+        name: nameInput.value.trim(),
+        tone: selectedTone,
+        value: selectedValue,
+        friction: selectedFriction,
+        supportMode: selectedSupportMode,
+        note: String(formData.get('note') || '').trim(),
+        scales,
+        safety: formData.getAll('safety')
+      };
+    }
+
+    function recommend(entry) {
+      const unsafe = entry.safety.includes('self_harm') || entry.safety.includes('not_safe') || entry.scales.mood <= 1 || entry.scales.overwhelm >= 5;
+      if (unsafe) {
+        return {
+          crisis: true,
+          title: config.ui.crisisRecommendation.title,
+          body: config.ui.crisisRecommendation.body,
+          action: config.crisisActions[0]?.detail || config.ui.crisisRecommendation.action,
+          minutes: 0
+        };
+      }
+      const energyBand = entry.scales.energy <= 2 ? 'low' : entry.scales.energy >= 4 ? 'high' : 'medium';
+      const action = choosePrimaryAction(entry, energyBand);
+      return {
+        crisis: false,
+        title: toneTitle(entry.tone, entry.name),
+        body: reflection(entry),
+        action: action.label,
+        minutes: action.minutes,
+        backupAction: chooseBackupAction(entry, energyBand),
+        supportAction: chooseSupportAction(entry),
+        handoff: chooseHandoff(entry)
+      };
+    }
+
+    function renderRecommendation(recommendation) {
+      result.className = recommendation.crisis ? 'panel result danger' : 'panel result';
+      const lines = [
+        '<h2>' + escapeHtml(config.ui.resultTitle) + '</h2>',
+        '<h3>' + escapeHtml(recommendation.title) + '</h3>',
+        '<p>' + escapeHtml(recommendation.body) + '</p>',
+        recommendation.minutes ? '<p><strong>' + recommendation.minutes + ' ' + escapeHtml(config.ui.withinMinutesLabel) + '</strong>' + escapeHtml(recommendation.action) + '</p>' : '<p><strong>' + escapeHtml(config.ui.nowLabel) + '</strong>' + escapeHtml(recommendation.action) + '</p>'
+      ];
+      if (!recommendation.crisis) {
+        lines.push(
+          '<div class="ladder-list">' +
+            '<div class="ladder-item"><strong>' + escapeHtml(config.actionLadder.primaryLabel) + '</strong>' + escapeHtml(recommendation.action) + '</div>' +
+            '<div class="ladder-item"><strong>' + escapeHtml(config.actionLadder.backupLabel) + '</strong>' + escapeHtml(recommendation.backupAction) + '</div>' +
+            '<div class="ladder-item"><strong>' + escapeHtml(config.actionLadder.supportLabel) + '</strong>' + escapeHtml(recommendation.supportAction) + '</div>' +
+            '<div class="ladder-item"><strong>' + escapeHtml(config.actionLadder.handoffLabel) + '</strong>' + escapeHtml(recommendation.handoff) + '</div>' +
+          '</div>'
+        );
+      }
+      result.innerHTML = lines.join('');
+    }
+
+    function renderHistory() {
+      const entries = (state.entries || []).slice(0, 7);
+      history.innerHTML = entries.length
+        ? entries.map((entry) => '<article class="entry"><strong>' + new Date(entry.id).toLocaleString(config.ui.locale) + '</strong><br />' + escapeHtml(config.ui.moodShort) + ' ' + entry.scales.mood + ' / ' + escapeHtml(config.ui.energyShort) + ' ' + entry.scales.energy + '<br /><span class="small">' + escapeHtml(entry.note || config.ui.emptyNote) + '</span></article>').join('')
+        : '<p class="small">' + escapeHtml(config.ui.emptyHistory) + '</p>';
+      const averages = averageScales(entries);
+      trendBars.innerHTML = Object.entries(averages).map(([key, value]) => {
+        const label = (config.scales.find((scale) => scale.id === key) || { label: key }).label;
+        const width = Math.max(0, Math.min(100, (value / 5) * 100));
+        return '<div class="bar"><span>' + escapeHtml(label) + '</span><span class="track"><span class="fill" style="width:' + width + '%"></span></span><span>' + value.toFixed(1) + '</span></div>';
+      }).join('');
+    }
+
+    function averageScales(entries) {
+      if (!entries.length) return {};
+      const sums = {};
+      entries.forEach((entry) => {
+        Object.entries(entry.scales).forEach(([key, value]) => {
+          sums[key] = (sums[key] || 0) + value;
+        });
+      });
+      return Object.fromEntries(Object.entries(sums).map(([key, value]) => [key, value / entries.length]));
+    }
+
+    function buildWeeklyPlan() {
+      const latest = (state.entries || [])[0] || null;
+      const energyBand = energyBandFromEntry(latest);
+      const value = selectedValue || state.profile?.value || 'connection';
+      return {
+        createdAt: new Date().toISOString(),
+        value,
+        energyBand,
+        days: Array.from({ length: config.weeklyPlan.horizon_days }, (_, index) => {
+          const action = chooseActionForDay(index, value, energyBand);
+          return {
+            day: index + 1,
+            title: config.ui.dayLabelPrefix + (index + 1) + config.ui.dayLabelSuffix,
+            value: action.value,
+            action: action.label,
+            minutes: action.minutes,
+            done: false
+          };
+        })
+      };
+    }
+
+    function chooseActionForDay(dayIndex, value, energyBand) {
+      const cycle = [value, 'body', 'care', 'connection', 'rest', 'mastery'];
+      const preferredValue = cycle[dayIndex % cycle.length];
+      const candidate = config.actions.find((action) => action.value === preferredValue && (action.energy === energyBand || action.energy === 'low'));
+      return candidate || config.actions.find((action) => action.value === preferredValue) || config.actions[0];
+    }
+
+    function renderWeeklyPlan() {
+      const plan = state.weeklyPlan;
+      if (!plan?.days?.length) {
+        weeklyPlan.innerHTML = '<p class="small">' + escapeHtml(config.ui.emptyWeeklyPlan) + '</p>';
+        return;
+      }
+      weeklyPlan.innerHTML = plan.days.map((day, index) => {
+        return '<article class="plan-day' + (day.done ? ' done' : '') + '"><label><input type="checkbox" data-plan-day="' + index + '"' + (day.done ? ' checked' : '') + ' /> <span><strong>' + escapeHtml(day.title) + '</strong><br />' + escapeHtml(day.minutes + ' ' + config.ui.minutesUnit + config.ui.planActionSeparator + day.action) + '</span></label></article>';
+      }).join('');
+      weeklyPlan.querySelectorAll('[data-plan-day]').forEach((input) => {
+        input.addEventListener('change', () => {
+          togglePlanDay(Number(input.dataset.planDay), input.checked);
+        });
+      });
+    }
+
+    function togglePlanDay(index, done) {
+      if (!state.weeklyPlan?.days?.[index]) return;
+      state.weeklyPlan.days[index].done = done;
+      saveState();
+      renderWeeklyPlan();
+    }
+
+    function energyBandFromEntry(entry) {
+      const energy = entry?.scales?.energy ?? 3;
+      if (energy <= 2) return 'low';
+      if (energy >= 4) return 'high';
+      return 'medium';
+    }
+
+    function choosePrimaryAction(entry, energyBand) {
+      const preferredValue = preferredValueForSupportMode(entry);
+      const effectiveEnergy = entry.friction === 'tiny' ? 'low' : energyBand;
+      const candidates = config.actions.filter((action) => action.value === preferredValue && (action.energy === effectiveEnergy || action.energy === 'low'));
+      const fallback = config.actions.find((action) => action.value === entry.value && action.energy === 'low') || config.actions.find((action) => action.energy === effectiveEnergy) || config.actions[0];
+      return candidates[0] || fallback;
+    }
+
+    function preferredValueForSupportMode(entry) {
+      if (entry.supportMode === 'body_first') return 'body';
+      if (entry.supportMode === 'with_person') return 'connection';
+      return entry.value;
+    }
+
+    function chooseBackupAction(entry, energyBand) {
+      if (entry.friction === 'tiny' || energyBand === 'low') return config.actionLadder.backupActions.low[0];
+      if (entry.supportMode === 'with_person') return config.actionLadder.backupActions.connection[0];
+      return config.actionLadder.backupActions.medium[0];
+    }
+
+    function chooseSupportAction(entry) {
+      if (entry.supportMode === 'with_person' || entry.scales.connection <= 2) return config.actionLadder.supportActions.withPerson;
+      if (entry.supportMode === 'body_first') return config.actionLadder.supportActions.bodyFirst;
+      return config.actionLadder.supportActions.solo;
+    }
+
+    function chooseHandoff(entry) {
+      if (entry.safety.includes('cannot_care') || entry.scales.energy <= 1 || entry.scales.mood <= 2) {
+        return config.actionLadder.handoffLine;
+      }
+      return config.actionLadder.lightHandoffLine;
+    }
+
+    function saveProfile() {
+      state.profile = { name: nameInput.value.trim(), tone: selectedTone, value: selectedValue, friction: selectedFriction, supportMode: selectedSupportMode };
+      saveState();
+    }
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || { profile: {}, entries: [] };
+      } catch {
+        return { profile: {}, entries: [] };
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    function activateChoice(kind, value) {
+      const datasetKey = kind.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
+      document.querySelectorAll('[data-' + kind + ']').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset[datasetKey] === value));
+      });
+    }
+
+    function toneTitle(tone, name) {
+      const who = name ? config.ui.nameAddress.replace('{name}', name) : '';
+      if (tone === 'direct') return who + config.ui.toneTitles.direct;
+      if (tone === 'minimal') return who + config.ui.toneTitles.minimal;
+      return who + config.ui.toneTitles.gentle;
+    }
+
+    function reflection(entry) {
+      if (entry.scales.energy <= 2) return config.ui.reflections.lowEnergy;
+      if (entry.scales.connection <= 2) return config.ui.reflections.lowConnection;
+      if (entry.scales.overwhelm >= 4) return config.ui.reflections.highOverwhelm;
+      return config.ui.reflections.steady;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+    }
+  </script>
+  <noscript>JavaScript is required to save local entries. Crisis resources can still be contacted directly.</noscript>
+  <footer style="max-width:1120px;margin:0 auto;padding:0 20px 24px;color:var(--muted);font-size:13px;">
+    <a href="index.html" style="color:var(--accent);">More free tools from the same one-person studio</a>
+  </footer>
+  <!-- mood-anchor-en-20260705.html -->
+</body>
+</html>

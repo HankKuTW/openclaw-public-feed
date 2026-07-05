@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#315f65" />
+  <meta name="description" content="離線可用、local-only 的情緒支援與小步行動 PWA。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mood Anchor - 情緒支援 PWA" />
+  <meta property="og:description" content="離線可用、local-only 的情緒支援與小步行動 PWA。" />
+  <meta property="og:url" content="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-20260704.html" />
+  <meta name="twitter:card" content="summary" />
+  <title>Mood Anchor - 情緒支援 PWA</title>
+  <link rel="manifest" href="mood-anchor-manifest-20260704.webmanifest" />
+  <link rel="icon" href="mood-anchor-icon.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f4ee;
+      --panel: #ffffff;
+      --panel-strong: #e8f0ee;
+      --text: #172123;
+      --muted: #5c686b;
+      --line: #cbd8d5;
+      --accent: #315f65;
+      --accent-2: #8f5d46;
+      --danger: #8b2f3c;
+      --ok: #2f6a48;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1120px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 34px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 22px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p { line-height: 1.55; }
+    .sub { color: var(--muted); max-width: 760px; margin: 0; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr); gap: 14px; align-items: start; margin-top: 16px; }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; }
+    .panel + .panel { margin-top: 14px; }
+    .crisis { border-color: #d9a7af; background: #fff7f5; }
+    .crisis strong { color: var(--danger); }
+    .row { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    label { display: block; font-weight: 700; margin-bottom: 6px; }
+    input[type="text"], select, textarea {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 10px;
+      font: inherit;
+      background: var(--panel);
+      color: var(--text);
+    }
+    textarea { min-height: 74px; resize: vertical; }
+    .segmented { display: flex; gap: 8px; flex-wrap: wrap; }
+    .choice, button, .link-button {
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: var(--panel);
+      color: var(--text);
+      font: inherit;
+      cursor: pointer;
+    }
+    .choice[aria-pressed="true"], button.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #ffffff;
+    }
+    .link-button { display: inline-flex; align-items: center; text-decoration: none; }
+    button.secondary { border-color: var(--accent-2); color: var(--accent-2); }
+    .scale { margin: 12px 0; }
+    .scale-head { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 13px; }
+    input[type="range"] { width: 100%; accent-color: var(--accent); }
+    .checks { display: grid; gap: 8px; }
+    .checks label { display: flex; gap: 8px; align-items: start; font-weight: 400; }
+    .result { background: var(--panel-strong); border-color: #a8c1bd; }
+    .result.danger { background: #fff1f2; border-color: #d18a96; }
+    .result h3 { font-size: 20px; }
+    .ladder-list { display: grid; gap: 8px; margin: 10px 0 0; }
+    .ladder-item { border-left: 4px solid var(--accent); padding-left: 10px; }
+    .ladder-item strong { display: block; margin-bottom: 2px; }
+    .history { display: grid; gap: 8px; }
+    .entry { border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--panel); }
+    .bars { display: grid; gap: 8px; margin-top: 10px; }
+    .bar { display: grid; grid-template-columns: 96px 1fr 28px; gap: 8px; align-items: center; font-size: 13px; }
+    .track { height: 10px; background: #dce5e2; border-radius: 999px; overflow: hidden; }
+    .fill { height: 100%; background: var(--ok); width: 0%; }
+    .weekly-plan { display: grid; gap: 8px; margin-top: 10px; }
+    .plan-day { border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--panel); }
+    .plan-day label { display: flex; gap: 8px; align-items: flex-start; font-weight: 400; margin: 0; }
+    .plan-day.done { opacity: 0.72; }
+    .sources a { overflow-wrap: anywhere; }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .small { color: var(--muted); font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101517;
+        --panel: #172023;
+        --panel-strong: #1d2b2e;
+        --text: #eef4f2;
+        --muted: #b5c1c0;
+        --line: #334548;
+        --accent: #6ca8ad;
+        --accent-2: #d49b7e;
+        --danger: #f0a0ad;
+        --ok: #75bf91;
+      }
+      .crisis, .result.danger { background: #27191d; }
+      .track { background: #2d3b3f; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .grid { grid-template-columns: 1fr; }
+      .panel { padding: 12px; }
+      .choice, button, .link-button { width: 100%; }
+      .bar { grid-template-columns: 76px 1fr 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Mood Anchor</h1>
+      <p class="sub">一個離線可用、只存在你瀏覽器裡的情緒支援小工具。</p>
+    </header>
+
+    <section class="panel crisis" aria-labelledby="crisis-title">
+      <h2 id="crisis-title">如果現在不安全，先找真人支援</h2>
+      <p><strong>這不是診斷、治療或危機服務。</strong> 如果你有傷害自己、不想活、或覺得可能失控的念頭，請先聯絡緊急支援。</p>
+      <ul><li><strong>在美國可撥打或傳簡訊 988</strong>：如果你可能傷害自己、覺得撐不住，或需要立即有人陪你說話，請使用 988 Suicide &amp; Crisis Lifeline。</li>
+<li><strong>有立即生命危險時，聯絡當地緊急服務</strong>：如果你已經有計畫、工具、或可能馬上行動，請離開危險物品並尋求現場協助。</li>
+<li><strong>聯絡一位可信任的人</strong>：傳送一句簡短訊息：「我現在不太安全，可以陪我一下或幫我找支援嗎？」</li></ul>
+    </section>
+
+    <div class="grid">
+      <section>
+        <form id="checkin-form" class="panel">
+          <h2>今天的狀態</h2>
+          <div class="row">
+            <div>
+              <label for="name">你希望工具怎麼稱呼你？</label>
+              <input id="name" name="name" type="text" autocomplete="nickname" placeholder="例如：Hank" />
+            </div>
+            <div>
+              <label>提示語氣</label>
+              <div class="segmented" id="tone-group">
+                <button type="button" class="choice" data-tone="gentle" aria-pressed="true">溫柔陪伴</button>
+<button type="button" class="choice" data-tone="direct" aria-pressed="false">直接明確</button>
+<button type="button" class="choice" data-tone="minimal" aria-pressed="false">極簡提示</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>你今天比較想靠近哪一種小步？</h3>
+            <div class="segmented" id="value-group">
+              <button type="button" class="choice" data-value="connection" aria-pressed="true">連結</button>
+<button type="button" class="choice" data-value="body" aria-pressed="false">身體</button>
+<button type="button" class="choice" data-value="care" aria-pressed="false">照顧</button>
+<button type="button" class="choice" data-value="mastery" aria-pressed="false">完成感</button>
+<button type="button" class="choice" data-value="rest" aria-pressed="false">休息</button>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>個人化行動階梯</h3>
+            <p class="small">依照今天的阻力和支援偏好，把下一步縮成主步驟、備案和真人支援線。</p>
+            <div class="row">
+              <div>
+                <label>現在可承受的阻力</label>
+                <div class="segmented" id="friction-group">
+                  <button type="button" class="choice" data-friction="tiny" aria-pressed="true">只做三十秒</button>
+<button type="button" class="choice" data-friction="small" aria-pressed="false">做 2-5 分鐘</button>
+<button type="button" class="choice" data-friction="supported" aria-pressed="false">先靠近真人支援</button>
+                </div>
+              </div>
+              <div>
+                <label>你想用哪種支援方式</label>
+                <div class="segmented" id="support-mode-group">
+                  <button type="button" class="choice" data-support-mode="solo" aria-pressed="true">自己做</button>
+<button type="button" class="choice" data-support-mode="body_first" aria-pressed="false">身體先行</button>
+<button type="button" class="choice" data-support-mode="with_person" aria-pressed="false">靠近真人</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="scale">
+            <label for="mood">情緒低落程度</label>
+            <input id="mood" name="mood" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>很低落</span><span>比較穩</span></div>
+          </div>
+
+          <div class="scale">
+            <label for="energy">可用能量</label>
+            <input id="energy" name="energy" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>幾乎沒有</span><span>有一點力氣</span></div>
+          </div>
+
+          <div class="scale">
+            <label for="overwhelm">壓力/混亂程度</label>
+            <input id="overwhelm" name="overwhelm" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>還能承受</span><span>非常混亂</span></div>
+          </div>
+
+          <div class="scale">
+            <label for="sleep">睡眠恢復感</label>
+            <input id="sleep" name="sleep" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>很差</span><span>還可以</span></div>
+          </div>
+
+          <div class="scale">
+            <label for="connection">與人連結感</label>
+            <input id="connection" name="connection" type="range" min="1" max="5" value="3" />
+            <div class="scale-head"><span>很孤立</span><span>有人可找</span></div>
+          </div>
+
+          <div class="panel">
+            <h3>安全檢查</h3>
+            <div class="checks">
+              <label><input type="checkbox" name="safety" value="self_harm" /> 我有傷害自己或不想活的念頭</label>
+<label><input type="checkbox" name="safety" value="not_safe" /> 我現在覺得不安全</label>
+<label><input type="checkbox" name="safety" value="cannot_care" /> 我很難照顧基本需求</label>
+            </div>
+          </div>
+
+          <label for="note">一句話描述現在卡住的地方</label>
+          <textarea id="note" name="note" placeholder="不用完整，幾個字也可以。"></textarea>
+
+          <div class="actions">
+            <button class="primary" type="submit">生成今天的一小步</button>
+            <button class="secondary" type="button" id="export-json">匯出 JSON</button>
+            <button type="button" id="clear-data">清除本機資料</button>
+          </div>
+          <p class="small">資料只儲存在這台裝置的 localStorage，不會送到伺服器。</p>
+        </form>
+      </section>
+
+      <aside>
+        <section id="result" class="panel result" aria-live="polite">
+          <h2>你的下一小步</h2>
+          <p>填完狀態後，這裡會根據能量、價值方向和安全狀態，給你一個很小的下一步。</p>
+        </section>
+
+        <section class="panel">
+          <h2>7 日微行動計畫</h2>
+          <p class="small">這不是治療計畫；可以跳過、縮小或替換，不代表失敗。</p>
+          <button type="button" id="create-weekly-plan">建立 7 日微行動計畫</button>
+          <div id="weekly-plan" class="weekly-plan"></div>
+        </section>
+
+        <section class="panel">
+          <h2>自我照顧小卡</h2>
+          <p class="small">可列印的小卡；狀態差時不用打開完整工具，也能看到危機資源、可信任聯絡人和低能量小步。</p>
+          <a class="link-button" href="mood-anchor-care-card-20260704.html">開啟自我照顧小卡</a>
+        </section>
+
+        <section class="panel">
+          <h2>支援訊息草稿</h2>
+          <p class="small">把很難開口的求助訊息先寫好；只複製到你選擇的通訊工具，不會自動發送。</p>
+          <a class="link-button" href="mood-anchor-support-scripts-20260704.html">開啟支援訊息草稿</a>
+        </section>
+
+        <section class="panel">
+          <h2>安全開始清單</h2>
+          <p class="small">第一次使用前，用三分鐘確認危機支援、本機資料邊界、照顧小卡和求助草稿都在手邊。</p>
+          <a class="link-button" href="mood-anchor-onboarding-checklist-20260704.html">開啟安全開始清單</a>
+        </section>
+
+        <section class="panel">
+          <h2>低潮應對卡</h2>
+          <p class="small">把低能量、孤立、麻木或卡住的時刻，轉成一張只做三步的本機應對卡。</p>
+          <a class="link-button" href="mood-anchor-low-mood-card-20260704.html">開啟低潮應對卡</a>
+        </section>
+
+        <section class="panel">
+          <h2>小活動實驗板</h2>
+          <p class="small">用很小、可跳過的活動實驗，記錄預估努力感、實際努力感和做完後狀態。</p>
+          <a class="link-button" href="mood-anchor-activity-experiment-board-20260704.html">開啟小活動實驗板</a>
+        </section>
+
+        <section class="panel">
+          <h2>最近 7 次紀錄</h2>
+          <div id="trend-bars" class="bars"></div>
+          <div id="history" class="history"></div>
+        </section>
+
+        <section class="panel sources">
+          <h2>安全來源</h2>
+          <ul><li><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH Caring for Your Mental Health</a>：自我照護建議包含規律活動、飲食、補水、睡眠、呼吸練習和與他人連結。</li>
+<li><a href="https://www.nimh.nih.gov/health/publications/my-mental-health-do-i-need-help">NIMH My Mental Health: Do I Need Help?</a>：症狀惡化、持續影響生活，或有自傷念頭時，應尋求專業或立即協助。</li>
+<li><a href="https://www.samhsa.gov/mental-health/988">SAMHSA 988 Suicide &amp; Crisis Lifeline</a>：988 是美國 24/7 危機支援資源，可通話、簡訊或聊天。</li>
+<li><a href="https://www.nice.org.uk/guidance/ng222/chapter/recommendations">NICE Depression in Adults Guidance</a>：行為活化重視把活動、心情和避免行為連結起來，選擇可執行的小步驟。</li></ul>
+        </section>
+
+        <section class="panel">
+          <h2>使用邊界</h2>
+          <ul><li>這不是診斷、治療、危機服務、心理諮商或醫療建議。</li>
+<li>不要把分數當成醫療評估；它只幫你整理今天的狀態。</li>
+<li>如果有自傷、想死、或不安全的感覺，先使用危機資源，不要只依賴這個工具。</li>
+<li>資料只儲存在本機瀏覽器；清除瀏覽器資料會刪除紀錄。</li></ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <script type="application/json" id="mood-anchor-config">{"storageKey":"mood-anchor:v1","tones":[{"id":"gentle","label":"溫柔陪伴"},{"id":"direct","label":"直接明確"},{"id":"minimal","label":"極簡提示"}],"values":[{"id":"connection","label":"連結","examples":["傳一則短訊息給可信任的人","坐到有人在的公共空間"]},{"id":"body","label":"身體","examples":["喝水","伸展","走到門口再回來"]},{"id":"care","label":"照顧","examples":["吃一點東西","洗臉","整理床邊一小塊"]},{"id":"mastery","label":"完成感","examples":["完成一個兩分鐘任務","把一件事寫成下一步"]},{"id":"rest","label":"休息","examples":["關掉一個刺激來源","躺下並設定十分鐘鬧鐘"]}],"frictionOptions":[{"id":"tiny","label":"只做三十秒"},{"id":"small","label":"做 2-5 分鐘"},{"id":"supported","label":"先靠近真人支援"}],"supportModes":[{"id":"solo","label":"自己做"},{"id":"body_first","label":"身體先行"},{"id":"with_person","label":"靠近真人"}],"scales":[{"id":"mood","label":"情緒低落程度","min":1,"max":5,"lowLabel":"很低落","highLabel":"比較穩"},{"id":"energy","label":"可用能量","min":1,"max":5,"lowLabel":"幾乎沒有","highLabel":"有一點力氣"},{"id":"overwhelm","label":"壓力/混亂程度","min":1,"max":5,"lowLabel":"還能承受","highLabel":"非常混亂"},{"id":"sleep","label":"睡眠恢復感","min":1,"max":5,"lowLabel":"很差","highLabel":"還可以"},{"id":"connection","label":"與人連結感","min":1,"max":5,"lowLabel":"很孤立","highLabel":"有人可找"}],"safetyFlags":[{"id":"self_harm","label":"我有傷害自己或不想活的念頭"},{"id":"not_safe","label":"我現在覺得不安全"},{"id":"cannot_care","label":"我很難照顧基本需求"}],"actions":[{"id":"water","value":"body","minutes":2,"energy":"low","label":"喝幾口水，然後把杯子放在看得到的地方。"},{"id":"window","value":"body","minutes":2,"energy":"low","label":"走到窗邊或門口，注意三個你看得到的顏色。"},{"id":"message","value":"connection","minutes":5,"energy":"low","label":"傳一則只需要一句話的訊息給可信任的人。"},{"id":"wash","value":"care","minutes":5,"energy":"low","label":"洗臉或擦手，不需要完成其他事。"},{"id":"tiny-task","value":"mastery","minutes":10,"energy":"medium","label":"選一件可以十分鐘內結束的小事，只做到第一步。"},{"id":"walk","value":"body","minutes":10,"energy":"medium","label":"走到住處外或樓梯口再回來，速度不重要。"},{"id":"reset","value":"rest","minutes":10,"energy":"low","label":"設定十分鐘計時器，關掉一個刺激來源，讓身體休息。"},{"id":"plan","value":"mastery","minutes":20,"energy":"high","label":"把一件卡住的事寫成三個下一步，只做第一個。"}],"actionLadder":{"title":"個人化行動階梯","prompt":"依照今天的阻力和支援偏好，把下一步縮成主步驟、備案和真人支援線。","frictionLabel":"現在可承受的阻力","supportModeLabel":"你想用哪種支援方式","primaryLabel":"主步驟","backupLabel":"更小備案","supportLabel":"支援方式","handoffLabel":"何時找真人支援","backupActions":{"low":["只做三十秒：坐直、雙腳踩地，喝一口水或看向窗外。"],"medium":["把主步驟砍半：只做第一個動作，做完就可以停。"],"connection":["先傳一個字或表情符號給可信任的人，不需要解釋完整狀況。"]},"supportActions":{"solo":"把計時器設成兩分鐘；時間到就停，不需要補做。","bodyFirst":"先做身體照顧：喝水、洗臉、伸展或坐到光線較好的地方。","withPerson":"靠近一位真人：傳短訊息、坐到有人在的空間，或請可信任的人陪一下。"},"handoffLine":"如果你連備案都做不了、很難照顧基本需求，或低落感持續變重，請改找真人支援、專業協助、當地緊急服務或危機資源。","lightHandoffLine":"如果做完後更低落、更混亂，或覺得自己不安全，請先停止使用工具並找真人支援。"},"weeklyPlan":{"title":"7 日微行動計畫","horizon_days":7,"principles":["每一天只需要一個很小的動作。","可以跳過、縮小或替換，不代表失敗。","如果出現不安全或自傷念頭，先使用危機資源。"]},"crisisActions":[{"id":"call-988","label":"在美國可撥打或傳簡訊 988","detail":"如果你可能傷害自己、覺得撐不住，或需要立即有人陪你說話，請使用 988 Suicide & Crisis Lifeline。"},{"id":"emergency","label":"有立即生命危險時，聯絡當地緊急服務","detail":"如果你已經有計畫、工具、或可能馬上行動，請離開危險物品並尋求現場協助。"},{"id":"trusted-person","label":"聯絡一位可信任的人","detail":"傳送一句簡短訊息：「我現在不太安全，可以陪我一下或幫我找支援嗎？」"}],"ui":{"pageTitleSuffix":"情緒支援 PWA","manifestDescription":"離線可用、local-only 的情緒支援與小步行動 PWA。","crisisTitle":"如果現在不安全，先找真人支援","crisisLeadStrong":"這不是診斷、治療或危機服務。","crisisLeadBody":"如果你有傷害自己、不想活、或覺得可能失控的念頭，請先聯絡緊急支援。","checkInTitle":"今天的狀態","nameLabel":"你希望工具怎麼稱呼你？","namePlaceholder":"例如：Hank","toneLabel":"提示語氣","valuePromptTitle":"你今天比較想靠近哪一種小步？","safetyCheckTitle":"安全檢查","noteLabel":"一句話描述現在卡住的地方","notePlaceholder":"不用完整，幾個字也可以。","submitLabel":"生成今天的一小步","exportLabel":"匯出 JSON","clearLabel":"清除本機資料","localStorageNote":"資料只儲存在這台裝置的 localStorage，不會送到伺服器。","resultTitle":"你的下一小步","resultEmpty":"填完狀態後，這裡會根據能量、價值方向和安全狀態，給你一個很小的下一步。","weeklyPlanNote":"這不是治療計畫；可以跳過、縮小或替換，不代表失敗。","createWeeklyPlanLabel":"建立 7 日微行動計畫","careCardTitle":"自我照顧小卡","careCardNote":"可列印的小卡；狀態差時不用打開完整工具，也能看到危機資源、可信任聯絡人和低能量小步。","careCardOpenLabel":"開啟自我照顧小卡","supportScriptsTitle":"支援訊息草稿","supportScriptsNote":"把很難開口的求助訊息先寫好；只複製到你選擇的通訊工具，不會自動發送。","supportScriptsOpenLabel":"開啟支援訊息草稿","onboardingChecklistTitle":"安全開始清單","onboardingChecklistNote":"第一次使用前，用三分鐘確認危機支援、本機資料邊界、照顧小卡和求助草稿都在手邊。","onboardingChecklistOpenLabel":"開啟安全開始清單","lowMoodCardTitle":"低潮應對卡","lowMoodCardNote":"把低能量、孤立、麻木或卡住的時刻，轉成一張只做三步的本機應對卡。","lowMoodCardOpenLabel":"開啟低潮應對卡","activityExperimentBoardTitle":"小活動實驗板","activityExperimentBoardNote":"用很小、可跳過的活動實驗，記錄預估努力感、實際努力感和做完後狀態。","activityExperimentBoardOpenLabel":"開啟小活動實驗板","historyTitle":"最近 7 次紀錄","sourcesTitle":"安全來源","boundaryTitle":"使用邊界","listSeparator":"：","confirmClear":"確定要清除這台裝置上的 Mood Anchor 紀錄？","clearedMessage":"本機資料已清除。","exportFileName":"mood-anchor-export.json","crisisRecommendation":{"title":"先把安全放在第一位","body":"你勾選了高風險訊號。現在最重要的不是完成任務，而是讓自己不要一個人承受。","action":"請先使用危機支援。"},"withinMinutesLabel":"分鐘內：","nowLabel":"現在：","locale":"zh-TW","moodShort":"心情","energyShort":"能量","emptyNote":"沒有備註","emptyHistory":"還沒有紀錄。","dayLabelPrefix":"第 ","dayLabelSuffix":" 天","emptyWeeklyPlan":"還沒有計畫。先填一次狀態，或直接依目前偏好的價值方向建立 7 日計畫。","minutesUnit":"分鐘","planActionSeparator":"：","nameAddress":"{name}，","toneTitles":{"gentle":"慢慢來，先選一個很小的支點","direct":"先做一件最小可行的事","minimal":"下一步"},"reflections":{"lowEnergy":"今天能量偏低，所以建議選不需要意志力的小動作。","lowConnection":"今天連結感偏低，讓自己靠近一點點人或安全空間可能比較重要。","highOverwhelm":"壓力偏高時，先縮小範圍，不需要一次解決全部。","steady":"目前可以選一個小步驟，觀察做完後心情是否有一點變化。"},"noscript":"需要啟用 JavaScript 才能儲存本機紀錄；危機資源仍可直接使用 988 或當地緊急服務。","moreToolsLabel":"更多免費工具（同一個一人工作室）"}}</script>
+  <script>
+    const config = JSON.parse(document.getElementById('mood-anchor-config').textContent);
+    const storageKey = config.storageKey;
+    let state = loadState();
+    let selectedTone = state.profile?.tone || 'gentle';
+    let selectedValue = state.profile?.value || 'connection';
+    let selectedFriction = state.profile?.friction || 'tiny';
+    let selectedSupportMode = state.profile?.supportMode || 'solo';
+
+    const form = document.getElementById('checkin-form');
+    const result = document.getElementById('result');
+    const history = document.getElementById('history');
+    const trendBars = document.getElementById('trend-bars');
+    const weeklyPlan = document.getElementById('weekly-plan');
+    const nameInput = document.getElementById('name');
+
+    nameInput.value = state.profile?.name || '';
+    activateChoice('tone', selectedTone);
+    activateChoice('value', selectedValue);
+    activateChoice('friction', selectedFriction);
+    activateChoice('support-mode', selectedSupportMode);
+    renderHistory();
+    renderWeeklyPlan();
+
+    document.querySelectorAll('[data-tone]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedTone = button.dataset.tone;
+        activateChoice('tone', selectedTone);
+        saveProfile();
+      });
+    });
+
+    document.querySelectorAll('[data-value]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedValue = button.dataset.value;
+        activateChoice('value', selectedValue);
+        saveProfile();
+      });
+    });
+
+    document.querySelectorAll('[data-friction]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedFriction = button.dataset.friction;
+        activateChoice('friction', selectedFriction);
+        saveProfile();
+      });
+    });
+
+    document.querySelectorAll('[data-support-mode]').forEach((button) => {
+      button.addEventListener('click', () => {
+        selectedSupportMode = button.dataset.supportMode;
+        activateChoice('support-mode', selectedSupportMode);
+        saveProfile();
+      });
+    });
+
+    nameInput.addEventListener('input', saveProfile);
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const entry = buildEntry();
+      const recommendation = recommend(entry);
+      state.entries = [entry, ...(state.entries || [])].slice(0, 30);
+      saveState();
+      renderRecommendation(recommendation, entry);
+      renderHistory();
+    });
+
+    document.getElementById('create-weekly-plan').addEventListener('click', () => {
+      state.weeklyPlan = buildWeeklyPlan();
+      saveState();
+      renderWeeklyPlan();
+    });
+
+    document.getElementById('export-json').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = config.ui.exportFileName;
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('clear-data').addEventListener('click', () => {
+      if (!confirm(config.ui.confirmClear)) return;
+      localStorage.removeItem(storageKey);
+      state = { profile: {}, entries: [], weeklyPlan: null };
+      selectedTone = 'gentle';
+      selectedValue = 'connection';
+      selectedFriction = 'tiny';
+      selectedSupportMode = 'solo';
+      nameInput.value = '';
+      activateChoice('tone', selectedTone);
+      activateChoice('value', selectedValue);
+      activateChoice('friction', selectedFriction);
+      activateChoice('support-mode', selectedSupportMode);
+      renderHistory();
+      renderWeeklyPlan();
+      result.className = 'panel result';
+      result.innerHTML = '<h2>' + escapeHtml(config.ui.resultTitle) + '</h2><p>' + escapeHtml(config.ui.clearedMessage) + '</p>';
+    });
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('mood-anchor-service-worker-20260704.js').catch(() => {});
+      });
+    }
+
+    function buildEntry() {
+      const formData = new FormData(form);
+      const scales = {};
+      config.scales.forEach((scale) => {
+        scales[scale.id] = Number(formData.get(scale.id) || 3);
+      });
+      return {
+        id: new Date().toISOString(),
+        name: nameInput.value.trim(),
+        tone: selectedTone,
+        value: selectedValue,
+        friction: selectedFriction,
+        supportMode: selectedSupportMode,
+        note: String(formData.get('note') || '').trim(),
+        scales,
+        safety: formData.getAll('safety')
+      };
+    }
+
+    function recommend(entry) {
+      const unsafe = entry.safety.includes('self_harm') || entry.safety.includes('not_safe') || entry.scales.mood <= 1 || entry.scales.overwhelm >= 5;
+      if (unsafe) {
+        return {
+          crisis: true,
+          title: config.ui.crisisRecommendation.title,
+          body: config.ui.crisisRecommendation.body,
+          action: config.crisisActions[0]?.detail || config.ui.crisisRecommendation.action,
+          minutes: 0
+        };
+      }
+      const energyBand = entry.scales.energy <= 2 ? 'low' : entry.scales.energy >= 4 ? 'high' : 'medium';
+      const action = choosePrimaryAction(entry, energyBand);
+      return {
+        crisis: false,
+        title: toneTitle(entry.tone, entry.name),
+        body: reflection(entry),
+        action: action.label,
+        minutes: action.minutes,
+        backupAction: chooseBackupAction(entry, energyBand),
+        supportAction: chooseSupportAction(entry),
+        handoff: chooseHandoff(entry)
+      };
+    }
+
+    function renderRecommendation(recommendation) {
+      result.className = recommendation.crisis ? 'panel result danger' : 'panel result';
+      const lines = [
+        '<h2>' + escapeHtml(config.ui.resultTitle) + '</h2>',
+        '<h3>' + escapeHtml(recommendation.title) + '</h3>',
+        '<p>' + escapeHtml(recommendation.body) + '</p>',
+        recommendation.minutes ? '<p><strong>' + recommendation.minutes + ' ' + escapeHtml(config.ui.withinMinutesLabel) + '</strong>' + escapeHtml(recommendation.action) + '</p>' : '<p><strong>' + escapeHtml(config.ui.nowLabel) + '</strong>' + escapeHtml(recommendation.action) + '</p>'
+      ];
+      if (!recommendation.crisis) {
+        lines.push(
+          '<div class="ladder-list">' +
+            '<div class="ladder-item"><strong>' + escapeHtml(config.actionLadder.primaryLabel) + '</strong>' + escapeHtml(recommendation.action) + '</div>' +
+            '<div class="ladder-item"><strong>' + escapeHtml(config.actionLadder.backupLabel) + '</strong>' + escapeHtml(recommendation.backupAction) + '</div>' +
+            '<div class="ladder-item"><strong>' + escapeHtml(config.actionLadder.supportLabel) + '</strong>' + escapeHtml(recommendation.supportAction) + '</div>' +
+            '<div class="ladder-item"><strong>' + escapeHtml(config.actionLadder.handoffLabel) + '</strong>' + escapeHtml(recommendation.handoff) + '</div>' +
+          '</div>'
+        );
+      }
+      result.innerHTML = lines.join('');
+    }
+
+    function renderHistory() {
+      const entries = (state.entries || []).slice(0, 7);
+      history.innerHTML = entries.length
+        ? entries.map((entry) => '<article class="entry"><strong>' + new Date(entry.id).toLocaleString(config.ui.locale) + '</strong><br />' + escapeHtml(config.ui.moodShort) + ' ' + entry.scales.mood + ' / ' + escapeHtml(config.ui.energyShort) + ' ' + entry.scales.energy + '<br /><span class="small">' + escapeHtml(entry.note || config.ui.emptyNote) + '</span></article>').join('')
+        : '<p class="small">' + escapeHtml(config.ui.emptyHistory) + '</p>';
+      const averages = averageScales(entries);
+      trendBars.innerHTML = Object.entries(averages).map(([key, value]) => {
+        const label = (config.scales.find((scale) => scale.id === key) || { label: key }).label;
+        const width = Math.max(0, Math.min(100, (value / 5) * 100));
+        return '<div class="bar"><span>' + escapeHtml(label) + '</span><span class="track"><span class="fill" style="width:' + width + '%"></span></span><span>' + value.toFixed(1) + '</span></div>';
+      }).join('');
+    }
+
+    function averageScales(entries) {
+      if (!entries.length) return {};
+      const sums = {};
+      entries.forEach((entry) => {
+        Object.entries(entry.scales).forEach(([key, value]) => {
+          sums[key] = (sums[key] || 0) + value;
+        });
+      });
+      return Object.fromEntries(Object.entries(sums).map(([key, value]) => [key, value / entries.length]));
+    }
+
+    function buildWeeklyPlan() {
+      const latest = (state.entries || [])[0] || null;
+      const energyBand = energyBandFromEntry(latest);
+      const value = selectedValue || state.profile?.value || 'connection';
+      return {
+        createdAt: new Date().toISOString(),
+        value,
+        energyBand,
+        days: Array.from({ length: config.weeklyPlan.horizon_days }, (_, index) => {
+          const action = chooseActionForDay(index, value, energyBand);
+          return {
+            day: index + 1,
+            title: config.ui.dayLabelPrefix + (index + 1) + config.ui.dayLabelSuffix,
+            value: action.value,
+            action: action.label,
+            minutes: action.minutes,
+            done: false
+          };
+        })
+      };
+    }
+
+    function chooseActionForDay(dayIndex, value, energyBand) {
+      const cycle = [value, 'body', 'care', 'connection', 'rest', 'mastery'];
+      const preferredValue = cycle[dayIndex % cycle.length];
+      const candidate = config.actions.find((action) => action.value === preferredValue && (action.energy === energyBand || action.energy === 'low'));
+      return candidate || config.actions.find((action) => action.value === preferredValue) || config.actions[0];
+    }
+
+    function renderWeeklyPlan() {
+      const plan = state.weeklyPlan;
+      if (!plan?.days?.length) {
+        weeklyPlan.innerHTML = '<p class="small">' + escapeHtml(config.ui.emptyWeeklyPlan) + '</p>';
+        return;
+      }
+      weeklyPlan.innerHTML = plan.days.map((day, index) => {
+        return '<article class="plan-day' + (day.done ? ' done' : '') + '"><label><input type="checkbox" data-plan-day="' + index + '"' + (day.done ? ' checked' : '') + ' /> <span><strong>' + escapeHtml(day.title) + '</strong><br />' + escapeHtml(day.minutes + ' ' + config.ui.minutesUnit + config.ui.planActionSeparator + day.action) + '</span></label></article>';
+      }).join('');
+      weeklyPlan.querySelectorAll('[data-plan-day]').forEach((input) => {
+        input.addEventListener('change', () => {
+          togglePlanDay(Number(input.dataset.planDay), input.checked);
+        });
+      });
+    }
+
+    function togglePlanDay(index, done) {
+      if (!state.weeklyPlan?.days?.[index]) return;
+      state.weeklyPlan.days[index].done = done;
+      saveState();
+      renderWeeklyPlan();
+    }
+
+    function energyBandFromEntry(entry) {
+      const energy = entry?.scales?.energy ?? 3;
+      if (energy <= 2) return 'low';
+      if (energy >= 4) return 'high';
+      return 'medium';
+    }
+
+    function choosePrimaryAction(entry, energyBand) {
+      const preferredValue = preferredValueForSupportMode(entry);
+      const effectiveEnergy = entry.friction === 'tiny' ? 'low' : energyBand;
+      const candidates = config.actions.filter((action) => action.value === preferredValue && (action.energy === effectiveEnergy || action.energy === 'low'));
+      const fallback = config.actions.find((action) => action.value === entry.value && action.energy === 'low') || config.actions.find((action) => action.energy === effectiveEnergy) || config.actions[0];
+      return candidates[0] || fallback;
+    }
+
+    function preferredValueForSupportMode(entry) {
+      if (entry.supportMode === 'body_first') return 'body';
+      if (entry.supportMode === 'with_person') return 'connection';
+      return entry.value;
+    }
+
+    function chooseBackupAction(entry, energyBand) {
+      if (entry.friction === 'tiny' || energyBand === 'low') return config.actionLadder.backupActions.low[0];
+      if (entry.supportMode === 'with_person') return config.actionLadder.backupActions.connection[0];
+      return config.actionLadder.backupActions.medium[0];
+    }
+
+    function chooseSupportAction(entry) {
+      if (entry.supportMode === 'with_person' || entry.scales.connection <= 2) return config.actionLadder.supportActions.withPerson;
+      if (entry.supportMode === 'body_first') return config.actionLadder.supportActions.bodyFirst;
+      return config.actionLadder.supportActions.solo;
+    }
+
+    function chooseHandoff(entry) {
+      if (entry.safety.includes('cannot_care') || entry.scales.energy <= 1 || entry.scales.mood <= 2) {
+        return config.actionLadder.handoffLine;
+      }
+      return config.actionLadder.lightHandoffLine;
+    }
+
+    function saveProfile() {
+      state.profile = { name: nameInput.value.trim(), tone: selectedTone, value: selectedValue, friction: selectedFriction, supportMode: selectedSupportMode };
+      saveState();
+    }
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || { profile: {}, entries: [] };
+      } catch {
+        return { profile: {}, entries: [] };
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    function activateChoice(kind, value) {
+      const datasetKey = kind.replace(/-([a-z])/g, (_, char) => char.toUpperCase());
+      document.querySelectorAll('[data-' + kind + ']').forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset[datasetKey] === value));
+      });
+    }
+
+    function toneTitle(tone, name) {
+      const who = name ? config.ui.nameAddress.replace('{name}', name) : '';
+      if (tone === 'direct') return who + config.ui.toneTitles.direct;
+      if (tone === 'minimal') return who + config.ui.toneTitles.minimal;
+      return who + config.ui.toneTitles.gentle;
+    }
+
+    function reflection(entry) {
+      if (entry.scales.energy <= 2) return config.ui.reflections.lowEnergy;
+      if (entry.scales.connection <= 2) return config.ui.reflections.lowConnection;
+      if (entry.scales.overwhelm >= 4) return config.ui.reflections.highOverwhelm;
+      return config.ui.reflections.steady;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
+    }
+  </script>
+  <noscript>需要啟用 JavaScript 才能儲存本機紀錄；危機資源仍可直接使用 988 或當地緊急服務。</noscript>
+  <footer style="max-width:1120px;margin:0 auto;padding:0 20px 24px;color:var(--muted);font-size:13px;">
+    <a href="index.html" style="color:var(--accent);">更多免費工具（同一個一人工作室）</a>
+  </footer>
+  <!-- mood-anchor-20260704.html -->
+</body>
+</html>

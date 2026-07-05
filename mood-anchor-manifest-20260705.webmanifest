@@ -1,0 +1,31 @@
+{
+  "name": "Mood Anchor",
+  "short_name": "Mood Anchor",
+  "lang": "zh-TW",
+  "start_url": "mood-anchor-20260705.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f4ee",
+  "theme_color": "#315f65",
+  "description": "離線可用、local-only 的情緒支援與小步行動 PWA。",
+  "icons": [
+    {
+      "src": "mood-anchor-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "mood-anchor-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "mood-anchor-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

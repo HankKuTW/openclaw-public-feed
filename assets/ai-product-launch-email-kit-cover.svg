@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI Product Launch Email Kit cover</title>
+  <desc id="desc">Cover for a local email launch sequence toolkit.</desc>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect x="120" y="120" width="1360" height="660" rx="28" fill="#ffffff" stroke="#0f172a" stroke-width="6"/>
+  <rect x="190" y="190" width="500" height="58" rx="10" fill="#0f172a"/>
+  <rect x="190" y="290" width="880" height="36" rx="8" fill="#2563eb"/>
+  <rect x="190" y="365" width="1040" height="28" rx="8" fill="#94a3b8"/>
+  <rect x="190" y="425" width="940" height="28" rx="8" fill="#cbd5e1"/>
+  <rect x="190" y="485" width="780" height="28" rx="8" fill="#cbd5e1"/>
+  <rect x="190" y="585" width="270" height="72" rx="16" fill="#16a34a"/>
+  <text x="220" y="632" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#ffffff">Launch</text>
+  <rect x="1040" y="540" width="300" height="150" rx="22" fill="#f1f5f9" stroke="#334155" stroke-width="4"/>
+  <text x="1080" y="600" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Email</text>
+  <text x="1080" y="646" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Workflow</text>
+  <text x="1080" y="692" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#0f172a">Sequence</text>
+  <text x="190" y="735" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#0f172a">AI Product Launch Email Kit</text>
+</svg>

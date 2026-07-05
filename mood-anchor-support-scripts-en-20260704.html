@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Anchor - Support Message Scripts</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f4ee;
+      --panel: #ffffff;
+      --soft: #e8f0ee;
+      --text: #172123;
+      --muted: #5c686b;
+      --line: #cbd8d5;
+      --accent: #315f65;
+      --danger: #8b2f3c;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 980px; margin: 0 auto; padding: 20px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.1; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 20px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    .sub, .small { color: var(--muted); }
+    .panel { border: 1px solid var(--line); background: var(--panel); border-radius: 8px; padding: 14px; margin-top: 14px; }
+    .crisis { border-color: #d9a7af; background: #fff7f5; }
+    .crisis h2, .crisis strong { color: var(--danger); }
+    .script-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 14px; }
+    .script-card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); padding: 12px; display: grid; gap: 8px; }
+    .message { min-height: 116px; border: 1px solid var(--line); border-radius: 6px; padding: 10px; background: var(--soft); white-space: pre-wrap; }
+    .copy-script, .link-button {
+      min-height: 40px;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: var(--accent);
+      color: #fff;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .link-button.secondary { background: var(--panel); color: var(--accent); }
+    .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101517;
+        --panel: #172023;
+        --soft: #1d2b2e;
+        --text: #eef4f2;
+        --muted: #b5c1c0;
+        --line: #334548;
+        --accent: #6ca8ad;
+        --danger: #f0a0ad;
+      }
+      .crisis { background: #27191d; }
+    }
+    @media (max-width: 640px) {
+      main { padding: 14px; }
+      h1 { font-size: 28px; }
+      .copy-script, .link-button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Support Message Scripts</h1>
+      <p class="sub">Copy-ready messages for asking a trusted person for support on a low-energy day.</p>
+    </header>
+
+    <section class="panel">
+      <h2>Before You Use This</h2>
+      <p>This page only prepares text. You choose whether to copy it, where to paste it, and who receives it; it does not send messages or contact anyone for you.</p>
+      <ul><li>This is not therapy, diagnosis, treatment, crisis counseling, or medical advice.</li>
+        <li>This page does not send messages, read contacts, email, DMs, or account data.</li>
+        <li>If you have self-harm thoughts, want to die, or feel unsafe right now, use human crisis support first.</li></ul>
+    </section>
+
+    <section class="panel crisis">
+      <h2>If You Are Not Safe Right Now</h2>
+      <ul><li><strong>Immediate danger: call your local emergency number now</strong>: If you may act soon, have a plan or means, or need urgent medical help, move away from danger and seek in-person help now.</li>
+        <li><strong>United States: call, text, or chat 988</strong>: The 988 Suicide &amp; Crisis Lifeline offers free, confidential support by call, text, or chat.</li>
+        <li><strong>Canada: call or text 9-8-8</strong>: 9-8-8 provides suicide crisis support across Canada by phone or text, 24 hours a day.</li>
+        <li><strong>United Kingdom and Ireland: call Samaritans at 116 123</strong>: If you need urgent emotional support in the United Kingdom or Ireland, call Samaritans at 116 123 any time.</li>
+        <li><strong>Other countries: Find a Helpline</strong>: Use Find a Helpline to locate verified local emotional support by country, topic, phone, text, or chat.</li>
+        <li><strong>Trusted person: send one short message</strong>: Try: &quot;I do not feel safe being alone right now. Can you stay with me or help me contact support?&quot;</li></ul>
+    </section>
+
+    <section aria-labelledby="scripts-title">
+      <h2 id="scripts-title">Copy-Ready Messages</h2>
+      <div class="script-grid">
+        <article class="script-card">
+          <h3>Let someone know today is hard</h3>
+          <p class="small">There is no immediate danger, but you do not want to handle the day alone.</p>
+          <div class="message">I am having a really low day and wanted someone to know. You do not need to write a long reply. If you can, a short check-in would help.</div>
+          <button type="button" class="copy-script" data-copied-label="Copied">Copy Text</button>
+        </article>
+        <article class="script-card">
+          <h3>Ask someone to stay connected</h3>
+          <p class="small">You can send a message, but being alone for too long does not feel good.</p>
+          <div class="message">I am having a hard time right now. Could you stay with me for a bit, by phone, nearby, or by keeping a message thread open?</div>
+          <button type="button" class="copy-script" data-copied-label="Copied">Copy Text</button>
+        </article>
+        <article class="script-card">
+          <h3>Ask for one practical next step</h3>
+          <p class="small">Food, water, leaving bed, making an appointment, or choosing a step feels too big.</p>
+          <div class="message">I am struggling to break things down. Could you help me choose one tiny next step, or remind me to drink water, eat something small, or move to a safer spot?</div>
+          <button type="button" class="copy-script" data-copied-label="Copied">Copy Text</button>
+        </article>
+        <article class="script-card">
+          <h3>Say you are not safe right now</h3>
+          <p class="small">You are worried you might harm yourself, lose control, or should not be alone.</p>
+          <div class="message">I do not feel safe being alone right now. Can you stay with me, help me contact support, or help me use 988 or local emergency resources?</div>
+          <button type="button" class="copy-script" data-copied-label="Copied">Copy Text</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>References</h2>
+      <ul><li><a href="https://www.nimh.nih.gov/health/topics/caring-for-your-mental-health">NIMH Caring for Your Mental Health</a>: NIMH includes staying connected and seeking emotional or practical support from friends or family.</li>
+        <li><a href="https://988lifeline.org/">988 Suicide &amp; Crisis Lifeline</a>: The U.S. 988 Lifeline provides 24/7 crisis support.</li>
+        <li><a href="https://988lifeline.org/get-help/what-to-expect/">988 Lifeline - What to Expect</a>: Explains what may happen when someone contacts 988.</li>
+        <li><a href="https://www.nhs.uk/mental-health/advice-for-life-situations-and-events/how-to-help-someone-with-depression/">NHS - How to help someone with depression</a>: NHS suggests staying in touch by messaging, calling, or meeting.</li>
+        <li><a href="https://www.samhsa.gov/mental-health/988/faqs">SAMHSA 988 FAQ</a>: SAMHSA explains 988 access and routing in the United States.</li></ul>
+    </section>
+
+    <div class="actions">
+      <a class="link-button secondary" href="mood-anchor-en-20260704.html">Back to Mood Anchor</a>
+    </div>
+    <p class="small">Generated 2026-07-04T12:10:12.287Z - mood-anchor-support-scripts-en-20260704.html</p>
+  </main>
+
+  <script>
+    document.querySelectorAll('.copy-script').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const message = button.closest('.script-card')?.querySelector('.message')?.textContent || '';
+        await navigator.clipboard.writeText(message.trim());
+        button.textContent = button.dataset.copiedLabel;
+      });
+    });
+  </script>
+</body>
+</html>

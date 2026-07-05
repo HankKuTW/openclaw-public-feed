@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OpenClaw One-Person Company Skill Adoption Board - 20260705</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --text: #172033;
+      --muted: #5d6778;
+      --line: #d7e0ea;
+      --blue: #0f5d8f;
+      --green: #0f6b57;
+      --warn: #8a4d08;
+      --code: #eef3f7;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.14; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: 0; }
+    p, li, td { line-height: 1.55; }
+    a { color: var(--blue); overflow-wrap: anywhere; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--code); border: 1px solid var(--line); border-radius: 6px; padding: 10px; }
+    .sub { margin: 0 0 16px; color: var(--muted); }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; margin-bottom: 16px; }
+    .links a, .panel, .lane, .dept, .evidence {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 12px;
+    }
+    .links a { text-decoration: none; font-weight: 700; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 14px; align-items: start; }
+    .lane + .lane, .dept + .dept, .panel + .panel, .evidence + .evidence { margin-top: 12px; }
+    .lane-head { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+    .lane-id { color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
+    .pill { display: inline-block; border-radius: 999px; padding: 3px 8px; background: #e2f2ef; color: var(--green); font-size: 12px; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 8px; text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 700; }
+    textarea {
+      width: 100%;
+      min-height: 200px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      background: var(--panel);
+      color: var(--text);
+      resize: vertical;
+      font: inherit;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    button {
+      border: 1px solid #b8c8da;
+      border-radius: 6px;
+      background: #eaf2f8;
+      color: #14324d;
+      padding: 8px 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    @media (max-width: 780px) {
+      main { padding: 16px; }
+      h1 { font-size: 26px; }
+      .grid { grid-template-columns: 1fr; }
+      .lane-head { flex-direction: column; }
+      table { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>OpenClaw 一人公司 Skill 採用指揮板</h1>
+  <p class="sub">OpenClaw One-Person Company Skill Adoption Board · 2026-07-04T17:00:25.762Z · 20260705</p>
+  <section class="panel">
+    <h2>Owner-proxy 決策</h2>
+    <p><strong>adopt_local_workspace_skill_first:</strong> Adopt the local workspace skill first; no third-party skill install and no new runtime plugin until Support/Ops proves trust, allowlist scope, rollback, and memory stability.</p>
+    <p><strong>Workspace skill:</strong> <code>skills/openclaw-one-person-company-operator/SKILL.md</code></p>
+    <pre>---
+name: openclaw-one-person-company-operator
+description: Use when OpenClaw needs to operate as a one-person company with Codex as owner proxy, including department routing, local artifact creation, revenue-lane validation, Mood Anchor safety work, dashboard updates, and owner-only blocker handling.
+---</pre>
+  </section>
+  <section>
+    <h2>OpenClaw 來源文件</h2>
+    <div class="links"><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-one-person-multi-agent-order-20260705.md">OpenClaw multi-agent order</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-daily-owner-proxy-brief-20260705.md">OpenClaw daily owner-proxy brief</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-department-command-board-20260705.html">OpenClaw department command board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-owner-proxy-command-packet-20260705.md">OpenClaw owner-proxy command packet</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-opportunity-radar-20260705.md">OpenClaw opportunity radar</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-depression-support-command-board-20260705.html">Mood Anchor depression-support command board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-to-reply-validation-board-20260705.html">Listing Audit demand-to-reply validation board</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/one-person-feasibility-board-20260705.html">One-person feasibility board</a></div>
+  </section>
+  <section>
+    <h2>官方依據</h2>
+    <div class="links"><a href="https://docs.openclaw.ai/tools/skills">OpenClaw Skills</a>
+<a href="https://docs.openclaw.ai/tools/plugin">OpenClaw Plugins</a>
+<a href="https://docs.openclaw.ai/clawhub">ClawHub</a>
+<a href="https://docs.openclaw.ai/tools/skills-config">Skills config</a>
+<a href="https://docs.openclaw.ai/tools/creating-skills">Creating skills</a></div>
+    
+      <article class="evidence">
+        <h3>OpenClaw Skills</h3>
+        <p><strong>Evidence:</strong> Skills are markdown instruction files that teach an agent how and when to use tools; workspace skills have highest precedence.</p>
+        <p><strong>Team rule:</strong> Use local workspace skills for one-person company operating behavior before any external install or runtime extension.</p>
+      </article>
+
+      <article class="evidence">
+        <h3>OpenClaw Plugins</h3>
+        <p><strong>Evidence:</strong> Plugins extend OpenClaw with runtime capabilities such as channels, model providers, tools, skills, hooks, and media features.</p>
+        <p><strong>Team rule:</strong> Do not add runtime capability while runtime hooks and memory pressure remain unresolved.</p>
+      </article>
+
+      <article class="evidence">
+        <h3>ClawHub</h3>
+        <p><strong>Evidence:</strong> ClawHub is the public registry for OpenClaw skills and plugins, with public pages and security scan summaries for inspection.</p>
+        <p><strong>Team rule:</strong> Treat every third-party registry package as untrusted until Support/Ops reviews source, scan state, publisher, scope, and rollback.</p>
+      </article>
+
+      <article class="evidence">
+        <h3>Skills config</h3>
+        <p><strong>Evidence:</strong> OpenClaw supports agent skill allowlists and skill entry configuration.</p>
+        <p><strong>Team rule:</strong> Use allowlist thinking: expose only the one-person company operator skill needed for current department work.</p>
+      </article>
+
+      <article class="evidence">
+        <h3>Creating skills</h3>
+        <p><strong>Evidence:</strong> Custom skills require a SKILL.md file with name and description frontmatter.</p>
+        <p><strong>Team rule:</strong> Keep the local skill small, explicit, frontmatter-valid, and free of dependency installers or secret handling.</p>
+      </article>
+  </section>
+  <div class="grid">
+    <section>
+      <h2>六條採用 lane</h2>
+      
+      <article class="lane" data-lane="workspace_skill_scope">
+        <div class="lane-head">
+          <h3>Workspace skill 範圍</h3>
+          <span class="lane-id">workspace_skill_scope</span>
+        </div>
+        <p><span class="pill">workspace_skill_scope</span></p>
+        <p><strong>Owner signal:</strong> OpenClaw needs repeatable one-person company department routing without runtime or third-party installs.</p>
+        <p><strong>Team action:</strong> CEO/Strategy adopts the local workspace skill as the first skill move and keeps it scoped to internal routing only.</p>
+        <p><strong>Metric:</strong> local_skill_frontmatter_valid and skill_review_notes_ready.</p>
+      </article>
+
+      <article class="lane" data-lane="third_party_freeze">
+        <div class="lane-head">
+          <h3>第三方 skill 暫停</h3>
+          <span class="lane-id">third_party_freeze</span>
+        </div>
+        <p><span class="pill">third_party_freeze</span></p>
+        <p><strong>Owner signal:</strong> A department suggests a registry, marketplace, Git, or archive skill.</p>
+        <p><strong>Team action:</strong> Support/Ops freezes the install request and creates a review note instead of executing an install.</p>
+        <p><strong>Metric:</strong> third_party_skill_or_plugin_requested count and review_queue_count.</p>
+      </article>
+
+      <article class="lane" data-lane="plugin_runtime_freeze">
+        <div class="lane-head">
+          <h3>Runtime plugin 暫停</h3>
+          <span class="lane-id">plugin_runtime_freeze</span>
+        </div>
+        <p><span class="pill">plugin_runtime_freeze</span></p>
+        <p><strong>Owner signal:</strong> A department suggests channels, hooks, provider plugins, browser automation, or tool plugins.</p>
+        <p><strong>Team action:</strong> Support/Ops blocks new runtime plugins while memory and hook stability are not proven.</p>
+        <p><strong>Metric:</strong> openclaw_runtime_memory_available_gib and hook_residue_count.</p>
+      </article>
+
+      <article class="lane" data-lane="department_owner_proxy_workflow">
+        <div class="lane-head">
+          <h3>部門 owner-proxy 工作流</h3>
+          <span class="lane-id">department_owner_proxy_workflow</span>
+        </div>
+        <p><span class="pill">department_owner_proxy_workflow</span></p>
+        <p><strong>Owner signal:</strong> A department asks a non-external clarification or waits for the human owner on internal work.</p>
+        <p><strong>Team action:</strong> Codex decides from current artifacts, records the decision, and routes the department to the next local artifact.</p>
+        <p><strong>Metric:</strong> non_external_questions_resolved_by_codex and owner_wait_avoided_count.</p>
+      </article>
+
+      <article class="lane" data-lane="skill_security_review">
+        <div class="lane-head">
+          <h3>Skill 安全審核</h3>
+          <span class="lane-id">skill_security_review</span>
+        </div>
+        <p><span class="pill">skill_security_review</span></p>
+        <p><strong>Owner signal:</strong> A skill or plugin changes prompt behavior, tool access, env injection, files, browser, network, or accounts.</p>
+        <p><strong>Team action:</strong> Support/Ops requires source review, allowlist decision, no-secret rule, no external authority, and rollback path.</p>
+        <p><strong>Metric:</strong> reviewed_skill_changes and rejected_skill_changes.</p>
+      </article>
+
+      <article class="lane" data-lane="telemetry_and_rollback">
+        <div class="lane-head">
+          <h3>觀測與回復</h3>
+          <span class="lane-id">telemetry_and_rollback</span>
+        </div>
+        <p><span class="pill">telemetry_and_rollback</span></p>
+        <p><strong>Owner signal:</strong> A skill has been changed locally or a department reports unexpected behavior.</p>
+        <p><strong>Team action:</strong> Analytics records owner-entered aggregate only and Support/Ops keeps rollback instructions local.</p>
+        <p><strong>Metric:</strong> skill_change_count, rollback_ready, and owner_entered_aggregate_only.</p>
+      </article>
+    </section>
+    <aside>
+      <section class="panel">
+        <h2>Owner-only 佇列</h2>
+        <ul><li>Owner supplies Telegram Bot API token and chat id if direct dashboard notifications should be delivered.</li>
+<li>Owner performs any external package install, registry authentication, public publish, checkout, account, price, payout, tax, refund, or credential action manually.</li>
+<li>Owner approves any future third-party skill or plugin after Support/Ops review.</li></ul>
+      </section>
+      <section class="panel">
+        <h2>本地彙總暫存</h2>
+        <p>只填 owner-entered aggregate only。不貼 token、chat id、帳號、平台後台、agent log、客戶訊息或私人分析。</p>
+        <textarea id="summaryInput" spellcheck="false">{
+  &quot;date&quot;: &quot;20260705&quot;,
+  &quot;owner_entered_aggregate_only&quot;: true,
+  &quot;local_skill_frontmatter_valid&quot;: false,
+  &quot;third_party_skill_or_plugin_requested&quot;: false,
+  &quot;openclaw_runtime_memory_available_gib&quot;: null,
+  &quot;rollback_ready&quot;: false,
+  &quot;next_decision&quot;: &quot;validate_local_workspace_skill_then_keep_runtime_plugins_frozen&quot;
+}</textarea>
+        <div class="actions">
+          <button type="button" onclick="saveSummary()">Save Local</button>
+          <button type="button" onclick="copySummary()">Copy JSON</button>
+          <button type="button" onclick="exportSummary()">Export JSON</button>
+          <button type="button" onclick="clearSummary()">Clear</button>
+        </div>
+        <p id="statusLine" class="sub" aria-live="polite">Local only. No server collection.</p>
+      </section>
+    </aside>
+  </div>
+  <section class="panel">
+    <h2>部門任務</h2>
+    
+      <article class="dept">
+        <h3>CEO/Strategy</h3>
+        <p>Approve the local workspace skill as the current internal operating layer.</p>
+        <ul><li>Treat the local one-person company operator skill as the preferred skill route because it does not add runtime capability.</li>
+<li>Reject new plugin work until Support/Ops proves memory, hooks, and rollback are stable.</li>
+<li>Route non-external department questions back to Codex decision, not the human owner.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Support/Ops</h3>
+        <p>Protect OpenClaw from unsafe installs, runtime hooks, secrets, and external authority drift.</p>
+        <ul><li>Do not install third-party ClawHub skills or plugins automatically.</li>
+<li>Require source review, scan state, publisher check, scope check, allowlist decision, and rollback path for any future package.</li>
+<li>Block runtime plugins while OpenClaw runtime remains memory-risky or hook-prone.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Product Studio QA</h3>
+        <p>Validate that the workspace skill improves workflow without expanding user-facing product claims.</p>
+        <ul><li>Confirm the skill points Product Studio QA to Mood Anchor RWD, offline, localStorage, and safety checks.</li>
+<li>Confirm no medical, crisis, revenue, traffic, or customer outcome promise appears in the skill.</li>
+<li>Confirm the skill remains small enough to avoid unnecessary prompt overhead.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Analytics</h3>
+        <p>Track adoption evidence without scraping or sensitive data.</p>
+        <ul><li>Record owner-entered aggregate only: skill changes, review outcomes, rollback readiness, and owner-wait avoided counts.</li>
+<li>Do not scrape package registries, private dashboards, agent logs, secrets, customer messages, or platform analytics.</li>
+<li>Recommend keep, revise, or rollback from local review counts only.</li></ul>
+      </article>
+
+      <article class="dept">
+        <h3>Marketing Desk</h3>
+        <p>Use the skill only for internal positioning and channel-safe draft routing.</p>
+        <ul><li>Prepare no public copy about OpenClaw automation unless Support/Ops approves exact wording.</li>
+<li>Keep Mood Anchor and Listing Audit channel drafts owner-reviewed and manual-only.</li>
+<li>Do not publish, post, submit, schedule, DM, email, or claim autonomous business results.</li></ul>
+      </article>
+  </section>
+  <section class="panel">
+    <h2>決策閘門</h2>
+    <table>
+      <thead><tr><th>Condition</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><code>third_party_skill_or_plugin_requested === true</code></td>
+          <td>Do not install. Create a Support/Ops review queue item with source, publisher, scope, scan state, required access, and rollback path.</td>
+        </tr>
+
+        <tr>
+          <td><code>openclaw_runtime_memory_available_gib &lt; 1</code></td>
+          <td>Keep runtime plugins frozen and use file-based orders plus the local workspace skill only.</td>
+        </tr>
+
+        <tr>
+          <td><code>external_authority_required === true</code></td>
+          <td>Queue the exact owner action and continue internal local artifact work around the blocker.</td>
+        </tr>
+
+        <tr>
+          <td><code>local_skill_frontmatter_valid === false</code></td>
+          <td>Do not let OpenClaw load the skill; fix SKILL.md frontmatter and rerun validation.</td>
+        </tr>
+
+        <tr>
+          <td><code>owner_proxy_internal_task === true &amp;&amp; external_authority_required === false</code></td>
+          <td>Codex decides, records the local decision, and routes the department to the next local artifact.</td>
+        </tr></tbody>
+    </table>
+  </section>
+  <section class="panel">
+    <h2>停止線</h2>
+    <ul><li>Do not install third-party ClawHub skills or plugins automatically.</li>
+<li>Do not add a runtime plugin while OpenClaw runtime remains memory-risky or hook-prone.</li>
+<li>Do not use OpenClaw message commands for team control while message surfaces can spawn hooks.</li>
+<li>Do not request, store, print, or inject secrets, tokens, chat ids, account credentials, payout data, tax data, or private analytics.</li>
+<li>No external authority actions: login, posting, public replies, DMs, email, checkout, pricing, refunds, payout, tax, credentials, account settings, contracts, or real-world commitments.</li>
+<li>No revenue, traffic, ranking, customer, safety, clinical, crisis, or health-outcome promises.</li>
+<li>Analytics remains owner-entered aggregate only.</li></ul>
+  </section>
+</main>
+<script>
+const storageKey = 'openClawSkillAdoption:20260705';
+const input = document.getElementById('summaryInput');
+const statusLine = document.getElementById('statusLine');
+const stored = localStorage.getItem(storageKey);
+if (stored) input.value = stored;
+function setStatus(message) {
+  statusLine.textContent = message;
+}
+function saveSummary() {
+  localStorage.setItem(storageKey, input.value);
+  setStatus('Saved locally in this browser.');
+}
+function copySummary() {
+  const text = input.value;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => setStatus('Copied JSON for owner review.'));
+    return;
+  }
+  input.select();
+  document.execCommand('copy');
+  setStatus('Copied JSON for owner review.');
+}
+function exportSummary() {
+  const blob = new Blob([input.value], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'openclaw-skill-adoption-20260705.json';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  setStatus('Exported JSON file for owner review.');
+}
+function clearSummary() {
+  localStorage.removeItem(storageKey);
+  input.value = "{\n  \"date\": \"20260705\",\n  \"owner_entered_aggregate_only\": true,\n  \"local_skill_frontmatter_valid\": false,\n  \"third_party_skill_or_plugin_requested\": false,\n  \"openclaw_runtime_memory_available_gib\": null,\n  \"rollback_ready\": false,\n  \"next_decision\": \"validate_local_workspace_skill_then_keep_runtime_plugins_frozen\"\n}";
+  setStatus('Local summary reset.');
+}
+</script>
+</body>
+</html>

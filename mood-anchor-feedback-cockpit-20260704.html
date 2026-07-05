@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Anchor 安全回饋控制台 - 20260704</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f5f6f4;
+      --panel: #ffffff;
+      --text: #18201e;
+      --muted: #5a6762;
+      --line: #cdd8d3;
+      --accent: #23645b;
+      --accent-2: #775c20;
+      --danger: #8a3141;
+      --code: #eef3f1;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    main { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 6px; font-size: 32px; line-height: 1.15; letter-spacing: 0; }
+    h2 { margin: 0 0 10px; font-size: 21px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    .sub { margin: 0; color: var(--muted); }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; margin: 16px 0; }
+    .links a, .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 12px;
+    }
+    .links a { text-decoration: none; font-weight: 700; }
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.8fr); gap: 14px; align-items: start; }
+    .panel + .panel { margin-top: 14px; }
+    .field-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    label { display: grid; gap: 6px; font-weight: 700; }
+    input, textarea {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 9px 10px;
+      font: inherit;
+      color: var(--text);
+      background: var(--panel);
+    }
+    textarea { min-height: 110px; resize: vertical; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    button {
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 9px 11px;
+      font: inherit;
+      cursor: pointer;
+    }
+    button.secondary { background: transparent; color: var(--accent); }
+    pre {
+      min-height: 180px;
+      overflow: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 12px;
+      background: var(--code);
+    }
+    .stop { border-left: 4px solid var(--danger); }
+    .small { color: var(--muted); font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101412;
+        --panel: #171f1c;
+        --text: #eef5f1;
+        --muted: #b3beb9;
+        --line: #34443d;
+        --accent: #7bb7aa;
+        --accent-2: #d4b260;
+        --danger: #e69aaa;
+        --code: #101713;
+      }
+    }
+    @media (max-width: 760px) {
+      main { padding: 16px; }
+      h1 { font-size: 27px; }
+      .layout { grid-template-columns: 1fr; }
+      .actions { display: block; }
+      button { width: 100%; margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Mood Anchor 安全回饋控制台</h1>
+      <p class="sub">Generated 2026-07-04T07:41:45.843Z · 20260704</p>
+    </header>
+
+    <nav class="links" aria-label="Mood Anchor operating links">
+      <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-20260704.html">Mood Anchor PWA</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-safety-launch-loop-20260704.md">Safety launch loop</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-daily-owner-proxy-brief-20260704.md">Daily owner-proxy brief</a>
+<a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-department-command-board-20260704.html">Department command board</a>
+    </nav>
+
+    <div class="layout">
+      <section>
+        <div class="panel">
+          <h2>手動彙總</h2>
+          <div class="field-grid">
+            
+        <label for="public_opens_observed">
+          <span>外部開啟數</span>
+          <input id="public_opens_observed" data-feedback-field="public_opens_observed" type="number" min="0" value="0" inputmode="numeric" />
+        </label>
+
+        <label for="clarity_replies">
+          <span>看得懂用途的回覆</span>
+          <input id="clarity_replies" data-feedback-field="clarity_replies" type="number" min="0" value="0" inputmode="numeric" />
+        </label>
+
+        <label for="privacy_confidence_replies">
+          <span>信任本機隱私說明的回覆</span>
+          <input id="privacy_confidence_replies" data-feedback-field="privacy_confidence_replies" type="number" min="0" value="0" inputmode="numeric" />
+        </label>
+
+        <label for="safety_confusion_issues">
+          <span>安全或用途混淆</span>
+          <input id="safety_confusion_issues" data-feedback-field="safety_confusion_issues" type="number" min="0" value="0" inputmode="numeric" />
+        </label>
+
+        <label for="english_version_requests">
+          <span>英文版需求</span>
+          <input id="english_version_requests" data-feedback-field="english_version_requests" type="number" min="0" value="0" inputmode="numeric" />
+        </label>
+
+        <label for="support_risk_escalations">
+          <span>需要轉真人/危機資源的訊號</span>
+          <input id="support_risk_escalations" data-feedback-field="support_risk_escalations" type="number" min="0" value="0" inputmode="numeric" />
+        </label>
+          </div>
+          <label for="aggregate_notes">
+            <span>彙總備註</span>
+            <textarea id="aggregate_notes" data-feedback-notes placeholder="只寫彙總訊號。不要貼上情緒紀錄、自傷旗標、姓名、帳號、email 或私人故事。"></textarea>
+          </label>
+          <div class="actions">
+            <button type="button" id="generate-feedback-summary">產生彙總</button>
+            <button type="button" id="copy-feedback-summary" class="secondary">複製彙總</button>
+            <button type="button" id="clear-feedback-draft" class="secondary">清除本機草稿</button>
+          </div>
+          <p class="small">資料只暫存在這台瀏覽器的 localStorage；沒有送出、沒有表單後端、沒有 server analytics。</p>
+        </div>
+        <div class="panel">
+          <h2>彙總輸出</h2>
+          <pre id="feedback-summary" aria-live="polite">尚未產生彙總。</pre>
+        </div>
+      </section>
+
+      <aside>
+        <section class="panel">
+          <h2>可記錄訊號</h2>
+          <ul><li>用途清楚</li>
+<li>本機隱私可信</li>
+<li>7 日微行動計畫好理解</li>
+<li>安全文字足夠明確</li>
+<li>希望有英文版</li>
+<li>需要真人支援提醒</li></ul>
+        </section>
+        <section class="panel stop">
+          <h2>停止線</h2>
+          <ul><li>Do not collect mood entries, self-harm flags, exported JSON, names, handles, emails, private stories, or medical details.</li>
+<li>No server analytics.</li>
+<li>No automatic posting, direct messages, email, scraping, account login, or OpenClaw message command use.</li>
+<li>Use owner-entered aggregate counts only.</li>
+<li>If feedback suggests immediate danger, route to crisis resources and trusted-person support before product discussion.</li></ul>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    const storageKey = "mood-anchor-feedback:20260704";
+    const fieldIds = ["public_opens_observed","clarity_replies","privacy_confidence_replies","safety_confusion_issues","english_version_requests","support_risk_escalations"];
+    const summary = document.getElementById('feedback-summary');
+    const notes = document.getElementById('aggregate_notes');
+
+    loadDraft();
+    renderCurrentSummary();
+
+    document.querySelectorAll('[data-feedback-field], [data-feedback-notes]').forEach((input) => {
+      input.addEventListener('input', () => {
+        saveDraft();
+        renderCurrentSummary();
+      });
+    });
+
+    document.getElementById('generate-feedback-summary').addEventListener('click', () => {
+      saveDraft();
+      renderCurrentSummary();
+    });
+
+    document.getElementById('copy-feedback-summary').addEventListener('click', async () => {
+      await navigator.clipboard?.writeText(summary.textContent || '');
+    });
+
+    document.getElementById('clear-feedback-draft').addEventListener('click', () => {
+      localStorage.removeItem(storageKey);
+      fieldIds.forEach((id) => {
+        document.getElementById(id).value = 0;
+      });
+      notes.value = '';
+      renderCurrentSummary();
+    });
+
+    function collectDraft() {
+      const counts = {};
+      fieldIds.forEach((id) => {
+        counts[id] = Number(document.getElementById(id).value || 0);
+      });
+      return {
+        counts,
+        notes: notes.value.trim()
+      };
+    }
+
+    function loadDraft() {
+      try {
+        const draft = JSON.parse(localStorage.getItem(storageKey));
+        if (!draft) return;
+        fieldIds.forEach((id) => {
+          document.getElementById(id).value = Number(draft.counts?.[id] || 0);
+        });
+        notes.value = draft.notes || '';
+      } catch {
+        localStorage.removeItem(storageKey);
+      }
+    }
+
+    function saveDraft() {
+      localStorage.setItem(storageKey, JSON.stringify(collectDraft()));
+    }
+
+    function renderCurrentSummary() {
+      summary.textContent = generateFeedbackSummary(collectDraft());
+    }
+
+    function generateFeedbackSummary(draft) {
+      const counts = draft.counts || {};
+      const lines = [
+        '# Mood Anchor aggregate feedback - 20260704',
+        '',
+        '- Public opens observed: ' + (counts.public_opens_observed || 0),
+        '- Clarity replies: ' + (counts.clarity_replies || 0),
+        '- Privacy confidence replies: ' + (counts.privacy_confidence_replies || 0),
+        '- Safety/confusion issues: ' + (counts.safety_confusion_issues || 0),
+        '- English-version requests: ' + (counts.english_version_requests || 0),
+        '- Support-risk escalations: ' + (counts.support_risk_escalations || 0),
+        '- Recommended next action: ' + recommendNextAction(counts)
+      ];
+      if (draft.notes) {
+        lines.push('', 'Aggregate notes:', draft.notes);
+      }
+      return lines.join('\n');
+    }
+
+    function recommendNextAction(counts) {
+      if ((counts.support_risk_escalations || 0) > 0 || (counts.safety_confusion_issues || 0) > 0) {
+        return 'Support/Ops review before any wider sharing.';
+      }
+      if ((counts.english_version_requests || 0) >= 2) {
+        return 'Prepare English localization as the next local artifact.';
+      }
+      if ((counts.clarity_replies || 0) >= 2 && (counts.privacy_confidence_replies || 0) >= 2) {
+        return 'CEO/Strategy may approve another owner-reviewed distribution surface.';
+      }
+      return 'Keep collecting owner-entered aggregate clarity feedback only.';
+    }
+  </script>
+</body>
+</html>

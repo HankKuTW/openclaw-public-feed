@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>OpenClaw Team Implementation Sprint - 20260705</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      --bg: #f6f8fa;
+      --panel: #ffffff;
+      --ink: #172033;
+      --muted: #5c6877;
+      --line: #d7e0e8;
+      --accent: #235f73;
+      --soft: #e9f3f4;
+      --warn: #8a5206;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); }
+    header { background: var(--soft); border-bottom: 1px solid var(--line); }
+    header > div, main { max-width: 1180px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 32px; line-height: 1.15; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 21px; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 17px; letter-spacing: 0; }
+    p, li { line-height: 1.55; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    section, article { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+    section { margin: 0 0 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .badge { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; font-size: 12px; color: var(--muted); }
+    .meta { color: var(--muted); margin: 0; }
+    .warn { border-left: 4px solid var(--warn); }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    @media (max-width: 780px) {
+      header > div, main { padding: 18px; }
+      h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="badge">openclaw_implements_codex_reviews</p>
+      <h1>OpenClaw 團隊實作衝刺板</h1>
+      <p class="meta">Generated: 2026-07-04T17:50:10.134Z · Stable URL: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-team-implementation-sprint.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-team-implementation-sprint.html</a></p>
+      <p>OpenClaw 負責實作工作包；Codex 只代理老闆審核、排序、發布靜態成果與守住外部權限線。</p>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h2>目標順序</h2>
+      <div class="grid">
+      <article>
+        <p class="badge">review_and_extend</p>
+        <h3>one_person_revenue_examples</h3>
+        <p><strong>Owner goal:</strong> OpenClaw keeps source-backed one-person revenue examples current and translates only copyable patterns into local feasibility.</p>
+        <p><strong>OpenClaw next move:</strong> Research Desk refreshes evidence, CEO/Strategy ranks what can be copied now, and Analytics records assumptions that remain unproven.</p>
+        <p><strong>Acceptance:</strong> Carrd, Photopea, Bannerbear, Nomad List and Remote OK, and TypingMind each have source URL, result, copyable pattern, OpenClaw fit, and caution.</p>
+      </article>
+
+      <article>
+        <p class="badge">qa_and_iteration</p>
+        <h3>mood_anchor_pwa_personalization</h3>
+        <p><strong>Owner goal:</strong> OpenClaw maintains a PWA/RWD personalized support tool for low days while keeping it local-first and non-medical.</p>
+        <p><strong>OpenClaw next move:</strong> Product Studio QA audits Mood Anchor English PWA, PWA QA board, depression-support board, validation ledger, and activity signal ledger.</p>
+        <p><strong>Acceptance:</strong> PWA/RWD, offline behavior, localStorage-only personalization, crisis-resource visibility, and no diagnosis/treatment/outcome promise.</p>
+      </article>
+
+      <article>
+        <p class="badge">active_after_gates</p>
+        <h3>continuous_exploration</h3>
+        <p><strong>Owner goal:</strong> OpenClaw continues exploring other global English digital-product opportunities after evidence and Mood Anchor safety gates are current.</p>
+        <p><strong>OpenClaw next move:</strong> Revenue Ops keeps Listing Audit demand-to-reply active while CEO/Strategy and Research Desk maintain local-only concept lanes.</p>
+        <p><strong>Acceptance:</strong> Continuous exploration stays static, local-only, owner-reviewed for external authority, and gated by qualified request or repeated workflow evidence.</p>
+      </article></div>
+    </section>
+    <section>
+      <h2>部門工作包</h2>
+      <div class="grid">
+      <article>
+        <h3>Research Desk</h3>
+        <p><strong>Sprint task:</strong> Refresh the evidence packet and flag stale or weak source assumptions before priorities change.</p>
+        <p><strong>Output:</strong> A source-backed feasibility note that separates copyable patterns from scale assumptions.</p>
+        <p><strong>Acceptance:</strong> Carrd, Photopea, Bannerbear, Nomad List and Remote OK, and TypingMind are all reviewed with source URLs and cautions.</p>
+        <ul><li><a href="https://hankkutw.github.io/openclaw-public-feed/one-person-revenue-evidence-refresh.md">https://hankkutw.github.io/openclaw-public-feed/one-person-revenue-evidence-refresh.md</a></li><li><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-owner-proxy-delegation-queue.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-owner-proxy-delegation-queue.html</a></li></ul>
+      </article>
+
+      <article>
+        <h3>Product Studio QA</h3>
+        <p><strong>Sprint task:</strong> Review Mood Anchor as the active PWA/RWD personalized support implementation and queue only safety-preserving iterations.</p>
+        <p><strong>Output:</strong> A QA decision: continue, revise copy, revise personalization, or pause distribution.</p>
+        <p><strong>Acceptance:</strong> PWA/RWD, offline behavior, localStorage-only personalization, crisis-resource visibility, no medical claim, and no server collection.</p>
+        <ul><li><a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en.html</a></li><li><a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-board.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-board.html</a></li><li><a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-depression-support-command-board.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-depression-support-command-board.html</a></li></ul>
+      </article>
+
+      <article>
+        <h3>Revenue Ops</h3>
+        <p><strong>Sprint task:</strong> Advance Listing Audit demand-to-reply with owner-reviewed handoffs and no external authority.</p>
+        <p><strong>Output:</strong> A local owner-ready handoff or a continue-validation decision.</p>
+        <p><strong>Acceptance:</strong> Listing Audit remains the active revenue loop; no checkout, payment, posting, replies, email, or account changes.</p>
+        <ul><li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-ledger.html">https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-ledger.html</a></li><li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-owner-reply-handoff.html">https://hankkutw.github.io/openclaw-public-feed/listing-audit-owner-reply-handoff.html</a></li><li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-to-reply-validation-board.html">https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-to-reply-validation-board.html</a></li></ul>
+      </article>
+
+      <article>
+        <h3>Marketing Desk</h3>
+        <p><strong>Sprint task:</strong> Prepare channel-safe copy drafts for owner review only, based on free tool usefulness and no guaranteed outcomes.</p>
+        <p><strong>Output:</strong> Copy blocks that the owner may manually post later.</p>
+        <p><strong>Acceptance:</strong> No auto-posting, no scheduling, no DMs, no hidden affiliation, no revenue/traffic/conversion promises.</p>
+        <ul><li><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-active-revenue-sprint-board.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-active-revenue-sprint-board.html</a></li><li><a href="https://hankkutw.github.io/openclaw-public-feed/listing-friction-grader.html">https://hankkutw.github.io/openclaw-public-feed/listing-friction-grader.html</a></li></ul>
+      </article>
+
+      <article>
+        <h3>Analytics</h3>
+        <p><strong>Sprint task:</strong> Convert owner-entered aggregate signals into continue, revise, pause, or owner-action decisions.</p>
+        <p><strong>Output:</strong> A decision summary that does not collect private messages, sensitive mood notes, customer records, credentials, or analytics exports.</p>
+        <p><strong>Acceptance:</strong> Only aggregate counts and public URLs supplied by the owner are used.</p>
+        <ul><li><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-revenue-experiment-loop-board.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-revenue-experiment-loop-board.html</a></li><li><a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-validation-ledger.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-validation-ledger.html</a></li></ul>
+      </article>
+
+      <article>
+        <h3>Support/Ops</h3>
+        <p><strong>Sprint task:</strong> Keep this implementation sprint file-based and low-load while Telegram credentials are missing.</p>
+        <p><strong>Output:</strong> A guardrail status: smoke checks, memory threshold, service status, and Telegram pending reason.</p>
+        <p><strong>Acceptance:</strong> Available memory stays above 1GiB, no OpenClaw runtime/message control is required, and Telegram remains pending until token/chat id exist.</p>
+        <ul><li><a href="https://hankkutw.github.io/openclaw-public-feed/dashboard-remote-access-20260705.html">https://hankkutw.github.io/openclaw-public-feed/dashboard-remote-access-20260705.html</a></li></ul>
+      </article>
+
+      <article>
+        <h3>CEO/Strategy</h3>
+        <p><strong>Sprint task:</strong> Sequence work and approve internal-only progress without owner interruption.</p>
+        <p><strong>Output:</strong> Next sprint decision for Research, Product QA, Revenue Ops, and exploration lanes.</p>
+        <p><strong>Acceptance:</strong> OpenClaw implements internal artifacts; Codex reviews outputs; owner is escalated only for external authority or credentials.</p>
+        <ul><li><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-autonomous-execution-board.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-autonomous-execution-board.html</a></li><li><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-continuous-exploration-board.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-continuous-exploration-board.html</a></li><li><a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-owner-proxy-delegation-queue.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-owner-proxy-delegation-queue.html</a></li></ul>
+      </article></div>
+    </section>
+    <section>
+      <h2>審核檢查點</h2>
+      <ul>
+      <li><code>codex_review_after_openclaw_packet</code>: After OpenClaw produces or updates a packet, Codex reviews evidence, safety wording, and low-load constraints before publishing.</li>
+
+      <li><code>owner_escalation_only_for_external_authority</code>: Escalate to the owner only for login, public posts, replies, DMs, emails, checkout, payment, account settings, credentials, or real-world commitments.</li>
+
+      <li><code>oom_guard_before_runtime_expansion</code>: Do not expand runtime or background services; stop direct runtime work if available memory drops below 1GiB.</li>
+
+      <li><code>telegram_pending_until_credentials</code>: Telegram notification remains pending until direct Bot API token and chat id are configured securely.</li></ul>
+    </section>
+    <section>
+      <h2>證據入口</h2>
+      <ul>
+      <li>Owner-proxy delegation queue: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-owner-proxy-delegation-queue.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-owner-proxy-delegation-queue.html</a></li>
+
+      <li>Autonomous execution board: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-autonomous-execution-board.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-autonomous-execution-board.html</a></li>
+
+      <li>Continuous exploration board: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-continuous-exploration-board.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-continuous-exploration-board.html</a></li>
+
+      <li>Active revenue sprint board: <a href="https://hankkutw.github.io/openclaw-public-feed/openclaw-active-revenue-sprint-board.html">https://hankkutw.github.io/openclaw-public-feed/openclaw-active-revenue-sprint-board.html</a></li>
+
+      <li>One-person revenue evidence refresh: <a href="https://hankkutw.github.io/openclaw-public-feed/one-person-revenue-evidence-refresh.md">https://hankkutw.github.io/openclaw-public-feed/one-person-revenue-evidence-refresh.md</a></li>
+
+      <li>Mood Anchor English PWA: <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-en.html</a></li>
+
+      <li>Mood Anchor PWA QA board: <a href="https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-board.html">https://hankkutw.github.io/openclaw-public-feed/mood-anchor-pwa-qa-board.html</a></li>
+
+      <li>Listing Audit demand ledger: <a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-ledger.html">https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-ledger.html</a></li>
+
+      <li>Listing Audit owner reply handoff: <a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-owner-reply-handoff.html">https://hankkutw.github.io/openclaw-public-feed/listing-audit-owner-reply-handoff.html</a></li>
+
+      <li>Listing Audit demand-to-reply validation board: <a href="https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-to-reply-validation-board.html">https://hankkutw.github.io/openclaw-public-feed/listing-audit-demand-to-reply-validation-board.html</a></li></ul>
+    </section>
+    <section>
+      <h2>Telegram</h2>
+      <article class="warn"><p><strong>pending_manual_delivery</strong>: missing_telegram_bot_token_or_chat_id</p><p>Use direct Telegram Bot API only after token and chat id are configured in a secure local path.</p></article>
+    </section>
+    <section>
+      <h2>停止線</h2>
+      <ul><li>No external authority actions: no login, public posting, comments, DMs, emails, scheduling, checkout setup, payment, payout, tax, refund, credential, price, or account changes.</li><li>No certainty claims for revenue, traffic, conversion, ranking, platform approval, customer acquisition, productivity, mood, treatment, crisis response, or health outcomes.</li><li>No diagnosis, treatment positioning, clinical proof language, crisis monitoring promises, or server collection of sensitive Mood Anchor data.</li><li>No scraping, platform bypassing, automatic channel actions, OpenClaw message commands, relay dependence, or long-running runtime control surfaces.</li></ul>
+    </section>
+  </main>
+</body>
+</html>

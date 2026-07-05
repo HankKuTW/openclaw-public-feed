@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="印出來貼在看得到的地方；狀態差的時候不用思考，照著做一格就好。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mood Anchor - 自我照顧小卡" />
+  <meta property="og:description" content="印出來貼在看得到的地方；狀態差的時候不用思考，照著做一格就好。" />
+  <meta name="twitter:card" content="summary" />
+  <title>Mood Anchor - 自我照顧小卡</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, "Noto Sans TC", sans-serif; }
+    body { margin: 0; background: #f6f4ee; color: #172123; }
+    .card { max-width: 720px; margin: 16px auto; background: #fff; border: 1px solid #cbd8d5; border-radius: 8px; padding: 22px; }
+    h1 { font-size: 26px; margin: 0 0 4px; }
+    .sub { color: #5c686b; margin: 0 0 16px; }
+    h2 { font-size: 16px; margin: 16px 0 8px; border-left: 4px solid #315f65; padding-left: 8px; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { display: flex; gap: 8px; align-items: baseline; padding: 5px 0; line-height: 1.5; }
+    .box { display: inline-block; min-width: 14px; height: 14px; border: 1.5px solid #315f65; border-radius: 3px; transform: translateY(2px); }
+    .crisis { border: 1px solid #d9a7af; background: #fff7f5; border-radius: 6px; padding: 10px 12px; margin-top: 14px; }
+    .crisis h2 { border-color: #8b2f3c; color: #8b2f3c; margin-top: 0; }
+    .contact { margin-top: 14px; padding-top: 10px; border-top: 1px dashed #cbd8d5; }
+    .contact-line { display: inline-block; min-width: 320px; border-bottom: 1.5px solid #172123; height: 1.2em; }
+    .hint { color: #5c686b; font-size: 13px; }
+    .boundary { font-size: 12.5px; color: #5c686b; margin-top: 14px; line-height: 1.5; }
+    .actions-bar { max-width: 720px; margin: 0 auto 24px; display: flex; gap: 10px; }
+    .actions-bar a, .actions-bar button { font: inherit; padding: 8px 12px; border: 1px solid #315f65; border-radius: 6px; background: #315f65; color: #fff; text-decoration: none; cursor: pointer; }
+    .actions-bar a.secondary { background: #fff; color: #315f65; }
+    @media print {
+      body { background: #fff; }
+      .card { border: none; margin: 0; max-width: none; }
+      .actions-bar { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>自我照顧小卡</h1>
+    <p class="sub">印出來貼在看得到的地方；狀態差的時候不用思考，照著做一格就好。</p>
+
+    <h2>幾乎沒力氣的時候（30 秒 - 2 分鐘）</h2>
+    <ul>
+        <li><span class="box" aria-hidden="true"></span>喝幾口水，然後把杯子放在看得到的地方。</li>
+        <li><span class="box" aria-hidden="true"></span>走到窗邊或門口，注意三個你看得到的顏色。</li>
+        <li><span class="box" aria-hidden="true"></span>傳一則只需要一句話的訊息給可信任的人。</li>
+        <li><span class="box" aria-hidden="true"></span>洗臉或擦手，不需要完成其他事。</li>
+    </ul>
+
+    <h2>有一點力氣的時候（5 - 10 分鐘）</h2>
+    <ul>
+        <li><span class="box" aria-hidden="true"></span>選一件可以十分鐘內結束的小事，只做到第一步。</li>
+        <li><span class="box" aria-hidden="true"></span>走到住處外或樓梯口再回來，速度不重要。</li>
+        <li><span class="box" aria-hidden="true"></span>把一件卡住的事寫成三個下一步，只做第一個。</li>
+    </ul>
+
+    <div class="crisis">
+      <h2>如果現在不安全</h2>
+      <ul>
+        <li><strong>在美國可撥打或傳簡訊 988</strong> — 如果你可能傷害自己、覺得撐不住，或需要立即有人陪你說話，請使用 988 Suicide &amp; Crisis Lifeline。</li>
+        <li><strong>有立即生命危險時，聯絡當地緊急服務</strong> — 如果你已經有計畫、工具、或可能馬上行動，請離開危險物品並尋求現場協助。</li>
+        <li><strong>聯絡一位可信任的人</strong> — 傳送一句簡短訊息：「我現在不太安全，可以陪我一下或幫我找支援嗎？」</li>
+      </ul>
+    </div>
+
+    <div class="contact">
+      <strong>我的可信任聯絡人：</strong> <span class="contact-line"></span>
+      <div class="hint">（先寫好名字和聯絡方式，狀態差的時候就不用想）</div>
+    </div>
+
+    <p class="boundary">這張卡不是診斷、治療或危機服務。如果有傷害自己或不想活的念頭，先使用上面的危機資源。</p>
+  </div>
+  <div class="actions-bar">
+    <button onclick="window.print()">列印這一頁</button>
+    <a class="secondary" href="mood-anchor-20260705.html">回到 Mood Anchor 工具</a>
+  </div>
+</body>
+</html>

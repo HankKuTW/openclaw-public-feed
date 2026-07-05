@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Choose your first kit</title>
+  <style>
+    :root { color-scheme: light dark; font-family: Arial, Helvetica, sans-serif; }
+    body { margin: 0; background: #f7f8f5; color: #17201b; }
+    main { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 34px; line-height: 1.1; }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 18px; }
+    .sub { color: #526057; margin: 0 0 16px; max-width: 780px; }
+    .summary, .links { display: flex; gap: 10px; flex-wrap: wrap; margin: 18px 0 26px; }
+    .pill { border: 1px solid #c7d0c7; border-radius: 999px; padding: 8px 12px; background: #ffffff; color: #243128; }
+    .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin: 12px 0 28px; }
+    .card, .notice { border: 1px solid #d6ded6; border-radius: 8px; background: #ffffff; overflow: hidden; }
+    .cover { aspect-ratio: 16 / 9; background: #e8ece7; width: 100%; object-fit: cover; display: block; }
+    .body { padding: 14px; }
+    .meta { color: #637067; margin: 0 0 10px; }
+    .price { font-weight: 700; margin: 10px 0; }
+    .button { display: inline-block; border: 1px solid #274f34; border-radius: 6px; background: #274f34; color: #ffffff; padding: 9px 12px; text-decoration: none; }
+    .secondary { border-color: #8a956f; background: #ffffff; color: #274f34; }
+    .pending { color: #6b5b18; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 28px; background: #ffffff; border: 1px solid #d6ded6; }
+    th, td { padding: 10px; border-bottom: 1px solid #d6ded6; text-align: left; vertical-align: top; }
+    th { color: #526057; font-size: 13px; }
+    td { overflow-wrap: anywhere; }
+    .notice { padding: 14px; margin-top: 18px; }
+    li { margin: 6px 0; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #101511; color: #eef2ed; }
+      .sub, .meta, th { color: #aeb8b0; }
+      .pill, .card, .notice, table { background: #171f19; border-color: #2f3a32; color: #eef2ed; }
+      th, td { border-color: #2f3a32; }
+      .cover { background: #202b23; }
+      .secondary { background: #171f19; color: #d7e7d1; border-color: #607064; }
+      .pending { color: #e0c65d; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 16px; }
+      h1 { font-size: 28px; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { display: none; }
+      tr { border-bottom: 1px solid #d6ded6; }
+      td::before { content: attr(data-label); display: block; color: #637067; font-size: 12px; margin-bottom: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Choose your first kit</h1>
+    <p class="sub">A practical buyer guide for solo digital product sellers deciding which operations kit to buy first.</p>
+    <section class="summary" aria-label="Decision guide summary">
+      <span class="pill">Available now: 3</span>
+      <span class="pill">Checkout pending: 5</span>
+    </section>
+    <section class="links" aria-label="Related buyer pages">
+      <a class="button secondary" href="https://red-mole-94.loca.lt/revenue-offer-finder-20260704.html">Open the product finder</a>
+      <a class="button secondary" href="https://red-mole-94.loca.lt/revenue-shopfront-20260704.html">View full shopfront</a>
+    </section>
+    <section>
+      <h2>Quick recommendation</h2>
+      <div class="grid">
+        <article class="card" data-product-id="ai-inquiry-triage-kit">
+          <img class="cover" src="assets/ai-inquiry-triage-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta">If your current problem is:</p>
+            <h3>Custom order intake</h3>
+            <p class="meta">Sorting buyer messages, custom requests, and response priorities before work starts.</p>
+            <p><strong>AI Inquiry Triage Kit for Custom Orders</strong></p>
+            <p class="price">$9</p>
+            <a class="button" href="https://sghank.gumroad.com/l/ai-inquiry-triage-kit">Open listing</a>
+          </div>
+        </article>
+
+        <article class="card" data-product-id="ai-product-listing-optimizer-kit">
+          <img class="cover" src="assets/ai-product-listing-optimizer-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta">If your current problem is:</p>
+            <h3>Product page improvement</h3>
+            <p class="meta">Improving titles, descriptions, FAQs, and buyer-facing product clarity.</p>
+            <p><strong>AI Product Listing Optimizer Kit</strong></p>
+            <p class="price">$19</p>
+            <a class="button" href="https://sghank.gumroad.com/l/ai-product-listing-optimizer-kit">Open listing</a>
+          </div>
+        </article>
+
+        <article class="card" data-product-id="ai-digital-product-support-kit">
+          <img class="cover" src="assets/ai-digital-product-support-kit-cover.svg" alt="" loading="lazy" />
+          <div class="body">
+            <p class="meta">If your current problem is:</p>
+            <h3>Support and refund process</h3>
+            <p class="meta">Preparing support macros, refund boundaries, and customer issue workflows.</p>
+            <p><strong>AI Digital Product Support Kit</strong></p>
+            <p class="price">$19</p>
+            <a class="button" href="https://sghank.gumroad.com/l/ai-digital-product-support-kit">Open listing</a>
+          </div>
+        </article></div>
+    </section>
+    <section>
+      <h2>Compare all kits</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Buyer need</th>
+            <th>Kit</th>
+            <th>Status</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-product-id="ai-inquiry-triage-kit">
+            <td data-label="Buyer need">Custom order intake</td>
+            <td data-label="Kit">AI Inquiry Triage Kit for Custom Orders<br /><span class="meta">Best for: Sorting buyer messages, custom requests, and response priorities before work starts.</span></td>
+            <td data-label="Status">Available now</td>
+            <td data-label="Price">$9</td>
+            <td data-label="Action"><a href="https://sghank.gumroad.com/l/ai-inquiry-triage-kit">Open listing</a></td>
+          </tr>
+
+          <tr data-product-id="ai-product-listing-optimizer-kit">
+            <td data-label="Buyer need">Product page improvement</td>
+            <td data-label="Kit">AI Product Listing Optimizer Kit<br /><span class="meta">Best for: Improving titles, descriptions, FAQs, and buyer-facing product clarity.</span></td>
+            <td data-label="Status">Available now</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Action"><a href="https://sghank.gumroad.com/l/ai-product-listing-optimizer-kit">Open listing</a></td>
+          </tr>
+
+          <tr data-product-id="ai-digital-product-support-kit">
+            <td data-label="Buyer need">Support and refund process</td>
+            <td data-label="Kit">AI Digital Product Support Kit<br /><span class="meta">Best for: Preparing support macros, refund boundaries, and customer issue workflows.</span></td>
+            <td data-label="Status">Available now</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Action"><a href="https://sghank.gumroad.com/l/ai-digital-product-support-kit">Open listing</a></td>
+          </tr>
+
+          <tr data-product-id="ai-digital-product-terms-license-kit">
+            <td data-label="Buyer need">Terms Kit boundaries</td>
+            <td data-label="Kit">AI Digital Product Terms &amp; License Kit<br /><span class="meta">Best for: Drafting clearer delivery, usage, license, support, and refund boundaries.</span></td>
+            <td data-label="Status">Checkout pending</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Action"><span class="pending">Checkout pending</span></td>
+          </tr>
+
+          <tr data-product-id="ai-digital-product-pricing-strategy-kit">
+            <td data-label="Buyer need">Pricing and bundle review</td>
+            <td data-label="Kit">AI Digital Product Pricing Strategy Kit<br /><span class="meta">Best for: Reviewing offer positioning, objections, bundle logic, and price communication.</span></td>
+            <td data-label="Status">Checkout pending</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Action"><span class="pending">Checkout pending</span></td>
+          </tr>
+
+          <tr data-product-id="ai-digital-product-marketing-playbook-kit">
+            <td data-label="Buyer need">Manual launch planning</td>
+            <td data-label="Kit">AI Digital Product Marketing Playbook Kit<br /><span class="meta">Best for: Choosing safer launch channels and drafting non-spam product messages.</span></td>
+            <td data-label="Status">Checkout pending</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Action"><span class="pending">Checkout pending</span></td>
+          </tr>
+
+          <tr data-product-id="ai-product-launch-email-kit">
+            <td data-label="Buyer need">Opt-in launch emails</td>
+            <td data-label="Kit">AI Product Launch Email Kit<br /><span class="meta">Best for: Preparing launch email sequences, response handling, and pre-send checks.</span></td>
+            <td data-label="Status">Checkout pending</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Action"><span class="pending">Checkout pending</span></td>
+          </tr>
+
+          <tr data-product-id="ai-digital-product-metrics-iteration-kit">
+            <td data-label="Buyer need">Metrics and iteration</td>
+            <td data-label="Kit">AI Digital Product Metrics &amp; Iteration Kit<br /><span class="meta">Best for: Capturing launch signals and choosing conservative product iteration actions.</span></td>
+            <td data-label="Status">Checkout pending</td>
+            <td data-label="Price">$19</td>
+            <td data-label="Action"><span class="pending">Checkout pending</span></td>
+          </tr></tbody>
+      </table>
+      <p class="sub">5 kits are packaged locally but do not have live checkout links yet.</p>
+    </section>
+    <section class="notice">
+      <h2>Purchase boundary</h2>
+      <ul><li>Do not collect buyer data on this page.</li>
+<li>Do not create listings, edit checkout, change prices, or change payment settings automatically.</li>
+<li>Do not present revenue, traffic, conversion, ranking, platform approval, or customer outcomes as certain.</li>
+<li>Only live external checkout links should be used for purchases.</li></ul>
+    </section>
+  </main>
+</body>
+</html>

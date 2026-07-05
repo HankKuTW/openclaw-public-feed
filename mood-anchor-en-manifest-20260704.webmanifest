@@ -1,0 +1,19 @@
+{
+  "name": "Mood Anchor",
+  "short_name": "Mood Anchor",
+  "lang": "en",
+  "start_url": "mood-anchor-en-20260704.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f4ee",
+  "theme_color": "#315f65",
+  "description": "Offline, local-only mood support and tiny next-step PWA.",
+  "icons": [
+    {
+      "src": "mood-anchor-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

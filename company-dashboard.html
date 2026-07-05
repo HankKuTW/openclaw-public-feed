@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>OpenClaw 一人公司部門儀表板</title>
+    <style>
+    :root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; background: #f7f8fb; color: #1f2937; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 20px; background: #f7f8fb; color: #1f2937; }
+    h1 { margin: 0 0 6px; font-size: 28px; line-height: 1.2; }
+    h2, h3 { letter-spacing: 0; line-height: 1.25; }
+    h2 { margin: 0 0 12px; font-size: 20px; }
+    h3 { margin: 0 0 8px; font-size: 15px; }
+    a { color: #1d4ed8; }
+    .dashboard-shell { max-width: 1180px; margin: 0 auto; display: grid; gap: 16px; }
+    .sub, .policy { color: #5b6472; margin-top: 0; }
+    .overview-panel, .link-section, .focus-section, .details-section, .owner-brief {
+      border: 1px solid #d8dee8;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 16px;
+    }
+    .overview-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+    .overview-item { margin: 0; padding: 10px; border: 1px solid #e1e6ef; border-radius: 8px; background: #f9fafc; line-height: 1.45; overflow-wrap: anywhere; }
+    .overview-item strong { display: block; margin-bottom: 4px; color: #4b5563; font-size: 12px; }
+    .metric-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    .tile { border: 1px solid #d8dee8; border-radius: 8px; padding: 10px; background: #ffffff; min-width: 0; }
+    .tile h3 { margin: 0 0 8px; font-size: 13px; color: #4b5563; }
+    .tile p { margin: 0; font-size: 22px; letter-spacing: 0; overflow-wrap: anywhere; }
+    .tile small { color: #64748b; overflow-wrap: anywhere; }
+    .link-bar { display: flex; flex-wrap: wrap; gap: 8px; }
+    .link-bar a { display: inline-flex; align-items: center; min-height: 36px; padding: 8px 10px; border: 1px solid #c7d2fe; border-radius: 8px; background: #eef2ff; color: #1e3a8a; font-weight: 700; text-decoration: none; overflow-wrap: anywhere; }
+    .focus-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .focus-card { border: 1px solid #e1e6ef; border-radius: 8px; background: #fbfcfe; padding: 12px; }
+    .focus-card ul, .detail-panel ul, .card ul { padding-left: 18px; margin: 8px 0 0; }
+    .details-stack { display: grid; gap: 10px; }
+    .detail-panel { border: 1px solid #d8dee8; border-radius: 8px; background: #ffffff; padding: 0; }
+    .detail-panel summary { cursor: pointer; padding: 12px 14px; font-weight: 700; color: #1f2937; }
+    .detail-content { border-top: 1px solid #e5eaf2; padding: 12px 14px; }
+    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .card { border: 1px solid #d8dee8; border-left-width: 5px; padding: 12px; border-radius: 8px; background: #ffffff; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .card h2 { margin-top: 0; font-size: 18px; }
+    .card header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+    .card header h2 { margin: 0; }
+    .card .meta { color: #64748b; font-size: 13px; margin: 0; text-align: right; }
+    .health-healthy { border-left-color: #15803d; }
+    .health-attention { border-left-color: #b45309; }
+    .health-critical { border-left-color: #b91c1c; }
+    .health-healthy .score { color: #15803d; }
+    .health-attention .score { color: #b45309; }
+    .health-critical .score { color: #b91c1c; }
+    .score { margin: 0; font-size: 14px; }
+    .meter {
+      --track-height: 10px;
+      position: relative;
+      height: var(--track-height);
+      border-radius: 999px;
+      background: #e5e9e3;
+      border: 1px solid #cbd5ca;
+      overflow: hidden;
+    }
+    .meter-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      max-width: 100%;
+      border-radius: inherit;
+    }
+    .meter-fill.health-healthy { background: #248565; }
+    .meter-fill.health-attention { background: #d3911f; }
+    .meter-fill.health-critical { background: #c54235; }
+    .meter-label {
+      display: block;
+      margin-top: 4px;
+      color: #667269;
+      font-size: 12px;
+    }
+    .signals { margin-top: 0; }
+    .signals h3 { margin: 0 0 4px; font-size: 14px; color: #4b5563; }
+    .owner-brief { margin: 0; }
+    .owner-brief h2 { margin: 0 0 12px; font-size: 18px; }
+    .owner-primary { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); margin-bottom: 10px; }
+    .owner-primary .owner-item { background: #f9fafc; }
+    .owner-grid { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .owner-item { margin: 0; padding: 10px; border: 1px solid #e1e6ef; border-radius: 8px; background: #ffffff; line-height: 1.45; overflow-wrap: anywhere; }
+    .owner-item strong { display: block; margin-bottom: 4px; color: #4b5563; font-size: 12px; }
+    .owner-wide { grid-column: 1 / -1; }
+    .owner-item a { color: #1d4ed8; font-weight: 700; overflow-wrap: anywhere; }
+    .footer { color: #64748b; font-size: 13px; }
+    @media (max-width: 640px) {
+      body { padding: 12px; }
+      h1 { font-size: 24px; }
+      .card header { display: block; }
+      .card .meta { margin-top: 4px; text-align: left; }
+      .link-bar a { width: 100%; justify-content: center; }
+    }
+    </style>
+</head>
+<body>
+  <main class="dashboard-shell">
+    <header>
+      <h1>OpenClaw 一人公司部門儀表板</h1>
+      <p class="sub">產生於 2026-07-05T17:07:02.519Z · 整體 HEALTHY (85/100)</p>
+    </header>
+    
+  <section class="owner-brief" aria-label="目前 OpenClaw 互動狀態">
+    <h2>目前 OpenClaw 互動狀態</h2>
+    <div class="owner-primary">
+      <p class="owner-item"><strong>目前狀態</strong>等待 gpt-5.5 額度恢復</p>
+      <p class="owner-item"><strong>目前卡點</strong>模型額度冷卻，不是 Hank 權限</p>
+      <p class="owner-item"><strong>下一步</strong>2026-07-10 14:07:00 +0800 後自動派工；每次只跑一張 Workboard</p>
+      <p class="owner-item"><strong>需要 Hank</strong>目前不需要 Hank 操作</p>
+    </div>
+    <div class="owner-grid">
+      <p class="owner-item"><strong>固定任務</strong>固定任務 0/6 完成，6 等待，0 需要修復</p>
+      <p class="owner-item"><strong>待命檢查</strong>OK - 六張固定 Workboard ready，READ THIS FIRST 前綴完整，worker 0，swap 0 MB，等待 2026-07-10 14:07:00 +0800。</p>
+      <p class="owner-item"><strong>派工保護</strong>OK - 派工保護正常：固定 Workboard 指揮前綴 6/6，ready 6/6，worker 0，swap 0 MB。</p>
+      <p class="owner-item"><strong>定期 Telegram 回報</strong>每3小時；最新回報已送出 messageId 5733（2026-07-05T17:06:55.963Z）</p>
+      <p class="owner-item"><strong>安全</strong>Gateway 安全：worker 0，swap 0 MB</p>
+      <p class="owner-item"><strong>Dashboard 狀態</strong>主入口 OK；其他公開 feed 檔案 15 項需要補發布</p>
+      <p class="owner-item owner-wide"><strong>代理互動</strong>Codex 代理 Hank 審核與維護佇列；OpenClaw 等待 reset 後單板派工</p>
+      <p class="owner-item owner-wide"><strong>最新指揮</strong>2026-07-06T00:57:00+08:00 已把 revenue sprint 與 continuous radar 變成派工前 preflight/result monitor 硬門檻，並把 Dashboard 第一屏整理成可讀的 OpenClaw 互動狀態：每3小時 Telegram 回報、目前卡點、下一步、派工保護、一人公司/skill/no-advice/1200MB/禁止公開動作邊界；Telegram/Dashboard 現在同時顯示 live lhr 入口與 GitHub Pages 備援；未派工 OpenClaw</p>
+      <p class="owner-item owner-wide"><strong>Dashboard</strong><a href="https://a6e7a96bf5dc6e.lhr.life/company-dashboard.html">https://a6e7a96bf5dc6e.lhr.life/company-dashboard.html</a></p>
+      <p class="owner-item owner-wide"><strong>Dashboard 備援</strong><a href="https://hankkutw.github.io/openclaw-public-feed/company-dashboard.html">https://hankkutw.github.io/openclaw-public-feed/company-dashboard.html</a></p>
+    </div>
+  </section>
+    <section class="overview-panel" aria-label="看板摘要">
+      <h2>看板摘要</h2>
+      <div class="overview-grid">
+        <p class="overview-item"><strong>目前狀態</strong>等待 gpt-5.5 額度恢復</p>
+
+        <p class="overview-item"><strong>目前卡點</strong>模型額度冷卻，不是 Hank 權限</p>
+
+        <p class="overview-item"><strong>下一步</strong>2026-07-10 14:07:00 +0800 後自動派工；每次只跑一張 Workboard</p>
+
+        <p class="overview-item"><strong>固定任務</strong>固定任務 0/6 完成，6 等待，0 需要修復</p>
+
+        <p class="overview-item"><strong>安全</strong>Gateway 安全：worker 0，swap 0 MB</p>
+
+        <p class="overview-item"><strong>Dashboard 狀態</strong>主入口 OK；其他公開 feed 檔案 15 項需要補發布</p>
+
+        <p class="overview-item"><strong>需要 Hank</strong>目前不需要 Hank 操作</p></div>
+    </section>
+    <section aria-label="關鍵指標">
+      <h2>關鍵指標</h2>
+      <div class="metric-grid">
+      <article class="tile">
+        <h3>已上線</h3>
+        <p>3</p>
+        <small>共 8 個</small>
+      </article>
+
+      <article class="tile">
+        <h3>本地待發佈</h3>
+        <p>5</p>
+        <small>共 8 個</small>
+      </article>
+
+      <article class="tile">
+        <h3>套件可發佈</h3>
+        <p>8</p>
+        <small>8/8</small>
+      </article>
+
+      <article class="tile">
+        <h3>OpenClaw 僅需人工介入</h3>
+        <p>1</p>
+        <small>1 個部門</small>
+      </article>
+
+      <article class="tile">
+        <h3>待回應名單</h3>
+        <p>10</p>
+        <small>待複製待發文</small>
+      </article>
+
+      <article class="tile">
+        <h3>產品組合狀態</h3>
+        <p>published_portfolio_live</p>
+        <small>customer_package_ready</small>
+      </article>
+
+      <article class="tile">
+        <h3>持續運行中控</h3>
+        <p>ATTENTION</p>
+        <small>metrics-due</small>
+      </article></div>
+    </section>
+    <section class="link-section">
+      <h2>主要入口</h2>
+      <nav class="link-bar" aria-label="主要入口">
+        <a href="owner-memo.md">Owner Memo（等你動手的事項）</a>
+
+        <a href="https://a6e7a96bf5dc6e.lhr.life/openclaw-daily-owner-proxy-brief-20260705.md">今日作戰簡報</a>
+
+        <a href="https://a6e7a96bf5dc6e.lhr.life/openclaw-owner-proxy-command-packet-20260704.md">Owner-proxy 指揮包</a>
+
+        <a href="https://a6e7a96bf5dc6e.lhr.life/openclaw-department-command-board-20260705.html">部門任務板</a>
+
+        <a href="https://a6e7a96bf5dc6e.lhr.life/publisher-console.html">開啟發佈控制台</a></nav>
+    </section>
+    <section class="focus-section">
+      <h2>目前工作重點</h2>
+      <div class="focus-grid">
+        <section class="focus-card">
+          <h3>優先部門訊號</h3>
+          <ul><li>戰略室: Align strategy around the next validated concept step.</li>
+<li>內容製作室: Execute local product build and ZIP preparation in order.</li>
+<li>營收作業: Owner manual publish bottleneck: 5 ready products need owner-created public listings and recorded URLs.</li></ul>
+        </section>
+        <section class="focus-card">
+          <h3>部門健康度矩陣</h3>
+          <ul><li>戰略室: 關注 (70/100)</li>
+<li>內容製作室: 關注 (70/100)</li>
+<li>封裝與品質: 健康 (100/100)</li>
+<li>營收作業: 關注 (70/100)</li>
+<li>市場推廣: 健康 (100/100)</li>
+<li>營運與記憶: 健康 (100/100)</li></ul>
+        </section>
+      </div>
+    </section>
+    <section class="details-section">
+      <h2>作業細節</h2>
+      <div class="details-stack">
+        <details class="detail-panel">
+          <summary>工具與技能細節</summary>
+          <div class="detail-content">
+            <h3>一人公司作業能力</h3>
+            <ul><li>本次未檢查工具就緒狀態。</li></ul>
+          </div>
+        </details>
+        <details class="detail-panel">
+          <summary>執行規範</summary>
+          <div class="detail-content">
+            <h3 class="policy-title">本作業體系執行規範</h3>
+            <ul><li>外部行為維持在 owner 核准控制下，本地 AI 僅處理內部執行事項。</li>
+<li>產品策略、上架文案與觸及外部的流程，預設只做全球英文數位產品。</li>
+<li>未經明確授權，不得改變帳號/付款設定或做實際對外承諾。</li></ul>
+          </div>
+        </details>
+        <details class="detail-panel">
+          <summary>部門卡片明細</summary>
+          <div class="detail-content">
+            <div class="grid">
+      <section class="card health-attention">
+        <header>
+          <h2>戰略室</h2>
+          <p class="meta">負責人: Owner · 狀態: <span>關注</span></p>
+        </header>
+        <p class="score">健康分數: <strong>70/100</strong></p>
+        <div class="meter" role="img" aria-label="Department health score 70 out of 100">
+          <span class="meter-fill health-attention" style="width: 70%;"></span>
+          <span class="meter-label">70%</span>
+        </div>
+        <p>Align strategy around the next validated concept step.</p>
+        <ul><li>Active concept status: customer_package_ready</li>
+<li>Pipeline product: AI Digital Product Metrics &amp; Iteration Kit</li>
+<li>Active OpenClaw action queue: 1</li></ul>
+        <ul><li><strong>下一步:</strong> AI Digital Product Metrics &amp; Iteration Kit: Keep AI Digital Product Metrics &amp; Iteration Kit as local inventory, run package QA as needed, and draft the next concept deck locally while waiting for traffic evidence.</li></ul>
+      </section>
+
+      <section class="card health-attention">
+        <header>
+          <h2>內容製作室</h2>
+          <p class="meta">負責人: OpenClaw · 狀態: <span>關注</span></p>
+        </header>
+        <p class="score">健康分數: <strong>70/100</strong></p>
+        <div class="meter" role="img" aria-label="Department health score 70 out of 100">
+          <span class="meter-fill health-attention" style="width: 70%;"></span>
+          <span class="meter-label">70%</span>
+        </div>
+        <p>Execute local product build and ZIP preparation in order.</p>
+        <ul><li>OpenClaw-local tasks: 6</li>
+<li>Blocked internal tasks: 0</li>
+<li>No new product concept in progress.</li></ul>
+        <ul><li><strong>下一步:</strong> AI Inquiry Triage Kit for Custom Orders: Stop posting and revise the channel choice before sending more traffic.</li>
+<li><strong>下一步:</strong> AI Digital Product Terms &amp; License Kit: Keep AI Digital Product Terms &amp; License Kit as local inventory. Run local QA on the package and draft the next concept deck while waiting for free-sample traffic evidence.</li>
+<li><strong>下一步:</strong> AI Digital Product Pricing Strategy Kit: Keep AI Digital Product Pricing Strategy Kit as local inventory. Run local QA on the package and draft the next concept deck while waiting for free-sample traffic evidence.</li>
+<li><strong>下一步:</strong> AI Digital Product Marketing Playbook Kit: Keep AI Digital Product Marketing Playbook Kit as local inventory. Run local QA on the package and draft the next concept deck while waiting for free-sample traffic evidence.</li></ul>
+      </section>
+
+      <section class="card health-healthy">
+        <header>
+          <h2>封裝與品質</h2>
+          <p class="meta">負責人: OpenClaw · 狀態: <span>健康</span></p>
+        </header>
+        <p class="score">健康分數: <strong>100/100</strong></p>
+        <div class="meter" role="img" aria-label="Department health score 100 out of 100">
+          <span class="meter-fill health-healthy" style="width: 100%;"></span>
+          <span class="meter-label">100%</span>
+        </div>
+        <p>Keep package checksum policy and publisher-only separation checks unchanged.</p>
+        <ul><li>Package complete: 8/8</li>
+<li>No missing package artifacts.</li></ul>
+        <ul><li><strong>下一步:</strong> Run occasional package safety audit before next publish-ready milestone.</li></ul>
+      </section>
+
+      <section class="card health-attention">
+        <header>
+          <h2>營收作業</h2>
+          <p class="meta">負責人: OpenClaw · 狀態: <span>關注</span></p>
+        </header>
+        <p class="score">健康分數: <strong>70/100</strong></p>
+        <div class="meter" role="img" aria-label="Department health score 70 out of 100">
+          <span class="meter-fill health-attention" style="width: 70%;"></span>
+          <span class="meter-label">70%</span>
+        </div>
+        <p>Owner manual publish bottleneck: 5 ready products need owner-created public listings and recorded URLs.</p>
+        <ul><li>Published listings: 3/8</li>
+<li>Listings missing: 5</li>
+<li>Ready-to-list queue: AI Digital Product Terms &amp; License Kit ($19), AI Digital Product Pricing Strategy Kit ($19), AI Digital Product Marketing Playbook Kit ($19), AI Product Launch Email Kit ($19), AI Digital Product Metrics &amp; Iteration Kit ($19)</li>
+<li>Gross queue list price: $95</li>
+<li>Publisher console: https://a6e7a96bf5dc6e.lhr.life/publisher-console.html</li>
+<li>Daily owner-proxy brief: https://a6e7a96bf5dc6e.lhr.life/openclaw-daily-owner-proxy-brief-20260705.md</li>
+<li>Owner-proxy command packet: https://a6e7a96bf5dc6e.lhr.life/openclaw-owner-proxy-command-packet-20260704.md</li></ul>
+        <ul><li><strong>下一步:</strong> Open daily owner-proxy brief: https://a6e7a96bf5dc6e.lhr.life/openclaw-daily-owner-proxy-brief-20260705.md</li>
+<li><strong>下一步:</strong> Open owner-proxy command packet: https://a6e7a96bf5dc6e.lhr.life/openclaw-owner-proxy-command-packet-20260704.md</li>
+<li><strong>下一步:</strong> Open publisher console: https://a6e7a96bf5dc6e.lhr.life/publisher-console.html</li>
+<li><strong>下一步:</strong> Prepare listing draft for AI Digital Product Terms &amp; License Kit; use products/ai-digital-product-terms-license-kit/08-listing-copy.md; upload /home/fairy/openclaw/dist/ai-digital-product-terms-license-kit-v0.1.0.zip. Owner handles final public publish.</li>
+<li><strong>下一步:</strong> Generate owner handoff: npm run revenue-handoff -- --product-id ai-digital-product-terms-license-kit</li>
+<li><strong>下一步:</strong> Generate copy-ready upload pack: npm run listing-upload-pack -- --product-id ai-digital-product-terms-license-kit</li>
+<li><strong>下一步:</strong> Open batch table: npm run publish-batch</li></ul>
+      </section>
+
+      <section class="card health-healthy">
+        <header>
+          <h2>市場推廣</h2>
+          <p class="meta">負責人: Owner · 狀態: <span>健康</span></p>
+        </header>
+        <p class="score">健康分數: <strong>100/100</strong></p>
+        <div class="meter" role="img" aria-label="Department health score 100 out of 100">
+          <span class="meter-fill health-healthy" style="width: 100%;"></span>
+          <span class="meter-label">100%</span>
+        </div>
+        <p>Follow traffic action: Record 24-hour metrics for https://hankkutw.github.io/openclaw-public-feed/posts/20260701t035426z-free-ai-prompt-sample-for-custom-order-sellers.html. Then run npm run free-sample-traffic -- metrics --post-impressions &lt;POST_IMPRESSIONS&gt; --post-clicks &lt;POST_CLICKS&gt; --free-views &lt;FREE_SAMPLE_VIEWS&gt; --free-downloads &lt;FREE_SAMPLE_DOWNLOADS&gt; --paid-views &lt;PAID_KIT_VIEWS&gt; --paid-purchases &lt;PAID_KIT_PURCHASES&gt; --paid-revenue &lt;PAID_KIT_REVENUE_USD&gt; --negative-feedback &lt;true|false&gt;. Then run npm run free-sample-report.</p>
+        <ul><li>Published products now: 3</li>
+<li>Marketing channel policy: global English only; no mass posting.</li>
+<li>Record 24-hour metrics for https://hankkutw.github.io/openclaw-public-feed/posts/20260701t035426z-free-ai-prompt-sample-for-custom-order-sellers.html. Then run npm run free-sample-traffic -- metrics --post-impressions &lt;POST_IMPRESSIONS&gt; --post-clicks &lt;POST_CLICKS&gt; --free-views &lt;FREE_SAMPLE_VIEWS&gt; --free-downloads &lt;FREE_SAMPLE_DOWNLOADS&gt; --paid-views &lt;PAID_KIT_VIEWS&gt; --paid-purchases &lt;PAID_KIT_PURCHASES&gt; --paid-revenue &lt;PAID_KIT_REVENUE_USD&gt; --negative-feedback &lt;true|false&gt;. Then run npm run free-sample-report.</li></ul>
+        <ul><li><strong>下一步:</strong> Run npm run free-sample-rehearsal to create docs/inquiry-ops/first-free-sample-post-rehearsal.md, then use that single file to run preflight, publish one allowed free sample post when ready, record the post, and later record 24-hour metrics.</li></ul>
+      </section>
+
+      <section class="card health-healthy">
+        <header>
+          <h2>營運與記憶</h2>
+          <p class="meta">負責人: OpenClaw · 狀態: <span>健康</span></p>
+        </header>
+        <p class="score">健康分數: <strong>100/100</strong></p>
+        <div class="meter" role="img" aria-label="Department health score 100 out of 100">
+          <span class="meter-fill health-healthy" style="width: 100%;"></span>
+          <span class="meter-label">100%</span>
+        </div>
+        <p>Keep ops queue sorted, then prioritize irreversible actions only when owner approves.</p>
+        <ul><li>Local audit: 0 package gaps detected.</li>
+<li>Outreach draft-ready: 10, active follow-ups: 0</li>
+<li>OpenClaw escalation items: 1</li></ul>
+        <ul><li><strong>下一步:</strong> Run npm run ops-health before any large context changes.</li>
+<li><strong>下一步:</strong> Keep data boundaries clean and no status file drift.</li></ul>
+      </section></div>
+          </div>
+        </details>
+      </div>
+    </section>
+    <div class="footer">範圍：全球英文數位產品管道，僅保留 OpenClaw 內部作業。</div>
+  </main>
+</body>
+</html>
